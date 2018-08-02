@@ -13,6 +13,11 @@ TODO:
 	- reg invent share -> samat osuudet kuin investoinneilla, ?
 	- MSHR (share of national imports, port of entry) PUUTTUU (regsupp.har)
 	  RIMS (port share of national imports) PUUTTUU (regsupp.har)
+	  
+- muuta:
+	- julkisyhteisöjen menot tehtävittäin (COFOG-luokitus)
+	- dynamiikan edellyttämä pääoma-aineisto
+	- maksutaseaineisto
 
 
 
