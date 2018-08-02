@@ -1,11 +1,14 @@
 TODO:
 - supplementaryData/PARAMETERS64.xlsx joustojen arvot kohdilleen.
-- vaihe 1: tarkista että joustot aggregoituvat oikein 64->30 tasolle
+- vaihe 1: 
+	- tarkista ettÃ¤ joustot aggregoituvat oikein 64->30 tasolle
+	- realistisempi jako tuontitulliin hyÃ¶dykkeittÃ¤in (V0TAR)
+	- maan arvon parempi erottelu muusta pÃ¤Ã¤omasta (V1LND ja V1CAP)
 - vaihe 3 (regional extension)
 	- reg output share -> suoraan datasta, OK
 	- reg invest share -> suoraan datasta, OK
-	- reg consum share -> jaettu käytettävissä olevan tulon perusteella, ?
-	- reg export share -> tullin aineistossa ei hyödykedimensiota!
+	- reg consum share -> jaettu kÃ¤ytettÃ¤vissÃ¤ olevan tulon perusteella, ?
+	- reg export share -> tullin aineistossa ei hyÃ¶dykedimensiota!
 	- reg govern share -> jaettu asukasluvun perusteella, ?
 	- reg invent share -> samat osuudet kuin investoinneilla, ?
 	- MSHR (share of national imports, port of entry) PUUTTUU (regsupp.har)
