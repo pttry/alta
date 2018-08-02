@@ -91,7 +91,7 @@ This combines the aggregated base data and the regional supplementary data
 
 
 
-### 5. Test the merged data for homogenity
+### 5. Test the merged data for homogenity (ORANI-G)
 
 This step uses the ORANI-G (2013 version) that is available from the
 Centre of Policy Studies website (copsmodels.com archive, TPMH0110).
