@@ -27,7 +27,7 @@ def checkNums(a,b, allowDifference):
     else:
         print("ERRORS IN", diff[diff>allowDifference])
         
-def check4negs(dataframe, printOK = True):
+def check4negs(dataframe):
     negValues = []
     for row in dataframe.index:
         for column in dataframe:
@@ -35,15 +35,11 @@ def check4negs(dataframe, printOK = True):
             if value <0:
                 negValues.append((row, column, value))
     if not negValues:
-        if printOK:
-            print("No negative values")
-        if not printOK:
-            pass
+        print("No negative values")
     else:
-        return negValues
+        print("Negative values in", negValues)
     
-    
-def check4nans(dataframe, printOK = True):
+def check4nans(dataframe):
     nanValues = []
     for row in dataframe.index:
         for column in dataframe:
@@ -51,9 +47,7 @@ def check4nans(dataframe, printOK = True):
             if np.isnan(value):
                 nanValues.append((row, column, value))
     if not nanValues:
-        if printOK:
-            print("No nan values")
-        if not printOK:
-            pass
+        print("No nan values")
     else:
-        return nanValues
+        print("Nan values in", nanValues)
+        
