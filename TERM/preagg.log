@@ -1,0 +1,344 @@
+ 
+ This GEMPACK log file was created at 14:20:06 on 02-AUG-2018 by the program
+  <preagg.for 02-AUG-2018 (a TABLO-generated program)>
+ which accesses some of the routines in the GEMPACK software release
+  <GEMPACK Release 11.4.004   October 2016>
+ 
+ 
+ <preagg.for 02-AUG-2018 (a TABLO-generated program)>
+   This program accesses some of the routines in the GEMPACK software release
+ <GEMPACK Release 11.4.004   October 2016>
+ 
+ Licence file: C:\GP\licen.gem
+ 
+     -------------------------------------------------------
+    !            GEMPACK Software System Licence            !
+    !  Source Code Licence for the GEMPACK Software System  !
+    !                 Licence No.  GFM-1529                 !
+    !          Licence for Release 11.4 of GEMPACK          !
+    !       National Institute for Health and Welfare       !
+    !    (Your GEMPACK licence expires on 30-NOV-2018.)     !
+     -------------------------------------------------------
+ 
+ 
+     << COPYRIGHT 1987-2016: CoPS/Impact and KPSOFT >>
+ 
+  Current directory is: C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM
+ 
+ 
+  Full path name of running EXE is:
+ C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\preagg.exe
+  Fortran compiler = GF64  4.8.1 (rev3, built by mingw-builds project):
+  OPENMP number of threads: 4
+  Operating system is Windows 7
+ 
+ 
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ 
+                    TABLO-GENERATED PROGRAM OPTIONS
+               ( --> indicates those in effect )
+ 
+       BAT Run in batch              STI Take inputs from a Stored-input file
+       BPR Brief prompts             SIF Store inputs on a file
+       LOG Output to log file        ASI Add to incomplete Stored-input file
+                                     CMF Take inputs from a Command file
+       EAA Echo all activity           SVX Select variables on XAC file (later)
+   --> CPU Report CPU times            RQF Required figures agreement (extrap)
+       NRP Don't reuse pivots        NIR Don't do solution iterative refinement
+                                 --> IZ1 Ignore zero coefficients in step 1
+                                     KZ2 Keep zero coefficients in steps 2,3 etc
+       NEQ Do no equations           NWE Don't warn how well equations solved
+       NDS Do no displays            SSI Several subintervals; extrap after each
+       NWR Do no writes              M28 Use MA28 routines (rather than MA48)
+       NAS Do no assertions          SUI Save updated formula(initial) data
+       NUD Do no final updates              Extra Options Screen
+       NSM Don't do simulation              --------------------
+       NWT Use Newton's method      DTO Display, Terminal/Text write Options
+       CR  Check-on-read options
+ 
+  Select an option   :  <opt>      Deselect an option      : -<opt>
+  Help for an option : ?<opt>      Help on all options     : ??
+  Redisplay options  : /           Finish option selection : Carriage return
+ 
+ (Opened, as text, existing file 'preagg.cmf'.)
+  (Taking inputs from a command file.)
+ (Opened, as text, existing file 'preagg.cmf'.)
+ 
+  !  (There is no CREATION information on this file.)
+ 
+ 
+  --> Reading the Command file.
+ 
+ auxiliary files = preagg;
+ log file = yes ;
+ set elements read style = flexible ;
+ File WEIGHTS = weights.har; ! weights for parameter aggregation: from PREMOD
+ File BIGSETS = orgsets.har; ! original disaggregated sets: from PREMOD
+ File SECAGG  = sec.agg; !com22.agg;    ! sector aggregation instructions:
+ prepared by user
+ File REGAGG  = reg.agg; ! reg57.agg;    ! region aggregation instructions:
+ prepared by user
+ File OUTFILE = aggsupp.har; ! AGGSUPP file for AGGHAR program
+ File MAPAGG  = mapagg.har; ! output file containing data needed to produce map
+ check-on-read all = no ;
+ 
+ 
+ 
+  (Finished reading the command file.)
+ 
+  Auxiliary Statement File
+  ------------------------
+ (Opened, as binary, existing file
+   'C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\preagg.axs'.)
+ 
+  Auxiliary Table File
+  --------------------
+ (Opened, as binary, existing file
+   'C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\preagg.axt'.)
+ 
+  !  This file was created at 12:52:40 on 02-AUG-2018 by the program
+  !    <TABLO  Version 6.5   January 2016>
+  !  which accesses some of the routines in the GEMPACK software release
+  !    <GEMPACK Release 11.4.004   October 2016>
+  !  [The program which created this file was compiled with GF64.]
+ 
+ [Auxiliary Table File was created by TABLO at 12:52:40 on 02-AUG-2018.]
+ [TABLO file used here is "preagg.tab".]
+ [No TABLO STI file used when TABLO was run.]
+ 
+  (Writing output to log file, and also to the terminal.)
+ (Opened new text file 'preagg.log'.)
+ (Will check set elements read using flexible style syntax.)
+ [This TG-program was created by TABLO at 12:52:40 on 02-AUG-2018.]
+  
+  [Starting to check "extra" statements on the Command file.]
+  
+  
+  [Finished checking "extra" statements on the Command file.]
+  
+  
+ ++++++++++++++++++++++++++++++++++++++++++++++++++
+  This program was written by the GEMPACK program TABLO
+  as described in the Information file
+  'preagg.inf'
+  
+  This run of the TABLO-generated program
+      o can carry out 20 WRITEs
+      o can check 4 ASSERTIONs
+      o can carry out 1 TRANSFERs
+  
+ ++++++++++++++++++++++++++++++++++++++++++++++++++
+ (Range test of initial values will produce warnings.)
+  
+  (Data file with logical name 'WEIGHTS')
+ (Opened, as header, existing file 'weights.har'.)
+  
+  !  This file was created at 14:20:05 on 02-AUG-2018 by the program
+  !    <premod.for 02-AUG-2018> [premod.tab]
+  !  which accesses some of the routines in the GEMPACK software release
+  !    <GEMPACK Release 11.4.004   October 2016>
+  !  [The program which created this file was compiled with GF64.]
+  
+  
+  (Data file with logical name 'BIGSETS')
+ (Opened, as header, existing file 'orgsets.har'.)
+  
+  !  This file was created at 14:20:05 on 02-AUG-2018 by the program
+  !    <premod.for 02-AUG-2018> [premod.tab]
+  !  which accesses some of the routines in the GEMPACK software release
+  !    <GEMPACK Release 11.4.004   October 2016>
+  !  [The program which created this file was compiled with GF64.]
+  
+  
+  (Data file with logical name 'SECAGG')
+ (Opened, as header, existing file 'sec.agg'.)
+  
+  !  This file was created at 2.8.2018 13:34:15 by the program
+  !    ViewHAR
+  !  which accesses some of the routines in the GEMPACK software release
+  !    HARFILE.PAS 30/Jun/2016
+  !  [The program which created this file was compiled with DELPHI.]
+  
+  
+  (Data file with logical name 'REGAGG')
+ (Opened, as header, existing file 'reg.agg'.)
+  
+  !  This file was created at 2.8.2018 13:25:37 by the program
+  !    ViewHAR
+  !  which accesses some of the routines in the GEMPACK software release
+  !    HARFILE.PAS 30/Jun/2016
+  !  [The program which created this file was compiled with DELPHI.]
+  
+  
+  (Data file with logical name 'OUTFILE')
+  
+   (Existing file 'aggsupp.har' has been deleted.)
+ (Opened new header file 'aggsupp.har'.)
+  
+  (Data file with logical name 'MAPAGG')
+  
+   (Existing file 'mapagg.har' has been deleted.)
+ (Opened new header file 'mapagg.har'.)
+  
+  --->  Beginning the preliminary pass (aimed at sets and subsets).
+ Set 'COM'
+ (Opened, as header, existing file 'orgsets.har'.)
+   (30 character strings, each of length 12 read. Header 'COM ')
+   [Set has size 30.]
+ Set 'IND'
+   (30 character strings, each of length 12 read. Header 'IND ')
+   [Set has size 30.]
+ Set 'REG'
+   (19 character strings, each of length 12 read. Header 'REGD')
+   [Set has size 19.]
+ Set 'DST'
+   (19 character strings, each of length 12 read. Header 'REGD')
+   [Set has size 19.]
+ Set 'ORG'
+   (19 character strings, each of length 12 read. Header 'REGD')
+   [Set has size 19.]
+ Set 'PRD'
+   (19 character strings, each of length 12 read. Header 'REGD')
+   [Set has size 19.]
+ Set 'FINDEM'
+   [Set has size 4.]
+ Set 'USR'
+   [Set has size 34.]
+ 'IND' as a subset of 'USR'
+ 'FINDEM' as a subset of 'USR'
+ Set 'AGGCOM'
+ (Opened, as header, existing file 'sec.agg'.)
+   (30 character strings, each of length 7 read. Header 'ACOM')
+   [Set has size 30.]
+ Set 'AGGIND'
+   (30 character strings, each of length 7 read. Header 'AIND')
+   [Set has size 30.]
+ Set 'AGGREG'
+ (Opened, as header, existing file 'reg.agg'.)
+   (19 character strings, each of length 12 read. Header 'AREG')
+   [Set has size 19.]
+ Set 'AGGUSR'
+   [Set has size 34.]
+ 'AGGIND' as a subset of 'AGGUSR'
+ 'FINDEM' as a subset of 'AGGUSR'
+  
+  Reading the values of set mapping 'MAPREG'
+   (19 character strings, each of length 12 read. Header 'MREG')
+ 'DST' as a subset of 'REG'
+  Formula for 'MAPREGD'
+ 'ORG' as a subset of 'REG'
+  Formula for 'MAPREGS'
+ 'PRD' as a subset of 'REG'
+  Formula for 'MAPREGP'
+  
+  Reading the values of set mapping 'MAPCOM'
+ (Opened, as header, existing file 'sec.agg'.)
+   (30 character strings, each of length 12 read. Header 'MCOM')
+  
+  Reading the values of set mapping 'MAPIND'
+   (30 character strings, each of length 12 read. Header 'MIND')
+  Formula for 'MAPUSR'
+  Formula for 'MAPUSR'
+ Set 'WAGGSET'
+   [Set has size 10.]
+  Assertion at line number 75
+  Assertion at line number 76
+  Assertion at line number 77
+  Assertion at line number 78
+ [CPU for reads, formulas etc is 0.0000000 seconds.]
+ Elapsed time for reads, formulas etc is: less than one second.
+  
+  Total memory currently used for all arrays is approximately 0.02 megabytes.
+  [Add about 5-10 megabytes for the memory used by the code.]
+  
+  --->  Beginning the reads, formulas (etc).
+ (Opened, for writing, header file 'aggsupp.har'.)
+ Writing elements of set 'COM'
+   (30 character strings, each of length 12 written. Header 'COM ')
+ Writing elements of set 'REG'
+   (19 character strings, each of length 12 written. Header 'REG ')
+ Writing elements of set 'DST'
+   (19 character strings, each of length 12 written. Header 'REGD')
+ Writing elements of set 'ORG'
+   (19 character strings, each of length 12 written. Header 'REGS')
+ Writing elements of set 'PRD'
+   (19 character strings, each of length 12 written. Header 'REGP')
+ Writing elements of set 'IND'
+   (30 character strings, each of length 12 written. Header 'IND ')
+ Writing elements of set 'USR'
+   (34 character strings, each of length 12 written. Header 'USR ')
+ Writing elements of set 'AGGCOM'
+   (30 character strings, each of length 12 written. Header 'ACOM')
+ Writing elements of set 'AGGREG'
+   (19 character strings, each of length 12 written. Header 'AREG')
+ Writing elements of set 'AGGIND'
+   (30 character strings, each of length 12 written. Header 'AIND')
+ Writing elements of set 'AGGUSR'
+   (34 character strings, each of length 12 written. Header 'AUSR')
+  
+  Reading the values of set mapping 'MAPREG'
+ (Opened, as header, existing file 'reg.agg'.)
+   (19 character strings, each of length 12 read. Header 'MREG')
+  Formula for 'MAPREGD'
+ Writing 'MAPREGD'
+   (19 character strings, each of length 12 written. Header 'MRGD')
+  Formula for 'MAPREGS'
+ Writing 'MAPREGS'
+   (19 character strings, each of length 12 written. Header 'MRGS')
+  Formula for 'MAPREGP'
+ Writing 'MAPREGP'
+   (19 character strings, each of length 12 written. Header 'MRGP')
+  
+  Reading the values of set mapping 'MAPCOM'
+ (Opened, as header, existing file 'sec.agg'.)
+   (30 character strings, each of length 12 read. Header 'MCOM')
+ Writing 'MAPCOM'
+   (30 character strings, each of length 12 written. Header 'MCOM')
+  
+  Reading the values of set mapping 'MAPIND'
+   (30 character strings, each of length 12 read. Header 'MIND')
+ Writing 'MAPIND'
+   (30 character strings, each of length 12 written. Header 'MIND')
+  Formula for 'MAPUSR'
+  Formula for 'MAPUSR'
+ Writing 'MAPUSR'
+   (34 character strings, each of length 12 written. Header 'MUSR')
+ Transferring unwritten from file 'WEIGHTS' to file 'OUTFILE'
+ (Opened, as header, existing file 'weights.har'.)
+ (Written real array, size 30x19, header "3PUR".)
+ (Written real array, size 30, header "1PRM".)
+ (Written real array, size 30, header "LABR".)
+ (Written real array, size 30, header "NIMP".)
+ (Written real array, size 30, header "NCAP".)
+ (Written real array, size 19, header "3TOT".)
+ (Written real array, size 30, header "WSGD".)
+ (Written real array, size 2, header "MRUS".)
+ (Written real array, size 30, header "1TOT".)
+ (Written real array, size 30, header "4TOT".)
+ (Opened, for writing, header file 'aggsupp.har'.)
+ Writing elements of set 'WAGGSET'
+   (10 character strings, each of length 12 written. Header 'WAGG')
+  Assertion at line number 75
+  Assertion at line number 76
+  Assertion at line number 77
+  Assertion at line number 78
+ (Opened, for writing, header file 'mapagg.har'.)
+ Writing elements of set 'AGGREG'
+   (19 character strings, each of length 12 written. Header 'AREG')
+ Writing 'MAPREG'
+   (Integer matrix with 19 rows and 1 columns written. Header 'REGM')
+ [CPU for reads, formulas etc is 0.0000000 seconds.]
+ Elapsed time for reads, formulas etc is: less than one second.
+ [CPU for all of this 0-step calculation is 0.0000000 seconds.]
+ Elapsed time for all this 0-step calculation is: less than one second.
+  [Total CPU is 3.11999992E-02 seconds.]
+  
+  (Inputs have been taken from the Command file
+  'C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\preagg.cmf')
+  
+  (The program has completed without error.)
+  Total elapsed time is: less than one second.
+  
+  
+  This run ended at 14:20:06 on 02-AUG-2018

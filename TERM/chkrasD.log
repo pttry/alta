@@ -1,0 +1,290 @@
+ 
+ This GEMPACK log file was created at 14:20:04 on 02-AUG-2018 by the program
+  <chkras.for 02-AUG-2018 (a TABLO-generated program)>
+ which accesses some of the routines in the GEMPACK software release
+  <GEMPACK Release 11.4.004   October 2016>
+ 
+ 
+ <chkras.for 02-AUG-2018 (a TABLO-generated program)>
+   This program accesses some of the routines in the GEMPACK software release
+ <GEMPACK Release 11.4.004   October 2016>
+ 
+ Licence file: C:\GP\licen.gem
+ 
+     -------------------------------------------------------
+    !            GEMPACK Software System Licence            !
+    !  Source Code Licence for the GEMPACK Software System  !
+    !                 Licence No.  GFM-1529                 !
+    !          Licence for Release 11.4 of GEMPACK          !
+    !       National Institute for Health and Welfare       !
+    !    (Your GEMPACK licence expires on 30-NOV-2018.)     !
+     -------------------------------------------------------
+ 
+ 
+     << COPYRIGHT 1987-2016: CoPS/Impact and KPSOFT >>
+ 
+  Current directory is: C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM
+ 
+ 
+  Full path name of running EXE is:
+ C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\chkras.exe
+  Fortran compiler = GF64  4.8.1 (rev3, built by mingw-builds project):
+  OPENMP number of threads: 4
+  Operating system is Windows 7
+ 
+ 
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ 
+                    TABLO-GENERATED PROGRAM OPTIONS
+               ( --> indicates those in effect )
+ 
+       BAT Run in batch              STI Take inputs from a Stored-input file
+       BPR Brief prompts             SIF Store inputs on a file
+       LOG Output to log file        ASI Add to incomplete Stored-input file
+                                     CMF Take inputs from a Command file
+       EAA Echo all activity           SVX Select variables on XAC file (later)
+   --> CPU Report CPU times            RQF Required figures agreement (extrap)
+       NRP Don't reuse pivots        NIR Don't do solution iterative refinement
+                                 --> IZ1 Ignore zero coefficients in step 1
+                                     KZ2 Keep zero coefficients in steps 2,3 etc
+       NEQ Do no equations           NWE Don't warn how well equations solved
+       NDS Do no displays            SSI Several subintervals; extrap after each
+       NWR Do no writes              M28 Use MA28 routines (rather than MA48)
+       NAS Do no assertions          SUI Save updated formula(initial) data
+       NUD Do no final updates              Extra Options Screen
+       NSM Don't do simulation              --------------------
+       NWT Use Newton's method      DTO Display, Terminal/Text write Options
+       CR  Check-on-read options
+ 
+  Select an option   :  <opt>      Deselect an option      : -<opt>
+  Help for an option : ?<opt>      Help on all options     : ??
+  Redisplay options  : /           Finish option selection : Carriage return
+ 
+ (Opened, as text, existing file 'chkrasD.cmf'.)
+  (Taking inputs from a command file.)
+ (Opened, as text, existing file 'chkrasD.cmf'.)
+ 
+  !  (There is no CREATION information on this file.)
+ 
+ 
+  --> Reading the Command file.
+ 
+ auxiliary files = chkras;
+ File INFILE = trdras2.har;
+ File DIAG = dgchkrasd.HAR;
+ log file = yes ;
+ check-on-read all = no ;
+ 
+ 
+ 
+ 
+  (Finished reading the command file.)
+ 
+  Auxiliary Statement File
+  ------------------------
+ (Opened, as binary, existing file
+   'C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\chkras.axs'.)
+ 
+  Auxiliary Table File
+  --------------------
+ (Opened, as binary, existing file
+   'C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\chkras.axt'.)
+ 
+  !  This file was created at 12:51:38 on 02-AUG-2018 by the program
+  !    <TABLO  Version 6.5   January 2016>
+  !  which accesses some of the routines in the GEMPACK software release
+  !    <GEMPACK Release 11.4.004   October 2016>
+  !  [The program which created this file was compiled with GF64.]
+ 
+ [Auxiliary Table File was created by TABLO at 12:51:39 on 02-AUG-2018.]
+ [TABLO file used here is "chkras.tab".]
+ [No TABLO STI file used when TABLO was run.]
+ 
+  (Writing output to log file, and also to the terminal.)
+ (Opened new text file 'chkrasD.log'.)
+ [This TG-program was created by TABLO at 12:51:39 on 02-AUG-2018.]
+  
+  [Starting to check "extra" statements on the Command file.]
+  
+  
+  [Finished checking "extra" statements on the Command file.]
+  
+  
+ ++++++++++++++++++++++++++++++++++++++++++++++++++
+  This program was written by the GEMPACK program TABLO
+  as described in the Information file
+  'chkras.inf'
+  
+  This run of the TABLO-generated program
+      o can carry out 14 WRITEs
+      o can check 5 ASSERTIONs
+  
+ ++++++++++++++++++++++++++++++++++++++++++++++++++
+ (Range test of initial values will produce warnings.)
+  
+  (Data file with logical name 'INFILE')
+ (Opened, as header, existing file 'trdras2.har'.)
+  
+  !  This file was created at 14:20:04 on 02-AUG-2018 by the program
+  !    <TRDRAS.for 02-AUG-2018> [TRDRAS.tab]
+  !  which accesses some of the routines in the GEMPACK software release
+  !    <GEMPACK Release 11.4.004   October 2016>
+  !  [The program which created this file was compiled with GF64.]
+  
+  
+  (Data file with logical name 'DIAG')
+ (Opened new header file 'dgchkrasd.HAR'.)
+  
+  --->  Beginning the preliminary pass (aimed at sets and subsets).
+ Set 'COM'
+ (Opened, as header, existing file 'trdras2.har'.)
+   (30 character strings, each of length 12 read. Header 'COM ')
+   [Set has size 30.]
+ Set 'MAR'
+   (2 character strings, each of length 12 read. Header 'MAR ')
+   [Set has size 2.]
+ Set 'IND'
+   (30 character strings, each of length 12 read. Header 'IND ')
+   [Set has size 30.]
+ Set 'OCC'
+   (59 character strings, each of length 12 read. Header 'OCC ')
+   [Set has size 59.]
+ Set 'DST'
+   (19 character strings, each of length 12 read. Header 'REGD')
+   [Set has size 19.]
+ Set 'ORG'
+   (19 character strings, each of length 12 read. Header 'REGS')
+   [Set has size 19.]
+ Set 'PRD'
+   (19 character strings, each of length 12 read. Header 'REGP')
+   [Set has size 19.]
+ Set 'REG'
+   [Set has size 19.]
+ 'REG' as a subset of 'DST'
+ 'REG' as a subset of 'ORG'
+ 'REG' as a subset of 'PRD'
+ 'PRD' as a subset of 'REG'
+ 'MAR' as a subset of 'COM'
+ Set 'NONMAR'
+   [Set has size 28.]
+ 'NONMAR' as a subset of 'COM'
+ Set 'SRC'
+   [Set has size 2.]
+ Set 'DIFFS'
+   [Set has size 4.]
+ Set 'SetABS'
+   [Set has size 5.]
+ [CPU for reads, formulas etc is 1.55999996E-02 seconds.]
+ Elapsed time for reads, formulas etc is: less than one second.
+  
+  Total memory currently used for all arrays is approximately 0.36 megabytes.
+  [Add about 5-10 megabytes for the memory used by the code.]
+  
+  --->  Beginning the reads, formulas (etc).
+ (Opened, as header, existing file 'trdras2.har'.)
+ Reading 'TRADMAR'
+ (Read real array, size 30x2x2x19x19, header "TMAR".)
+ Reading 'TRADE'
+ (Read real array, size 30x2x19x19, header "TRAD".)
+ Reading 'SUPPMAR'
+ (Read real array, size 2x19x19x19, header "MARS".)
+ Reading 'BASIC_U'
+ (Read real array, size 30x2x19, header "BSCU".)
+ Reading 'MARGINS_U'
+ (Read real array, size 30x2x2x19, header "MRGU".)
+ Reading 'IMPORT'
+ (Read real array, size 30x19, header "IMPS".)
+ Reading 'MAKE_I'
+ (Read real array, size 30x19, header "COST".)
+  Formula for 'TRADE_R'
+  Formula for 'IMPUSE'
+  Formula for 'DOMUSE'
+  Formula for 'DOMUSE'
+  Formula for 'TRADMAR_CS'
+  Formula for 'DIFFREP'
+  Formula for 'DIFFREP'
+  Formula for 'DIFFREP'
+  Formula for 'DIFFREP'
+  Formula for 'DIFFREP'
+ (Opened, for writing, header file 'dgchkrasd.HAR'.)
+ Writing 'DIFFREP'
+ (Written real array, size 30x4, header "DR01".)
+  Assertion "Check BASIC_U(c,"imp",d) sums to IMPORT"
+  Formula for 'DIFFREP'
+  Formula for 'DIFFREP'
+  Formula for 'DIFFREP'
+  Formula for 'DIFFREP'
+  Formula for 'DIFFREP'
+ Writing 'DIFFREP'
+ (Written real array, size 30x4, header "DR02".)
+  Assertion "Check MAKE_I(c,d) sums to BASIC_U(c,"dom",d)+ margins"
+  Formula for 'TOTCSD'
+ Writing 'TOTCSD'
+ (Written real array, size 30x2x19, header "AZZZ".)
+  Formula for 'ABSTOT'
+  Formula for 'MAXABS'
+  Formula for 'ABSTOTS'
+  Formula for 'MAXABSS'
+ Writing 'ABSTOT'
+ (Written real array, size 1, header "UZZZ".)
+  Formula for 'TOTCSMD'
+ Writing 'TOTCSMD'
+ (Written real array, size 30x2x2x19, header "BZZZ".)
+  Formula for 'ABSTOT'
+  Formula for 'MAXABS'
+  Formula for 'ABSTOTS'
+  Formula for 'MAXABSS'
+ Writing 'ABSTOT'
+ (Written real array, size 1, header "VZZZ".)
+  Formula for 'IMPERR'
+ Writing 'IMPERR'
+ (Written real array, size 30x19, header "CZZZ".)
+  Formula for 'ABSTOT'
+  Formula for 'MAXABS'
+  Formula for 'ABSTOTS'
+  Formula for 'MAXABSS'
+ Writing 'ABSTOT'
+ (Written real array, size 1, header "WZZZ".)
+  Formula for 'DOMERR'
+  Formula for 'DOMERR'
+ Writing 'DOMERR'
+ (Written real array, size 30x19, header "DZZZ".)
+  Formula for 'ABSTOT'
+  Formula for 'MAXABS'
+  Formula for 'ABSTOTS'
+  Formula for 'MAXABSS'
+ Writing 'ABSTOT'
+ (Written real array, size 1, header "XZZZ".)
+  Formula for 'TRADMAR_CS'
+  Formula for 'TOTMRD'
+ Writing 'TOTMRD'
+ (Written real array, size 2x19x19, header "EZZZ".)
+  Formula for 'ABSTOT'
+  Formula for 'MAXABS'
+  Formula for 'ABSTOTS'
+  Formula for 'MAXABSS'
+ Writing 'ABSTOT'
+ (Written real array, size 1, header "YZZZ".)
+ Writing 'ABSTOTS'
+ (Written real array, size 5, header "TOAB".)
+ Writing 'MAXABSS'
+ (Written real array, size 5, header "MXAB".)
+  Assertion "A1"
+  Assertion "A2"
+  Assertion "A3"
+  (Checking that values of 'TRADE_R' are in the required range.)
+ [CPU for reads, formulas etc is 0.0000000 seconds.]
+ Elapsed time for reads, formulas etc is: less than one second.
+ [CPU for all of this 0-step calculation is 1.55999996E-02 seconds.]
+ Elapsed time for all this 0-step calculation is: less than one second.
+  [Total CPU is 3.11999992E-02 seconds.]
+  
+  (Inputs have been taken from the Command file
+  'C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\chkrasD.cmf')
+  
+  (The program has completed without error.)
+  Total elapsed time is: less than one second.
+  
+  
+  This run ended at 14:20:04 on 02-AUG-2018

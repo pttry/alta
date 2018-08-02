@@ -1,0 +1,204 @@
+ 
+ This GEMPACK log file was created at 14:20:06 on 02-AUG-2018 by the program
+  <aggset.for 02-AUG-2018 (a TABLO-generated program)>
+ which accesses some of the routines in the GEMPACK software release
+  <GEMPACK Release 11.4.004   October 2016>
+ 
+ 
+ <aggset.for 02-AUG-2018 (a TABLO-generated program)>
+   This program accesses some of the routines in the GEMPACK software release
+ <GEMPACK Release 11.4.004   October 2016>
+ 
+ Licence file: C:\GP\licen.gem
+ 
+     -------------------------------------------------------
+    !            GEMPACK Software System Licence            !
+    !  Source Code Licence for the GEMPACK Software System  !
+    !                 Licence No.  GFM-1529                 !
+    !          Licence for Release 11.4 of GEMPACK          !
+    !       National Institute for Health and Welfare       !
+    !    (Your GEMPACK licence expires on 30-NOV-2018.)     !
+     -------------------------------------------------------
+ 
+ 
+     << COPYRIGHT 1987-2016: CoPS/Impact and KPSOFT >>
+ 
+  Current directory is: C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM
+ 
+ 
+  Full path name of running EXE is:
+ C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\aggset.exe
+  Fortran compiler = GF64  4.8.1 (rev3, built by mingw-builds project):
+  OPENMP number of threads: 4
+  Operating system is Windows 7
+ 
+ 
+  ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+ 
+                    TABLO-GENERATED PROGRAM OPTIONS
+               ( --> indicates those in effect )
+ 
+       BAT Run in batch              STI Take inputs from a Stored-input file
+       BPR Brief prompts             SIF Store inputs on a file
+       LOG Output to log file        ASI Add to incomplete Stored-input file
+                                     CMF Take inputs from a Command file
+       EAA Echo all activity           SVX Select variables on XAC file (later)
+   --> CPU Report CPU times            RQF Required figures agreement (extrap)
+       NRP Don't reuse pivots        NIR Don't do solution iterative refinement
+                                 --> IZ1 Ignore zero coefficients in step 1
+                                     KZ2 Keep zero coefficients in steps 2,3 etc
+       NEQ Do no equations           NWE Don't warn how well equations solved
+       NDS Do no displays            SSI Several subintervals; extrap after each
+       NWR Do no writes              M28 Use MA28 routines (rather than MA48)
+       NAS Do no assertions          SUI Save updated formula(initial) data
+       NUD Do no final updates              Extra Options Screen
+       NSM Don't do simulation              --------------------
+       NWT Use Newton's method      DTO Display, Terminal/Text write Options
+       CR  Check-on-read options
+ 
+  Select an option   :  <opt>      Deselect an option      : -<opt>
+  Help for an option : ?<opt>      Help on all options     : ??
+  Redisplay options  : /           Finish option selection : Carriage return
+ 
+ (Opened, as text, existing file 'aggset.cmf'.)
+  (Taking inputs from a command file.)
+ (Opened, as text, existing file 'aggset.cmf'.)
+ 
+  !  (There is no CREATION information on this file.)
+ 
+ 
+  --> Reading the Command file.
+ 
+ auxiliary files = aggset;
+ File     INFILE = aggmod.HAR;
+ File     NEWSETS = AGGSETS.HAR;
+ set elements read style = flexible ;
+ log file         = yes ;
+ !check-on-read all = no ;
+ 
+ 
+ 
+  (Finished reading the command file.)
+ 
+  Auxiliary Statement File
+  ------------------------
+ (Opened, as binary, existing file
+   'C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\aggset.axs'.)
+ 
+  Auxiliary Table File
+  --------------------
+ (Opened, as binary, existing file
+   'C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\aggset.axt'.)
+ 
+  !  This file was created at 13:34:37 on 02-AUG-2018 by the program
+  !    <TABLO  Version 6.5   January 2016>
+  !  which accesses some of the routines in the GEMPACK software release
+  !    <GEMPACK Release 11.4.004   October 2016>
+  !  [The program which created this file was compiled with GF64.]
+ 
+ [Auxiliary Table File was created by TABLO at 13:34:37 on 02-AUG-2018.]
+ [TABLO file used here is "aggset.tab".]
+ [No TABLO STI file used when TABLO was run.]
+ 
+  (Writing output to log file, and also to the terminal.)
+ (Opened new text file 'aggset.log'.)
+ (Will check set elements read using flexible style syntax.)
+ [This TG-program was created by TABLO at 13:34:37 on 02-AUG-2018.]
+  
+  [Starting to check "extra" statements on the Command file.]
+  
+  
+  [Finished checking "extra" statements on the Command file.]
+  
+  
+ ++++++++++++++++++++++++++++++++++++++++++++++++++
+  This program was written by the GEMPACK program TABLO
+  as described in the Information file
+  'aggset.inf'
+  
+  This run of the TABLO-generated program
+      o can carry out 8 WRITEs
+  
+ ++++++++++++++++++++++++++++++++++++++++++++++++++
+ (Range test of initial values will produce warnings.)
+  
+  (Data file with logical name 'INFILE')
+ (Opened, as header, existing file 'aggmod.HAR'.)
+  
+  !  This file was created at 2.8.2018 14:20:06 by the program
+  !    AggHAR
+  !  which accesses some of the routines in the GEMPACK software release
+  !    HARFILE.PAS 9/Dec/2005
+  
+  
+  (Data file with logical name 'NEWSETS')
+  
+   (Existing file 'AGGSETS.HAR' has been deleted.)
+ (Opened new header file 'AGGSETS.HAR'.)
+  
+  --->  Beginning the preliminary pass (aimed at sets and subsets).
+ Set 'COM'
+ (Opened, as header, existing file 'aggmod.HAR'.)
+   (30 character strings, each of length 7 read. Header 'COM ')
+   [Set has size 30.]
+ Set 'MAR'
+   (2 character strings, each of length 7 read. Header 'MAR ')
+   [Set has size 2.]
+ Set 'IND'
+   (30 character strings, each of length 7 read. Header 'IND ')
+   [Set has size 30.]
+ Set 'OCC'
+   (59 character strings, each of length 12 read. Header 'OCC ')
+   [Set has size 59.]
+ Set 'DST'
+   (19 character strings, each of length 12 read. Header 'REGD')
+   [Set has size 19.]
+ Set 'ORG'
+   (19 character strings, each of length 12 read. Header 'REGS')
+   [Set has size 19.]
+ Set 'PRD'
+   (19 character strings, each of length 12 read. Header 'REGP')
+   [Set has size 19.]
+ Set 'REG'
+   [Set has size 19.]
+ 'DST' as a subset of 'REG'
+ 'REG' as a subset of 'DST'
+ [CPU for reads, formulas etc is 0.0000000 seconds.]
+ Elapsed time for reads, formulas etc is: less than one second.
+  
+  Total memory currently used for all arrays is approximately 0.01 megabytes.
+  [Add about 5-10 megabytes for the memory used by the code.]
+  
+  --->  Beginning the reads, formulas (etc).
+ (Opened, for writing, header file 'AGGSETS.HAR'.)
+ Writing elements of set 'COM'
+   (30 character strings, each of length 12 written. Header 'COM ')
+ Writing elements of set 'MAR'
+   (2 character strings, each of length 12 written. Header 'MAR ')
+ Writing elements of set 'IND'
+   (30 character strings, each of length 12 written. Header 'IND ')
+ Writing elements of set 'OCC'
+   (59 character strings, each of length 12 written. Header 'OCC ')
+ Writing elements of set 'DST'
+   (19 character strings, each of length 12 written. Header 'REGD')
+ Writing elements of set 'ORG'
+   (19 character strings, each of length 12 written. Header 'REGS')
+ Writing elements of set 'PRD'
+   (19 character strings, each of length 12 written. Header 'REGP')
+ Writing elements of set 'REG'
+   (19 character strings, each of length 12 written. Header 'REG ')
+ [CPU for reads, formulas etc is 0.0000000 seconds.]
+ Elapsed time for reads, formulas etc is: less than one second.
+ [CPU for all of this 0-step calculation is 0.0000000 seconds.]
+ Elapsed time for all this 0-step calculation is: less than one second.
+  [Total CPU is 1.55999996E-02 seconds.]
+  
+  (Inputs have been taken from the Command file
+  'C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\aggset.cmf')
+  
+  (The program has completed without error.)
+  Total elapsed time is: less than one second.
+  
+  
+  This run ended at 14:20:06 on 02-AUG-2018
