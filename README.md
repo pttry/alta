@@ -3,7 +3,6 @@
 Python and GEMPACK code for constructing a CGE database for Finland using official published data.
 
 ### Yleistä:
-* Tapaaminen Tilastokeskuksella torstaina 16.8 klo 10, jolloin saadaan käyttöön tarkempi aineisto marginaaleista, veroista sekä tuonnin osuuksista.
 
 * TODO-lista: katso dataprocess.txt
 
