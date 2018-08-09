@@ -2,7 +2,7 @@
 """
 Created on Tue Jun 12 15:45:03 2018
 
-@author: jlehtomaa
+@author: jl
 """
 import numpy as np
 from harpy.har_file import HarFileObj
@@ -10,6 +10,29 @@ from harpy.header_array import HeaderArrayObj as HAO
 
 
 def data2har(data, allDims):
+    """
+    Writes data from pandas to ViewHar format (GEMPACK data format).
+    Requires harpy module to be installed. See 
+    https://github.com/GEMPACKsoftware/HARPY for info.
+    
+    Input format:
+    A dictionary, where key is the coefficient name.
+    Dict value is a tuple, containing following data in the following order:
+    DATA:
+    1. data to write (can be a single parameter, pd.DataFrame, pd.Series..)
+    2. header name
+    3. long name to explain data content
+    4. a list containing the dimensions of the data
+    
+    allDims:
+    the dimensions that appear in the input data must be given as a separate
+    dictionary as follows:
+    key: dimension name
+    value: list of dimension values.
+    
+    e.g
+    allDims = {"COM": ["COM1", "COM2", "COM3"]}
+    """
     HARfiles = HarFileObj()
     
     for key in data:
