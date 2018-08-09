@@ -2,7 +2,7 @@
 """
 Created on Fri Jun 29 13:08:16 2018
 
-@author: jllg
+@author: jl
 """
 
 def mapperFunction(longData, shortData, exceptions = {}, orderNum = False):
