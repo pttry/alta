@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Fri Jun 15 14:53:23 2018
+@author: jl
 """
 
 import requests
@@ -69,7 +70,7 @@ def parseUrl(dataId, baseUrl=apiRoot):
     fullUrl = baseUrl + dataId
     return fullUrl
 
-def getParams(dataId, baseYear = None, filters = None, search = False):
+def getParams(dataId, dataName, baseYear = None, filters = None, search = False):
     """
     Gets the available variables for the given data table.
     By default, this function gets all available variables for a given baseYear.
@@ -105,7 +106,7 @@ def getParams(dataId, baseYear = None, filters = None, search = False):
     if filters is not None:
         if not set(filters.keys()).issubset(varList):
             errors = [e for e in filters.keys() if e not in varList]
-            raise ValueError("FILTER(S) "+str(errors)+ " NOT AVAILABLE!")
+            raise ValueError("FILTER(S) "+str(errors)+ " NOT AVAILABLE FOR DATASET: "+dataName+"!")
     
     for x in paramsList:    
         if baseYear is not None:
@@ -133,9 +134,9 @@ def getParams(dataId, baseYear = None, filters = None, search = False):
                         z["values"] = filterVals
     return paramsList
 
-def parseQuery(dataId, baseYear = None, filters = None, search = False):
+def parseQuery(dataId, dataName, baseYear = None, filters = None, search = False):
     """Parses available parameters into a functioning API query."""
-    params = getParams(dataId, baseYear, filters, search)
+    params = getParams(dataId, dataName, baseYear, filters, search)
     nparams = len(params)
     params_list = list(range(nparams))
     query_element = {}
@@ -165,8 +166,9 @@ def getData(dataDict, baseYear = None, filters =None, search = False):
     for i in dataDict:
         
         dataId = dataDict[i]
+        dataName = i
         url = parseUrl(dataId)
-        queryParams = parseQuery(dataId, baseYear, filters, search)
+        queryParams = parseQuery(dataId, dataName, baseYear, filters, search)
         r = requests.post(url, data= queryParams)
         # 403 Client Error
         if r.status_code == 403:
