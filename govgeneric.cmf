@@ -1,0 +1,9 @@
+auxiliary files = govgeneric ;
+file InFile = hardata/govdata.har;
+file In2File = hardata/govextra.har;
+file OutFile = hardata/govacc.har ;
+file Out2File = hardata/govextra2.har ;
+file OutFile3 = hardata/base-extra.har;
+
+
+check-on-read elements = warn; ! very often needed
