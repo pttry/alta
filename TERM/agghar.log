@@ -1,0 +1,146 @@
+Program AggHAR:
+  Using OLD input file:                 premod.har
+    and SUP supplementary mapping file: aggsupp.har
+to make NEW aggregated file:            aggmod.har
+
+Options:
+   Headers unaffected by aggregation will be copied [no U option].
+   Original set names will be used on aggregated headers [P option].
+   Memory-conserving method will NOT be used [no S or M option].
+Read SUP file: aggsupp.har     flavour: New Fujitsu
+Opened OLD file: premod.har     flavour: New Fujitsu
+
+Scanning RE matrices on OLD file for sets.....
+The following sets were found in RE matrices on the OLD file (size in brackets):
+   COM(30)
+   IND(30)
+   DST(19)
+   SRC(2)
+   USR(34)
+   ORG(19)
+   MAR(2)
+   PRD(19)
+   OCC(59)
+
+The following additional sets were found in the SUP file (size in brackets):
+   Fortran(1)
+   REG(19)
+   AGGCOM(30)
+   AGGREG(19)
+   AGGIND(30)
+   AGGUSR(34)
+   WAGGSET(10)
+
+The following subset relations were detected:
+   COM(30) subset of AGGCOM(30)
+   IND(30) subset of USR(34)
+   IND(30) subset of AGGIND(30)
+   IND(30) subset of AGGUSR(34)
+   DST(19) subset of ORG(19)
+   DST(19) subset of PRD(19)
+   DST(19) subset of REG(19)
+   DST(19) subset of AGGREG(19)
+   USR(34) subset of AGGUSR(34)
+   ORG(19) subset of DST(19)
+   ORG(19) subset of PRD(19)
+   ORG(19) subset of REG(19)
+   ORG(19) subset of AGGREG(19)
+   MAR(2) subset of COM(30)
+   MAR(2) subset of AGGCOM(30)
+   PRD(19) subset of DST(19)
+   PRD(19) subset of ORG(19)
+   PRD(19) subset of REG(19)
+   PRD(19) subset of AGGREG(19)
+   REG(19) subset of DST(19)
+   REG(19) subset of ORG(19)
+   REG(19) subset of PRD(19)
+   REG(19) subset of AGGREG(19)
+   AGGCOM(30) subset of COM(30)
+   AGGREG(19) subset of DST(19)
+   AGGREG(19) subset of ORG(19)
+   AGGREG(19) subset of PRD(19)
+   AGGREG(19) subset of REG(19)
+   AGGIND(30) subset of IND(30)
+   AGGIND(30) subset of USR(34)
+   AGGIND(30) subset of AGGUSR(34)
+   AGGUSR(34) subset of USR(34)
+
+The following mappings were recognized in the SUP file:
+   Mapping MAPREGD from DST(19) to AGGREG(19)
+   Mapping MAPREGS from ORG(19) to AGGREG(19)
+   Mapping MAPREGP from PRD(19) to AGGREG(19)
+   Mapping MAPCOM from COM(30) to AGGCOM(30)
+   Mapping MAPIND from IND(30) to AGGIND(30)
+   Mapping MAPUSR from USR(34) to AGGUSR(34)
+
+Set DST(19) will be mapped by Mapping MAPREGD from DST(19) to AGGREG(19)
+
+Set ORG(19) will be mapped by Mapping MAPREGS from ORG(19) to AGGREG(19)
+
+Set PRD(19) will be mapped by Mapping MAPREGP from PRD(19) to AGGREG(19)
+
+Set COM(30) will be mapped by Mapping MAPCOM from COM(30) to AGGCOM(30)
+
+Set IND(30) will be mapped by Mapping MAPIND from IND(30) to AGGIND(30)
+
+Set USR(34) will be mapped by Mapping MAPUSR from USR(34) to AGGUSR(34)
+
+No explicit mapping from set SRC(2)
+   Above set will not be remapped.
+
+No explicit mapping from set MAR(2)
+   However MAR(2) is subset of COM(30)
+       which IS mapped by MAPCOM to set AGGCOM
+   Created new Mapping MAPMAR from MAR(2) to MAR(2)
+
+No explicit mapping from set OCC(59)
+   Above set will not be remapped.
+
+
+Found "WAGG" header on SUP file
+   weight "SLAB" using "LABR"
+   weight "P028" using "1PRM"
+   weight "P015" using "NIMP"
+   weight "DPRC" using "NCAP"
+   weight "P021" using "3TOT"
+   weight "XPEL" using "3PUR"
+   weight "SGDD" using "WSGD"
+   weight "SMAR" using "MRUS"
+   weight "P018" using "4TOT"
+   weight "SCET" using "1TOT"
+
+Beginning aggregation .....
+Ignored reserved header XXCR
+Ignored reserved header XXCD
+Ignored reserved header XXCP
+Replaced 1C set element data at COM 
+Replaced 1C set element data at MAR 
+Replaced 1C set element data at IND 
+Copying data at OCC  type 1C
+Replaced 1C set element data at REGD
+Replaced 1C set element data at REGS
+Replaced 1C set element data at REGP
+Aggregated RE data MAKE
+Aggregated RE data BSMR
+Aggregated RE data UTAX
+Aggregated RE data TRAD
+Aggregated RE data MARS
+Aggregated RE data TMAR
+Aggregated RE data 2PUR
+Aggregated RE data STOK
+Aggregated RE data 1LAB
+Aggregated RE data 1CAP
+Aggregated RE data 1LND
+Aggregated RE data 1PTX
+Aggregating RE data SLAB using weights LABR
+Aggregating RE data P028 using weights 1PRM
+Aggregating RE data P015 using weights NIMP
+Aggregating RE data SGDD using weights WSGD
+Aggregating RE data SMAR using weights MRUS
+Aggregated RE data PO01
+Aggregating RE data P021 using weights 3TOT
+Aggregating RE data XPEL using weights 3PUR
+Aggregating RE data SCET using weights 1TOT
+Aggregating RE data P018 using weights 4TOT
+Finished OK; created aggregated file: aggmod.har     flavour: New Fujitsu
+0.0 seconds

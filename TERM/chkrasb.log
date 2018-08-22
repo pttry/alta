@@ -1,5 +1,5 @@
  
- This GEMPACK log file was created at 14:19:59 on 02-AUG-2018 by the program
+ This GEMPACK log file was created at 14:42:32 on 22-AUG-2018 by the program
   <chkras.for 02-AUG-2018 (a TABLO-generated program)>
  which accesses some of the routines in the GEMPACK software release
   <GEMPACK Release 11.4.004   October 2016>
@@ -23,11 +23,11 @@
  
      << COPYRIGHT 1987-2016: CoPS/Impact and KPSOFT >>
  
-  Current directory is: C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM
+  Current directory is: C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM
  
  
   Full path name of running EXE is:
- C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\chkras.exe
+ C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\chkras.exe
   Fortran compiler = GF64  4.8.1 (rev3, built by mingw-builds project):
   OPENMP number of threads: 4
   Operating system is Windows 7
@@ -84,12 +84,12 @@
   Auxiliary Statement File
   ------------------------
  (Opened, as binary, existing file
-   'C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\chkras.axs'.)
+   'C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\chkras.axs'.)
  
   Auxiliary Table File
   --------------------
  (Opened, as binary, existing file
-   'C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\chkras.axt'.)
+   'C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\chkras.axt'.)
  
   !  This file was created at 12:51:38 on 02-AUG-2018 by the program
   !    <TABLO  Version 6.5   January 2016>
@@ -126,7 +126,7 @@
   (Data file with logical name 'INFILE')
  (Opened, as header, existing file 'trdras.har'.)
   
-  !  This file was created at 14:19:59 on 02-AUG-2018 by the program
+  !  This file was created at 14:42:32 on 22-AUG-2018 by the program
   !    <TRDRAS.for 02-AUG-2018> [TRDRAS.tab]
   !  which accesses some of the routines in the GEMPACK software release
   !    <GEMPACK Release 11.4.004   October 2016>
@@ -281,10 +281,10 @@
   [Total CPU is 3.11999992E-02 seconds.]
   
   (Inputs have been taken from the Command file
-  'C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\chkrasb.cmf')
+  'C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\chkrasb.cmf')
   
   (The program has completed without error.)
-  Total elapsed time is: less than one second.
+  Total elapsed time is:  1 seconds.
   
   
-  This run ended at 14:19:59 on 02-AUG-2018
+  This run ended at 14:42:33 on 22-AUG-2018

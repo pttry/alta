@@ -1,11 +1,11 @@
  
- This GEMPACK log file was created at 14:42:38 on 22-AUG-2018 by the program
-  <chkras.for 02-AUG-2018 (a TABLO-generated program)>
+ This GEMPACK log file was created at 14:42:41 on 22-AUG-2018 by the program
+  <aggset.for 02-AUG-2018 (a TABLO-generated program)>
  which accesses some of the routines in the GEMPACK software release
   <GEMPACK Release 11.4.004   October 2016>
  
  
- <chkras.for 02-AUG-2018 (a TABLO-generated program)>
+ <aggset.for 02-AUG-2018 (a TABLO-generated program)>
    This program accesses some of the routines in the GEMPACK software release
  <GEMPACK Release 11.4.004   October 2016>
  
@@ -27,7 +27,7 @@
  
  
   Full path name of running EXE is:
- C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\chkras.exe
+ C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\aggset.exe
   Fortran compiler = GF64  4.8.1 (rev3, built by mingw-builds project):
   OPENMP number of threads: 4
   Operating system is Windows 7
@@ -61,21 +61,21 @@
   Help for an option : ?<opt>      Help on all options     : ??
   Redisplay options  : /           Finish option selection : Carriage return
  
- (Opened, as text, existing file 'chkrasD.cmf'.)
+ (Opened, as text, existing file 'aggset.cmf'.)
   (Taking inputs from a command file.)
- (Opened, as text, existing file 'chkrasD.cmf'.)
+ (Opened, as text, existing file 'aggset.cmf'.)
  
   !  (There is no CREATION information on this file.)
  
  
   --> Reading the Command file.
  
- auxiliary files = chkras;
- File INFILE = trdras2.har;
- File DIAG = dgchkrasd.HAR;
- log file = yes ;
- check-on-read all = no ;
- 
+ auxiliary files = aggset;
+ File     INFILE = aggmod.HAR;
+ File     NEWSETS = AGGSETS.HAR;
+ set elements read style = flexible ;
+ log file         = yes ;
+ !check-on-read all = no ;
  
  
  
@@ -84,26 +84,27 @@
   Auxiliary Statement File
   ------------------------
  (Opened, as binary, existing file
-   'C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\chkras.axs'.)
+   'C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\aggset.axs'.)
  
   Auxiliary Table File
   --------------------
  (Opened, as binary, existing file
-   'C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\chkras.axt'.)
+   'C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\aggset.axt'.)
  
-  !  This file was created at 12:51:38 on 02-AUG-2018 by the program
+  !  This file was created at 13:34:37 on 02-AUG-2018 by the program
   !    <TABLO  Version 6.5   January 2016>
   !  which accesses some of the routines in the GEMPACK software release
   !    <GEMPACK Release 11.4.004   October 2016>
   !  [The program which created this file was compiled with GF64.]
  
- [Auxiliary Table File was created by TABLO at 12:51:39 on 02-AUG-2018.]
- [TABLO file used here is "chkras.tab".]
+ [Auxiliary Table File was created by TABLO at 13:34:37 on 02-AUG-2018.]
+ [TABLO file used here is "aggset.tab".]
  [No TABLO STI file used when TABLO was run.]
  
   (Writing output to log file, and also to the terminal.)
- (Opened new text file 'chkrasD.log'.)
- [This TG-program was created by TABLO at 12:51:39 on 02-AUG-2018.]
+ (Opened new text file 'aggset.log'.)
+ (Will check set elements read using flexible style syntax.)
+ [This TG-program was created by TABLO at 13:34:37 on 02-AUG-2018.]
   
   [Starting to check "extra" statements on the Command file.]
   
@@ -114,38 +115,38 @@
  ++++++++++++++++++++++++++++++++++++++++++++++++++
   This program was written by the GEMPACK program TABLO
   as described in the Information file
-  'chkras.inf'
+  'aggset.inf'
   
   This run of the TABLO-generated program
-      o can carry out 14 WRITEs
-      o can check 5 ASSERTIONs
+      o can carry out 8 WRITEs
   
  ++++++++++++++++++++++++++++++++++++++++++++++++++
  (Range test of initial values will produce warnings.)
   
   (Data file with logical name 'INFILE')
- (Opened, as header, existing file 'trdras2.har'.)
+ (Opened, as header, existing file 'aggmod.HAR'.)
   
-  !  This file was created at 14:42:38 on 22-AUG-2018 by the program
-  !    <TRDRAS.for 02-AUG-2018> [TRDRAS.tab]
+  !  This file was created at 22.8.2018 14:42:41 by the program
+  !    AggHAR
   !  which accesses some of the routines in the GEMPACK software release
-  !    <GEMPACK Release 11.4.004   October 2016>
-  !  [The program which created this file was compiled with GF64.]
+  !    HARFILE.PAS 9/Dec/2005
   
   
-  (Data file with logical name 'DIAG')
- (Opened new header file 'dgchkrasd.HAR'.)
+  (Data file with logical name 'NEWSETS')
+  
+   (Existing file 'AGGSETS.HAR' has been deleted.)
+ (Opened new header file 'AGGSETS.HAR'.)
   
   --->  Beginning the preliminary pass (aimed at sets and subsets).
  Set 'COM'
- (Opened, as header, existing file 'trdras2.har'.)
-   (30 character strings, each of length 12 read. Header 'COM ')
+ (Opened, as header, existing file 'aggmod.HAR'.)
+   (30 character strings, each of length 7 read. Header 'COM ')
    [Set has size 30.]
  Set 'MAR'
-   (2 character strings, each of length 12 read. Header 'MAR ')
+   (2 character strings, each of length 7 read. Header 'MAR ')
    [Set has size 2.]
  Set 'IND'
-   (30 character strings, each of length 12 read. Header 'IND ')
+   (30 character strings, each of length 7 read. Header 'IND ')
    [Set has size 30.]
  Set 'OCC'
    (59 character strings, each of length 12 read. Header 'OCC ')
@@ -161,130 +162,43 @@
    [Set has size 19.]
  Set 'REG'
    [Set has size 19.]
+ 'DST' as a subset of 'REG'
  'REG' as a subset of 'DST'
- 'REG' as a subset of 'ORG'
- 'REG' as a subset of 'PRD'
- 'PRD' as a subset of 'REG'
- 'MAR' as a subset of 'COM'
- Set 'NONMAR'
-   [Set has size 28.]
- 'NONMAR' as a subset of 'COM'
- Set 'SRC'
-   [Set has size 2.]
- Set 'DIFFS'
-   [Set has size 4.]
- Set 'SetABS'
-   [Set has size 5.]
  [CPU for reads, formulas etc is 0.0000000 seconds.]
  Elapsed time for reads, formulas etc is: less than one second.
   
-  Total memory currently used for all arrays is approximately 0.36 megabytes.
+  Total memory currently used for all arrays is approximately 0.01 megabytes.
   [Add about 5-10 megabytes for the memory used by the code.]
   
   --->  Beginning the reads, formulas (etc).
- (Opened, as header, existing file 'trdras2.har'.)
- Reading 'TRADMAR'
- (Read real array, size 30x2x2x19x19, header "TMAR".)
- Reading 'TRADE'
- (Read real array, size 30x2x19x19, header "TRAD".)
- Reading 'SUPPMAR'
- (Read real array, size 2x19x19x19, header "MARS".)
- Reading 'BASIC_U'
- (Read real array, size 30x2x19, header "BSCU".)
- Reading 'MARGINS_U'
- (Read real array, size 30x2x2x19, header "MRGU".)
- Reading 'IMPORT'
- (Read real array, size 30x19, header "IMPS".)
- Reading 'MAKE_I'
- (Read real array, size 30x19, header "COST".)
-  Formula for 'TRADE_R'
-  Formula for 'IMPUSE'
-  Formula for 'DOMUSE'
-  Formula for 'DOMUSE'
-  Formula for 'TRADMAR_CS'
-  Formula for 'DIFFREP'
-  Formula for 'DIFFREP'
-  Formula for 'DIFFREP'
-  Formula for 'DIFFREP'
-  Formula for 'DIFFREP'
- (Opened, for writing, header file 'dgchkrasd.HAR'.)
- Writing 'DIFFREP'
- (Written real array, size 30x4, header "DR01".)
-  Assertion "Check BASIC_U(c,"imp",d) sums to IMPORT"
-  Formula for 'DIFFREP'
-  Formula for 'DIFFREP'
-  Formula for 'DIFFREP'
-  Formula for 'DIFFREP'
-  Formula for 'DIFFREP'
- Writing 'DIFFREP'
- (Written real array, size 30x4, header "DR02".)
-  Assertion "Check MAKE_I(c,d) sums to BASIC_U(c,"dom",d)+ margins"
-  Formula for 'TOTCSD'
- Writing 'TOTCSD'
- (Written real array, size 30x2x19, header "AZZZ".)
-  Formula for 'ABSTOT'
-  Formula for 'MAXABS'
-  Formula for 'ABSTOTS'
-  Formula for 'MAXABSS'
- Writing 'ABSTOT'
- (Written real array, size 1, header "UZZZ".)
-  Formula for 'TOTCSMD'
- Writing 'TOTCSMD'
- (Written real array, size 30x2x2x19, header "BZZZ".)
-  Formula for 'ABSTOT'
-  Formula for 'MAXABS'
-  Formula for 'ABSTOTS'
-  Formula for 'MAXABSS'
- Writing 'ABSTOT'
- (Written real array, size 1, header "VZZZ".)
-  Formula for 'IMPERR'
- Writing 'IMPERR'
- (Written real array, size 30x19, header "CZZZ".)
-  Formula for 'ABSTOT'
-  Formula for 'MAXABS'
-  Formula for 'ABSTOTS'
-  Formula for 'MAXABSS'
- Writing 'ABSTOT'
- (Written real array, size 1, header "WZZZ".)
-  Formula for 'DOMERR'
-  Formula for 'DOMERR'
- Writing 'DOMERR'
- (Written real array, size 30x19, header "DZZZ".)
-  Formula for 'ABSTOT'
-  Formula for 'MAXABS'
-  Formula for 'ABSTOTS'
-  Formula for 'MAXABSS'
- Writing 'ABSTOT'
- (Written real array, size 1, header "XZZZ".)
-  Formula for 'TRADMAR_CS'
-  Formula for 'TOTMRD'
- Writing 'TOTMRD'
- (Written real array, size 2x19x19, header "EZZZ".)
-  Formula for 'ABSTOT'
-  Formula for 'MAXABS'
-  Formula for 'ABSTOTS'
-  Formula for 'MAXABSS'
- Writing 'ABSTOT'
- (Written real array, size 1, header "YZZZ".)
- Writing 'ABSTOTS'
- (Written real array, size 5, header "TOAB".)
- Writing 'MAXABSS'
- (Written real array, size 5, header "MXAB".)
-  Assertion "A1"
-  Assertion "A2"
-  Assertion "A3"
-  (Checking that values of 'TRADE_R' are in the required range.)
- [CPU for reads, formulas etc is 1.56000033E-02 seconds.]
+ (Opened, for writing, header file 'AGGSETS.HAR'.)
+ Writing elements of set 'COM'
+   (30 character strings, each of length 12 written. Header 'COM ')
+ Writing elements of set 'MAR'
+   (2 character strings, each of length 12 written. Header 'MAR ')
+ Writing elements of set 'IND'
+   (30 character strings, each of length 12 written. Header 'IND ')
+ Writing elements of set 'OCC'
+   (59 character strings, each of length 12 written. Header 'OCC ')
+ Writing elements of set 'DST'
+   (19 character strings, each of length 12 written. Header 'REGD')
+ Writing elements of set 'ORG'
+   (19 character strings, each of length 12 written. Header 'REGS')
+ Writing elements of set 'PRD'
+   (19 character strings, each of length 12 written. Header 'REGP')
+ Writing elements of set 'REG'
+   (19 character strings, each of length 12 written. Header 'REG ')
+ [CPU for reads, formulas etc is 0.0000000 seconds.]
  Elapsed time for reads, formulas etc is: less than one second.
- [CPU for all of this 0-step calculation is 1.56000033E-02 seconds.]
+ [CPU for all of this 0-step calculation is 0.0000000 seconds.]
  Elapsed time for all this 0-step calculation is: less than one second.
-  [Total CPU is 3.12000029E-02 seconds.]
+  [Total CPU is 1.55999996E-02 seconds.]
   
   (Inputs have been taken from the Command file
-  'C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\chkrasD.cmf')
+  'C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\aggset.cmf')
   
   (The program has completed without error.)
-  Total elapsed time is:  1 seconds.
+  Total elapsed time is: less than one second.
   
   
-  This run ended at 14:42:39 on 22-AUG-2018
+  This run ended at 14:42:41 on 22-AUG-2018

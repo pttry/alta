@@ -1,5 +1,5 @@
  
- This GEMPACK log file was created at 14:19:56 on 02-AUG-2018 by the program
+ This GEMPACK log file was created at 14:42:25 on 22-AUG-2018 by the program
   <init.for 02-AUG-2018 (a TABLO-generated program)>
  which accesses some of the routines in the GEMPACK software release
   <GEMPACK Release 11.4.004   October 2016>
@@ -23,11 +23,11 @@
  
      << COPYRIGHT 1987-2016: CoPS/Impact and KPSOFT >>
  
-  Current directory is: C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM
+  Current directory is: C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM
  
  
   Full path name of running EXE is:
- C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\init.exe
+ C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\init.exe
   Fortran compiler = GF64  4.8.1 (rev3, built by mingw-builds project):
   OPENMP number of threads: 4
   Operating system is Windows 7
@@ -75,7 +75,7 @@
  assertions = yes; ! temp only
  log file = yes;
  ! input files
- File Infile = national.har;  ! ORANIG03 input data with ORES regional shares
+ File Infile = baseDataNEW.har;  ! ORANIG03 input data with ORES regional shares
  ! output files
  File Outfile = init.har;     ! reformatted national database
  File DumSupp = dumsupp.har;  ! dummy example file of needed extra regional data
@@ -89,12 +89,12 @@
   Auxiliary Statement File
   ------------------------
  (Opened, as binary, existing file
-   'C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\init.axs'.)
+   'C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\init.axs'.)
  
   Auxiliary Table File
   --------------------
  (Opened, as binary, existing file
-   'C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\init.axt'.)
+   'C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\init.axt'.)
  
   !  This file was created at 12:50:39 on 02-AUG-2018 by the program
   !    <TABLO  Version 6.5   January 2016>
@@ -131,9 +131,9 @@
  (Range test of initial values will produce warnings.)
   
   (Data file with logical name 'INFILE')
- (Opened, as header, existing file 'national.har'.)
+ (Opened, as header, existing file 'baseDataNEW.har'.)
   
-  !  This file was created at 2.8.2018 by the program
+  !  This file was created at 22.8.2018 by the program
   !    MergeHAR
   !  which accesses some of the routines in the GEMPACK software release
   !    HARFILE.PAS 2/Mar/2016
@@ -157,7 +157,7 @@
   
   --->  Beginning the preliminary pass (aimed at sets and subsets).
  Set 'REG'
- (Opened, as header, existing file 'national.har'.)
+ (Opened, as header, existing file 'baseDataNEW.har'.)
    (19 character strings, each of length 12 read. Header 'REG ')
    [Set has size 19.]
  Set 'COM'
@@ -339,7 +339,7 @@
   
   --->  Beginning the reads, formulas (etc).
  Transferring "REG" from file 'INFILE' to file 'OUTFILE'
- (Opened, as header, existing file 'national.har'.)
+ (Opened, as header, existing file 'baseDataNEW.har'.)
  (Opened, for writing, header file 'init.har'.)
    (19 character strings, each of length 12 written. Header 'REG ')
  (Opened, for writing, header file 'init.har'.)
@@ -391,6 +391,9 @@
  (Read real array, size 30x2, header "5TAX".)
  Reading 'V1CAP'
  (Read real array, size 30, header "1CAP".)
+ (%%WARNING. Coefficient info mismatch reading from header '1CAP')
+   [See Section 22.4 of the GEMPACK Manual, "Checking set and element
+    information when reading data".][TopicID:gpd3.4.4]
  Reading 'V1LAB'
  (Read real array, size 30x59, header "1LAB".)
  Reading 'V1LND'
@@ -399,6 +402,9 @@
  (Read real array, size 30, header "1PTX".)
  Reading 'V1OCT'
  (Read real array, size 30, header "1OCT".)
+ (%%WARNING. Coefficient info mismatch reading from header '1OCT')
+   [See Section 22.4 of the GEMPACK Manual, "Checking set and element
+    information when reading data".][TopicID:gpd3.4.4]
  Reading 'MAKE'
  (Read real array, size 30x30, header "MAKE".)
  Reading 'V0TAR'
@@ -888,21 +894,21 @@
   Formula for 'MAPIND'
  Writing 'MAPIND'
    (30 character strings, each of length 12 written. Header 'MIND')
- [CPU for reads, formulas etc is 4.67999987E-02 seconds.]
+ [CPU for reads, formulas etc is 0.0000000 seconds.]
  Elapsed time for reads, formulas etc is: less than one second.
- [CPU for all of this 0-step calculation is 6.23999983E-02 seconds.]
+ [CPU for all of this 0-step calculation is 0.0000000 seconds.]
  Elapsed time for all this 0-step calculation is: less than one second.
-  [Total CPU is 7.79999942E-02 seconds.]
+  [Total CPU is 1.55999996E-02 seconds.]
   
   (Inputs have been taken from the Command file
-  'C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\init.cmf')
+  'C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\init.cmf')
   
   (The program has completed without error.)
-  (There were         6 warnings.)
+  (There were         8 warnings.)
   (If you have a LOG file, search for '%%W' to see them.)
   (The last was:
    'Check-on-read warning')
-  Total elapsed time is:  1 seconds.
+  Total elapsed time is: less than one second.
   
   
-  This run ended at 14:19:57 on 02-AUG-2018
+  This run ended at 14:42:25 on 22-AUG-2018

@@ -1,5 +1,5 @@
  
- This GEMPACK log file was created at 14:20:05 on 02-AUG-2018 by the program
+ This GEMPACK log file was created at 14:42:40 on 22-AUG-2018 by the program
   <chkmod.for 02-AUG-2018 (a TABLO-generated program)>
  which accesses some of the routines in the GEMPACK software release
   <GEMPACK Release 11.4.004   October 2016>
@@ -23,11 +23,11 @@
  
      << COPYRIGHT 1987-2016: CoPS/Impact and KPSOFT >>
  
-  Current directory is: C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM
+  Current directory is: C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM
  
  
   Full path name of running EXE is:
- C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\chkmod.exe
+ C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\chkmod.exe
   Fortran compiler = GF64  4.8.1 (rev3, built by mingw-builds project):
   OPENMP number of threads: 4
   Operating system is Windows 7
@@ -85,12 +85,12 @@
   Auxiliary Statement File
   ------------------------
  (Opened, as binary, existing file
-   'C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\chkmod.axs'.)
+   'C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\chkmod.axs'.)
  
   Auxiliary Table File
   --------------------
  (Opened, as binary, existing file
-   'C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\chkmod.axt'.)
+   'C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\chkmod.axt'.)
  
   !  This file was created at 12:52:27 on 02-AUG-2018 by the program
   !    <TABLO  Version 6.5   January 2016>
@@ -127,7 +127,7 @@
   (Data file with logical name 'INFILE')
  (Opened, as header, existing file 'premod.HAR'.)
   
-  !  This file was created at 14:20:05 on 02-AUG-2018 by the program
+  !  This file was created at 14:42:39 on 22-AUG-2018 by the program
   !    <premod.for 02-AUG-2018> [premod.tab]
   !  which accesses some of the routines in the GEMPACK software release
   !    <GEMPACK Release 11.4.004   October 2016>
@@ -137,7 +137,7 @@
   (Data file with logical name 'SETS')
  (Opened, as header, existing file 'ORGSETS.HAR'.)
   
-  !  This file was created at 14:20:05 on 02-AUG-2018 by the program
+  !  This file was created at 14:42:39 on 22-AUG-2018 by the program
   !    <premod.for 02-AUG-2018> [premod.tab]
   !  which accesses some of the routines in the GEMPACK software release
   !    <GEMPACK Release 11.4.004   October 2016>
@@ -429,13 +429,13 @@
  Elapsed time for reads, formulas etc is: less than one second.
  [CPU for all of this 0-step calculation is 3.11999992E-02 seconds.]
  Elapsed time for all this 0-step calculation is: less than one second.
-  [Total CPU is 3.11999992E-02 seconds.]
+  [Total CPU is 6.23999983E-02 seconds.]
   
   (Inputs have been taken from the Command file
-  'C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\chkmdA.cmf')
+  'C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\chkmdA.cmf')
   
   (The program has completed without error.)
-  Total elapsed time is:  1 seconds.
+  Total elapsed time is: less than one second.
   
   
-  This run ended at 14:20:06 on 02-AUG-2018
+  This run ended at 14:42:40 on 22-AUG-2018

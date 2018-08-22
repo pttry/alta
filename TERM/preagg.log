@@ -1,5 +1,5 @@
  
- This GEMPACK log file was created at 14:20:06 on 02-AUG-2018 by the program
+ This GEMPACK log file was created at 14:42:40 on 22-AUG-2018 by the program
   <preagg.for 02-AUG-2018 (a TABLO-generated program)>
  which accesses some of the routines in the GEMPACK software release
   <GEMPACK Release 11.4.004   October 2016>
@@ -23,11 +23,11 @@
  
      << COPYRIGHT 1987-2016: CoPS/Impact and KPSOFT >>
  
-  Current directory is: C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM
+  Current directory is: C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM
  
  
   Full path name of running EXE is:
- C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\preagg.exe
+ C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\preagg.exe
   Fortran compiler = GF64  4.8.1 (rev3, built by mingw-builds project):
   OPENMP number of threads: 4
   Operating system is Windows 7
@@ -90,12 +90,12 @@
   Auxiliary Statement File
   ------------------------
  (Opened, as binary, existing file
-   'C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\preagg.axs'.)
+   'C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\preagg.axs'.)
  
   Auxiliary Table File
   --------------------
  (Opened, as binary, existing file
-   'C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\preagg.axt'.)
+   'C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\preagg.axt'.)
  
   !  This file was created at 12:52:40 on 02-AUG-2018 by the program
   !    <TABLO  Version 6.5   January 2016>
@@ -134,7 +134,7 @@
   (Data file with logical name 'WEIGHTS')
  (Opened, as header, existing file 'weights.har'.)
   
-  !  This file was created at 14:20:05 on 02-AUG-2018 by the program
+  !  This file was created at 14:42:39 on 22-AUG-2018 by the program
   !    <premod.for 02-AUG-2018> [premod.tab]
   !  which accesses some of the routines in the GEMPACK software release
   !    <GEMPACK Release 11.4.004   October 2016>
@@ -144,7 +144,7 @@
   (Data file with logical name 'BIGSETS')
  (Opened, as header, existing file 'orgsets.har'.)
   
-  !  This file was created at 14:20:05 on 02-AUG-2018 by the program
+  !  This file was created at 14:42:39 on 22-AUG-2018 by the program
   !    <premod.for 02-AUG-2018> [premod.tab]
   !  which accesses some of the routines in the GEMPACK software release
   !    <GEMPACK Release 11.4.004   October 2016>
@@ -328,17 +328,17 @@
    (19 character strings, each of length 12 written. Header 'AREG')
  Writing 'MAPREG'
    (Integer matrix with 19 rows and 1 columns written. Header 'REGM')
- [CPU for reads, formulas etc is 0.0000000 seconds.]
+ [CPU for reads, formulas etc is 1.55999996E-02 seconds.]
  Elapsed time for reads, formulas etc is: less than one second.
- [CPU for all of this 0-step calculation is 0.0000000 seconds.]
+ [CPU for all of this 0-step calculation is 1.55999996E-02 seconds.]
  Elapsed time for all this 0-step calculation is: less than one second.
   [Total CPU is 3.11999992E-02 seconds.]
   
   (Inputs have been taken from the Command file
-  'C:\Users\jllg\FINAGE_database_notebook\GITVERSION\TERM\preagg.cmf')
+  'C:\Users\jllg\FINAGE_database_notebook\FINAL\TERM\preagg.cmf')
   
   (The program has completed without error.)
   Total elapsed time is: less than one second.
   
   
-  This run ended at 14:20:06 on 02-AUG-2018
+  This run ended at 14:42:40 on 22-AUG-2018
