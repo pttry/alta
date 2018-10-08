@@ -2,9 +2,11 @@
 """
 Created on Tue Jun 12 15:45:03 2018
 
-@author: jl
+@author: jl, jh
 """
 import numpy as np
+import os
+import subprocess
 from harpy.har_file import HarFileObj
 from harpy.header_array import HeaderArrayObj as HAO
 
@@ -84,3 +86,30 @@ def data2har(data, allDims):
             HARfiles.addHeaderArrayObj(newHead)
         
     return HARfiles
+
+
+def aggHAR(har_dir, old, new, sup):
+    """
+    Aggregate HAR-file with agghar executable.
+    The agghar is part of BUNDLE16 available from:
+    http://www.copsmodels.com/gpmark9.htm
+
+    Parameters
+    ----------
+    har_dir : str
+        Folder of HAR-files
+    old : str
+        Original HAR-file 
+    new : str
+        HAR-file for aggregate values
+    sup : str
+        A mapping HAR-file 
+
+    """
+    try:
+        os.remove(os.path.join(har_dir, new)) 
+    except OSError:
+        pass
+    
+    p = subprocess.Popen(["agghar", old, new, sup], cwd=har_dir)
+    p.wait()

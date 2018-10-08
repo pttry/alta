@@ -108,13 +108,9 @@ in different data sets. Input-output data is available for 64 industries, region
 dimension, all data must be aggregated to this level.
   
 The file AGGSUP.har is used to aggregate the national data (basedata.har) to the regional 
-level.At the time of writing, the harpy Python routine does not allow for directly
-specifying mappings in the IPython notebook. Therefore, the mapping from
-IND64 to IND30 and COM64 to COM30 must be specified manually in ViewHar.
-
-An example AGGSUP.har containing mappings is stored in the supplemenaryData folder.
-These headers can be imported directly using ViewHar -> import -> from HAR file.
-
+level. The mapping from IND64 to IND30 and COM64 to COM30 are specified in MIND and MCOM. 
+Note that to be recocnised as mapping, also long_name have to speficified the mapping. Forexample:
+"Mapping MCOM from COM(64) to ACOM(30)                                 ". Note! 70 characters.
 
 
 
