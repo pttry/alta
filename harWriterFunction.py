@@ -111,5 +111,10 @@ def aggHAR(har_dir, old, new, sup):
     except OSError:
         pass
     
-    p = subprocess.Popen(["agghar", old, new, sup], cwd=har_dir)
-    p.wait()
+    p = subprocess.Popen(["agghar", old, new, sup], cwd=har_dir, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    out, err =  p.communicate()
+    if p.returncode != 0:
+        print(out)
+    else:
+        print("OK")
+
