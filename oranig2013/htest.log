@@ -1,5 +1,5 @@
  
- This GEMPACK log file was created at 14:17:11 on 22-AUG-2018 by the program
+ This GEMPACK log file was created at 11:11:51 on 17-OCT-2018 by the program
   <GEMSIM  Version 4.4   January 2016>
  which accesses some of the routines in the GEMPACK software release
   <GEMPACK Release 11.4.004   October 2016>
@@ -9,27 +9,30 @@
    This program accesses some of the routines in the GEMPACK software release
  <GEMPACK Release 11.4.004   October 2016>
  
- Licence file: C:\GP\licen.gem
+ Licence file: C:\Program Files\GP\licen.gem
  
      -------------------------------------------------------
     !            GEMPACK Software System Licence            !
-    !  Source Code Licence for the GEMPACK Software System  !
-    !                 Licence No.  GFM-1529                 !
-    !          Licence for Release 11.4 of GEMPACK          !
-    !       National Institute for Health and Welfare       !
-    !    (Your GEMPACK licence expires on 30-NOV-2018.)     !
+    !  Unlimited Size Executable-image Licence for GEMPACK  !
+    !                 Licence No.  GEU-1600                 !
+    !          Licence for Release 12.0 of GEMPACK          !
+    !            Pellervo Economic Research PTT             !
+    !                    Course Licence                     !
+    !    (Your GEMPACK licence expires on 31-MAR-2019.)     !
      -------------------------------------------------------
  
  
      << COPYRIGHT 1993-2016: CoPS/Impact and KPSOFT >>
  
-  Current directory is: C:\Users\jllg\FINAGE_database_notebook\FINAL\oranig2013
+  Current directory is:
+ C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013
  
  
-  Full path name of running EXE is: C:\GP\gemsim.exe
-  Fortran compiler = GF64  4.8.1 (rev3, built by mingw-builds project):
+  Full path name of running EXE is: C:\Program Files\GP\gemsim.exe
+  Fortran compiler = IF32   version 14.00, build date 20140422
   OPENMP number of threads: 4
-  Operating system is Windows 7
+  Operating system is Windows 8
  
  
   ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -60,9 +63,15 @@
   Help for an option : ?<opt>      Help on all options     : ??
   Redisplay options  : /           Finish option selection : Carriage return
  
- (Opened, as text, existing file 'htest.CMF'.)
+ (Opened, as text, existing file
+ 
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\htest.CMF'.)
   (Taking inputs from a command file.)
- (Opened, as text, existing file 'htest.CMF'.)
+ (Opened, as text, existing file
+ 
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\htest.CMF'.)
  
   !  (There is no CREATION information on this file.)
  
@@ -163,26 +172,35 @@
  
   GEMSIM Statement File
   ---------------------
- (Opened, as binary, existing file 'oranig.gss'.)
+ (Opened, as binary, existing file
+ 
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\oranig.gss'.)
  
   GEMSIM Table File
   -----------------
- (Opened, as binary, existing file 'oranig.gst'.)
+ (Opened, as binary, existing file
  
-  !  This file was created at 14:17:10 on 22-AUG-2018 by the program
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\oranig.gst'.)
+ 
+  !  This file was created at 11:11:48 on 17-OCT-2018 by the program
   !    <TABLO  Version 6.5   January 2016>
   !  which accesses some of the routines in the GEMPACK software release
   !    <GEMPACK Release 11.4.004   October 2016>
-  !  [The program which created this file was compiled with GF64.]
+  !  [The program which created this file was compiled with IF32.]
  
- [GEMSIM Table File was created by TABLO at 14:17:10 on 22-AUG-2018.]
+ [GEMSIM Table File was created by TABLO at 11:11:48 on 17-OCT-2018.]
  [TABLO file used here is "ORANIG.tab".]
  [No TABLO STI file used when TABLO was run.]
  
   (Writing output to log file, and also to the terminal.)
  
    (Existing file 'htest.log' has been deleted.)
- (Opened new text file 'htest.log'.)
+ (Opened new text file
+ 
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\htest.log'.)
   
   (Reporting CPU times.)
   
@@ -212,20 +230,35 @@
   (Model is ' '.   Version number is 1.)
   
    (Existing file 'htest.sl4' has been deleted.)
- (Opened new binary file 'htest.sl4'.)
- (Solution file is 'htest.sl4'.)
+ (Opened new binary file
+  
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\htest.sl4'.)
+ (Solution file is
+  
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\htest.sl4'.)
   
    (Existing file 'htest.slc' has been deleted.)
- (Opened new binary file 'htest.slc'.)
- (Opened, as text, existing file 'htest.CMF'.)
+ (Opened new binary file
+  
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\htest.slc'.)
+ (Opened, as text, existing file
+  
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\htest.CMF'.)
   
   !  (There is no CREATION information on this file.)
   
   
   (Data file with logical name 'BASEDATA')
- (Opened, as header, existing file 'basedata.har'.)
+ (Opened, as header, existing file
   
-  !  This file was created at 22.8.2018 by the program
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\basedata.har'.)
+  
+  !  This file was created at 17.10.2018 by the program
   !    MergeHAR
   !  which accesses some of the routines in the GEMPACK software release
   !    HARFILE.PAS 2/Mar/2016
@@ -235,23 +268,35 @@
   (Data file with logical name 'SUMMARY')
   
    (Existing file 'summary.har' has been deleted.)
- (Opened new header file 'summary.har'.)
+ (Opened new header file
+  
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\summary.har'.)
   
   UPDATED VERSION OF DATA FILE WITH LOGICAL NAME 'BASEDATA'
   ---------------------------------------------------------
   
    (Existing file 'htest.upd' has been deleted.)
- (Opened new header file 'htest.upd'.)
+ (Opened new header file
+  
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\htest.upd'.)
   
   FILE TO CONTAIN UPDATED VERSIONS OF DATA
    SET INITIALLY VIA FORMULA(INITIAL)s
- (Opened new header file 'htest-suifil.ud0'.)
+ (Opened new header file
+  
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\htest-suifil.ud0'.)
   
    (Existing file 'htest-GPXXX3.ud8' has been deleted.)
   
   --->  Beginning the preliminary pass (aimed at sets and subsets).
  Set 'COM'
- (Opened, as header, existing file 'basedata.har'.)
+ (Opened, as header, existing file
+  
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\basedata.har'.)
    (30 character strings, each of length 7 read. Header 'COM ')
    [Set has size 30.]
  Set 'SRC'
@@ -339,7 +384,7 @@
   Assertion "Size(LOCCOM) = Size(LOCIND)"
   Assertion "IsIndivExp >=0"
   Assertion "IsLocCom >=0"
- [CPU for reads, formulas etc is 0.0000000 seconds.]
+ [CPU for reads, formulas etc is 6.25000000E-02 seconds.]
  Elapsed time for reads, formulas etc is: less than one second.
   
   ------- MODEL REPORT ------
@@ -363,7 +408,10 @@
   [Add about 5-10 megabytes for the memory used by the code.]
   
   --->  Beginning pass number 1 of 3-pass calculation.
- (Opened, as header, existing file 'basedata.har'.)
+ (Opened, as header, existing file
+  
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\basedata.har'.)
  Reading 'V1BAS'
  (Read real array, size 30x2x30, header "1BAS".)
  Reading 'V2BAS'
@@ -431,7 +479,10 @@
   Formula for 'V1CST'
   Formula for 'V1TOT'
   Formula for 'PTXRATE'
- (Opened, for writing, header file 'summary.har'.)
+ (Opened, for writing, header file
+  
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\summary.har'.)
  Writing 'PTXRATE'
  (Written real array, size 30, header "PTXR".)
  Reading 'MAKE'
@@ -1049,7 +1100,7 @@
   Formula for 'C00329'
   Formula for 'C00330'
   Formula for 'C00331'
- [CPU for reads, formulas etc is 0.10920001 seconds.]
+ [CPU for reads, formulas etc is 0.23437500 seconds.]
  Elapsed time for reads, formulas etc is:  1 seconds.
   
   (Writing the Solution Coefficients (SLC) file.)
@@ -2354,10 +2405,10 @@
      (Number of nonzeros is 19, all on the LHS.)
      Submatrix for variable 'regadv'
      (Number of nonzeros is 19, all on the LHS.)
- [CPU for equations is 3.11999917E-02 seconds.]
- Elapsed time for equations is: less than one second.
- [CPU for formulas and equations is 0.15599999 seconds.]
- Elapsed time for formulas and equations is:  1 seconds.
+ [CPU for equations is 9.37500000E-02 seconds.]
+ Elapsed time for equations is:  1 seconds.
+ [CPU for formulas and equations is 0.34375000 seconds.]
+ Elapsed time for formulas and equations is:  2 seconds.
   
   CUMULATIVELY-RETAINED ENDOGENOUS
   --------------------------------
@@ -2376,7 +2427,10 @@
    Total number (of components) chosen to
     be XAC-retained is 22054.
   
- (Opened new binary file 'htest.cdk'.)
+ (Opened new binary file
+  
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\htest.cdk'.)
  (ALLMNZ2 - ACTION="e", N1=54662, N2=54662, N3=54662, MNZNOX is FALSE)
  ALLMNZ2. Trying MMNZ=65594, MMNZ1=65594, MMNZ2=65594
  ALLMNZ2. Trying (to be used) MMNZ=60128, MMNZ1=60128, MMNZ2=60128
@@ -2404,15 +2458,15 @@
   [Calling MA48AG with LHSNZ=25814.]
   [MA48AG. Minimum value of MMNZ to analyse is 51628.
      Estimate of minimum value to factorise is 42090.]
-   [CPU time for MA48A is 0.0000000 seconds.]
+   [CPU time for MA48A is 1.56250000E-02 seconds.]
    Elapsed time for MA48A is: less than one second.
   [Calling MA48BG.]
-   [CPU time for MA48B is 0.0000000 seconds.]
+   [CPU time for MA48B is 1.56250000E-02 seconds.]
    Elapsed time for MA48B is: less than one second.
   (Minimum size of MMNZ and MMNZ1 to allow LU decomposition by MA48 is 51628.)
-  [CPU time for LU decomposition is 0.0000000 seconds.]
+  [CPU time for LU decomposition is 3.12500000E-02 seconds.]
   Elapsed time for LU decomposition is: less than one second.
-  [CPU time for MA48C/MA28I is 1.55999959E-02 seconds.]
+  [CPU time for MA48C/MA28I is 0.0000000 seconds.]
   [CPU time for solution accuracy check is 0.0000000 seconds.]
   (Cumulative solution obtained.)
   [CPU time for MA48C/MA28I is 0.0000000 seconds.]
@@ -2421,9 +2475,9 @@
   [CPU time for MA48C/MA28I is 0.0000000 seconds.]
   [CPU time for solution accuracy check is 0.0000000 seconds.]
   (Third cumulative solution obtained.)
- [CPU for simulation is 3.12010050E-02 seconds.]
+ [CPU for simulation is 0.17187500 seconds.]
  Elapsed time for simulation is: less than one second.
- Elapsed time to do up to first solve (this subinterval) is  1 seconds.
+ Elapsed time to do up to first solve (this subinterval) is  2 seconds.
   
   (Beginning the backsolve after pass 1 of this 3-pass calculation.)
   Backsolving for variable 'regx1primcon' using equation 'E_regx1primcon'
@@ -2469,7 +2523,7 @@
   Backsolving for variable 'p1_s' using equation 'E_p1_s'
   Backsolving for variable 'p1lab' using equation 'E_p1lab'
   Backsolving for variable 'p1' using equation 'E_p1'
-  [CPU for backsolve is 3.11999917E-02 seconds.]
+  [CPU for backsolve is 0.18750000 seconds.]
   Elapsed time for backsolve is: less than one second.
   
   (Beginning the update after pass 1 of this 3-pass calculation.)
@@ -2513,17 +2567,17 @@
   Update of 'RATADV'
   
   (Writing the Data Work file.)
-  [CPU for update is 3.12000215E-02 seconds.]
-  [CPU for step 1 is 0.24960101 seconds.]
-  Elapsed time for update is: less than one second.
-  Elapsed time for step 1 is:  1 seconds.
+  [CPU for update is 7.81250000E-02 seconds.]
+  [CPU for step 1 is 0.78125000 seconds.]
+  Elapsed time for update is:  1 seconds.
+  Elapsed time for step 1 is:  3 seconds.
   
   --->  Beginning pass number 2 of 3-pass calculation.
- [CPU for reads, formulas etc is 7.79999793E-02 seconds.]
+ [CPU for reads, formulas etc is 7.81250000E-02 seconds.]
  Elapsed time for reads, formulas etc is: less than one second.
- [CPU for equations is 0.0000000 seconds.]
+ [CPU for equations is 3.12500000E-02 seconds.]
  Elapsed time for equations is: less than one second.
- [CPU for formulas and equations is 7.79999793E-02 seconds.]
+ [CPU for formulas and equations is 0.10937500 seconds.]
  Elapsed time for formulas and equations is: less than one second.
   (There are now 25814 nonzeros in those parts of
     the equations calculated for this step.)
@@ -2543,32 +2597,32 @@
     decomposition".][TopicID:gpd3.13.3]
   (Calculating the LU decomposition reusing pivots.)
   [Calling MA48BG.]
-   [CPU time for MA48B is 7.80009925E-02 seconds.]
+   [CPU time for MA48B is 0.0000000 seconds.]
    Elapsed time for MA48B is: less than one second.
-  [CPU time for LU decomposition is 7.80009925E-02 seconds.]
+  [CPU time for LU decomposition is 0.0000000 seconds.]
   Elapsed time for LU decomposition is: less than one second.
   [CPU time for MA48C/MA28I is 0.0000000 seconds.]
   [CPU time for solution accuracy check is 0.0000000 seconds.]
   (Cumulative solution obtained.)
- [CPU for simulation is 9.36020017E-02 seconds.]
+ [CPU for simulation is 0.0000000 seconds.]
  Elapsed time for simulation is: less than one second.
   
   (Beginning the backsolve after pass 2 of this 3-pass calculation.)
-  [CPU for backsolve is 4.68000174E-02 seconds.]
+  [CPU for backsolve is 0.25000000 seconds.]
   Elapsed time for backsolve is: less than one second.
   
   (Beginning the update after pass 2 of this 3-pass calculation.)
-  [CPU for update is 1.55999660E-02 seconds.]
-  [CPU for step 2 is 0.23400196 seconds.]
+  [CPU for update is 0.12500000 seconds.]
+  [CPU for step 2 is 0.48437500 seconds.]
   Elapsed time for update is: less than one second.
   Elapsed time for step 2 is: less than one second.
   
   --->  Beginning pass number 3 of 3-pass calculation.
- [CPU for reads, formulas etc is 7.80000091E-02 seconds.]
+ [CPU for reads, formulas etc is 0.23437500 seconds.]
  Elapsed time for reads, formulas etc is: less than one second.
- [CPU for equations is 1.56010389E-02 seconds.]
+ [CPU for equations is 4.68750000E-02 seconds.]
  Elapsed time for equations is: less than one second.
- [CPU for formulas and equations is 9.36010480E-02 seconds.]
+ [CPU for formulas and equations is 0.28125000 seconds.]
  Elapsed time for formulas and equations is: less than one second.
   (There are now 25814 nonzeros in those parts of
     the equations calculated for this step.)
@@ -2592,25 +2646,25 @@
    Elapsed time for MA48B is: less than one second.
   [CPU time for LU decomposition is 0.0000000 seconds.]
   Elapsed time for LU decomposition is: less than one second.
-  [CPU time for MA48C/MA28I is 1.55999660E-02 seconds.]
+  [CPU time for MA48C/MA28I is 0.0000000 seconds.]
   [CPU time for solution accuracy check is 0.0000000 seconds.]
   (Cumulative solution obtained.)
- [CPU for simulation is 1.55999660E-02 seconds.]
+ [CPU for simulation is 9.37500000E-02 seconds.]
  Elapsed time for simulation is: less than one second.
   
   (Beginning the backsolve after pass 3 of this 3-pass calculation.)
-  [CPU for backsolve is 4.68000174E-02 seconds.]
+  [CPU for backsolve is 0.18750000 seconds.]
   Elapsed time for backsolve is: less than one second.
   
   (Beginning the update after pass 3 of this 3-pass calculation.)
-  [CPU for update is 4.68000174E-02 seconds.]
-  [CPU for step 3 is 0.20280105 seconds.]
+  [CPU for update is 0.84375000 seconds.]
+  [CPU for step 3 is 1.4062500 seconds.]
   Elapsed time for update is: less than one second.
   Elapsed time for step 3 is: less than one second.
  Elapsed time to do after-first-LU-decomp part
-  of this 3-pass calculation is: less than one second.
- [CPU for all of this 2-step calculation is 0.71760404 seconds.]
- Elapsed time for all this 2-step calculation is:  1 seconds.
+  of this 3-pass calculation is:  1 seconds.
+ [CPU for all of this 2-step calculation is 2.7343750 seconds.]
+ Elapsed time for all this 2-step calculation is:  3 seconds.
   
   --->  Beginning pass number 1 of 5-pass calculation.
  [CPU for simulation is 0.0000000 seconds.]
@@ -2619,21 +2673,21 @@
   (Beginning the backsolve after pass 1 of this 5-pass calculation.)
   
   (Reading pre-sim values from the current SLC file.)
-  [CPU for backsolve is 4.67999578E-02 seconds.]
+  [CPU for backsolve is 0.12500000 seconds.]
   Elapsed time for backsolve is:  1 seconds.
   
   (Beginning the update after pass 1 of this 5-pass calculation.)
-  [CPU for update is 3.12010050E-02 seconds.]
-  [CPU for step 1 is 7.80009627E-02 seconds.]
+  [CPU for update is 9.37500000E-02 seconds.]
+  [CPU for step 1 is 0.21875000 seconds.]
   Elapsed time for update is:  1 seconds.
   Elapsed time for step 1 is:  1 seconds.
   
   --->  Beginning pass number 2 of 5-pass calculation.
- [CPU for reads, formulas etc is 6.23999834E-02 seconds.]
+ [CPU for reads, formulas etc is 9.37500000E-02 seconds.]
  Elapsed time for reads, formulas etc is: less than one second.
- [CPU for equations is 1.56000257E-02 seconds.]
+ [CPU for equations is 1.56250000E-02 seconds.]
  Elapsed time for equations is: less than one second.
- [CPU for formulas and equations is 7.80000091E-02 seconds.]
+ [CPU for formulas and equations is 0.10937500 seconds.]
  Elapsed time for formulas and equations is: less than one second.
   (There are now 25814 nonzeros in those parts of
     the equations calculated for this step.)
@@ -2655,30 +2709,30 @@
   [Calling MA48BG.]
    [CPU time for MA48B is 0.0000000 seconds.]
    Elapsed time for MA48B is: less than one second.
-  [CPU time for LU decomposition is 1.56000257E-02 seconds.]
+  [CPU time for LU decomposition is 0.0000000 seconds.]
   Elapsed time for LU decomposition is: less than one second.
   [CPU time for MA48C/MA28I is 0.0000000 seconds.]
   [CPU time for solution accuracy check is 0.0000000 seconds.]
   (Cumulative solution obtained.)
- [CPU for simulation is 1.56000257E-02 seconds.]
+ [CPU for simulation is 1.56250000E-02 seconds.]
  Elapsed time for simulation is: less than one second.
   
   (Beginning the backsolve after pass 2 of this 5-pass calculation.)
-  [CPU for backsolve is 3.11999917E-02 seconds.]
+  [CPU for backsolve is 0.14062500 seconds.]
   Elapsed time for backsolve is: less than one second.
   
   (Beginning the update after pass 2 of this 5-pass calculation.)
-  [CPU for update is 3.12010050E-02 seconds.]
-  [CPU for step 2 is 0.15600103 seconds.]
+  [CPU for update is 0.12500000 seconds.]
+  [CPU for step 2 is 0.42187500 seconds.]
   Elapsed time for update is: less than one second.
   Elapsed time for step 2 is: less than one second.
   
   --->  Beginning pass number 3 of 5-pass calculation.
- [CPU for reads, formulas etc is 7.79999495E-02 seconds.]
+ [CPU for reads, formulas etc is 0.29687500 seconds.]
  Elapsed time for reads, formulas etc is: less than one second.
- [CPU for equations is 1.56000853E-02 seconds.]
+ [CPU for equations is 0.12500000 seconds.]
  Elapsed time for equations is: less than one second.
- [CPU for formulas and equations is 9.36000347E-02 seconds.]
+ [CPU for formulas and equations is 0.42187500 seconds.]
  Elapsed time for formulas and equations is: less than one second.
   (There are now 25814 nonzeros in those parts of
     the equations calculated for this step.)
@@ -2700,30 +2754,30 @@
   [Calling MA48BG.]
    [CPU time for MA48B is 0.0000000 seconds.]
    Elapsed time for MA48B is: less than one second.
-  [CPU time for LU decomposition is 1.55999660E-02 seconds.]
+  [CPU time for LU decomposition is 6.25000000E-02 seconds.]
   Elapsed time for LU decomposition is: less than one second.
   [CPU time for MA48C/MA28I is 0.0000000 seconds.]
   [CPU time for solution accuracy check is 0.0000000 seconds.]
   (Cumulative solution obtained.)
- [CPU for simulation is 1.55999660E-02 seconds.]
+ [CPU for simulation is 6.25000000E-02 seconds.]
  Elapsed time for simulation is: less than one second.
   
   (Beginning the backsolve after pass 3 of this 5-pass calculation.)
-  [CPU for backsolve is 6.24009371E-02 seconds.]
+  [CPU for backsolve is 0.17187500 seconds.]
   Elapsed time for backsolve is: less than one second.
   
   (Beginning the update after pass 3 of this 5-pass calculation.)
-  [CPU for update is 1.56000853E-02 seconds.]
-  [CPU for step 3 is 0.18720102 seconds.]
-  Elapsed time for update is: less than one second.
-  Elapsed time for step 3 is: less than one second.
+  [CPU for update is 0.10937500 seconds.]
+  [CPU for step 3 is 0.81250000 seconds.]
+  Elapsed time for update is:  1 seconds.
+  Elapsed time for step 3 is:  1 seconds.
   
   --->  Beginning pass number 4 of 5-pass calculation.
- [CPU for reads, formulas etc is 7.79999495E-02 seconds.]
+ [CPU for reads, formulas etc is 0.26562500 seconds.]
  Elapsed time for reads, formulas etc is: less than one second.
- [CPU for equations is 1.55999660E-02 seconds.]
+ [CPU for equations is 6.25000000E-02 seconds.]
  Elapsed time for equations is: less than one second.
- [CPU for formulas and equations is 9.35999155E-02 seconds.]
+ [CPU for formulas and equations is 0.32812500 seconds.]
  Elapsed time for formulas and equations is: less than one second.
   (There are now 25814 nonzeros in those parts of
     the equations calculated for this step.)
@@ -2745,30 +2799,30 @@
   [Calling MA48BG.]
    [CPU time for MA48B is 0.0000000 seconds.]
    Elapsed time for MA48B is: less than one second.
-  [CPU time for LU decomposition is 1.56000853E-02 seconds.]
+  [CPU time for LU decomposition is 0.0000000 seconds.]
   Elapsed time for LU decomposition is: less than one second.
   [CPU time for MA48C/MA28I is 0.0000000 seconds.]
   [CPU time for solution accuracy check is 0.0000000 seconds.]
   (Cumulative solution obtained.)
- [CPU for simulation is 1.56000853E-02 seconds.]
+ [CPU for simulation is 4.68750000E-02 seconds.]
  Elapsed time for simulation is: less than one second.
   
   (Beginning the backsolve after pass 4 of this 5-pass calculation.)
-  [CPU for backsolve is 4.68009710E-02 seconds.]
+  [CPU for backsolve is 0.10937500 seconds.]
   Elapsed time for backsolve is: less than one second.
   
   (Beginning the update after pass 4 of this 5-pass calculation.)
-  [CPU for update is 1.55999660E-02 seconds.]
-  [CPU for step 4 is 0.17160094 seconds.]
+  [CPU for update is 7.81250000E-02 seconds.]
+  [CPU for step 4 is 0.56250000 seconds.]
   Elapsed time for update is: less than one second.
   Elapsed time for step 4 is: less than one second.
   
   --->  Beginning pass number 5 of 5-pass calculation.
- [CPU for reads, formulas etc is 7.80000687E-02 seconds.]
+ [CPU for reads, formulas etc is 0.29687500 seconds.]
  Elapsed time for reads, formulas etc is: less than one second.
- [CPU for equations is 1.55999660E-02 seconds.]
+ [CPU for equations is 0.10937500 seconds.]
  Elapsed time for equations is: less than one second.
- [CPU for formulas and equations is 9.36000347E-02 seconds.]
+ [CPU for formulas and equations is 0.40625000 seconds.]
  Elapsed time for formulas and equations is: less than one second.
   (There are now 25814 nonzeros in those parts of
     the equations calculated for this step.)
@@ -2788,29 +2842,29 @@
     decomposition".][TopicID:gpd3.13.3]
   (Calculating the LU decomposition reusing pivots.)
   [Calling MA48BG.]
-   [CPU time for MA48B is 4.67998981E-02 seconds.]
+   [CPU time for MA48B is 0.0000000 seconds.]
    Elapsed time for MA48B is: less than one second.
-  [CPU time for LU decomposition is 4.67998981E-02 seconds.]
+  [CPU time for LU decomposition is 4.68750000E-02 seconds.]
   Elapsed time for LU decomposition is: less than one second.
   [CPU time for MA48C/MA28I is 0.0000000 seconds.]
-  [CPU time for solution accuracy check is 1.56000853E-02 seconds.]
+  [CPU time for solution accuracy check is 0.0000000 seconds.]
   (Cumulative solution obtained.)
- [CPU for simulation is 6.23999834E-02 seconds.]
+ [CPU for simulation is 4.68750000E-02 seconds.]
  Elapsed time for simulation is: less than one second.
   
   (Beginning the backsolve after pass 5 of this 5-pass calculation.)
-  [CPU for backsolve is 3.12010050E-02 seconds.]
+  [CPU for backsolve is 0.21875000 seconds.]
   Elapsed time for backsolve is: less than one second.
   
   (Beginning the update after pass 5 of this 5-pass calculation.)
-  [CPU for update is 6.24010563E-02 seconds.]
-  [CPU for step 5 is 0.24960208 seconds.]
+  [CPU for update is 0.59375000 seconds.]
+  [CPU for step 5 is 1.2656250 seconds.]
   Elapsed time for update is: less than one second.
   Elapsed time for step 5 is: less than one second.
  Elapsed time to do after-first-LU-decomp part
-  of this 5-pass calculation is:  1 seconds.
- [CPU for all of this 4-step calculation is 0.84240603 seconds.]
- Elapsed time for all this 4-step calculation is:  1 seconds.
+  of this 5-pass calculation is:  2 seconds.
+ [CPU for all of this 4-step calculation is 3.2812500 seconds.]
+ Elapsed time for all this 4-step calculation is:  2 seconds.
   
   --->  Beginning pass number 1 of 7-pass calculation.
  [CPU for simulation is 0.0000000 seconds.]
@@ -2819,22 +2873,22 @@
   (Beginning the backsolve after pass 1 of this 7-pass calculation.)
   
   (Reading pre-sim values from the current SLC file.)
-  [CPU for backsolve is 6.23998642E-02 seconds.]
+  [CPU for backsolve is 9.37500000E-02 seconds.]
   Elapsed time for backsolve is: less than one second.
   
   (Beginning the update after pass 1 of this 7-pass calculation.)
-  [CPU for update is 3.12000513E-02 seconds.]
-  [CPU for step 1 is 9.35999155E-02 seconds.]
+  [CPU for update is 7.81250000E-02 seconds.]
+  [CPU for step 1 is 0.17187500 seconds.]
   Elapsed time for update is: less than one second.
   Elapsed time for step 1 is: less than one second.
   
   --->  Beginning pass number 2 of 7-pass calculation.
- [CPU for reads, formulas etc is 7.80010223E-02 seconds.]
- Elapsed time for reads, formulas etc is:  1 seconds.
- [CPU for equations is 0.0000000 seconds.]
+ [CPU for reads, formulas etc is 7.81250000E-02 seconds.]
+ Elapsed time for reads, formulas etc is: less than one second.
+ [CPU for equations is 3.12500000E-02 seconds.]
  Elapsed time for equations is: less than one second.
- [CPU for formulas and equations is 7.80010223E-02 seconds.]
- Elapsed time for formulas and equations is:  1 seconds.
+ [CPU for formulas and equations is 0.10937500 seconds.]
+ Elapsed time for formulas and equations is: less than one second.
   (There are now 25814 nonzeros in those parts of
     the equations calculated for this step.)
   
@@ -2857,28 +2911,28 @@
    Elapsed time for MA48B is: less than one second.
   [CPU time for LU decomposition is 0.0000000 seconds.]
   Elapsed time for LU decomposition is: less than one second.
-  [CPU time for MA48C/MA28I is 0.0000000 seconds.]
+  [CPU time for MA48C/MA28I is 4.68750000E-02 seconds.]
   [CPU time for solution accuracy check is 0.0000000 seconds.]
   (Cumulative solution obtained.)
- [CPU for simulation is 0.0000000 seconds.]
+ [CPU for simulation is 4.68750000E-02 seconds.]
  Elapsed time for simulation is: less than one second.
   
   (Beginning the backsolve after pass 2 of this 7-pass calculation.)
-  [CPU for backsolve is 4.68000174E-02 seconds.]
+  [CPU for backsolve is 0.15625000 seconds.]
   Elapsed time for backsolve is: less than one second.
   
   (Beginning the update after pass 2 of this 7-pass calculation.)
-  [CPU for update is 3.11999321E-02 seconds.]
-  [CPU for step 2 is 0.15600097 seconds.]
+  [CPU for update is 7.81250000E-02 seconds.]
+  [CPU for step 2 is 0.39062500 seconds.]
   Elapsed time for update is: less than one second.
-  Elapsed time for step 2 is:  1 seconds.
+  Elapsed time for step 2 is: less than one second.
   
   --->  Beginning pass number 3 of 7-pass calculation.
- [CPU for reads, formulas etc is 4.68001366E-02 seconds.]
+ [CPU for reads, formulas etc is 0.12500000 seconds.]
  Elapsed time for reads, formulas etc is: less than one second.
- [CPU for equations is 1.56009197E-02 seconds.]
+ [CPU for equations is 3.12500000E-02 seconds.]
  Elapsed time for equations is: less than one second.
- [CPU for formulas and equations is 6.24010563E-02 seconds.]
+ [CPU for formulas and equations is 0.15625000 seconds.]
  Elapsed time for formulas and equations is: less than one second.
   (There are now 25814 nonzeros in those parts of
     the equations calculated for this step.)
@@ -2900,31 +2954,31 @@
   [Calling MA48BG.]
    [CPU time for MA48B is 0.0000000 seconds.]
    Elapsed time for MA48B is: less than one second.
-  [CPU time for LU decomposition is 1.55999660E-02 seconds.]
+  [CPU time for LU decomposition is 1.56250000E-02 seconds.]
   Elapsed time for LU decomposition is: less than one second.
-  [CPU time for MA48C/MA28I is 0.0000000 seconds.]
+  [CPU time for MA48C/MA28I is 3.12500000E-02 seconds.]
   [CPU time for solution accuracy check is 0.0000000 seconds.]
   (Cumulative solution obtained.)
- [CPU for simulation is 1.55999660E-02 seconds.]
+ [CPU for simulation is 4.68750000E-02 seconds.]
  Elapsed time for simulation is: less than one second.
   
   (Beginning the backsolve after pass 3 of this 7-pass calculation.)
-  [CPU for backsolve is 4.68000174E-02 seconds.]
+  [CPU for backsolve is 0.18750000 seconds.]
   Elapsed time for backsolve is: less than one second.
   
   (Beginning the update after pass 3 of this 7-pass calculation.)
-  [CPU for update is 3.12000513E-02 seconds.]
-  [CPU for step 3 is 0.15600109 seconds.]
+  [CPU for update is 9.37500000E-02 seconds.]
+  [CPU for step 3 is 0.48437500 seconds.]
   Elapsed time for update is: less than one second.
   Elapsed time for step 3 is: less than one second.
   
   --->  Beginning pass number 4 of 7-pass calculation.
- [CPU for reads, formulas etc is 7.80007839E-02 seconds.]
- Elapsed time for reads, formulas etc is: less than one second.
- [CPU for equations is 1.56002045E-02 seconds.]
+ [CPU for reads, formulas etc is 0.23437500 seconds.]
+ Elapsed time for reads, formulas etc is:  1 seconds.
+ [CPU for equations is 6.25000000E-02 seconds.]
  Elapsed time for equations is: less than one second.
- [CPU for formulas and equations is 9.36009884E-02 seconds.]
- Elapsed time for formulas and equations is: less than one second.
+ [CPU for formulas and equations is 0.29687500 seconds.]
+ Elapsed time for formulas and equations is:  1 seconds.
   (There are now 25814 nonzeros in those parts of
     the equations calculated for this step.)
   
@@ -2943,32 +2997,32 @@
     decomposition".][TopicID:gpd3.13.3]
   (Calculating the LU decomposition reusing pivots.)
   [Calling MA48BG.]
-   [CPU time for MA48B is 4.68001366E-02 seconds.]
+   [CPU time for MA48B is 0.0000000 seconds.]
    Elapsed time for MA48B is: less than one second.
-  [CPU time for LU decomposition is 4.68001366E-02 seconds.]
+  [CPU time for LU decomposition is 0.0000000 seconds.]
   Elapsed time for LU decomposition is: less than one second.
-  [CPU time for MA48C/MA28I is 0.0000000 seconds.]
+  [CPU time for MA48C/MA28I is 4.68750000E-02 seconds.]
   [CPU time for solution accuracy check is 0.0000000 seconds.]
   (Cumulative solution obtained.)
- [CPU for simulation is 4.68001366E-02 seconds.]
+ [CPU for simulation is 6.25000000E-02 seconds.]
  Elapsed time for simulation is: less than one second.
   
   (Beginning the backsolve after pass 4 of this 7-pass calculation.)
-  [CPU for backsolve is 6.23998642E-02 seconds.]
+  [CPU for backsolve is 0.18750000 seconds.]
   Elapsed time for backsolve is: less than one second.
   
   (Beginning the update after pass 4 of this 7-pass calculation.)
-  [CPU for update is 1.55999660E-02 seconds.]
-  [CPU for step 4 is 0.21840096 seconds.]
+  [CPU for update is 7.81250000E-02 seconds.]
+  [CPU for step 4 is 0.62500000 seconds.]
   Elapsed time for update is: less than one second.
-  Elapsed time for step 4 is: less than one second.
+  Elapsed time for step 4 is:  1 seconds.
   
   --->  Beginning pass number 5 of 7-pass calculation.
- [CPU for reads, formulas etc is 6.24010563E-02 seconds.]
+ [CPU for reads, formulas etc is 0.26562500 seconds.]
  Elapsed time for reads, formulas etc is: less than one second.
- [CPU for equations is 0.0000000 seconds.]
+ [CPU for equations is 4.68750000E-02 seconds.]
  Elapsed time for equations is: less than one second.
- [CPU for formulas and equations is 6.24010563E-02 seconds.]
+ [CPU for formulas and equations is 0.32812500 seconds.]
  Elapsed time for formulas and equations is: less than one second.
   (There are now 25814 nonzeros in those parts of
     the equations calculated for this step.)
@@ -2988,32 +3042,32 @@
     decomposition".][TopicID:gpd3.13.3]
   (Calculating the LU decomposition reusing pivots.)
   [Calling MA48BG.]
-   [CPU time for MA48B is 0.0000000 seconds.]
+   [CPU time for MA48B is 3.12500000E-02 seconds.]
    Elapsed time for MA48B is: less than one second.
-  [CPU time for LU decomposition is 0.0000000 seconds.]
+  [CPU time for LU decomposition is 3.12500000E-02 seconds.]
   Elapsed time for LU decomposition is: less than one second.
   [CPU time for MA48C/MA28I is 0.0000000 seconds.]
   [CPU time for solution accuracy check is 0.0000000 seconds.]
   (Cumulative solution obtained.)
- [CPU for simulation is 1.55999660E-02 seconds.]
+ [CPU for simulation is 7.81250000E-02 seconds.]
  Elapsed time for simulation is: less than one second.
   
   (Beginning the backsolve after pass 5 of this 7-pass calculation.)
-  [CPU for backsolve is 3.11999321E-02 seconds.]
+  [CPU for backsolve is 0.17187500 seconds.]
   Elapsed time for backsolve is: less than one second.
   
   (Beginning the update after pass 5 of this 7-pass calculation.)
-  [CPU for update is 3.12001705E-02 seconds.]
-  [CPU for step 5 is 0.14040112 seconds.]
+  [CPU for update is 0.10937500 seconds.]
+  [CPU for step 5 is 0.68750000 seconds.]
   Elapsed time for update is: less than one second.
   Elapsed time for step 5 is: less than one second.
   
   --->  Beginning pass number 6 of 7-pass calculation.
- [CPU for reads, formulas etc is 4.67998981E-02 seconds.]
+ [CPU for reads, formulas etc is 0.25000000 seconds.]
  Elapsed time for reads, formulas etc is: less than one second.
- [CPU for equations is 1.55999660E-02 seconds.]
+ [CPU for equations is 9.37500000E-02 seconds.]
  Elapsed time for equations is: less than one second.
- [CPU for formulas and equations is 6.23998642E-02 seconds.]
+ [CPU for formulas and equations is 0.34375000 seconds.]
  Elapsed time for formulas and equations is: less than one second.
   (There are now 25814 nonzeros in those parts of
     the equations calculated for this step.)
@@ -3035,30 +3089,30 @@
   [Calling MA48BG.]
    [CPU time for MA48B is 0.0000000 seconds.]
    Elapsed time for MA48B is: less than one second.
-  [CPU time for LU decomposition is 1.55999660E-02 seconds.]
+  [CPU time for LU decomposition is 3.12500000E-02 seconds.]
   Elapsed time for LU decomposition is: less than one second.
-  [CPU time for MA48C/MA28I is 0.0000000 seconds.]
+  [CPU time for MA48C/MA28I is 3.12500000E-02 seconds.]
   [CPU time for solution accuracy check is 0.0000000 seconds.]
   (Cumulative solution obtained.)
- [CPU for simulation is 1.55999660E-02 seconds.]
+ [CPU for simulation is 6.25000000E-02 seconds.]
  Elapsed time for simulation is: less than one second.
   
   (Beginning the backsolve after pass 6 of this 7-pass calculation.)
-  [CPU for backsolve is 3.12011242E-02 seconds.]
+  [CPU for backsolve is 0.17187500 seconds.]
   Elapsed time for backsolve is: less than one second.
   
   (Beginning the update after pass 6 of this 7-pass calculation.)
-  [CPU for update is 3.11999321E-02 seconds.]
-  [CPU for step 6 is 0.14040089 seconds.]
+  [CPU for update is 0.12500000 seconds.]
+  [CPU for step 6 is 0.70312500 seconds.]
   Elapsed time for update is: less than one second.
   Elapsed time for step 6 is: less than one second.
   
   --->  Beginning pass number 7 of 7-pass calculation.
- [CPU for reads, formulas etc is 4.68001366E-02 seconds.]
+ [CPU for reads, formulas etc is 0.28125000 seconds.]
  Elapsed time for reads, formulas etc is: less than one second.
- [CPU for equations is 1.55997276E-02 seconds.]
+ [CPU for equations is 6.25000000E-02 seconds.]
  Elapsed time for equations is: less than one second.
- [CPU for formulas and equations is 6.23998642E-02 seconds.]
+ [CPU for formulas and equations is 0.34375000 seconds.]
  Elapsed time for formulas and equations is: less than one second.
   (There are now 25814 nonzeros in those parts of
     the equations calculated for this step.)
@@ -3082,25 +3136,25 @@
    Elapsed time for MA48B is: less than one second.
   [CPU time for LU decomposition is 0.0000000 seconds.]
   Elapsed time for LU decomposition is: less than one second.
-  [CPU time for MA48C/MA28I is 1.56002045E-02 seconds.]
+  [CPU time for MA48C/MA28I is 0.0000000 seconds.]
   [CPU time for solution accuracy check is 0.0000000 seconds.]
   (Cumulative solution obtained.)
- [CPU for simulation is 1.56002045E-02 seconds.]
+ [CPU for simulation is 3.12500000E-02 seconds.]
  Elapsed time for simulation is: less than one second.
   
   (Beginning the backsolve after pass 7 of this 7-pass calculation.)
-  [CPU for backsolve is 3.12008858E-02 seconds.]
-  Elapsed time for backsolve is: less than one second.
+  [CPU for backsolve is 0.12500000 seconds.]
+  Elapsed time for backsolve is:  1 seconds.
   
   (Beginning the update after pass 7 of this 7-pass calculation.)
-  [CPU for update is 4.68001366E-02 seconds.]
-  [CPU for step 7 is 0.15600109 seconds.]
-  Elapsed time for update is: less than one second.
-  Elapsed time for step 7 is: less than one second.
+  [CPU for update is 0.23437500 seconds.]
+  [CPU for step 7 is 0.73437500 seconds.]
+  Elapsed time for update is:  1 seconds.
+  Elapsed time for step 7 is:  1 seconds.
  Elapsed time to do after-first-LU-decomp part
-  of this 7-pass calculation is:  1 seconds.
- [CPU for all of this 6-step calculation is 1.0608060 seconds.]
- Elapsed time for all this 6-step calculation is:  1 seconds.
+  of this 7-pass calculation is:  3 seconds.
+ [CPU for all of this 6-step calculation is 3.8437500 seconds.]
+ Elapsed time for all this 6-step calculation is:  3 seconds.
   
   ---> Beginning the extrapolation.
   
@@ -3152,11 +3206,14 @@
  [Deallocated MMNZ memory before TGCMST call (TGGSBS1).]
   
   (Final cumulative solution written to Solution file.)
- [CPU for extrapolation is 1.56009197E-02 seconds.]
- Elapsed time for extrapolation is: less than one second.
+ [CPU for extrapolation is 1.56250000E-02 seconds.]
+ Elapsed time for extrapolation is:  1 seconds.
   
   (Beginning the update after the extrapolation.)
- (Opened, for writing, header file 'htest.upd'.)
+ (Opened, for writing, header file
+  
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\htest.upd'.)
  (Written real array, size 30x2x30, header "1BAS".)
  (Written real array, size 30x2x30, header "2BAS".)
  (Written real array, size 30x2, header "3BAS".)
@@ -3267,7 +3324,10 @@
   [On this pass, do all reads and formulas, starting from the updated data.
    This finds the post-simulation values of all Coefficients.]
   
- (Opened, as header, existing file 'htest.upd'.)
+ (Opened, as header, existing file
+  
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\htest.upd'.)
  Reading 'V1BAS'
  (Read real array, size 30x2x30, header "1BAS".)
  Reading 'V2BAS'
@@ -3363,12 +3423,18 @@
   Formula for 'V3TOT'
   Formula for 'S3_S'
   Formula for 'EPSTOT'
- (Opened, as header, existing file 'htest-GPXXX3.ud8'.)
+ (Opened, as header, existing file
+  
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\htest-GPXXX3.ud8'.)
  Reading 'EPS'
  (Read real array, size 30, header "  32".)
   Formula for 'B3LUX'
   Formula for 'S3LUX'
- (Opened, as header, existing file 'htest.upd'.)
+ (Opened, as header, existing file
+  
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\htest.upd'.)
  Reading 'IsIndivExp'
  (Read real array, size 30, header "ITEX".)
  Reading 'EXP_ELAST'
@@ -3376,7 +3442,10 @@
   Formula for 'V4NTRADEXP'
  Reading 'EXP_ELAST_NT'
  (Read real array, size 1, header "EXNT".)
- (Opened, as header, existing file 'htest-GPXXX3.ud8'.)
+ (Opened, as header, existing file
+  
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\htest-GPXXX3.ud8'.)
  Reading 'LEVP0'
  (Read real array, size 30x2, header "  36".)
   Formula for 'MARSALES'
@@ -3494,7 +3563,10 @@
   Formula for 'V6BAS_S'
   Formula for 'TARFRATE'
   Formula for 'INV_RENT'
- (Opened, as header, existing file 'htest.upd'.)
+ (Opened, as header, existing file
+  
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\htest.upd'.)
  Reading 'IsLocCom'
  (Read real array, size 30, header "LCOM".)
  Reading 'REGSHR1'
@@ -3537,7 +3609,10 @@
   Formula for 'SHRPRIM'
   Formula for 'LQ'
   Formula for 'LQ'
- (Opened, as header, existing file 'htest-GPXXX3.ud8'.)
+ (Opened, as header, existing file
+  
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\htest-GPXXX3.ud8'.)
  Reading 'RATPRIM'
  (Read real array, size 19, header "  48".)
  Reading 'RATEMP'
@@ -3550,8 +3625,8 @@
   Formula for 'WGTSHR4'
   Formula for 'WGTSHR5'
   Formula for 'WGTSHR6'
- [CPU for reads, formulas etc is 3.12001705E-02 seconds.]
- Elapsed time for reads, formulas etc is: less than one second.
+ [CPU for reads, formulas etc is 9.37500000E-02 seconds.]
+ Elapsed time for reads, formulas etc is:  1 seconds.
   
   (Writing the Solution Coefficients (SLC) file.)
   
@@ -3568,7 +3643,7 @@
    [Set has size 2.]
  Set 'CHNG'
    [Set has size 4.]
- [CPU for reads, formulas etc is 0.0000000 seconds.]
+ [CPU for reads, formulas etc is 3.12500000E-02 seconds.]
  Elapsed time for reads, formulas etc is: less than one second.
   
   --->  Beginning pass number 3 of 3-pass calculation.
@@ -3577,7 +3652,10 @@
    in the PostSim part of the TAB file.]
   
   Formula for 'fanrank'
- (Opened, for writing, header file 'summary.har'.)
+ (Opened, for writing, header file
+  
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\summary.har'.)
  Writing 'fanrank'
  (Written real array, size 30x4, header "FRNK".)
   Formula for 'TRADEPRESSRE'
@@ -3591,16 +3669,19 @@
   Formula for 'TAXVAL'
  Writing 'TAXVAL'
  (Written real array, size 8x4, header "TAXV".)
- [CPU for reads, formulas etc is 1.55999660E-02 seconds.]
+ [CPU for reads, formulas etc is 1.56250000E-02 seconds.]
  Elapsed time for reads, formulas etc is: less than one second.
   
   (Completing the Solution Coefficients (SLC) file.)
   
   [Finished the Post-sim Job.]
   
- (Opened, as header, existing file 'htest-suifil.ud0'.)
+ (Opened, as header, existing file
+  
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\htest-suifil.ud0'.)
   [Deleted temporary SUIFIL "htest-suifil.ud0".]
-  [Total CPU is 2.7612171 seconds.]
+  [Total CPU is 10.515625 seconds.]
   
   (Minimum values for successful completion seem to be:
     MMNZ=51628, MMNZ1=51628, MMNZ2=51628.)
@@ -3625,14 +3706,22 @@
   
   Maximum residual ratio across whole simulation is 2.00559299E-07
   
- (Solution file is 'htest.sl4'.)
- (Opened, as binary, existing file 'htest.cdk'.)
+ (Solution file is
+  
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\htest.sl4'.)
+ (Opened, as binary, existing file
+  
+  'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\htest.cdk'.)
   
   (Inputs have been taken from the Command file
-  'C:\Users\jllg\FINAGE_database_notebook\FINAL\oranig2013\htest.CMF')
+  '
+ C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+ tilinpito - Documents\General\koodi\alta\oranig2013\htest.CMF')
   
   (The program has completed without error.)
-  Total elapsed time is:  4 seconds.
+  Total elapsed time is: 13 seconds.
   
   
-  This run ended at 14:17:15 on 22-AUG-2018
+  This run ended at 11:12:04 on 17-OCT-2018

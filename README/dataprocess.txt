@@ -116,7 +116,7 @@ Note that to be recocnised as mapping, also long_name have to speficified the ma
 
 2.Aggregate national data to regional level (IND and COM dimensions)
 ####################################################################
-Run AGG64to30.bat
+CGE_regional_extension.ipyr runs aggregation with hwf.aggHAR() (previosly AGG64to30.bat) 
 - Output: basedata30.har
 
 This step uses the aggsup.har file created earlier in Step 1.
@@ -247,7 +247,7 @@ ylijäämiä siirretään) sekä kaikkiin V2-alkuisiin virtoihin.
 
 8. Create data for government accounts
 ######################################
-Run CGE_government_accounts.ipynb
+Run CGE_data_base_government_accounts.ipynb
 -Output: govdata.har, govextra.har, govsecsplit.har
 
 (VATT_mallien_data_seloste kohta 6.)

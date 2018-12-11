@@ -23,18 +23,19 @@
     +++  INFORMATION ABOUT THIS PRINT FILE  +++
    
  
- ! This file was created at 14:17:08 on 22-AUG-2018 by the program
+ ! This file was created at 11:11:42 on 17-OCT-2018 by the program
  !  <TABLO  Version 6.5   January 2016>
  ! which accesses some of the routines in the GEMPACK software release
  !  <GEMPACK Release 11.4.004   October 2016>
  
  !     -------------------------------------------------------                
  !    !            GEMPACK Software System Licence            !               
- !    !  Source Code Licence for the GEMPACK Software System  !               
- !    !                 Licence No.  GFM-1529                 !               
- !    !          Licence for Release 11.4 of GEMPACK          !               
- !    !       National Institute for Health and Welfare       !               
- !    !    (Your GEMPACK licence expires on 30-NOV-2018.)     !               
+ !    !  Unlimited Size Executable-image Licence for GEMPACK  !               
+ !    !                 Licence No.  GEU-1600                 !               
+ !    !          Licence for Release 12.0 of GEMPACK          !               
+ !    !            Pellervo Economic Research PTT             !               
+ !    !                    Course Licence                     !               
+ !    !    (Your GEMPACK licence expires on 31-MAR-2019.)     !               
  !     -------------------------------------------------------                
     
 
@@ -56,7 +57,7 @@
       INTERACTIVE
       BATCH
   --> UNSPECIFIED
-
+ 
 
  ==================================================
  ++> TABLO Input file is 'ORANIG.tab'
@@ -9908,7 +9909,10 @@ SSNO=16. Set 33 "NONMARLOCCOM" is subset of set 28 "LOCCOM"
  
  MXGSOP = 249, MXGSIN = 523.
  MXGSRC = 2, MXGSNS=3.
- ! (Model Information file is 'ORANIG.min'.)
+ ! (Model Information file is
+ 
+! 'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
+!tilinpito - Documents\General\koodi\alta\oranig2013\ORANIG.min'.)
  
  *******************************************************************
  Successful completion of TABLO.
