@@ -39,9 +39,6 @@ goto STAGE2
 :norepeat
 call rnPremod
 
-copy premod.har ..\hardata\premod.har
-copy aggsupp.har ..\hardata\aggsuppVERM.har
-
 :STAGE3
 call rnChkmdA
 call rnPreagg

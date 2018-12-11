@@ -3,7 +3,7 @@ check-on-read all = warn;
 assertions = yes; ! temp only 
 log file = yes;
 ! input files 
-File Infile = baseDataNEW.har;  ! ORANIG03 input data with ORES regional shares 
+File Infile = national.har;  ! ORANIG03 input data with ORES regional shares 
 ! output files
 File Outfile = init.har;     ! reformatted national database  
 File DumSupp = dumsupp.har;  ! dummy example file of needed extra regional data 
