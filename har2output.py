@@ -22,8 +22,10 @@ class supplyTable:
         DataFrame for make matrix 
     """
     def __init__(self, make):
-        self.table = make           # should other parts
         self.VT = np.matrix(make)
+        self.q = self.VT.sum(axis=1)
+        self.gt = self.VT.sum(axis=0)
+        self.table = pd.concat([make.reset_index(drop=True), pd.DataFrame(self.q, column = "Total_output")], axis=1)          # should other parts
 
 
 class regSupplyTables:
