@@ -25,8 +25,9 @@ class supplyTable:
         self.VT = np.matrix(make)
         self.q = self.VT.sum(axis=1)
         self.gt = self.VT.sum(axis=0)
-        self.table = pd.concat([make.reset_index(drop=True), pd.DataFrame(self.q, column = "Total_output")], axis=1)          # should other parts
-
+        self.table = make
+        self.table["Total_output"] = self.table.sum(axis=1)  # colsum
+        self.table.loc["Products_total"] = self.table.sum() # rowsum
 
 class regSupplyTables:
     """
