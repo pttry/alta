@@ -69,16 +69,24 @@ class useTable:
     Parameters
     ----------
     use : Datarame
-        DataFrame for a domestic use matrix including final use
-    labour 1LAB
-    capital 1CAP
-    land 1LND
-    taxes on production 1PTX
+        DataFrame for a use matrix 
+    final : DataFrame
+        DataFrame for a final use matrix
+    va : DataFrame
+        DataFrame for a value added matrix
+        labour 1LAB
+        capital 1CAP
+        land 1LND
+        taxes on production 1PTX
     """
-    def __init__(self, use, va_labour, va_capital, va_land):
+    def __init__(self, use, final, va):
+        self.use = np.matrix(use)
+        self.final = np.matrix(final)
+        self.va = np.matrix(va)
         self.table = use
-        self.table = pd.concat([self.table, va_labour])
-        self.table = self.table[use.columns.tolist()]                     # Order to original
+        self.table = pd.concat([use, va])
+        self.table = pd.concat([self.table, final], axis = 1)
+        # self.table = self.table[use.columns.tolist()]                     # Order to original
 
 
 class regUseTables:
@@ -91,16 +99,22 @@ class regUseTables:
         A USE object for a har-file
     """
     def __init__(self, use_obj, va_labour_obj, va_capital_obj, va_land_obj):
-        self.ar = use_obj["array"][:,0,:,:]
+        self.use = use_obj["array"][:,0,0:len(va_labour_obj["sets"][0]["dim_desc"]),:]
+        self.final = use_obj["array"][:,0,len(va_labour_obj["sets"][0]["dim_desc"]):,:]
         self.dims = {k["name"]: k["dim_desc"] for k in use_obj["sets"]}
+        self.dims.update({"IND": va_labour_obj["sets"][0]["dim_desc"]})
         self.va_labour = pd.DataFrame(va_labour_obj["array"].sum(axis = 1),
                                          index = self.dims["USR"][0:len(self.dims["COM"])])
         self.tables = {self.dims["DST"][i]: \
-                       useTable(use = pd.DataFrame(self.ar[:,:,i], \
-                                    columns = self.dims["USR"], index = self.dims["COM"]),\
-                                va_labour = self.va_labour[[i]].transpose(),\
-                                va_capital = va_capital_obj,\
-                                va_land = va_land_obj)\
+                       useTable(use = pd.DataFrame(self.use[:,:,i], \
+                                    columns = self.dims["IND"], index = self.dims["COM"]),\
+                                final =  pd.DataFrame(self.final[:,:,i], \
+                                    columns = self.dims["USR"][len(self.use[:,1,i]):], index = self.dims["COM"]),\
+                                va = pd.DataFrame(\
+                                    {va_labour_obj["coeff_name"].strip(): va_labour_obj["array"].sum(axis = 1)[:,i],\
+                                     va_capital_obj["coeff_name"].strip(): va_capital_obj["array"][:,i],\
+                                     va_land_obj["coeff_name"].strip(): va_land_obj["array"][:,i]},\
+                                     index=self.dims["IND"]).transpose())\
                         for i in range(len(self.dims["DST"]))}
 
     def to_excel(self, file):
