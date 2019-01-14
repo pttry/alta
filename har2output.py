@@ -124,10 +124,26 @@ class regUseTables:
         writer.save()
 
 
-# premod = harpy.HarFileObj.loadFromDisk("TERM/premod.har")
-# use_obj = premod.getHeaderArrayObj("BSMR")
-# va_labour_obj = premod.getHeaderArrayObj("1LAB")
-# va_capital_obj = premod.getHeaderArrayObj("1CAP")
-# va_land_obj = premod.getHeaderArrayObj("1LND")
-# reg_use = regUseTables(use_obj, va_labour_obj, va_capital_obj, va_land_obj)
-# print(reg_use.tables["Uusimaa"].table)
+class ioTable:
+    """
+    A class to hold an input-ouput  table
+
+    Parameters
+    ----------
+    B : Datarame
+        DataFrame for a intermediates matrix 
+    F : DataFrame
+        DataFrame for a final use matrix
+    W : DataFrame
+        DataFrame for a value added matrix
+
+    """
+    def __init__(self, B, F, W):
+        self.B = np.matrix(B)
+        self.F = np.matrix(F)
+        self.W = np.matrix(W)
+        self.table = B
+        self.table = pd.concat([B, W])
+        self.table = pd.concat([self.table, F], axis = 1)
+        self.table = self.table.loc[B.index.tolist() + W.index.tolist(), :]   # to original order
+
