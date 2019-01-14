@@ -124,10 +124,10 @@ class regUseTables:
         writer.save()
 
 
-premod = harpy.HarFileObj.loadFromDisk("TERM/premod.har")
-use_obj = premod.getHeaderArrayObj("BSMR")
-va_labour_obj = premod.getHeaderArrayObj("1LAB")
-va_capital_obj = premod.getHeaderArrayObj("1CAP")
-va_land_obj = premod.getHeaderArrayObj("1LND")
-reg_use = regUseTables(use_obj, va_labour_obj, va_capital_obj, va_land_obj)
-print(reg_use.tables["Uusimaa"].table)
+# premod = harpy.HarFileObj.loadFromDisk("TERM/premod.har")
+# use_obj = premod.getHeaderArrayObj("BSMR")
+# va_labour_obj = premod.getHeaderArrayObj("1LAB")
+# va_capital_obj = premod.getHeaderArrayObj("1CAP")
+# va_land_obj = premod.getHeaderArrayObj("1LND")
+# reg_use = regUseTables(use_obj, va_labour_obj, va_capital_obj, va_land_obj)
+# print(reg_use.tables["Uusimaa"].table)
