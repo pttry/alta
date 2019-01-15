@@ -12,7 +12,7 @@ import numpy as np
 import har2output as ho
 
 import importlib
-importlib.reload(ho)
+# importlib.reload(ho)
 
 # import data
 
@@ -21,12 +21,8 @@ cleanData = pickle.load(open(inter_folder+"/cleanData.p", "rb" ))
 table_dims = pickle.load(open(inter_folder+"/table_dims.p", "rb" ))  
 
 
-cleanData["supplytable_BP"].loc[table_dims["COM"]:table_dims["IND"]]
-table_dims.keys()
 
-list(cleanData["usetable_BP"])
 
-type(table_dims["IND"])
 sup_tab = ho.supplyTable(make = cleanData["supplytable_BP"].loc[table_dims["COM"], table_dims["IND"]], \
                          use_imp = cleanData["supplytable_BP"].loc[:,"P7R_CIF"])
 
