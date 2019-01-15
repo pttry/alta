@@ -30,8 +30,14 @@ use_tab = ho.useTable(use = cleanData["usetable_BP"].loc[table_dims["COM"], tabl
                     final = cleanData["usetable_BP"].loc[table_dims["COM"], table_dims["finUse"]], \
                     va = cleanData["usetable_BP"].loc[table_dims["valAdd"], table_dims["IND"]])
 
+use_imp_tab = ho.useTable(use = cleanData["usetable_Imp_BP"].loc[table_dims["COM"], table_dims["IND"]], \
+                    final = cleanData["usetable_Imp_BP"].loc[table_dims["COM"], table_dims["finUse"]], \
+                    va = cleanData["usetable_Imp_BP"].loc[table_dims["valAdd"], table_dims["IND"]])
+
+
+
 # B = T * U = V * inv(diag(q)) * U
-B = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.use  
+B = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * (use_tab.use - use_imp_tab.use)
 # F = T * Y = V * inv(diag(q)) * Y
 F = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.final
 
