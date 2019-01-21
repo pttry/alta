@@ -39,7 +39,7 @@ use_imp_tab = ho.useTable(use = cleanData["usetable_Imp_BP"].loc[table_dims["COM
 # B = T * U = V * inv(diag(q)) * U
 B = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * (use_tab.use - use_imp_tab.use)
 # F = T * Y = V * inv(diag(q)) * Y
-F = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.final
+F = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * (use_tab.final - use_imp_tab.final)
 
 io_tab = ho.ioTable(B = pd.DataFrame(B, index=table_dims["IND"], columns=table_dims["IND"]), \
                     F = pd.DataFrame(F, index=table_dims["IND"], columns=table_dims["finUse"]),\

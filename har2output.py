@@ -86,7 +86,7 @@ class useTable:
         self.table = use
         self.table = pd.concat([use, va])
         self.table = pd.concat([self.table, final], axis = 1)
-        # self.table = self.table[use.columns.tolist()]                     # Order to original
+        self.table = self.table.loc[use.index.tolist() + final.index.tolist(), use.columns.tolist() + va.columns.tolist()]   # to original order
 
 
 class regUseTables:
@@ -145,5 +145,5 @@ class ioTable:
         self.table = B
         self.table = pd.concat([B, W])
         self.table = pd.concat([self.table, F], axis = 1)
-        self.table = self.table.loc[B.index.tolist() + W.index.tolist(), :]   # to original order
+        self.table = self.table.loc[B.index.tolist() + W.index.tolist(), B.columns.tolist() + F.columns.tolist()]   # to original order
 
