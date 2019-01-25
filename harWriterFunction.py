@@ -118,3 +118,36 @@ def aggHAR(har_dir, old, new, sup):
     else:
         print("OK")
 
+def mergeHAR(har_dir, har1, har2, new):
+    """
+    Combine har1 (basedata30) and har2 (regExtension) into a single file new (basedata)
+    with mergehar executable.
+    The mergehar.exe is part of BUNDLE16 available from:
+    http://www.copsmodels.com/gpmark9.htm
+
+
+mergehar hardata\basedata30.har hardata\regExtension.har hardata\basedata.har YY1
+
+    Parameters
+    ----------
+    har_dir : str
+        Folder of HAR-files
+    har1 : str
+        A first HAR-file 
+    har2 : str
+        a second HAR-file
+    new : str
+        A merged HAR-file 
+
+    """
+    try:
+        os.remove(os.path.join(har_dir, new)) 
+    except OSError:
+        pass
+    
+    p = subprocess.Popen(["mergehar", har1, har2, new, "YY1"], cwd=har_dir, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    out, err =  p.communicate()
+    if p.returncode != 0:
+        print(out)
+    else:
+        print("OK")
