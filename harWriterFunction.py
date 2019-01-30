@@ -126,8 +126,6 @@ def mergeHAR(har_dir, har1, har2, new):
     http://www.copsmodels.com/gpmark9.htm
 
 
-mergehar hardata\basedata30.har hardata\regExtension.har hardata\basedata.har YY1
-
     Parameters
     ----------
     har_dir : str
@@ -146,6 +144,43 @@ mergehar hardata\basedata30.har hardata\regExtension.har hardata\basedata.har YY
         pass
     
     p = subprocess.Popen(["mergehar", har1, har2, new, "YY1"], cwd=har_dir, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    out, err =  p.communicate()
+    if p.returncode != 0:
+        print(out)
+    else:
+        print("OK")
+
+
+def govgeneric():
+    """
+    Run govgeneric2.bat
+    bat is as govgeneric.bat, but without a pause
+
+    Parameters
+    ----------
+
+
+    """
+    
+    p = subprocess.Popen(["govgeneric2.bat"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    out, err =  p.communicate()
+    if p.returncode != 0:
+        print(out)
+    else:
+        print("OK")
+
+def mkdata2():
+    """
+    Run mkdata2.bat
+    bat is as mkdata.bat, but without a pause
+
+    Parameters
+    ----------
+
+
+    """
+    
+    p = subprocess.Popen(["mkdata2.bat"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     out, err =  p.communicate()
     if p.returncode != 0:
         print(out)
