@@ -11,8 +11,8 @@ import numpy as np
 import har2output as ho
 import os
 
-# import importlib
-# importlib.reload(ho)
+import importlib
+importlib.reload(ho)
 
 import harpy
 

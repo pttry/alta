@@ -85,8 +85,9 @@ class useTable:
         land 1LND
         taxes on production 1PTX
     """
-    def __init__(self, use, va):
-        self.U = np.matrix(use)
+    def __init__(self, use, use_dom, va):
+        self.U = np.matrix(use[va.columns.tolist()])
+        self.U_dom = np.matrix(use_dom[va.columns.tolist()])
         # self.final = np.matrix(final)
         self.va = np.matrix(va)
         self.table = use
@@ -115,6 +116,8 @@ class regUseTables:
     va_capital_obj : HarFileObj
         object from a har-file
     va_land_obj : HarFileObj
+        object from a har-file
+
 
     """
 
@@ -136,6 +139,17 @@ class regUseTables:
             exp_dom = np.delete(trade_obj["array"][:,0,0,:], i, axis=1).sum(axis = 1)
             use_dp["Export_domestic"] = exp_dom
             return use_dp
+
+        def calc_use_bp_dom(i, use_obj, trade_obj, tradmar_obj, suppmar_obj):
+            use_dp = pd.DataFrame(use_obj["array"][:,0,:,i], columns=use_obj["sets"][2]["dim_desc"], index=use_obj["sets"][0]["dim_desc"]) 
+            suppmar = pd.DataFrame(suppmar_obj["array"][:,0,:,i].sum(axis = 1), columns=["Suppy_margin"], index=suppmar_obj["sets"][0]["dim_desc"]) 
+            tradmar = pd.DataFrame(tradmar_obj["array"][:,:,:,:,i].sum(axis = (1,2,3)), columns=["Trade_margin"], index = tradmar_obj["sets"][0]["dim_desc"]) 
+            margin = pd.DataFrame(pd.concat([tradmar, suppmar], axis=1)).fillna(0) 
+            margin["Margins"] = margin["Trade_margin"] - margin["Suppy_margin"] 
+            use_dp = use_dp - use_dp.div(use_dp.sum(axis=1), axis = "rows").mul(margin["Margins"], axis = "rows") 
+            exp_dom = np.delete(trade_obj["array"][:,0,0,:], i, axis=1).sum(axis = 1)
+            use_dp["Export_domestic"] = exp_dom
+            return use_dp
                               
         self.tables = {self.dims["DST"][i]: \
                         useTable(use = calc_use_bp(i, use_obj, trade_obj, tradmar_obj, suppmar_obj),\
@@ -145,7 +159,8 @@ class regUseTables:
                                     {va_labour_obj["coeff_name"].strip(): va_labour_obj["array"].sum(axis = 1)[:,i],\
                                      va_capital_obj["coeff_name"].strip(): va_capital_obj["array"][:,i],\
                                      va_land_obj["coeff_name"].strip(): va_land_obj["array"][:,i]},\
-                                     index=self.dims["IND"]).transpose())\
+                                     index=self.dims["IND"]).transpose(),\
+                                use_dom = calc_use_bp_dom(i, use_obj, trade_obj, tradmar_obj, suppmar_obj))\
                         for i in range(len(self.dims["DST"]))}
 
     def to_excel(self, file):
@@ -177,4 +192,11 @@ class ioTable:
         self.table = pd.concat([B, W])
         self.table = pd.concat([self.table, F], axis = 1)
         self.table = self.table.loc[B.index.tolist() + W.index.tolist(), B.columns.tolist() + F.columns.tolist()]   # to original order
+
+    def build(sup_tab, use_tab):
+        # B = T * U = V * inv(diag(q)) * U
+        B = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.use_dom
+        # F = T * Y = V * inv(diag(q)) * Y
+        F = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.use_dom
+        W = use_tab.va    
 
