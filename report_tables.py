@@ -11,8 +11,8 @@ import numpy as np
 import har2output as ho
 import os
 
-import importlib
-
+# import importlib
+# importlib.reload(ho)
 
 import harpy
 
@@ -39,23 +39,58 @@ suppmar_obj = premod.getHeaderArrayObj("MARS")
 
 
 # regional tables
-reg_use = ho.regUseTables(use_obj, va_labour_obj, va_capital_obj, va_land_obj)
-reg_supp = ho.regSupplyTables(make_obj, use_obj)
 
+reg_supp = ho.regSupplyTables(make_obj, trade_obj)
+reg_use = ho.regUseTables(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj)
+
+# Write to excel
+reg_supp.to_excel(file = "outdata/test_supp2014.xlsx")
+reg_use.to_excel(file = "outdata/test_use2014.xlsx")
+
+
+
+"""  OLD CALCULATIONS 
+
+# New supply
 u_make = pd.DataFrame(make_obj["array"][:,:,0], index=trade_obj["sets"][0]["dim_desc"])
 u_imp_dom = pd.DataFrame(trade_obj["array"][:,0,1:,0].sum(axis = 1), columns = ["Imports_domestic"], index=trade_obj["sets"][0]["dim_desc"])
 u_imp_ext = pd.DataFrame(trade_obj["array"][:,1,:,0].sum(axis = 1), columns = ["Imports_external"], index=trade_obj["sets"][0]["dim_desc"])
 u_imp = pd.concat([u_imp_dom, u_imp_ext], axis=1)
 
-
-importlib.reload(ho)
-
 su = ho.supplyTable(u_make, u_imp)
+
+
+
+
+
+
+reg_use.tables["Uusimaa"].table
+reg_supp.tables["Uusimaa"].table
+
+
+
+
+u_use = pd.DataFrame(use_obj["array"][:,:,:,0].sum(axis = 1), columns=use_obj["sets"][2]["dim_desc"], index=use_obj["sets"][0]["dim_desc"])
+u_suppmar = pd.DataFrame(suppmar_obj["array"][:,:,:,0].sum(axis = (1,2)), columns=["Suppy_margin"], index=suppmar_obj["sets"][0]["dim_desc"])
+u_tradmar = pd.DataFrame(tradmar_obj["array"][:,:,:,:,0].sum(axis = (1,2,3)), columns=["Trade_margin"], index = tradmar_obj["sets"][0]["dim_desc"])
+u_margin = pd.DataFrame(pd.concat([u_tradmar, u_suppmar], axis=1)).fillna(0)
+u_margin["Margins"] = u_margin["Trade_margin"] -u_margin["Suppy_margin"]
+u_use_bp = u_use - u_use.div(u_use.sum(axis=1), axis = "rows").mul(u_margin["Margins"], axis = "rows")
+u_exp_dom = pd.DataFrame(trade_obj["array"][:,0,0,1:].sum(axis = 1), columns=["Export_domestic"], index = tradmar_obj["sets"][0]["dim_desc"])
+
+pd.DataFrame(np.delete(trade_obj["array"][:,0,0,:], 0, axis=1).sum(axis = 1), columns=["Export_domestic"], index = tradmar_obj["sets"][0]["dim_desc"])
+
+u_use.sum(axis=1)
+u_use_bp.sum(axis=1)
 
 su.table
 
-trade_obj["sets"][0]["dim_desc"]
-trade_obj.getNames
+# domestic uusimaa
+use_obj["array"][:,0,:,0].sum() + suppmar_obj["array"][:,:,:,0].sum() - tradmar_obj["array"][:,0,:,:,0].sum() + trade_obj["array"][:,0,0,1:].sum() 
+make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum()
+
+# total uusimaa
+use_obj["array"][:,:,:,0].sum() - (tradmar_obj["array"][:,:,:,:,0].sum() + suppmar_obj["array"][:,:,:,0].sum()) + trade_obj["array"][:,0,0,1:].sum() 
 make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum() + trade_obj["array"][:,1,:,0].sum()
 
 
@@ -142,8 +177,5 @@ pd.DataFrame(make_obj["array"][:,:,0]).to_excel(writer, sheet_name="make")
 pd.DataFrame(trade_obj["array"][:,0,0,:]).to_excel(writer, sheet_name="trade")
 writer.save()
 
+"""
 
-
-# Write to excel
-reg_supp.to_excel(file = "outdata/test2014.xlsx")
-reg_use.to_excel(file = "outdata/test_use2014.xlsx")

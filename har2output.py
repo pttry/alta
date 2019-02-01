@@ -41,17 +41,23 @@ class regSupplyTables:
     ----------
     make_obj : HarFileObj
         A MAKE object from a har-file 
-    use_obj : HarFileObj
-        A USE object for a har-file
+    trade_obj : HarFileObj
+        A TRADE object for a har-file
     """
-    def __init__(self, make_obj, use_obj):
+    def __init__(self, make_obj, trade_obj):
+        
+        def calc_imp(i, trade_obj):
+            imp_dom = pd.DataFrame(np.delete(trade_obj["array"][:,0,:,0],i, axis = 1).sum(axis = 1), columns = ["Imports_domestic"], index=trade_obj["sets"][0]["dim_desc"])
+            imp_ext = pd.DataFrame(trade_obj["array"][:,1,:,i].sum(axis = 1), columns = ["Imports_external"], index=trade_obj["sets"][0]["dim_desc"])
+            imp = pd.concat([imp_dom, imp_ext], axis=1)
+            return imp        
+
         self.ar = make_obj["array"]
         self.dims = {k["name"]: k["dim_desc"] for k in make_obj["sets"]}
-        self.imp = pd.DataFrame(use_obj["array"][:,1,:,:].sum(axis = 1))
         self.tables = {self.dims["DST"][i]: \
                        supplyTable(make = pd.DataFrame(self.ar[:,:,i], \
                                     columns = self.dims["IND"], index = self.dims["COM"]),\
-                                   use_imp = self.imp[[i]])\
+                                   imports = calc_imp(i, trade_obj))\
                         for i in range(len(self.dims["DST"]))}
 
     def to_excel(self, file):
@@ -79,14 +85,15 @@ class useTable:
         land 1LND
         taxes on production 1PTX
     """
-    def __init__(self, use, final, va):
-        self.use = np.matrix(use)
-        self.final = np.matrix(final)
+    def __init__(self, use, va):
+        self.U = np.matrix(use)
+        # self.final = np.matrix(final)
         self.va = np.matrix(va)
         self.table = use
-        self.table = pd.concat([use, va])
-        self.table = pd.concat([self.table, final], axis = 1)
-        self.table = self.table.loc[use.index.tolist() + final.index.tolist(), use.columns.tolist() + va.columns.tolist()]   # to original order
+        self.table = pd.concat([use, va], axis=0)
+        # self.table = pd.concat([self.table, final], axis = 1)
+        self.table = self.table.loc[use.index.tolist() + va.index.tolist(), use.columns.tolist()]   # to original order
+        self.table["Total_supply"] = self.table.sum(axis = 1)
 
 
 class regUseTables:
@@ -96,20 +103,44 @@ class regUseTables:
     Parameters
     ----------
     use_obj : HarFileObj
-        A USE object for a har-file
+        A USE object from a har-file
+    trade_obj : HarFileObj
+        object from a har-file
+    tradmar_obj : HarFileObj
+        object from a har-file
+    suppmar_obj : HarFileObj
+        object from a har-file
+    va_labour_obj : HarFileObj
+        object from a har-file
+    va_capital_obj : HarFileObj
+        object from a har-file
+    va_land_obj : HarFileObj
+
     """
-    def __init__(self, use_obj, va_labour_obj, va_capital_obj, va_land_obj):
-        self.use = use_obj["array"][:,0,0:len(va_labour_obj["sets"][0]["dim_desc"]),:]
-        self.final = use_obj["array"][:,0,len(va_labour_obj["sets"][0]["dim_desc"]):,:]
+
+    def __init__(self, use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj):
+        # self.use_pp = use_obj["array"][:,0,0:len(va_labour_obj["sets"][0]["dim_desc"]),:]
+        # self.final_pp = use_obj["array"][:,0,len(va_labour_obj["sets"][0]["dim_desc"]):,:]
         self.dims = {k["name"]: k["dim_desc"] for k in use_obj["sets"]}
         self.dims.update({"IND": va_labour_obj["sets"][0]["dim_desc"]})
-        self.va_labour = pd.DataFrame(va_labour_obj["array"].sum(axis = 1),
-                                         index = self.dims["USR"][0:len(self.dims["COM"])])
+        # self.va_labour = pd.DataFrame(va_labour_obj["array"].sum(axis = 1),
+                                        #  index = self.dims["USR"][0:len(self.dims["COM"])])
+        
+        def calc_use_bp(i, use_obj, trade_obj, tradmar_obj, suppmar_obj):
+            use_dp = pd.DataFrame(use_obj["array"][:,:,:,i].sum(axis = 1), columns=use_obj["sets"][2]["dim_desc"], index=use_obj["sets"][0]["dim_desc"]) 
+            suppmar = pd.DataFrame(suppmar_obj["array"][:,:,:,i].sum(axis = (1,2)), columns=["Suppy_margin"], index=suppmar_obj["sets"][0]["dim_desc"]) 
+            tradmar = pd.DataFrame(tradmar_obj["array"][:,:,:,:,i].sum(axis = (1,2,3)), columns=["Trade_margin"], index = tradmar_obj["sets"][0]["dim_desc"]) 
+            margin = pd.DataFrame(pd.concat([tradmar, suppmar], axis=1)).fillna(0) 
+            margin["Margins"] = margin["Trade_margin"] - margin["Suppy_margin"] 
+            use_dp = use_dp - use_dp.div(use_dp.sum(axis=1), axis = "rows").mul(margin["Margins"], axis = "rows") 
+            exp_dom = np.delete(trade_obj["array"][:,0,0,:], i, axis=1).sum(axis = 1)
+            use_dp["Export_domestic"] = exp_dom
+            return use_dp
+                              
         self.tables = {self.dims["DST"][i]: \
-                       useTable(use = pd.DataFrame(self.use[:,:,i], \
-                                    columns = self.dims["IND"], index = self.dims["COM"]),\
-                                final =  pd.DataFrame(self.final[:,:,i], \
-                                    columns = self.dims["USR"][len(self.use[:,1,i]):], index = self.dims["COM"]),\
+                        useTable(use = calc_use_bp(i, use_obj, trade_obj, tradmar_obj, suppmar_obj),\
+                                # final =  pd.DataFrame(self.final[:,:,i], \
+                                    # columns = self.dims["USR"][len(self.use[:,1,i]):], index = self.dims["COM"]),\
                                 va = pd.DataFrame(\
                                     {va_labour_obj["coeff_name"].strip(): va_labour_obj["array"].sum(axis = 1)[:,i],\
                                      va_capital_obj["coeff_name"].strip(): va_capital_obj["array"][:,i],\
