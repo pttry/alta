@@ -21,17 +21,17 @@ class supplyTable:
     make : DataFrame
         DataFrame for a make matrix 
     use_imp : Datarame
-        DataFrame for a sum of import use , 1-column
+        DataFrame for imports (domestics (for regional) and external or just external)
     """
-    def __init__(self, make, use_imp):
-        self.VT = np.matrix(make)
-        self.q = self.VT.sum(axis=1)
-        self.gt = self.VT.sum(axis=0)
+    def __init__(self, make, imports):
         self.table = make
-        self.table["Total_output"] = self.table.sum(axis=1)  # colsum
-        self.table["Imports"] = use_imp.values
+        self.table["Total_output"] = self.table.sum(axis = 1)  # colsum
+        self.table = pd.concat([self.table, imports], axis=1)
+        self.table["Total_supply"] = self.table["Total_output"] + imports.sum(axis = 1)
         self.table.loc["Products_total"] = self.table.sum() # rowsum
-        self.table["Total_supply"] = self.table["Total_output"] + self.table["Imports"]
+        self.VT = np.matrix(make)
+        self.q = self.table["Total_supply"].values
+        self.gt = self.VT.sum(axis=0)
 
 class regSupplyTables:
     """
