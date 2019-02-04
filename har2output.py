@@ -24,14 +24,17 @@ class supplyTable:
         DataFrame for imports (domestics (for regional) and external or just external)
     """
     def __init__(self, make, imports):
+        self.VT = np.matrix(make)
+        self.gt = self.VT.sum(axis=0)
         self.table = make
         self.table["Total_output"] = self.table.sum(axis = 1)  # colsum
         self.table = pd.concat([self.table, imports], axis=1)
         self.table["Total_supply"] = self.table["Total_output"] + imports.sum(axis = 1)
-        self.table.loc["Products_total"] = self.table.sum() # rowsum
-        self.VT = np.matrix(make)
         self.q = self.table["Total_supply"].values
-        self.gt = self.VT.sum(axis=0)
+        self.table.loc["Products_total"] = self.table.sum() # rowsum
+
+        
+        
 
 class regSupplyTables:
     """
@@ -84,11 +87,25 @@ class useTable:
         capital 1CAP
         land 1LND
         taxes on production 1PTX
+    exp_dom: DataFrame
+        A domestic export
+    own_reg_share: array
+        Share of use from own region in domestic use (COM x 1) 
     """
-    def __init__(self, use, use_dom, va):
+    def __init__(self, use, use_dom, va, exp_dom, own_reg_share):
+        self.own_reg_share = own_reg_share
+        self.dims = {"COM": use.index.tolist(), \
+                    "IND": va.columns.tolist(),
+                    "VA": va.index.tolist(),
+                    "FINAL": use.columns[range(len(va.columns), len(use.columns))]}
         self.U = np.matrix(use[va.columns.tolist()])
         self.U_dom = np.matrix(use_dom[va.columns.tolist()])
-        # self.final = np.matrix(final)
+        self.U_dom_own = np.multiply(self.U_dom, np.matrix(own_reg_share).transpose())
+        self.Y_dom = np.matrix(use_dom[self.dims["FINAL"]])
+        self.Y_dom_own = np.multiply(self.Y_dom, np.matrix(own_reg_share).transpose())
+        self.Y_imp = np.matrix(use[self.dims["FINAL"]]) - np.matrix(use_dom[self.dims["FINAL"]])
+        # Export matrix domestic export, external export
+        # self.U_exp = np.matrix([(self.U_dom - self.U_dom_own).sum(axis = 1), (self.U - self.U_dom).sum(axis = 1)])
         self.va = np.matrix(va)
         self.table = use
         self.table = pd.concat([use, va], axis=0)
@@ -130,26 +147,28 @@ class regUseTables:
                                         #  index = self.dims["USR"][0:len(self.dims["COM"])])
         
         def calc_use_bp(i, use_obj, trade_obj, tradmar_obj, suppmar_obj):
+            # Use at delivered prices (including margins)
             use_dp = pd.DataFrame(use_obj["array"][:,:,:,i].sum(axis = 1), columns=use_obj["sets"][2]["dim_desc"], index=use_obj["sets"][0]["dim_desc"]) 
+            # Margins
             suppmar = pd.DataFrame(suppmar_obj["array"][:,:,:,i].sum(axis = (1,2)), columns=["Suppy_margin"], index=suppmar_obj["sets"][0]["dim_desc"]) 
             tradmar = pd.DataFrame(tradmar_obj["array"][:,:,:,:,i].sum(axis = (1,2,3)), columns=["Trade_margin"], index = tradmar_obj["sets"][0]["dim_desc"]) 
             margin = pd.DataFrame(pd.concat([tradmar, suppmar], axis=1)).fillna(0) 
             margin["Margins"] = margin["Trade_margin"] - margin["Suppy_margin"] 
-            use_dp = use_dp - use_dp.div(use_dp.sum(axis=1), axis = "rows").mul(margin["Margins"], axis = "rows") 
-            exp_dom = np.delete(trade_obj["array"][:,0,0,:], i, axis=1).sum(axis = 1)
-            use_dp["Export_domestic"] = exp_dom
-            return use_dp
+            # Use at basic prices
+            use_bp = use_dp - use_dp.div(use_dp.sum(axis=1), axis = "rows").mul(margin["Margins"], axis = "rows") 
+            return use_bp
 
         def calc_use_bp_dom(i, use_obj, trade_obj, tradmar_obj, suppmar_obj):
+            # Use at delivered prices (including margins)
             use_dp = pd.DataFrame(use_obj["array"][:,0,:,i], columns=use_obj["sets"][2]["dim_desc"], index=use_obj["sets"][0]["dim_desc"]) 
+            # Margins
             suppmar = pd.DataFrame(suppmar_obj["array"][:,0,:,i].sum(axis = 1), columns=["Suppy_margin"], index=suppmar_obj["sets"][0]["dim_desc"]) 
             tradmar = pd.DataFrame(tradmar_obj["array"][:,:,:,:,i].sum(axis = (1,2,3)), columns=["Trade_margin"], index = tradmar_obj["sets"][0]["dim_desc"]) 
             margin = pd.DataFrame(pd.concat([tradmar, suppmar], axis=1)).fillna(0) 
             margin["Margins"] = margin["Trade_margin"] - margin["Suppy_margin"] 
-            use_dp = use_dp - use_dp.div(use_dp.sum(axis=1), axis = "rows").mul(margin["Margins"], axis = "rows") 
-            exp_dom = np.delete(trade_obj["array"][:,0,0,:], i, axis=1).sum(axis = 1)
-            use_dp["Export_domestic"] = exp_dom
-            return use_dp
+            # Use at basic prices
+            use_bp = use_dp - use_dp.div(use_dp.sum(axis=1), axis = "rows").mul(margin["Margins"], axis = "rows") 
+            return use_bp
                               
         self.tables = {self.dims["DST"][i]: \
                         useTable(use = calc_use_bp(i, use_obj, trade_obj, tradmar_obj, suppmar_obj),\
@@ -160,7 +179,9 @@ class regUseTables:
                                      va_capital_obj["coeff_name"].strip(): va_capital_obj["array"][:,i],\
                                      va_land_obj["coeff_name"].strip(): va_land_obj["array"][:,i]},\
                                      index=self.dims["IND"]).transpose(),\
-                                use_dom = calc_use_bp_dom(i, use_obj, trade_obj, tradmar_obj, suppmar_obj))\
+                                use_dom = calc_use_bp_dom(i, use_obj, trade_obj, tradmar_obj, suppmar_obj), \
+                                exp_dom = pd.DataFrame(np.delete(trade_obj["array"][:,0,0,:], i, axis=1).sum(axis = 1), index=self.dims["COM"], columns = ["Domestic_export"]), \
+                                own_reg_share = (trade_obj["array"][:,0,i,i] / trade_obj["array"][:,0,:,i].sum(axis = 1))) \
                         for i in range(len(self.dims["DST"]))}
 
     def to_excel(self, file):
@@ -193,10 +214,20 @@ class ioTable:
         self.table = pd.concat([self.table, F], axis = 1)
         self.table = self.table.loc[B.index.tolist() + W.index.tolist(), B.columns.tolist() + F.columns.tolist()]   # to original order
 
-    def build(sup_tab, use_tab):
-        # B = T * U = V * inv(diag(q)) * U
-        B = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.use_dom
-        # F = T * Y = V * inv(diag(q)) * Y
-        F = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.use_dom
-        W = use_tab.va    
+def build_io(sup_tab, use_tab):
+    """ 
+    To build input-output table from supply and use tables
+    """
+    # B = T * U = V * inv(diag(q)) * U
+    B = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.U_dom
+    # F = T * Y = V * inv(diag(q)) * Y
+    F = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Y_dom
+    W = use_tab.va  
+    B = pd.DataFrame(B, index=use_tab.dims["COM"], columns=use_tab.dims["IND"])
+    F = pd.DataFrame(F, index=use_tab.dims["COM"], columns=use_tab.dims["FINAL"])
+    W = pd.DataFrame(W, index=use_tab.dims["VA"], columns=use_tab.dims["IND"])
+    return ioTable(B, F, W)  
+
+
+# reg_supp.tables["Uusimaa"].VT.shape
 

@@ -43,11 +43,29 @@ suppmar_obj = premod.getHeaderArrayObj("MARS")
 reg_supp = ho.regSupplyTables(make_obj, trade_obj)
 reg_use = ho.regUseTables(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj)
 
+importlib.reload(ho)
+u_io = ho.build_io(reg_supp.tables["Uusimaa"], reg_use.tables["Uusimaa"])
+u_io.table
+
+(reg_use.tables["Uusimaa"].U_dom - reg_use.tables["Uusimaa"].U_dom_own).sum()
+np.multiply(reg_use.tables["Uusimaa"].Y_dom, np.matrix(reg_use.tables["Uusimaa"].own_reg_share).transpose())
+np.multiply(reg_use.tables["Uusimaa"].U_dom, reg_use.tables["Uusimaa"].own_reg_share)
+reg_use.tables["Uusimaa"].own_reg_share
+np.matrix([(reg_use.tables["Uusimaa"].U_dom - reg_use.tables["Uusimaa"].U_dom_own).sum(axis = 1), (reg_use.tables["Uusimaa"].U - reg_use.tables["Uusimaa"].U_dom).sum(axis = 1)])
+x1 = np.matrix(np.arange(9.0).reshape((3, 3)))
+
+
+x2 = np.matrix([0.5,1,2]).transpose()
+np.multiply(x1, x2)
+
+range(len(reg_use.tables["Uusimaa"].table.columns)) - range(0,30)
+
+
 # Write to excel
 reg_supp.to_excel(file = "outdata/test_supp2014.xlsx")
 reg_use.to_excel(file = "outdata/test_use2014.xlsx")
 
-
+# use_obj["array"][:,0,0,0]
 
 """  OLD CALCULATIONS 
 
@@ -85,15 +103,24 @@ u_use_bp.sum(axis=1)
 
 su.table
 
+"""  
 # domestic uusimaa
 use_obj["array"][:,0,:,0].sum() + suppmar_obj["array"][:,:,:,0].sum() - tradmar_obj["array"][:,0,:,:,0].sum() + trade_obj["array"][:,0,0,1:].sum() 
 make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum()
+
+use_obj["array"][:,0,:,0].sum(axis = 1) + suppmar_obj["array"][:,:,:,0].sum(axis = 1) - tradmar_obj["array"][:,0,:,:,0].sum(axis = 1) 
+trade_obj["array"][:,0,:,0].sum()
+trade_obj["array"][:,0,:,0].sum(axis = 1)
+use_obj["array"][:,0,:,0].sum(axis = 1)- tradmar_obj["array"][:,0,:,:,0].sum(axis = (1,2))
+use_obj["array"][:,0,:,0].sum()- tradmar_obj["array"][:,0,:,:,0].sum()
 
 # total uusimaa
 use_obj["array"][:,:,:,0].sum() - (tradmar_obj["array"][:,:,:,:,0].sum() + suppmar_obj["array"][:,:,:,0].sum()) + trade_obj["array"][:,0,0,1:].sum() 
 make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum() + trade_obj["array"][:,1,:,0].sum()
 
+trade_obj["array"][:,0,0,0] / trade_obj["array"][:,0,:,0].sum(axis = 1)
 
+"""
 make_obj["array"].shape
 trade_obj["array"].shape
 make_obj["array"][:,:,0].sum(axis = 1)
