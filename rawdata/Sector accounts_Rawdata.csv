@@ -1,26 +1,26 @@
-"Sector","Transaction","2015"
-"S13 General government","P1R Output at basic prices",59904
-"S13 General government","P11R Market output",10278
-"S13 General government","P12R Output for own final use",1986
+"Sector","Transaction","2014"
+"S13 General government","P1R Output at basic prices",60523
+"S13 General government","P11R Market output",11091
+"S13 General government","P12R Output for own final use",2105
 "S13 General government","P119R Financial intermediation services indirectly measured (FISIM)",.
-"S13 General government","P131R Sales of non-market products",2398
-"S13 General government","P132R Other non-market output",45242
-"S13 General government","P2K Intermediate consumption",23087
-"S13 General government","P119K Financial intermediation services indirectly measured (FISIM)",224
-"S13 General government","P22K Other intermediate consumption",22863
-"S13 General government","B1GPHT Value added, gross at basic prices",36817
-"S13 General government","P51CK Consumption of fixed capital",7322
-"S13 General government","B1NPHT Value added, net at basic prices",29495
-"S13 General government","D1K Compensation of employees",29055
-"S13 General government","D11K Wages and salaries",22743
-"S13 General government","D12K Employers' social contributions",6312
+"S13 General government","P131R Sales of non-market products",2234
+"S13 General government","P132R Other non-market output",45093
+"S13 General government","P2K Intermediate consumption",23626
+"S13 General government","P119K Financial intermediation services indirectly measured (FISIM)",236
+"S13 General government","P22K Other intermediate consumption",23390
+"S13 General government","B1GPHT Value added, gross at basic prices",36897
+"S13 General government","P51CK Consumption of fixed capital",7266
+"S13 General government","B1NPHT Value added, net at basic prices",29631
+"S13 General government","D1K Compensation of employees",29166
+"S13 General government","D11K Wages and salaries",22786
+"S13 General government","D12K Employers' social contributions",6380
 "S13 General government","D29K Other taxes on production",6
 "S13 General government","D39R Other subsidies on production",.
-"S13 General government","B13GT Operating surplus + mixed income, gross",7756
-"S13 General government","B2GT Operating surplus, gross",7756
+"S13 General government","B13GT Operating surplus + mixed income, gross",7725
+"S13 General government","B2GT Operating surplus, gross",7725
 "S13 General government","B3GT Mixed income, gross",.
-"S13 General government","B13NT Operating surplus + mixed income, net",434
-"S13 General government","B2NT Operating surplus, net",434
+"S13 General government","B13NT Operating surplus + mixed income, net",459
+"S13 General government","B2NT Operating surplus, net",459
 "S13 General government","B3NT Mixed income, net",.
 "S13 General government","P7R Imports of goods and services",.
 "S13 General government","P71R Imports of goods",.
@@ -36,32 +36,32 @@
 "S13 General government","D1R Compensation of employees, receivable",.
 "S13 General government","D11R Wages and salaries, receivable",.
 "S13 General government","D12R Employers' social contributions",.
-"S13 General government","D2R Taxes on production and imports, receivable",29670
-"S13 General government","D21R Taxes on products",29458
-"S13 General government","D211R VAT",18974
+"S13 General government","D2R Taxes on production and imports, receivable",29556
+"S13 General government","D21R Taxes on products",29088
+"S13 General government","D211R VAT",18948
 "S13 General government","D212R Taxes and duties on imports excluding VAT",.
-"S13 General government","D214R Taxes on products, except VAT and import taxes",10484
-"S13 General government","D29R Other taxes on production",212
-"S13 General government","D3K Subsidies",2832
-"S13 General government","D31K Subsidies on products",724
-"S13 General government","D39K Other subsidies on production",2108
-"S13 General government","D4R Property income",6519
-"S13 General government","D41R Interest, receivable (FISIM-adjusted)",2112
-"S13 General government","D411R Actual interest, receivable",2044
-"S13 General government","D412R Intrest, (FISIM-adjusted), deposits",68
-"S13 General government","D42R Distributed income of corporations",3009
-"S13 General government","D421R Income from dividends",2648
-"S13 General government","D422R Withdrawals from income of quasi-corporations",361
-"S13 General government","D43R Reinvested earnings on direct foreign investment",-8
-"S13 General government","D44R Other investment income",924
-"S13 General government","D441R Investment income attributable to insurance policy holders, receivable",.
+"S13 General government","D214R Taxes on products, except VAT and import taxes",10140
+"S13 General government","D29R Other taxes on production",468
+"S13 General government","D3K Subsidies",2689
+"S13 General government","D31K Subsidies on products",719
+"S13 General government","D39K Other subsidies on production",1970
+"S13 General government","D4R Property income",6408
+"S13 General government","D41R Interest, receivable (FISIM-adjusted)",2147
+"S13 General government","D411R Actual interest, receivable",2096
+"S13 General government","D412R Intrest, (FISIM-adjusted), deposits",51
+"S13 General government","D42R Distributed income of corporations",2978
+"S13 General government","D421R Income from dividends",2520
+"S13 General government","D422R Withdrawals from income of quasi-corporations",458
+"S13 General government","D43R Reinvested earnings on direct foreign investment",8
+"S13 General government","D44R Other investment income",877
+"S13 General government","D441R Investment income attributable to insurance policy holders, receivable",3
 "S13 General government","D442R Investment income payable on pension entitlements",.
-"S13 General government","D443R Investment income attributable to collective investment fund shareholders",924
-"S13 General government","D45R Rents, receivable",482
-"S13 General government","D4K Property expenditure",2523
-"S13 General government","D41K Interest, payable (FISIM-adjusted)",2501
-"S13 General government","D411K Actual interest, payable",2657
-"S13 General government","D412K Interest, (FISIM-adjusted), loans",-156
+"S13 General government","D443R Investment income attributable to collective investment fund shareholders",874
+"S13 General government","D45R Rents, receivable",398
+"S13 General government","D4K Property expenditure",2595
+"S13 General government","D41K Interest, payable (FISIM-adjusted)",2582
+"S13 General government","D411K Actual interest, payable",2767
+"S13 General government","D412K Interest, (FISIM-adjusted), loans",-185
 "S13 General government","D42K Distributed income of corporations",.
 "S13 General government","D421K Dividend income",.
 "S13 General government","D422K Withdrawals from income of quasi-corporations, payable",.
@@ -70,38 +70,38 @@
 "S13 General government","D441K Investment income attributable to insurance policy holders, payable",.
 "S13 General government","D442K Investment income payable on pension entitlements",.
 "S13 General government","D443K Investment income attributable to collective investment fund shareholders",.
-"S13 General government","D45K Rents, payable",22
-"S13 General government","B5GT Gross national income",38590
-"S13 General government","B5NT Net national income",31268
-"S13 General government","B4GT Entrepreneurial income, gross",7756
+"S13 General government","D45K Rents, payable",13
+"S13 General government","B5GT Gross national income",38405
+"S13 General government","B5NT Net national income",31139
+"S13 General government","B4GT Entrepreneurial income, gross",7725
 "S13 General government","B41GT Entrepreneurial income from agriculture, gross",.
 "S13 General government","B42GT Entrepreneurial income from forestry, gross",.
 "S13 General government","B43GT Imputed rent of owner-occupiers, gross",.
 "S13 General government","B44GT Other entrepreneurial income, gross",.
-"S13 General government","B4NT Entrepreneurial income",434
+"S13 General government","B4NT Entrepreneurial income",459
 "S13 General government","B41NT Entrepreneurial income from agriculture",.
 "S13 General government","B42NT Entrepreneurial income from forestry",.
 "S13 General government","B43NT Imputed rent of owner-occupiers",.
 "S13 General government","B44NT Other entrepreneurial income",.
-"S13 General government","D5R Current taxes on income and wealth, etc., receivable",34820
-"S13 General government","D51R Income taxes",32444
-"S13 General government","D59R Other current taxes, excl. tax on capital",2376
-"S13 General government","D61R Social contributions, receivable",26942
-"S13 General government","D611R Employers’ actual social contributions, receivable",18259
-"S13 General government","D6111R Employers’ actual pension contributions",14896
-"S13 General government","D61111R Compulsory employers' actual pension contributions, receivable",14887
-"S13 General government","D61112R Voluntary employers' actual pension contributions, receivable",9
-"S13 General government","D6112R Employers’ actual non-pension contributions",3363
-"S13 General government","D61121R Compulsory employers’ actual non-pension contributions",3345
-"S13 General government","D61122R Voluntary employers’ actual non-pension contributions",18
+"S13 General government","D5R Current taxes on income and wealth, etc., receivable",33790
+"S13 General government","D51R Income taxes",31546
+"S13 General government","D59R Other current taxes, excl. tax on capital",2244
+"S13 General government","D61R Social contributions, receivable",26288
+"S13 General government","D611R Employers’ actual social contributions, receivable",17916
+"S13 General government","D6111R Employers’ actual pension contributions",14613
+"S13 General government","D61111R Compulsory employers' actual pension contributions, receivable",14603
+"S13 General government","D61112R Voluntary employers' actual pension contributions, receivable",10
+"S13 General government","D6112R Employers’ actual non-pension contributions",3303
+"S13 General government","D61121R Compulsory employers’ actual non-pension contributions",3282
+"S13 General government","D61122R Voluntary employers’ actual non-pension contributions",21
 "S13 General government","D612R Employers’ imputed social contributions",.
-"S13 General government","D613R Households’ actual social contributions",8683
-"S13 General government","D6131R Households’ actual pension contributions",5983
-"S13 General government","D61311R Compulsory households' actual pension contributions",5983
+"S13 General government","D613R Households’ actual social contributions",8372
+"S13 General government","D6131R Households’ actual pension contributions",5785
+"S13 General government","D61311R Compulsory households' actual pension contributions",5785
 "S13 General government","D61312R Voluntary households' actual pension contributions",.
-"S13 General government","D6132R Households’ actual non-pension contributions",2700
-"S13 General government","D61321R Compulsory households' actual non-pension contributions",2424
-"S13 General government","D61322R Voluntary households' actual non-pension contributions",276
+"S13 General government","D6132R Households’ actual non-pension contributions",2587
+"S13 General government","D61321R Compulsory households' actual non-pension contributions",2341
+"S13 General government","D61322R Voluntary households' actual non-pension contributions",246
 "S13 General government","D614R Households’ social contribution supplements",.
 "S13 General government","D61SCR Social insurance scheme service charges",.
 "S13 General government","D62R Social benefits other than social transfers in kind, receivable",.
@@ -112,34 +112,34 @@
 "S13 General government","D6221R Other social insurance pension benefits",.
 "S13 General government","D6222R Other social insurance non-pension benefits",.
 "S13 General government","D623R Social assistance benefits in cash, receivable",.
-"S13 General government","D7R Other current transfers, receivable",31320
+"S13 General government","D7R Other current transfers, receivable",30762
 "S13 General government","D71R Net non-life insurance premiums",.
-"S13 General government","D72R Non-life insurance claims",28
-"S13 General government","D73R Current transfers within general government",30691
-"S13 General government","D73RS13 Current transfers within general government",30691
-"S13 General government","D73RS1311 Current transfers within general government",26203
-"S13 General government","D73RS1313 Current transfers within general government",1007
-"S13 General government","D73RS1314 Current transfers within general government",3481
-"S13 General government","D73RS13141 Current transfers within general government",2427
-"S13 General government","D73RS13149 Current transfers within general government",1054
-"S13 General government","D74R Transfers from international co-operation",276
+"S13 General government","D72R Non-life insurance claims",3
+"S13 General government","D73R Current transfers within general government",29994
+"S13 General government","D73RS13 Current transfers within general government",29994
+"S13 General government","D73RS1311 Current transfers within general government",26239
+"S13 General government","D73RS1313 Current transfers within general government",882
+"S13 General government","D73RS1314 Current transfers within general government",2873
+"S13 General government","D73RS13141 Current transfers within general government",1877
+"S13 General government","D73RS13149 Current transfers within general government",996
+"S13 General government","D74R Transfers from international co-operation",387
 "S13 General government","D74RS1311 Transfers from international co-operation",.
 "S13 General government","D74RS13141 Transfers from international co-operation",.
 "S13 General government","D74RS13149 Transfers from international co-operation",.
-"S13 General government","D74RS2 Transfers from international co-operation",276
-"S13 General government","D74RS21 Transfers from international co-operation of the European Union",261
-"S13 General government","D74RS22 Transfers from other international co-operation",15
-"S13 General government","D75R Miscellaneous current transfers",325
-"S13 General government","D759RS1 Other transfers from home country",325
-"S13 General government","D759RS11 Transfers from non-financial corporations and housing corporations",25
-"S13 General government","D759RS12 Transfers from financial corporations",4
+"S13 General government","D74RS2 Transfers from international co-operation",387
+"S13 General government","D74RS21 Transfers from international co-operation of the European Union",375
+"S13 General government","D74RS22 Transfers from other international co-operation",12
+"S13 General government","D75R Miscellaneous current transfers",378
+"S13 General government","D759RS1 Other transfers from home country",378
+"S13 General government","D759RS11 Transfers from non-financial corporations and housing corporations",40
+"S13 General government","D759RS12 Transfers from financial corporations",11
 "S13 General government","D759RS13 Transfers from general government",.
 "S13 General government","D759RS1311 Transfers from central government",.
 "S13 General government","D759RS1313 Transfers from local government and intermunicipal authorities",.
 "S13 General government","D759RS1314 Transfers from social security funds",.
 "S13 General government","D759RS13141 Transfers from employment pension schemes",.
 "S13 General government","D759RS13149 Transfers from other social security funds",.
-"S13 General government","D759RS14 Transfers from households",147
+"S13 General government","D759RS14 Transfers from households",178
 "S13 General government","D759RS15 Transfers from non-profit institutions",149
 "S13 General government","D759RS2 Other current transfers from the rest of the world",.
 "S13 General government","D759RS21 Other transfers from the EU",.
@@ -147,9 +147,9 @@
 "S13 General government","D76R VAT- and GNI-based EU own resources",.
 "S13 General government","D761R Gross national income-based EU own resources",.
 "S13 General government","D762R Value added tax-based EU own resources",.
-"S13 General government","D5K Current taxes on income and wealth, etc., payable",99
-"S13 General government","D51K Income taxes",47
-"S13 General government","D59K Other current taxes, excl. tax on capital",52
+"S13 General government","D5K Current taxes on income and wealth, etc., payable",155
+"S13 General government","D51K Income taxes",107
+"S13 General government","D59K Other current taxes, excl. tax on capital",48
 "S13 General government","D61K Social contributions, payable",.
 "S13 General government","D611K Employers’ actual social contributions, payable",.
 "S13 General government","D6111K Employers’ actual pension contributions",.
@@ -168,35 +168,35 @@
 "S13 General government","D61322K Voluntary households' actual non-pension contributions",.
 "S13 General government","D614K Households’ social contribution supplements",.
 "S13 General government","D61SCK Social insurance scheme service charges",.
-"S13 General government","D62K Social benefits other than social transfers in kind, payable",41568
-"S13 General government","D621K Social security benefits in cash, payable",34170
-"S13 General government","D6211K Social security pension benefits in cash",28865
-"S13 General government","D6212K Social security non-pension benefits in cash",5305
-"S13 General government","D622K Other social insurance benefits, payable",29
-"S13 General government","D6221K Other social insurance pension benefits",29
+"S13 General government","D62K Social benefits other than social transfers in kind, payable",40267
+"S13 General government","D621K Social security benefits in cash, payable",33150
+"S13 General government","D6211K Social security pension benefits in cash",28023
+"S13 General government","D6212K Social security non-pension benefits in cash",5127
+"S13 General government","D622K Other social insurance benefits, payable",30
+"S13 General government","D6221K Other social insurance pension benefits",30
 "S13 General government","D6222K Other social insurance non-pension benefits",.
-"S13 General government","D623K Social assistance benefits in cash, payable",7369
-"S13 General government","D7K Other current transfers, payable",36514
-"S13 General government","D71K Net non-life insurance premiums",45
+"S13 General government","D623K Social assistance benefits in cash, payable",7087
+"S13 General government","D7K Other current transfers, payable",36055
+"S13 General government","D71K Net non-life insurance premiums",75
 "S13 General government","D72K Non-life insurance claims",.
-"S13 General government","D73K Current transfers within general government",30691
-"S13 General government","D73KS13 Current transfers within general government",30691
-"S13 General government","D73KS1311 Current transfers within general government",2652
-"S13 General government","D73KS1313 Current transfers within general government",13769
-"S13 General government","D73KS1314 Current transfers within general government",14270
-"S13 General government","D73KS13141 Current transfers within general government",2187
-"S13 General government","D73KS13149 Current transfers within general government",12083
-"S13 General government","D74K Transfers to international co-operation",991
+"S13 General government","D73K Current transfers within general government",29994
+"S13 General government","D73KS13 Current transfers within general government",29994
+"S13 General government","D73KS1311 Current transfers within general government",2126
+"S13 General government","D73KS1313 Current transfers within general government",13930
+"S13 General government","D73KS1314 Current transfers within general government",13938
+"S13 General government","D73KS13141 Current transfers within general government",2021
+"S13 General government","D73KS13149 Current transfers within general government",11917
+"S13 General government","D74K Transfers to international co-operation",1061
 "S13 General government","D74KS1311 Transfers to international co-operation",.
 "S13 General government","D74KS1313 Transfers to international co-operation",.
 "S13 General government","D74KS13141 Transfers to international co-operation",.
 "S13 General government","D74KS13149 Transfers to international co-operation",.
-"S13 General government","D74KS2 Transfers to international co-operation",991
-"S13 General government","D74KS21 Transfers to international co-operation of the European Union",57
-"S13 General government","D74KS22 Transfers to other international co-operation",934
-"S13 General government","D75K Miscellaneous current transfers",3053
-"S13 General government","D759KS1 Other transfers to home country",3053
-"S13 General government","D759KS11 Transfers to non-financial corporations and housing corporations",253
+"S13 General government","D74KS2 Transfers to international co-operation",1061
+"S13 General government","D74KS21 Transfers to international co-operation of the European Union",83
+"S13 General government","D74KS22 Transfers to other international co-operation",978
+"S13 General government","D75K Miscellaneous current transfers",3093
+"S13 General government","D759KS1 Other transfers to home country",3093
+"S13 General government","D759KS11 Transfers to non-financial corporations and housing corporations",273
 "S13 General government","D759KS12 Transfers to financial corporations",.
 "S13 General government","D759KS13 Transfers to general government",.
 "S13 General government","D759KS1311 Transfers to central government",.
@@ -204,77 +204,77 @@
 "S13 General government","D759KS1314 Transfers to social security funds",.
 "S13 General government","D759KS13141 Transfers to employment pension schemes",.
 "S13 General government","D759KS13149 Transfers to other social security funds",.
-"S13 General government","D759KS14 Transfers to households",109
-"S13 General government","D759KS15 Transfers to non-profit institutions",2691
+"S13 General government","D759KS14 Transfers to households",134
+"S13 General government","D759KS15 Transfers to non-profit institutions",2686
 "S13 General government","D759KS2 Other current transfers to the rest of the world",.
 "S13 General government","D759KS21 Other transfers to the EU",.
 "S13 General government","D759KS22 Other transfers to other countries",.
-"S13 General government","D76K VAT- and GNI-based EU own resources",1734
-"S13 General government","D761K Gross national income-based EU own resources",1469
-"S13 General government","D762K Value added tax-based EU own resources",265
-"S13 General government","B6GT Disposable income, gross",53491
-"S13 General government","B6NT Disposable income, net",46169
+"S13 General government","D76K VAT- and GNI-based EU own resources",1832
+"S13 General government","D761K Gross national income-based EU own resources",1561
+"S13 General government","D762K Value added tax-based EU own resources",271
+"S13 General government","B6GT Disposable income, gross",52768
+"S13 General government","B6NT Disposable income, net",45502
 "S13 General government","B12T Balance of payments",.
 "S13 General government","D8R Adjustment for the change in pension entitlements",.
-"S13 General government","P3K Final consumption expenditure",51141
-"S13 General government","P31K Individual consumption expenditure",34616
-"S13 General government","P32K Collective consumption expenditure",16525
+"S13 General government","P3K Final consumption expenditure",50711
+"S13 General government","P31K Individual consumption expenditure",33975
+"S13 General government","P32K Collective consumption expenditure",16736
 "S13 General government","D8K Adjustment for the change in pension entitlements",.
-"S13 General government","B8GT Saving, gross",2350
-"S13 General government","B8NT Saving, net",-4972
-"S13 General government","D9R Capital transfers, receivable",1011
-"S13 General government","D91R Tax on capital",631
-"S13 General government","D92R Investment grants",298
-"S13 General government","D99R Other capital transfers",82
-"S13 General government","D9K Capital transfers, payable",1149
+"S13 General government","B8GT Saving, gross",2057
+"S13 General government","B8NT Saving, net",-5209
+"S13 General government","D9R Capital transfers, receivable",843
+"S13 General government","D91R Tax on capital",499
+"S13 General government","D92R Investment grants",312
+"S13 General government","D99R Other capital transfers",32
+"S13 General government","D9K Capital transfers, payable",845
 "S13 General government","D91K Tax on capital",.
-"S13 General government","D92K Investment grants",578
-"S13 General government","D99K Other capital transfers",571
-"S13 General government","B101T Changes in net worth due to saving and capital transfers",-5110
-"S13 General government","P51CR Consumption of fixed capital",7322
-"S13 General government","P5K Gross capital formation",8157
-"S13 General government","P51K Gross fixed capital formation",8151
-"S13 General government","P52K Changes in inventories",3
-"S13 General government","P53K Net acquisitions of valuables",3
-"S13 General government","NPK Acquisitions less disposals of non-produced assets",-163
-"S13 General government","NP1K Acquisitions less disposals of natural resources",-158
-"S13 General government","NP11K Acquisitions of natural resources",303
-"S13 General government","NP12K Disposals of natural resources",461
-"S13 General government","NP2K Acquisitions less disposals of contracts, leases and licences",-5
+"S13 General government","D92K Investment grants",592
+"S13 General government","D99K Other capital transfers",253
+"S13 General government","B101T Changes in net worth due to saving and capital transfers",-5211
+"S13 General government","P51CR Consumption of fixed capital",7266
+"S13 General government","P5K Gross capital formation",8606
+"S13 General government","P51K Gross fixed capital formation",8592
+"S13 General government","P52K Changes in inventories",18
+"S13 General government","P53K Net acquisitions of valuables",-4
+"S13 General government","NPK Acquisitions less disposals of non-produced assets",46
+"S13 General government","NP1K Acquisitions less disposals of natural resources",48
+"S13 General government","NP11K Acquisitions of natural resources",474
+"S13 General government","NP12K Disposals of natural resources",426
+"S13 General government","NP2K Acquisitions less disposals of contracts, leases and licences",-2
 "S13 General government","DEB1*GT Statistical discrepancy of national balance of supply and demand",.
-"S13 General government","B9T Net lending (+) / net borrowing (-)",-5782
+"S13 General government","B9T Net lending (+) / net borrowing (-)",-6597
 "S13 General government","D63R Social benefits in kind, receivable",.
 "S13 General government","D631R Social transfers in kind  – non-market production",.
 "S13 General government","D632R Social transfers in kind  – purchased market production",.
-"S13 General government","D63K Social benefits in kind, payable",34616
-"S13 General government","D631K Social transfers in kind  – non-market production",28717
-"S13 General government","D632K Social transfers in kind  – purchased market production",5899
-"S13 General government","B7GT Adjusted disposable income, gross",18875
-"S13 General government","B7NT Adjusted disposable income, net",11553
-"S13 General government","P4K Actual final consumption",16525
+"S13 General government","D63K Social benefits in kind, payable",33975
+"S13 General government","D631K Social transfers in kind  – non-market production",28357
+"S13 General government","D632K Social transfers in kind  – purchased market production",5618
+"S13 General government","B7GT Adjusted disposable income, gross",18793
+"S13 General government","B7NT Adjusted disposable income, net",11527
+"S13 General government","P4K Actual final consumption",16736
 "S13 General government","P41K Actual individual consumption",.
-"S13 General government","P42K Actual collective consumption",16525
-"S13 General government","OTRR Total revenue",144944
-"S13 General government","OTEK Total expenditure",150726
-"S1311 Central government","P1R Output at basic prices",17000
-"S1311 Central government","P11R Market output",1819
-"S1311 Central government","P12R Output for own final use",1733
+"S13 General government","P42K Actual collective consumption",16736
+"S13 General government","OTRR Total revenue",143077
+"S13 General government","OTEK Total expenditure",149674
+"S1311 Central government","P1R Output at basic prices",16973
+"S1311 Central government","P11R Market output",1656
+"S1311 Central government","P12R Output for own final use",1817
 "S1311 Central government","P119R Financial intermediation services indirectly measured (FISIM)",.
 "S1311 Central government","P131R Sales of non-market products",123
-"S1311 Central government","P132R Other non-market output",13325
-"S1311 Central government","P2K Intermediate consumption",6172
-"S1311 Central government","P119K Financial intermediation services indirectly measured (FISIM)",73
-"S1311 Central government","P22K Other intermediate consumption",6099
-"S1311 Central government","B1GPHT Value added, gross at basic prices",10828
-"S1311 Central government","P51CK Consumption of fixed capital",4066
-"S1311 Central government","B1NPHT Value added, net at basic prices",6762
-"S1311 Central government","D1K Compensation of employees",6762
-"S1311 Central government","D11K Wages and salaries",5525
-"S1311 Central government","D12K Employers' social contributions",1237
+"S1311 Central government","P132R Other non-market output",13377
+"S1311 Central government","P2K Intermediate consumption",5968
+"S1311 Central government","P119K Financial intermediation services indirectly measured (FISIM)",65
+"S1311 Central government","P22K Other intermediate consumption",5903
+"S1311 Central government","B1GPHT Value added, gross at basic prices",11005
+"S1311 Central government","P51CK Consumption of fixed capital",4070
+"S1311 Central government","B1NPHT Value added, net at basic prices",6935
+"S1311 Central government","D1K Compensation of employees",6935
+"S1311 Central government","D11K Wages and salaries",5638
+"S1311 Central government","D12K Employers' social contributions",1297
 "S1311 Central government","D29K Other taxes on production",.
 "S1311 Central government","D39R Other subsidies on production",.
-"S1311 Central government","B13GT Operating surplus + mixed income, gross",4066
-"S1311 Central government","B2GT Operating surplus, gross",4066
+"S1311 Central government","B13GT Operating surplus + mixed income, gross",4070
+"S1311 Central government","B2GT Operating surplus, gross",4070
 "S1311 Central government","B3GT Mixed income, gross",.
 "S1311 Central government","B13NT Operating surplus + mixed income, net",0
 "S1311 Central government","B2NT Operating surplus, net",0
@@ -293,32 +293,32 @@
 "S1311 Central government","D1R Compensation of employees, receivable",.
 "S1311 Central government","D11R Wages and salaries, receivable",.
 "S1311 Central government","D12R Employers' social contributions",.
-"S1311 Central government","D2R Taxes on production and imports, receivable",29669
-"S1311 Central government","D21R Taxes on products",29457
-"S1311 Central government","D211R VAT",18974
+"S1311 Central government","D2R Taxes on production and imports, receivable",29555
+"S1311 Central government","D21R Taxes on products",29087
+"S1311 Central government","D211R VAT",18948
 "S1311 Central government","D212R Taxes and duties on imports excluding VAT",.
-"S1311 Central government","D214R Taxes on products, except VAT and import taxes",10483
-"S1311 Central government","D29R Other taxes on production",212
-"S1311 Central government","D3K Subsidies",2430
-"S1311 Central government","D31K Subsidies on products",333
-"S1311 Central government","D39K Other subsidies on production",2097
-"S1311 Central government","D4R Property income",1840
-"S1311 Central government","D41R Interest, receivable (FISIM-adjusted)",397
-"S1311 Central government","D411R Actual interest, receivable",385
-"S1311 Central government","D412R Intrest, (FISIM-adjusted), deposits",12
-"S1311 Central government","D42R Distributed income of corporations",1404
-"S1311 Central government","D421R Income from dividends",1309
-"S1311 Central government","D422R Withdrawals from income of quasi-corporations",95
-"S1311 Central government","D43R Reinvested earnings on direct foreign investment",-8
-"S1311 Central government","D44R Other investment income",37
+"S1311 Central government","D214R Taxes on products, except VAT and import taxes",10139
+"S1311 Central government","D29R Other taxes on production",468
+"S1311 Central government","D3K Subsidies",2282
+"S1311 Central government","D31K Subsidies on products",324
+"S1311 Central government","D39K Other subsidies on production",1958
+"S1311 Central government","D4R Property income",1783
+"S1311 Central government","D41R Interest, receivable (FISIM-adjusted)",337
+"S1311 Central government","D411R Actual interest, receivable",321
+"S1311 Central government","D412R Intrest, (FISIM-adjusted), deposits",16
+"S1311 Central government","D42R Distributed income of corporations",1393
+"S1311 Central government","D421R Income from dividends",1266
+"S1311 Central government","D422R Withdrawals from income of quasi-corporations",127
+"S1311 Central government","D43R Reinvested earnings on direct foreign investment",8
+"S1311 Central government","D44R Other investment income",34
 "S1311 Central government","D441R Investment income attributable to insurance policy holders, receivable",.
 "S1311 Central government","D442R Investment income payable on pension entitlements",.
-"S1311 Central government","D443R Investment income attributable to collective investment fund shareholders",37
-"S1311 Central government","D45R Rents, receivable",10
-"S1311 Central government","D4K Property expenditure",2347
-"S1311 Central government","D41K Interest, payable (FISIM-adjusted)",2334
-"S1311 Central government","D411K Actual interest, payable",2395
-"S1311 Central government","D412K Interest, (FISIM-adjusted), loans",-61
+"S1311 Central government","D443R Investment income attributable to collective investment fund shareholders",34
+"S1311 Central government","D45R Rents, receivable",11
+"S1311 Central government","D4K Property expenditure",2420
+"S1311 Central government","D41K Interest, payable (FISIM-adjusted)",2412
+"S1311 Central government","D411K Actual interest, payable",2461
+"S1311 Central government","D412K Interest, (FISIM-adjusted), loans",-49
 "S1311 Central government","D42K Distributed income of corporations",.
 "S1311 Central government","D421K Dividend income",.
 "S1311 Central government","D422K Withdrawals from income of quasi-corporations, payable",.
@@ -327,10 +327,10 @@
 "S1311 Central government","D441K Investment income attributable to insurance policy holders, payable",.
 "S1311 Central government","D442K Investment income payable on pension entitlements",.
 "S1311 Central government","D443K Investment income attributable to collective investment fund shareholders",.
-"S1311 Central government","D45K Rents, payable",13
-"S1311 Central government","B5GT Gross national income",30798
-"S1311 Central government","B5NT Net national income",26732
-"S1311 Central government","B4GT Entrepreneurial income, gross",4066
+"S1311 Central government","D45K Rents, payable",8
+"S1311 Central government","B5GT Gross national income",30706
+"S1311 Central government","B5NT Net national income",26636
+"S1311 Central government","B4GT Entrepreneurial income, gross",4070
 "S1311 Central government","B41GT Entrepreneurial income from agriculture, gross",.
 "S1311 Central government","B42GT Entrepreneurial income from forestry, gross",.
 "S1311 Central government","B43GT Imputed rent of owner-occupiers, gross",.
@@ -340,9 +340,9 @@
 "S1311 Central government","B42NT Entrepreneurial income from forestry",.
 "S1311 Central government","B43NT Imputed rent of owner-occupiers",.
 "S1311 Central government","B44NT Other entrepreneurial income",.
-"S1311 Central government","D5R Current taxes on income and wealth, etc., receivable",12972
-"S1311 Central government","D51R Income taxes",12200
-"S1311 Central government","D59R Other current taxes, excl. tax on capital",772
+"S1311 Central government","D5R Current taxes on income and wealth, etc., receivable",12632
+"S1311 Central government","D51R Income taxes",11901
+"S1311 Central government","D59R Other current taxes, excl. tax on capital",731
 "S1311 Central government","D61R Social contributions, receivable",.
 "S1311 Central government","D611R Employers’ actual social contributions, receivable",.
 "S1311 Central government","D6111R Employers’ actual pension contributions",.
@@ -369,44 +369,44 @@
 "S1311 Central government","D6221R Other social insurance pension benefits",.
 "S1311 Central government","D6222R Other social insurance non-pension benefits",.
 "S1311 Central government","D623R Social assistance benefits in cash, receivable",.
-"S1311 Central government","D7R Other current transfers, receivable",3184
+"S1311 Central government","D7R Other current transfers, receivable",2791
 "S1311 Central government","D71R Net non-life insurance premiums",.
 "S1311 Central government","D72R Non-life insurance claims",.
-"S1311 Central government","D73R Current transfers within general government",2652
-"S1311 Central government","D73RS13 Current transfers within general government",2652
+"S1311 Central government","D73R Current transfers within general government",2126
+"S1311 Central government","D73RS13 Current transfers within general government",2126
 "S1311 Central government","D73RS1311 Current transfers within general government",.
-"S1311 Central government","D73RS1313 Current transfers within general government",162
-"S1311 Central government","D73RS1314 Current transfers within general government",2490
-"S1311 Central government","D73RS13141 Current transfers within general government",2427
-"S1311 Central government","D73RS13149 Current transfers within general government",63
-"S1311 Central government","D74R Transfers from international co-operation",247
+"S1311 Central government","D73RS1313 Current transfers within general government",178
+"S1311 Central government","D73RS1314 Current transfers within general government",1948
+"S1311 Central government","D73RS13141 Current transfers within general government",1877
+"S1311 Central government","D73RS13149 Current transfers within general government",71
+"S1311 Central government","D74R Transfers from international co-operation",337
 "S1311 Central government","D74RS1311 Transfers from international co-operation",.
 "S1311 Central government","D74RS13141 Transfers from international co-operation",.
 "S1311 Central government","D74RS13149 Transfers from international co-operation",.
-"S1311 Central government","D74RS2 Transfers from international co-operation",247
-"S1311 Central government","D74RS21 Transfers from international co-operation of the European Union",238
-"S1311 Central government","D74RS22 Transfers from other international co-operation",9
-"S1311 Central government","D75R Miscellaneous current transfers",285
-"S1311 Central government","D759RS1 Other transfers from home country",285
-"S1311 Central government","D759RS11 Transfers from non-financial corporations and housing corporations",24
-"S1311 Central government","D759RS12 Transfers from financial corporations",4
+"S1311 Central government","D74RS2 Transfers from international co-operation",337
+"S1311 Central government","D74RS21 Transfers from international co-operation of the European Union",329
+"S1311 Central government","D74RS22 Transfers from other international co-operation",8
+"S1311 Central government","D75R Miscellaneous current transfers",328
+"S1311 Central government","D759RS1 Other transfers from home country",328
+"S1311 Central government","D759RS11 Transfers from non-financial corporations and housing corporations",35
+"S1311 Central government","D759RS12 Transfers from financial corporations",11
 "S1311 Central government","D759RS13 Transfers from general government",.
 "S1311 Central government","D759RS1311 Transfers from central government",.
 "S1311 Central government","D759RS1313 Transfers from local government and intermunicipal authorities",.
 "S1311 Central government","D759RS1314 Transfers from social security funds",.
 "S1311 Central government","D759RS13141 Transfers from employment pension schemes",.
 "S1311 Central government","D759RS13149 Transfers from other social security funds",.
-"S1311 Central government","D759RS14 Transfers from households",110
-"S1311 Central government","D759RS15 Transfers from non-profit institutions",147
+"S1311 Central government","D759RS14 Transfers from households",133
+"S1311 Central government","D759RS15 Transfers from non-profit institutions",149
 "S1311 Central government","D759RS2 Other current transfers from the rest of the world",.
 "S1311 Central government","D759RS21 Other transfers from the EU",.
 "S1311 Central government","D759RS22 Other transfers from other countries",.
 "S1311 Central government","D76R VAT- and GNI-based EU own resources",.
 "S1311 Central government","D761R Gross national income-based EU own resources",.
 "S1311 Central government","D762R Value added tax-based EU own resources",.
-"S1311 Central government","D5K Current taxes on income and wealth, etc., payable",73
-"S1311 Central government","D51K Income taxes",21
-"S1311 Central government","D59K Other current taxes, excl. tax on capital",52
+"S1311 Central government","D5K Current taxes on income and wealth, etc., payable",134
+"S1311 Central government","D51K Income taxes",86
+"S1311 Central government","D59K Other current taxes, excl. tax on capital",48
 "S1311 Central government","D61K Social contributions, payable",.
 "S1311 Central government","D611K Employers’ actual social contributions, payable",.
 "S1311 Central government","D6111K Employers’ actual pension contributions",.
@@ -425,34 +425,34 @@
 "S1311 Central government","D61322K Voluntary households' actual non-pension contributions",.
 "S1311 Central government","D614K Households’ social contribution supplements",.
 "S1311 Central government","D61SCK Social insurance scheme service charges",.
-"S1311 Central government","D62K Social benefits other than social transfers in kind, payable",4326
-"S1311 Central government","D621K Social security benefits in cash, payable",4211
-"S1311 Central government","D6211K Social security pension benefits in cash",4211
+"S1311 Central government","D62K Social benefits other than social transfers in kind, payable",4248
+"S1311 Central government","D621K Social security benefits in cash, payable",4121
+"S1311 Central government","D6211K Social security pension benefits in cash",4121
 "S1311 Central government","D6212K Social security non-pension benefits in cash",.
 "S1311 Central government","D622K Other social insurance benefits, payable",13
 "S1311 Central government","D6221K Other social insurance pension benefits",13
 "S1311 Central government","D6222K Other social insurance non-pension benefits",.
-"S1311 Central government","D623K Social assistance benefits in cash, payable",102
-"S1311 Central government","D7K Other current transfers, payable",31360
+"S1311 Central government","D623K Social assistance benefits in cash, payable",114
+"S1311 Central government","D7K Other current transfers, payable",31585
 "S1311 Central government","D71K Net non-life insurance premiums",.
 "S1311 Central government","D72K Non-life insurance claims",.
-"S1311 Central government","D73K Current transfers within general government",26203
-"S1311 Central government","D73KS13 Current transfers within general government",26203
+"S1311 Central government","D73K Current transfers within general government",26239
+"S1311 Central government","D73KS13 Current transfers within general government",26239
 "S1311 Central government","D73KS1311 Current transfers within general government",.
-"S1311 Central government","D73KS1313 Current transfers within general government",13679
-"S1311 Central government","D73KS1314 Current transfers within general government",12524
-"S1311 Central government","D73KS13141 Current transfers within general government",1286
-"S1311 Central government","D73KS13149 Current transfers within general government",11238
-"S1311 Central government","D74K Transfers to international co-operation",969
+"S1311 Central government","D73KS1313 Current transfers within general government",13844
+"S1311 Central government","D73KS1314 Current transfers within general government",12395
+"S1311 Central government","D73KS13141 Current transfers within general government",1182
+"S1311 Central government","D73KS13149 Current transfers within general government",11213
+"S1311 Central government","D74K Transfers to international co-operation",1044
 "S1311 Central government","D74KS1311 Transfers to international co-operation",.
 "S1311 Central government","D74KS1313 Transfers to international co-operation",.
 "S1311 Central government","D74KS13141 Transfers to international co-operation",.
 "S1311 Central government","D74KS13149 Transfers to international co-operation",.
-"S1311 Central government","D74KS2 Transfers to international co-operation",969
-"S1311 Central government","D74KS21 Transfers to international co-operation of the European Union",57
-"S1311 Central government","D74KS22 Transfers to other international co-operation",912
-"S1311 Central government","D75K Miscellaneous current transfers",2454
-"S1311 Central government","D759KS1 Other transfers to home country",2454
+"S1311 Central government","D74KS2 Transfers to international co-operation",1044
+"S1311 Central government","D74KS21 Transfers to international co-operation of the European Union",83
+"S1311 Central government","D74KS22 Transfers to other international co-operation",961
+"S1311 Central government","D75K Miscellaneous current transfers",2470
+"S1311 Central government","D759KS1 Other transfers to home country",2470
 "S1311 Central government","D759KS11 Transfers to non-financial corporations and housing corporations",.
 "S1311 Central government","D759KS12 Transfers to financial corporations",.
 "S1311 Central government","D759KS13 Transfers to general government",.
@@ -461,80 +461,80 @@
 "S1311 Central government","D759KS1314 Transfers to social security funds",.
 "S1311 Central government","D759KS13141 Transfers to employment pension schemes",.
 "S1311 Central government","D759KS13149 Transfers to other social security funds",.
-"S1311 Central government","D759KS14 Transfers to households",109
-"S1311 Central government","D759KS15 Transfers to non-profit institutions",2345
+"S1311 Central government","D759KS14 Transfers to households",134
+"S1311 Central government","D759KS15 Transfers to non-profit institutions",2336
 "S1311 Central government","D759KS2 Other current transfers to the rest of the world",.
 "S1311 Central government","D759KS21 Other transfers to the EU",.
 "S1311 Central government","D759KS22 Other transfers to other countries",.
-"S1311 Central government","D76K VAT- and GNI-based EU own resources",1734
-"S1311 Central government","D761K Gross national income-based EU own resources",1469
-"S1311 Central government","D762K Value added tax-based EU own resources",265
-"S1311 Central government","B6GT Disposable income, gross",11195
-"S1311 Central government","B6NT Disposable income, net",7129
+"S1311 Central government","D76K VAT- and GNI-based EU own resources",1832
+"S1311 Central government","D761K Gross national income-based EU own resources",1561
+"S1311 Central government","D762K Value added tax-based EU own resources",271
+"S1311 Central government","B6GT Disposable income, gross",10162
+"S1311 Central government","B6NT Disposable income, net",6092
 "S1311 Central government","B12T Balance of payments",.
 "S1311 Central government","D8R Adjustment for the change in pension entitlements",.
-"S1311 Central government","P3K Final consumption expenditure",13651
-"S1311 Central government","P31K Individual consumption expenditure",2827
-"S1311 Central government","P32K Collective consumption expenditure",10824
+"S1311 Central government","P3K Final consumption expenditure",13718
+"S1311 Central government","P31K Individual consumption expenditure",2712
+"S1311 Central government","P32K Collective consumption expenditure",11006
 "S1311 Central government","D8K Adjustment for the change in pension entitlements",.
-"S1311 Central government","B8GT Saving, gross",-2456
-"S1311 Central government","B8NT Saving, net",-6522
-"S1311 Central government","D9R Capital transfers, receivable",784
-"S1311 Central government","D91R Tax on capital",631
-"S1311 Central government","D92R Investment grants",124
-"S1311 Central government","D99R Other capital transfers",29
-"S1311 Central government","D9K Capital transfers, payable",999
+"S1311 Central government","B8GT Saving, gross",-3556
+"S1311 Central government","B8NT Saving, net",-7626
+"S1311 Central government","D9R Capital transfers, receivable",646
+"S1311 Central government","D91R Tax on capital",499
+"S1311 Central government","D92R Investment grants",132
+"S1311 Central government","D99R Other capital transfers",15
+"S1311 Central government","D9K Capital transfers, payable",786
 "S1311 Central government","D91K Tax on capital",.
-"S1311 Central government","D92K Investment grants",543
-"S1311 Central government","D99K Other capital transfers",456
-"S1311 Central government","B101T Changes in net worth due to saving and capital transfers",-6737
-"S1311 Central government","P51CR Consumption of fixed capital",4066
-"S1311 Central government","P5K Gross capital formation",3643
-"S1311 Central government","P51K Gross fixed capital formation",3642
-"S1311 Central government","P52K Changes in inventories",-1
+"S1311 Central government","D92K Investment grants",582
+"S1311 Central government","D99K Other capital transfers",204
+"S1311 Central government","B101T Changes in net worth due to saving and capital transfers",-7766
+"S1311 Central government","P51CR Consumption of fixed capital",4070
+"S1311 Central government","P5K Gross capital formation",4036
+"S1311 Central government","P51K Gross fixed capital formation",4034
+"S1311 Central government","P52K Changes in inventories",0
 "S1311 Central government","P53K Net acquisitions of valuables",2
-"S1311 Central government","NPK Acquisitions less disposals of non-produced assets",20
-"S1311 Central government","NP1K Acquisitions less disposals of natural resources",25
-"S1311 Central government","NP11K Acquisitions of natural resources",58
-"S1311 Central government","NP12K Disposals of natural resources",33
-"S1311 Central government","NP2K Acquisitions less disposals of contracts, leases and licences",-5
+"S1311 Central government","NPK Acquisitions less disposals of non-produced assets",29
+"S1311 Central government","NP1K Acquisitions less disposals of natural resources",31
+"S1311 Central government","NP11K Acquisitions of natural resources",47
+"S1311 Central government","NP12K Disposals of natural resources",16
+"S1311 Central government","NP2K Acquisitions less disposals of contracts, leases and licences",-2
 "S1311 Central government","DEB1*GT Statistical discrepancy of national balance of supply and demand",.
-"S1311 Central government","B9T Net lending (+) / net borrowing (-)",-6334
+"S1311 Central government","B9T Net lending (+) / net borrowing (-)",-7761
 "S1311 Central government","D63R Social benefits in kind, receivable",.
 "S1311 Central government","D631R Social transfers in kind  – non-market production",.
 "S1311 Central government","D632R Social transfers in kind  – purchased market production",.
-"S1311 Central government","D63K Social benefits in kind, payable",2827
-"S1311 Central government","D631K Social transfers in kind  – non-market production",2501
-"S1311 Central government","D632K Social transfers in kind  – purchased market production",326
-"S1311 Central government","B7GT Adjusted disposable income, gross",8368
-"S1311 Central government","B7NT Adjusted disposable income, net",4302
-"S1311 Central government","P4K Actual final consumption",10824
+"S1311 Central government","D63K Social benefits in kind, payable",2712
+"S1311 Central government","D631K Social transfers in kind  – non-market production",2371
+"S1311 Central government","D632K Social transfers in kind  – purchased market production",341
+"S1311 Central government","B7GT Adjusted disposable income, gross",7450
+"S1311 Central government","B7NT Adjusted disposable income, net",3380
+"S1311 Central government","P4K Actual final consumption",11006
 "S1311 Central government","P41K Actual individual consumption",.
-"S1311 Central government","P42K Actual collective consumption",10824
-"S1311 Central government","OTRR Total revenue",52124
-"S1311 Central government","OTEK Total expenditure",58458
-"S1313 Local government","P1R Output at basic prices",40643
-"S1313 Local government","P11R Market output",7532
-"S1313 Local government","P12R Output for own final use",221
+"S1311 Central government","P42K Actual collective consumption",11006
+"S1311 Central government","OTRR Total revenue",51003
+"S1311 Central government","OTEK Total expenditure",58764
+"S1313 Local government","P1R Output at basic prices",41270
+"S1313 Local government","P11R Market output",8482
+"S1313 Local government","P12R Output for own final use",256
 "S1313 Local government","P119R Financial intermediation services indirectly measured (FISIM)",.
-"S1313 Local government","P131R Sales of non-market products",2269
-"S1313 Local government","P132R Other non-market output",30621
-"S1313 Local government","P2K Intermediate consumption",15753
-"S1313 Local government","P119K Financial intermediation services indirectly measured (FISIM)",112
-"S1313 Local government","P22K Other intermediate consumption",15641
-"S1313 Local government","B1GPHT Value added, gross at basic prices",24890
-"S1313 Local government","P51CK Consumption of fixed capital",3140
-"S1313 Local government","B1NPHT Value added, net at basic prices",21750
-"S1313 Local government","D1K Compensation of employees",21724
-"S1313 Local government","D11K Wages and salaries",16758
-"S1313 Local government","D12K Employers' social contributions",4966
+"S1313 Local government","P131R Sales of non-market products",2105
+"S1313 Local government","P132R Other non-market output",30427
+"S1313 Local government","P2K Intermediate consumption",16490
+"S1313 Local government","P119K Financial intermediation services indirectly measured (FISIM)",151
+"S1313 Local government","P22K Other intermediate consumption",16339
+"S1313 Local government","B1GPHT Value added, gross at basic prices",24780
+"S1313 Local government","P51CK Consumption of fixed capital",3077
+"S1313 Local government","B1NPHT Value added, net at basic prices",21703
+"S1313 Local government","D1K Compensation of employees",21654
+"S1313 Local government","D11K Wages and salaries",16680
+"S1313 Local government","D12K Employers' social contributions",4974
 "S1313 Local government","D29K Other taxes on production",6
 "S1313 Local government","D39R Other subsidies on production",.
-"S1313 Local government","B13GT Operating surplus + mixed income, gross",3160
-"S1313 Local government","B2GT Operating surplus, gross",3160
+"S1313 Local government","B13GT Operating surplus + mixed income, gross",3120
+"S1313 Local government","B2GT Operating surplus, gross",3120
 "S1313 Local government","B3GT Mixed income, gross",.
-"S1313 Local government","B13NT Operating surplus + mixed income, net",20
-"S1313 Local government","B2NT Operating surplus, net",20
+"S1313 Local government","B13NT Operating surplus + mixed income, net",43
+"S1313 Local government","B2NT Operating surplus, net",43
 "S1313 Local government","B3NT Mixed income, net",.
 "S1313 Local government","P7R Imports of goods and services",.
 "S1313 Local government","P71R Imports of goods",.
@@ -556,26 +556,26 @@
 "S1313 Local government","D212R Taxes and duties on imports excluding VAT",.
 "S1313 Local government","D214R Taxes on products, except VAT and import taxes",1
 "S1313 Local government","D29R Other taxes on production",.
-"S1313 Local government","D3K Subsidies",402
-"S1313 Local government","D31K Subsidies on products",391
-"S1313 Local government","D39K Other subsidies on production",11
-"S1313 Local government","D4R Property income",1244
-"S1313 Local government","D41R Interest, receivable (FISIM-adjusted)",278
-"S1313 Local government","D411R Actual interest, receivable",261
-"S1313 Local government","D412R Intrest, (FISIM-adjusted), deposits",17
-"S1313 Local government","D42R Distributed income of corporations",458
-"S1313 Local government","D421R Income from dividends",192
-"S1313 Local government","D422R Withdrawals from income of quasi-corporations",266
+"S1313 Local government","D3K Subsidies",407
+"S1313 Local government","D31K Subsidies on products",395
+"S1313 Local government","D39K Other subsidies on production",12
+"S1313 Local government","D4R Property income",1145
+"S1313 Local government","D41R Interest, receivable (FISIM-adjusted)",234
+"S1313 Local government","D411R Actual interest, receivable",219
+"S1313 Local government","D412R Intrest, (FISIM-adjusted), deposits",15
+"S1313 Local government","D42R Distributed income of corporations",482
+"S1313 Local government","D421R Income from dividends",151
+"S1313 Local government","D422R Withdrawals from income of quasi-corporations",331
 "S1313 Local government","D43R Reinvested earnings on direct foreign investment",.
-"S1313 Local government","D44R Other investment income",36
-"S1313 Local government","D441R Investment income attributable to insurance policy holders, receivable",.
+"S1313 Local government","D44R Other investment income",42
+"S1313 Local government","D441R Investment income attributable to insurance policy holders, receivable",3
 "S1313 Local government","D442R Investment income payable on pension entitlements",.
-"S1313 Local government","D443R Investment income attributable to collective investment fund shareholders",36
-"S1313 Local government","D45R Rents, receivable",472
-"S1313 Local government","D4K Property expenditure",153
-"S1313 Local government","D41K Interest, payable (FISIM-adjusted)",144
-"S1313 Local government","D411K Actual interest, payable",239
-"S1313 Local government","D412K Interest, (FISIM-adjusted), loans",-95
+"S1313 Local government","D443R Investment income attributable to collective investment fund shareholders",39
+"S1313 Local government","D45R Rents, receivable",387
+"S1313 Local government","D4K Property expenditure",130
+"S1313 Local government","D41K Interest, payable (FISIM-adjusted)",125
+"S1313 Local government","D411K Actual interest, payable",261
+"S1313 Local government","D412K Interest, (FISIM-adjusted), loans",-136
 "S1313 Local government","D42K Distributed income of corporations",.
 "S1313 Local government","D421K Dividend income",.
 "S1313 Local government","D422K Withdrawals from income of quasi-corporations, payable",.
@@ -584,22 +584,22 @@
 "S1313 Local government","D441K Investment income attributable to insurance policy holders, payable",.
 "S1313 Local government","D442K Investment income payable on pension entitlements",.
 "S1313 Local government","D443K Investment income attributable to collective investment fund shareholders",.
-"S1313 Local government","D45K Rents, payable",9
-"S1313 Local government","B5GT Gross national income",3850
-"S1313 Local government","B5NT Net national income",710
-"S1313 Local government","B4GT Entrepreneurial income, gross",3160
+"S1313 Local government","D45K Rents, payable",5
+"S1313 Local government","B5GT Gross national income",3729
+"S1313 Local government","B5NT Net national income",652
+"S1313 Local government","B4GT Entrepreneurial income, gross",3120
 "S1313 Local government","B41GT Entrepreneurial income from agriculture, gross",.
 "S1313 Local government","B42GT Entrepreneurial income from forestry, gross",.
 "S1313 Local government","B43GT Imputed rent of owner-occupiers, gross",.
 "S1313 Local government","B44GT Other entrepreneurial income, gross",.
-"S1313 Local government","B4NT Entrepreneurial income",20
+"S1313 Local government","B4NT Entrepreneurial income",43
 "S1313 Local government","B41NT Entrepreneurial income from agriculture",.
 "S1313 Local government","B42NT Entrepreneurial income from forestry",.
 "S1313 Local government","B43NT Imputed rent of owner-occupiers",.
 "S1313 Local government","B44NT Other entrepreneurial income",.
-"S1313 Local government","D5R Current taxes on income and wealth, etc., receivable",21848
-"S1313 Local government","D51R Income taxes",20244
-"S1313 Local government","D59R Other current taxes, excl. tax on capital",1604
+"S1313 Local government","D5R Current taxes on income and wealth, etc., receivable",21158
+"S1313 Local government","D51R Income taxes",19645
+"S1313 Local government","D59R Other current taxes, excl. tax on capital",1513
 "S1313 Local government","D61R Social contributions, receivable",15
 "S1313 Local government","D611R Employers’ actual social contributions, receivable",11
 "S1313 Local government","D6111R Employers’ actual pension contributions",11
@@ -626,26 +626,26 @@
 "S1313 Local government","D6221R Other social insurance pension benefits",.
 "S1313 Local government","D6222R Other social insurance non-pension benefits",.
 "S1313 Local government","D623R Social assistance benefits in cash, receivable",.
-"S1313 Local government","D7R Other current transfers, receivable",13860
+"S1313 Local government","D7R Other current transfers, receivable",14029
 "S1313 Local government","D71R Net non-life insurance premiums",.
-"S1313 Local government","D72R Non-life insurance claims",28
-"S1313 Local government","D73R Current transfers within general government",13769
-"S1313 Local government","D73RS13 Current transfers within general government",13769
-"S1313 Local government","D73RS1311 Current transfers within general government",13679
+"S1313 Local government","D72R Non-life insurance claims",3
+"S1313 Local government","D73R Current transfers within general government",13930
+"S1313 Local government","D73RS13 Current transfers within general government",13930
+"S1313 Local government","D73RS1311 Current transfers within general government",13844
 "S1313 Local government","D73RS1313 Current transfers within general government",.
-"S1313 Local government","D73RS1314 Current transfers within general government",90
+"S1313 Local government","D73RS1314 Current transfers within general government",86
 "S1313 Local government","D73RS13141 Current transfers within general government",.
-"S1313 Local government","D73RS13149 Current transfers within general government",90
-"S1313 Local government","D74R Transfers from international co-operation",23
+"S1313 Local government","D73RS13149 Current transfers within general government",86
+"S1313 Local government","D74R Transfers from international co-operation",46
 "S1313 Local government","D74RS1311 Transfers from international co-operation",.
 "S1313 Local government","D74RS13141 Transfers from international co-operation",.
 "S1313 Local government","D74RS13149 Transfers from international co-operation",.
-"S1313 Local government","D74RS2 Transfers from international co-operation",23
-"S1313 Local government","D74RS21 Transfers from international co-operation of the European Union",23
+"S1313 Local government","D74RS2 Transfers from international co-operation",46
+"S1313 Local government","D74RS21 Transfers from international co-operation of the European Union",46
 "S1313 Local government","D74RS22 Transfers from other international co-operation",.
-"S1313 Local government","D75R Miscellaneous current transfers",40
-"S1313 Local government","D759RS1 Other transfers from home country",40
-"S1313 Local government","D759RS11 Transfers from non-financial corporations and housing corporations",1
+"S1313 Local government","D75R Miscellaneous current transfers",50
+"S1313 Local government","D759RS1 Other transfers from home country",50
+"S1313 Local government","D759RS11 Transfers from non-financial corporations and housing corporations",5
 "S1313 Local government","D759RS12 Transfers from financial corporations",.
 "S1313 Local government","D759RS13 Transfers from general government",.
 "S1313 Local government","D759RS1311 Transfers from central government",.
@@ -653,8 +653,8 @@
 "S1313 Local government","D759RS1314 Transfers from social security funds",.
 "S1313 Local government","D759RS13141 Transfers from employment pension schemes",.
 "S1313 Local government","D759RS13149 Transfers from other social security funds",.
-"S1313 Local government","D759RS14 Transfers from households",37
-"S1313 Local government","D759RS15 Transfers from non-profit institutions",2
+"S1313 Local government","D759RS14 Transfers from households",45
+"S1313 Local government","D759RS15 Transfers from non-profit institutions",.
 "S1313 Local government","D759RS2 Other current transfers from the rest of the world",.
 "S1313 Local government","D759RS21 Other transfers from the EU",.
 "S1313 Local government","D759RS22 Other transfers from other countries",.
@@ -682,24 +682,24 @@
 "S1313 Local government","D61322K Voluntary households' actual non-pension contributions",.
 "S1313 Local government","D614K Households’ social contribution supplements",.
 "S1313 Local government","D61SCK Social insurance scheme service charges",.
-"S1313 Local government","D62K Social benefits other than social transfers in kind, payable",1332
-"S1313 Local government","D621K Social security benefits in cash, payable",29
-"S1313 Local government","D6211K Social security pension benefits in cash",29
+"S1313 Local government","D62K Social benefits other than social transfers in kind, payable",1273
+"S1313 Local government","D621K Social security benefits in cash, payable",27
+"S1313 Local government","D6211K Social security pension benefits in cash",27
 "S1313 Local government","D6212K Social security non-pension benefits in cash",.
-"S1313 Local government","D622K Other social insurance benefits, payable",16
-"S1313 Local government","D6221K Other social insurance pension benefits",16
+"S1313 Local government","D622K Other social insurance benefits, payable",17
+"S1313 Local government","D6221K Other social insurance pension benefits",17
 "S1313 Local government","D6222K Other social insurance non-pension benefits",.
-"S1313 Local government","D623K Social assistance benefits in cash, payable",1287
-"S1313 Local government","D7K Other current transfers, payable",1373
-"S1313 Local government","D71K Net non-life insurance premiums",45
+"S1313 Local government","D623K Social assistance benefits in cash, payable",1229
+"S1313 Local government","D7K Other current transfers, payable",1283
+"S1313 Local government","D71K Net non-life insurance premiums",75
 "S1313 Local government","D72K Non-life insurance claims",.
-"S1313 Local government","D73K Current transfers within general government",1007
-"S1313 Local government","D73KS13 Current transfers within general government",1007
-"S1313 Local government","D73KS1311 Current transfers within general government",162
+"S1313 Local government","D73K Current transfers within general government",882
+"S1313 Local government","D73KS13 Current transfers within general government",882
+"S1313 Local government","D73KS1311 Current transfers within general government",178
 "S1313 Local government","D73KS1313 Current transfers within general government",.
-"S1313 Local government","D73KS1314 Current transfers within general government",845
+"S1313 Local government","D73KS1314 Current transfers within general government",704
 "S1313 Local government","D73KS13141 Current transfers within general government",.
-"S1313 Local government","D73KS13149 Current transfers within general government",845
+"S1313 Local government","D73KS13149 Current transfers within general government",704
 "S1313 Local government","D74K Transfers to international co-operation",.
 "S1313 Local government","D74KS1311 Transfers to international co-operation",.
 "S1313 Local government","D74KS1313 Transfers to international co-operation",.
@@ -708,8 +708,8 @@
 "S1313 Local government","D74KS2 Transfers to international co-operation",.
 "S1313 Local government","D74KS21 Transfers to international co-operation of the European Union",.
 "S1313 Local government","D74KS22 Transfers to other international co-operation",.
-"S1313 Local government","D75K Miscellaneous current transfers",321
-"S1313 Local government","D759KS1 Other transfers to home country",321
+"S1313 Local government","D75K Miscellaneous current transfers",326
+"S1313 Local government","D759KS1 Other transfers to home country",326
 "S1313 Local government","D759KS11 Transfers to non-financial corporations and housing corporations",.
 "S1313 Local government","D759KS12 Transfers to financial corporations",.
 "S1313 Local government","D759KS13 Transfers to general government",.
@@ -719,79 +719,79 @@
 "S1313 Local government","D759KS13141 Transfers to employment pension schemes",.
 "S1313 Local government","D759KS13149 Transfers to other social security funds",.
 "S1313 Local government","D759KS14 Transfers to households",.
-"S1313 Local government","D759KS15 Transfers to non-profit institutions",321
+"S1313 Local government","D759KS15 Transfers to non-profit institutions",326
 "S1313 Local government","D759KS2 Other current transfers to the rest of the world",.
 "S1313 Local government","D759KS21 Other transfers to the EU",.
 "S1313 Local government","D759KS22 Other transfers to other countries",.
 "S1313 Local government","D76K VAT- and GNI-based EU own resources",.
 "S1313 Local government","D761K Gross national income-based EU own resources",.
 "S1313 Local government","D762K Value added tax-based EU own resources",.
-"S1313 Local government","B6GT Disposable income, gross",36865
-"S1313 Local government","B6NT Disposable income, net",33725
+"S1313 Local government","B6GT Disposable income, gross",36372
+"S1313 Local government","B6NT Disposable income, net",33295
 "S1313 Local government","B12T Balance of payments",.
 "S1313 Local government","D8R Adjustment for the change in pension entitlements",.
-"S1313 Local government","P3K Final consumption expenditure",33833
-"S1313 Local government","P31K Individual consumption expenditure",28132
-"S1313 Local government","P32K Collective consumption expenditure",5701
+"S1313 Local government","P3K Final consumption expenditure",33413
+"S1313 Local government","P31K Individual consumption expenditure",27683
+"S1313 Local government","P32K Collective consumption expenditure",5730
 "S1313 Local government","D8K Adjustment for the change in pension entitlements",.
-"S1313 Local government","B8GT Saving, gross",3032
-"S1313 Local government","B8NT Saving, net",-108
-"S1313 Local government","D9R Capital transfers, receivable",216
+"S1313 Local government","B8GT Saving, gross",2959
+"S1313 Local government","B8NT Saving, net",-118
+"S1313 Local government","D9R Capital transfers, receivable",180
 "S1313 Local government","D91R Tax on capital",.
-"S1313 Local government","D92R Investment grants",174
-"S1313 Local government","D99R Other capital transfers",42
-"S1313 Local government","D9K Capital transfers, payable",140
+"S1313 Local government","D92R Investment grants",180
+"S1313 Local government","D99R Other capital transfers",.
+"S1313 Local government","D9K Capital transfers, payable",42
 "S1313 Local government","D91K Tax on capital",.
-"S1313 Local government","D92K Investment grants",35
-"S1313 Local government","D99K Other capital transfers",105
-"S1313 Local government","B101T Changes in net worth due to saving and capital transfers",-32
-"S1313 Local government","P51CR Consumption of fixed capital",3140
-"S1313 Local government","P5K Gross capital formation",4666
-"S1313 Local government","P51K Gross fixed capital formation",4661
-"S1313 Local government","P52K Changes in inventories",4
-"S1313 Local government","P53K Net acquisitions of valuables",1
-"S1313 Local government","NPK Acquisitions less disposals of non-produced assets",-183
-"S1313 Local government","NP1K Acquisitions less disposals of natural resources",-183
-"S1313 Local government","NP11K Acquisitions of natural resources",245
-"S1313 Local government","NP12K Disposals of natural resources",428
+"S1313 Local government","D92K Investment grants",10
+"S1313 Local government","D99K Other capital transfers",32
+"S1313 Local government","B101T Changes in net worth due to saving and capital transfers",20
+"S1313 Local government","P51CR Consumption of fixed capital",3077
+"S1313 Local government","P5K Gross capital formation",4653
+"S1313 Local government","P51K Gross fixed capital formation",4641
+"S1313 Local government","P52K Changes in inventories",18
+"S1313 Local government","P53K Net acquisitions of valuables",-6
+"S1313 Local government","NPK Acquisitions less disposals of non-produced assets",17
+"S1313 Local government","NP1K Acquisitions less disposals of natural resources",17
+"S1313 Local government","NP11K Acquisitions of natural resources",427
+"S1313 Local government","NP12K Disposals of natural resources",410
 "S1313 Local government","NP2K Acquisitions less disposals of contracts, leases and licences",.
 "S1313 Local government","DEB1*GT Statistical discrepancy of national balance of supply and demand",.
-"S1313 Local government","B9T Net lending (+) / net borrowing (-)",-1375
+"S1313 Local government","B9T Net lending (+) / net borrowing (-)",-1573
 "S1313 Local government","D63R Social benefits in kind, receivable",.
 "S1313 Local government","D631R Social transfers in kind  – non-market production",.
 "S1313 Local government","D632R Social transfers in kind  – purchased market production",.
-"S1313 Local government","D63K Social benefits in kind, payable",28132
-"S1313 Local government","D631K Social transfers in kind  – non-market production",24920
-"S1313 Local government","D632K Social transfers in kind  – purchased market production",3212
-"S1313 Local government","B7GT Adjusted disposable income, gross",8733
-"S1313 Local government","B7NT Adjusted disposable income, net",5593
-"S1313 Local government","P4K Actual final consumption",5701
+"S1313 Local government","D63K Social benefits in kind, payable",27683
+"S1313 Local government","D631K Social transfers in kind  – non-market production",24697
+"S1313 Local government","D632K Social transfers in kind  – purchased market production",2986
+"S1313 Local government","B7GT Adjusted disposable income, gross",8689
+"S1313 Local government","B7NT Adjusted disposable income, net",5612
+"S1313 Local government","P4K Actual final consumption",5730
 "S1313 Local government","P41K Actual individual consumption",.
-"S1313 Local government","P42K Actual collective consumption",5701
-"S1313 Local government","OTRR Total revenue",47206
-"S1313 Local government","OTEK Total expenditure",48581
-"S13141 Employment pension schemes","P1R Output at basic prices",1708
-"S13141 Employment pension schemes","P11R Market output",918
+"S1313 Local government","P42K Actual collective consumption",5730
+"S1313 Local government","OTRR Total revenue",47371
+"S1313 Local government","OTEK Total expenditure",48944
+"S13141 Employment pension schemes","P1R Output at basic prices",1729
+"S13141 Employment pension schemes","P11R Market output",944
 "S13141 Employment pension schemes","P12R Output for own final use",17
 "S13141 Employment pension schemes","P119R Financial intermediation services indirectly measured (FISIM)",.
 "S13141 Employment pension schemes","P131R Sales of non-market products",.
-"S13141 Employment pension schemes","P132R Other non-market output",773
-"S13141 Employment pension schemes","P2K Intermediate consumption",946
-"S13141 Employment pension schemes","P119K Financial intermediation services indirectly measured (FISIM)",39
-"S13141 Employment pension schemes","P22K Other intermediate consumption",907
-"S13141 Employment pension schemes","B1GPHT Value added, gross at basic prices",762
-"S13141 Employment pension schemes","P51CK Consumption of fixed capital",99
-"S13141 Employment pension schemes","B1NPHT Value added, net at basic prices",663
-"S13141 Employment pension schemes","D1K Compensation of employees",249
+"S13141 Employment pension schemes","P132R Other non-market output",768
+"S13141 Employment pension schemes","P2K Intermediate consumption",962
+"S13141 Employment pension schemes","P119K Financial intermediation services indirectly measured (FISIM)",20
+"S13141 Employment pension schemes","P22K Other intermediate consumption",942
+"S13141 Employment pension schemes","B1GPHT Value added, gross at basic prices",767
+"S13141 Employment pension schemes","P51CK Consumption of fixed capital",101
+"S13141 Employment pension schemes","B1NPHT Value added, net at basic prices",666
+"S13141 Employment pension schemes","D1K Compensation of employees",250
 "S13141 Employment pension schemes","D11K Wages and salaries",204
-"S13141 Employment pension schemes","D12K Employers' social contributions",45
+"S13141 Employment pension schemes","D12K Employers' social contributions",46
 "S13141 Employment pension schemes","D29K Other taxes on production",.
 "S13141 Employment pension schemes","D39R Other subsidies on production",.
-"S13141 Employment pension schemes","B13GT Operating surplus + mixed income, gross",513
-"S13141 Employment pension schemes","B2GT Operating surplus, gross",513
+"S13141 Employment pension schemes","B13GT Operating surplus + mixed income, gross",517
+"S13141 Employment pension schemes","B2GT Operating surplus, gross",517
 "S13141 Employment pension schemes","B3GT Mixed income, gross",.
-"S13141 Employment pension schemes","B13NT Operating surplus + mixed income, net",414
-"S13141 Employment pension schemes","B2NT Operating surplus, net",414
+"S13141 Employment pension schemes","B13NT Operating surplus + mixed income, net",416
+"S13141 Employment pension schemes","B2NT Operating surplus, net",416
 "S13141 Employment pension schemes","B3NT Mixed income, net",.
 "S13141 Employment pension schemes","P7R Imports of goods and services",.
 "S13141 Employment pension schemes","P71R Imports of goods",.
@@ -816,22 +816,22 @@
 "S13141 Employment pension schemes","D3K Subsidies",.
 "S13141 Employment pension schemes","D31K Subsidies on products",.
 "S13141 Employment pension schemes","D39K Other subsidies on production",.
-"S13141 Employment pension schemes","D4R Property income",3398
-"S13141 Employment pension schemes","D41R Interest, receivable (FISIM-adjusted)",1403
-"S13141 Employment pension schemes","D411R Actual interest, receivable",1364
-"S13141 Employment pension schemes","D412R Intrest, (FISIM-adjusted), deposits",39
-"S13141 Employment pension schemes","D42R Distributed income of corporations",1144
-"S13141 Employment pension schemes","D421R Income from dividends",1144
+"S13141 Employment pension schemes","D4R Property income",3452
+"S13141 Employment pension schemes","D41R Interest, receivable (FISIM-adjusted)",1552
+"S13141 Employment pension schemes","D411R Actual interest, receivable",1532
+"S13141 Employment pension schemes","D412R Intrest, (FISIM-adjusted), deposits",20
+"S13141 Employment pension schemes","D42R Distributed income of corporations",1099
+"S13141 Employment pension schemes","D421R Income from dividends",1099
 "S13141 Employment pension schemes","D422R Withdrawals from income of quasi-corporations",.
 "S13141 Employment pension schemes","D43R Reinvested earnings on direct foreign investment",0
-"S13141 Employment pension schemes","D44R Other investment income",851
+"S13141 Employment pension schemes","D44R Other investment income",801
 "S13141 Employment pension schemes","D441R Investment income attributable to insurance policy holders, receivable",.
 "S13141 Employment pension schemes","D442R Investment income payable on pension entitlements",.
-"S13141 Employment pension schemes","D443R Investment income attributable to collective investment fund shareholders",851
+"S13141 Employment pension schemes","D443R Investment income attributable to collective investment fund shareholders",801
 "S13141 Employment pension schemes","D45R Rents, receivable",.
-"S13141 Employment pension schemes","D4K Property expenditure",17
-"S13141 Employment pension schemes","D41K Interest, payable (FISIM-adjusted)",17
-"S13141 Employment pension schemes","D411K Actual interest, payable",17
+"S13141 Employment pension schemes","D4K Property expenditure",40
+"S13141 Employment pension schemes","D41K Interest, payable (FISIM-adjusted)",40
+"S13141 Employment pension schemes","D411K Actual interest, payable",40
 "S13141 Employment pension schemes","D412K Interest, (FISIM-adjusted), loans",0
 "S13141 Employment pension schemes","D42K Distributed income of corporations",.
 "S13141 Employment pension schemes","D421K Dividend income",.
@@ -842,14 +842,14 @@
 "S13141 Employment pension schemes","D442K Investment income payable on pension entitlements",.
 "S13141 Employment pension schemes","D443K Investment income attributable to collective investment fund shareholders",.
 "S13141 Employment pension schemes","D45K Rents, payable",.
-"S13141 Employment pension schemes","B5GT Gross national income",3894
-"S13141 Employment pension schemes","B5NT Net national income",3795
-"S13141 Employment pension schemes","B4GT Entrepreneurial income, gross",513
+"S13141 Employment pension schemes","B5GT Gross national income",3929
+"S13141 Employment pension schemes","B5NT Net national income",3828
+"S13141 Employment pension schemes","B4GT Entrepreneurial income, gross",517
 "S13141 Employment pension schemes","B41GT Entrepreneurial income from agriculture, gross",.
 "S13141 Employment pension schemes","B42GT Entrepreneurial income from forestry, gross",.
 "S13141 Employment pension schemes","B43GT Imputed rent of owner-occupiers, gross",.
 "S13141 Employment pension schemes","B44GT Other entrepreneurial income, gross",.
-"S13141 Employment pension schemes","B4NT Entrepreneurial income",414
+"S13141 Employment pension schemes","B4NT Entrepreneurial income",416
 "S13141 Employment pension schemes","B41NT Entrepreneurial income from agriculture",.
 "S13141 Employment pension schemes","B42NT Entrepreneurial income from forestry",.
 "S13141 Employment pension schemes","B43NT Imputed rent of owner-occupiers",.
@@ -857,18 +857,18 @@
 "S13141 Employment pension schemes","D5R Current taxes on income and wealth, etc., receivable",.
 "S13141 Employment pension schemes","D51R Income taxes",.
 "S13141 Employment pension schemes","D59R Other current taxes, excl. tax on capital",.
-"S13141 Employment pension schemes","D61R Social contributions, receivable",20871
-"S13141 Employment pension schemes","D611R Employers’ actual social contributions, receivable",14892
-"S13141 Employment pension schemes","D6111R Employers’ actual pension contributions",14885
-"S13141 Employment pension schemes","D61111R Compulsory employers' actual pension contributions, receivable",14876
-"S13141 Employment pension schemes","D61112R Voluntary employers' actual pension contributions, receivable",9
+"S13141 Employment pension schemes","D61R Social contributions, receivable",20390
+"S13141 Employment pension schemes","D611R Employers’ actual social contributions, receivable",14609
+"S13141 Employment pension schemes","D6111R Employers’ actual pension contributions",14602
+"S13141 Employment pension schemes","D61111R Compulsory employers' actual pension contributions, receivable",14592
+"S13141 Employment pension schemes","D61112R Voluntary employers' actual pension contributions, receivable",10
 "S13141 Employment pension schemes","D6112R Employers’ actual non-pension contributions",7
 "S13141 Employment pension schemes","D61121R Compulsory employers’ actual non-pension contributions",7
 "S13141 Employment pension schemes","D61122R Voluntary employers’ actual non-pension contributions",.
 "S13141 Employment pension schemes","D612R Employers’ imputed social contributions",.
-"S13141 Employment pension schemes","D613R Households’ actual social contributions",5979
-"S13141 Employment pension schemes","D6131R Households’ actual pension contributions",5979
-"S13141 Employment pension schemes","D61311R Compulsory households' actual pension contributions",5979
+"S13141 Employment pension schemes","D613R Households’ actual social contributions",5781
+"S13141 Employment pension schemes","D6131R Households’ actual pension contributions",5781
+"S13141 Employment pension schemes","D61311R Compulsory households' actual pension contributions",5781
 "S13141 Employment pension schemes","D61312R Voluntary households' actual pension contributions",.
 "S13141 Employment pension schemes","D6132R Households’ actual non-pension contributions",.
 "S13141 Employment pension schemes","D61321R Compulsory households' actual non-pension contributions",.
@@ -883,16 +883,16 @@
 "S13141 Employment pension schemes","D6221R Other social insurance pension benefits",.
 "S13141 Employment pension schemes","D6222R Other social insurance non-pension benefits",.
 "S13141 Employment pension schemes","D623R Social assistance benefits in cash, receivable",.
-"S13141 Employment pension schemes","D7R Other current transfers, receivable",2187
+"S13141 Employment pension schemes","D7R Other current transfers, receivable",2021
 "S13141 Employment pension schemes","D71R Net non-life insurance premiums",.
 "S13141 Employment pension schemes","D72R Non-life insurance claims",.
-"S13141 Employment pension schemes","D73R Current transfers within general government",2187
-"S13141 Employment pension schemes","D73RS13 Current transfers within general government",2187
-"S13141 Employment pension schemes","D73RS1311 Current transfers within general government",1286
+"S13141 Employment pension schemes","D73R Current transfers within general government",2021
+"S13141 Employment pension schemes","D73RS13 Current transfers within general government",2021
+"S13141 Employment pension schemes","D73RS1311 Current transfers within general government",1182
 "S13141 Employment pension schemes","D73RS1313 Current transfers within general government",.
-"S13141 Employment pension schemes","D73RS1314 Current transfers within general government",901
+"S13141 Employment pension schemes","D73RS1314 Current transfers within general government",839
 "S13141 Employment pension schemes","D73RS13141 Current transfers within general government",.
-"S13141 Employment pension schemes","D73RS13149 Current transfers within general government",901
+"S13141 Employment pension schemes","D73RS13149 Current transfers within general government",839
 "S13141 Employment pension schemes","D74R Transfers from international co-operation",0
 "S13141 Employment pension schemes","D74RS1311 Transfers from international co-operation",.
 "S13141 Employment pension schemes","D74RS13141 Transfers from international co-operation",.
@@ -918,8 +918,8 @@
 "S13141 Employment pension schemes","D76R VAT- and GNI-based EU own resources",.
 "S13141 Employment pension schemes","D761R Gross national income-based EU own resources",.
 "S13141 Employment pension schemes","D762R Value added tax-based EU own resources",.
-"S13141 Employment pension schemes","D5K Current taxes on income and wealth, etc., payable",23
-"S13141 Employment pension schemes","D51K Income taxes",23
+"S13141 Employment pension schemes","D5K Current taxes on income and wealth, etc., payable",18
+"S13141 Employment pension schemes","D51K Income taxes",18
 "S13141 Employment pension schemes","D59K Other current taxes, excl. tax on capital",.
 "S13141 Employment pension schemes","D61K Social contributions, payable",.
 "S13141 Employment pension schemes","D611K Employers’ actual social contributions, payable",.
@@ -939,20 +939,20 @@
 "S13141 Employment pension schemes","D61322K Voluntary households' actual non-pension contributions",.
 "S13141 Employment pension schemes","D614K Households’ social contribution supplements",.
 "S13141 Employment pension schemes","D61SCK Social insurance scheme service charges",.
-"S13141 Employment pension schemes","D62K Social benefits other than social transfers in kind, payable",21162
-"S13141 Employment pension schemes","D621K Social security benefits in cash, payable",21162
-"S13141 Employment pension schemes","D6211K Social security pension benefits in cash",21155
-"S13141 Employment pension schemes","D6212K Social security non-pension benefits in cash",7
+"S13141 Employment pension schemes","D62K Social benefits other than social transfers in kind, payable",20400
+"S13141 Employment pension schemes","D621K Social security benefits in cash, payable",20400
+"S13141 Employment pension schemes","D6211K Social security pension benefits in cash",20392
+"S13141 Employment pension schemes","D6212K Social security non-pension benefits in cash",8
 "S13141 Employment pension schemes","D622K Other social insurance benefits, payable",.
 "S13141 Employment pension schemes","D6221K Other social insurance pension benefits",.
 "S13141 Employment pension schemes","D6222K Other social insurance non-pension benefits",.
 "S13141 Employment pension schemes","D623K Social assistance benefits in cash, payable",.
-"S13141 Employment pension schemes","D7K Other current transfers, payable",2427
+"S13141 Employment pension schemes","D7K Other current transfers, payable",1877
 "S13141 Employment pension schemes","D71K Net non-life insurance premiums",.
 "S13141 Employment pension schemes","D72K Non-life insurance claims",.
-"S13141 Employment pension schemes","D73K Current transfers within general government",2427
-"S13141 Employment pension schemes","D73KS13 Current transfers within general government",2427
-"S13141 Employment pension schemes","D73KS1311 Current transfers within general government",2427
+"S13141 Employment pension schemes","D73K Current transfers within general government",1877
+"S13141 Employment pension schemes","D73KS13 Current transfers within general government",1877
+"S13141 Employment pension schemes","D73KS1311 Current transfers within general government",1877
 "S13141 Employment pension schemes","D73KS1313 Current transfers within general government",.
 "S13141 Employment pension schemes","D73KS1314 Current transfers within general government",.
 "S13141 Employment pension schemes","D73KS13141 Current transfers within general government",.
@@ -983,28 +983,28 @@
 "S13141 Employment pension schemes","D76K VAT- and GNI-based EU own resources",.
 "S13141 Employment pension schemes","D761K Gross national income-based EU own resources",.
 "S13141 Employment pension schemes","D762K Value added tax-based EU own resources",.
-"S13141 Employment pension schemes","B6GT Disposable income, gross",3340
-"S13141 Employment pension schemes","B6NT Disposable income, net",3241
+"S13141 Employment pension schemes","B6GT Disposable income, gross",4045
+"S13141 Employment pension schemes","B6NT Disposable income, net",3944
 "S13141 Employment pension schemes","B12T Balance of payments",.
 "S13141 Employment pension schemes","D8R Adjustment for the change in pension entitlements",.
-"S13141 Employment pension schemes","P3K Final consumption expenditure",773
-"S13141 Employment pension schemes","P31K Individual consumption expenditure",773
+"S13141 Employment pension schemes","P3K Final consumption expenditure",768
+"S13141 Employment pension schemes","P31K Individual consumption expenditure",768
 "S13141 Employment pension schemes","P32K Collective consumption expenditure",.
 "S13141 Employment pension schemes","D8K Adjustment for the change in pension entitlements",.
-"S13141 Employment pension schemes","B8GT Saving, gross",2567
-"S13141 Employment pension schemes","B8NT Saving, net",2468
-"S13141 Employment pension schemes","D9R Capital transfers, receivable",11
+"S13141 Employment pension schemes","B8GT Saving, gross",3277
+"S13141 Employment pension schemes","B8NT Saving, net",3176
+"S13141 Employment pension schemes","D9R Capital transfers, receivable",17
 "S13141 Employment pension schemes","D91R Tax on capital",.
 "S13141 Employment pension schemes","D92R Investment grants",.
-"S13141 Employment pension schemes","D99R Other capital transfers",11
-"S13141 Employment pension schemes","D9K Capital transfers, payable",0
+"S13141 Employment pension schemes","D99R Other capital transfers",17
+"S13141 Employment pension schemes","D9K Capital transfers, payable",1
 "S13141 Employment pension schemes","D91K Tax on capital",.
 "S13141 Employment pension schemes","D92K Investment grants",.
-"S13141 Employment pension schemes","D99K Other capital transfers",0
-"S13141 Employment pension schemes","B101T Changes in net worth due to saving and capital transfers",2479
-"S13141 Employment pension schemes","P51CR Consumption of fixed capital",99
-"S13141 Employment pension schemes","P5K Gross capital formation",-168
-"S13141 Employment pension schemes","P51K Gross fixed capital formation",-168
+"S13141 Employment pension schemes","D99K Other capital transfers",1
+"S13141 Employment pension schemes","B101T Changes in net worth due to saving and capital transfers",3192
+"S13141 Employment pension schemes","P51CR Consumption of fixed capital",101
+"S13141 Employment pension schemes","P5K Gross capital formation",-99
+"S13141 Employment pension schemes","P51K Gross fixed capital formation",-99
 "S13141 Employment pension schemes","P52K Changes in inventories",.
 "S13141 Employment pension schemes","P53K Net acquisitions of valuables",.
 "S13141 Employment pension schemes","NPK Acquisitions less disposals of non-produced assets",.
@@ -1013,39 +1013,39 @@
 "S13141 Employment pension schemes","NP12K Disposals of natural resources",.
 "S13141 Employment pension schemes","NP2K Acquisitions less disposals of contracts, leases and licences",.
 "S13141 Employment pension schemes","DEB1*GT Statistical discrepancy of national balance of supply and demand",.
-"S13141 Employment pension schemes","B9T Net lending (+) / net borrowing (-)",2746
+"S13141 Employment pension schemes","B9T Net lending (+) / net borrowing (-)",3392
 "S13141 Employment pension schemes","D63R Social benefits in kind, receivable",.
 "S13141 Employment pension schemes","D631R Social transfers in kind  – non-market production",.
 "S13141 Employment pension schemes","D632R Social transfers in kind  – purchased market production",.
-"S13141 Employment pension schemes","D63K Social benefits in kind, payable",773
-"S13141 Employment pension schemes","D631K Social transfers in kind  – non-market production",773
+"S13141 Employment pension schemes","D63K Social benefits in kind, payable",768
+"S13141 Employment pension schemes","D631K Social transfers in kind  – non-market production",768
 "S13141 Employment pension schemes","D632K Social transfers in kind  – purchased market production",.
-"S13141 Employment pension schemes","B7GT Adjusted disposable income, gross",2567
-"S13141 Employment pension schemes","B7NT Adjusted disposable income, net",2468
+"S13141 Employment pension schemes","B7GT Adjusted disposable income, gross",3277
+"S13141 Employment pension schemes","B7NT Adjusted disposable income, net",3176
 "S13141 Employment pension schemes","P4K Actual final consumption",.
 "S13141 Employment pension schemes","P41K Actual individual consumption",.
 "S13141 Employment pension schemes","P42K Actual collective consumption",.
-"S13141 Employment pension schemes","OTRR Total revenue",27402
-"S13141 Employment pension schemes","OTEK Total expenditure",24656
-"S13149 Other social security funds","P1R Output at basic prices",553
+"S13141 Employment pension schemes","OTRR Total revenue",26841
+"S13141 Employment pension schemes","OTEK Total expenditure",23449
+"S13149 Other social security funds","P1R Output at basic prices",551
 "S13149 Other social security funds","P11R Market output",9
 "S13149 Other social security funds","P12R Output for own final use",15
 "S13149 Other social security funds","P119R Financial intermediation services indirectly measured (FISIM)",.
 "S13149 Other social security funds","P131R Sales of non-market products",6
-"S13149 Other social security funds","P132R Other non-market output",523
-"S13149 Other social security funds","P2K Intermediate consumption",216
+"S13149 Other social security funds","P132R Other non-market output",521
+"S13149 Other social security funds","P2K Intermediate consumption",206
 "S13149 Other social security funds","P119K Financial intermediation services indirectly measured (FISIM)",.
-"S13149 Other social security funds","P22K Other intermediate consumption",216
-"S13149 Other social security funds","B1GPHT Value added, gross at basic prices",337
-"S13149 Other social security funds","P51CK Consumption of fixed capital",17
-"S13149 Other social security funds","B1NPHT Value added, net at basic prices",320
-"S13149 Other social security funds","D1K Compensation of employees",320
-"S13149 Other social security funds","D11K Wages and salaries",256
-"S13149 Other social security funds","D12K Employers' social contributions",64
+"S13149 Other social security funds","P22K Other intermediate consumption",206
+"S13149 Other social security funds","B1GPHT Value added, gross at basic prices",345
+"S13149 Other social security funds","P51CK Consumption of fixed capital",18
+"S13149 Other social security funds","B1NPHT Value added, net at basic prices",327
+"S13149 Other social security funds","D1K Compensation of employees",327
+"S13149 Other social security funds","D11K Wages and salaries",264
+"S13149 Other social security funds","D12K Employers' social contributions",63
 "S13149 Other social security funds","D29K Other taxes on production",.
 "S13149 Other social security funds","D39R Other subsidies on production",.
-"S13149 Other social security funds","B13GT Operating surplus + mixed income, gross",17
-"S13149 Other social security funds","B2GT Operating surplus, gross",17
+"S13149 Other social security funds","B13GT Operating surplus + mixed income, gross",18
+"S13149 Other social security funds","B2GT Operating surplus, gross",18
 "S13149 Other social security funds","B3GT Mixed income, gross",.
 "S13149 Other social security funds","B13NT Operating surplus + mixed income, net",.
 "S13149 Other social security funds","B2NT Operating surplus, net",.
@@ -1073,12 +1073,12 @@
 "S13149 Other social security funds","D3K Subsidies",.
 "S13149 Other social security funds","D31K Subsidies on products",.
 "S13149 Other social security funds","D39K Other subsidies on production",.
-"S13149 Other social security funds","D4R Property income",37
-"S13149 Other social security funds","D41R Interest, receivable (FISIM-adjusted)",34
-"S13149 Other social security funds","D411R Actual interest, receivable",34
+"S13149 Other social security funds","D4R Property income",28
+"S13149 Other social security funds","D41R Interest, receivable (FISIM-adjusted)",24
+"S13149 Other social security funds","D411R Actual interest, receivable",24
 "S13149 Other social security funds","D412R Intrest, (FISIM-adjusted), deposits",.
-"S13149 Other social security funds","D42R Distributed income of corporations",3
-"S13149 Other social security funds","D421R Income from dividends",3
+"S13149 Other social security funds","D42R Distributed income of corporations",4
+"S13149 Other social security funds","D421R Income from dividends",4
 "S13149 Other social security funds","D422R Withdrawals from income of quasi-corporations",.
 "S13149 Other social security funds","D43R Reinvested earnings on direct foreign investment",.
 "S13149 Other social security funds","D44R Other investment income",0
@@ -1086,9 +1086,9 @@
 "S13149 Other social security funds","D442R Investment income payable on pension entitlements",.
 "S13149 Other social security funds","D443R Investment income attributable to collective investment fund shareholders",0
 "S13149 Other social security funds","D45R Rents, receivable",.
-"S13149 Other social security funds","D4K Property expenditure",6
-"S13149 Other social security funds","D41K Interest, payable (FISIM-adjusted)",6
-"S13149 Other social security funds","D411K Actual interest, payable",6
+"S13149 Other social security funds","D4K Property expenditure",5
+"S13149 Other social security funds","D41K Interest, payable (FISIM-adjusted)",5
+"S13149 Other social security funds","D411K Actual interest, payable",5
 "S13149 Other social security funds","D412K Interest, (FISIM-adjusted), loans",.
 "S13149 Other social security funds","D42K Distributed income of corporations",.
 "S13149 Other social security funds","D421K Dividend income",.
@@ -1099,9 +1099,9 @@
 "S13149 Other social security funds","D442K Investment income payable on pension entitlements",.
 "S13149 Other social security funds","D443K Investment income attributable to collective investment fund shareholders",.
 "S13149 Other social security funds","D45K Rents, payable",.
-"S13149 Other social security funds","B5GT Gross national income",48
-"S13149 Other social security funds","B5NT Net national income",31
-"S13149 Other social security funds","B4GT Entrepreneurial income, gross",17
+"S13149 Other social security funds","B5GT Gross national income",41
+"S13149 Other social security funds","B5NT Net national income",23
+"S13149 Other social security funds","B4GT Entrepreneurial income, gross",18
 "S13149 Other social security funds","B41GT Entrepreneurial income from agriculture, gross",.
 "S13149 Other social security funds","B42GT Entrepreneurial income from forestry, gross",.
 "S13149 Other social security funds","B43GT Imputed rent of owner-occupiers, gross",.
@@ -1114,22 +1114,22 @@
 "S13149 Other social security funds","D5R Current taxes on income and wealth, etc., receivable",.
 "S13149 Other social security funds","D51R Income taxes",.
 "S13149 Other social security funds","D59R Other current taxes, excl. tax on capital",.
-"S13149 Other social security funds","D61R Social contributions, receivable",6056
-"S13149 Other social security funds","D611R Employers’ actual social contributions, receivable",3356
+"S13149 Other social security funds","D61R Social contributions, receivable",5883
+"S13149 Other social security funds","D611R Employers’ actual social contributions, receivable",3296
 "S13149 Other social security funds","D6111R Employers’ actual pension contributions",.
 "S13149 Other social security funds","D61111R Compulsory employers' actual pension contributions, receivable",.
 "S13149 Other social security funds","D61112R Voluntary employers' actual pension contributions, receivable",.
-"S13149 Other social security funds","D6112R Employers’ actual non-pension contributions",3356
-"S13149 Other social security funds","D61121R Compulsory employers’ actual non-pension contributions",3338
-"S13149 Other social security funds","D61122R Voluntary employers’ actual non-pension contributions",18
+"S13149 Other social security funds","D6112R Employers’ actual non-pension contributions",3296
+"S13149 Other social security funds","D61121R Compulsory employers’ actual non-pension contributions",3275
+"S13149 Other social security funds","D61122R Voluntary employers’ actual non-pension contributions",21
 "S13149 Other social security funds","D612R Employers’ imputed social contributions",.
-"S13149 Other social security funds","D613R Households’ actual social contributions",2700
+"S13149 Other social security funds","D613R Households’ actual social contributions",2587
 "S13149 Other social security funds","D6131R Households’ actual pension contributions",.
 "S13149 Other social security funds","D61311R Compulsory households' actual pension contributions",.
 "S13149 Other social security funds","D61312R Voluntary households' actual pension contributions",.
-"S13149 Other social security funds","D6132R Households’ actual non-pension contributions",2700
-"S13149 Other social security funds","D61321R Compulsory households' actual non-pension contributions",2424
-"S13149 Other social security funds","D61322R Voluntary households' actual non-pension contributions",276
+"S13149 Other social security funds","D6132R Households’ actual non-pension contributions",2587
+"S13149 Other social security funds","D61321R Compulsory households' actual non-pension contributions",2341
+"S13149 Other social security funds","D61322R Voluntary households' actual non-pension contributions",246
 "S13149 Other social security funds","D614R Households’ social contribution supplements",.
 "S13149 Other social security funds","D61SCR Social insurance scheme service charges",.
 "S13149 Other social security funds","D62R Social benefits other than social transfers in kind, receivable",.
@@ -1140,23 +1140,23 @@
 "S13149 Other social security funds","D6221R Other social insurance pension benefits",.
 "S13149 Other social security funds","D6222R Other social insurance non-pension benefits",.
 "S13149 Other social security funds","D623R Social assistance benefits in cash, receivable",.
-"S13149 Other social security funds","D7R Other current transfers, receivable",12089
+"S13149 Other social security funds","D7R Other current transfers, receivable",11921
 "S13149 Other social security funds","D71R Net non-life insurance premiums",.
 "S13149 Other social security funds","D72R Non-life insurance claims",.
-"S13149 Other social security funds","D73R Current transfers within general government",12083
-"S13149 Other social security funds","D73RS13 Current transfers within general government",12083
-"S13149 Other social security funds","D73RS1311 Current transfers within general government",11238
-"S13149 Other social security funds","D73RS1313 Current transfers within general government",845
+"S13149 Other social security funds","D73R Current transfers within general government",11917
+"S13149 Other social security funds","D73RS13 Current transfers within general government",11917
+"S13149 Other social security funds","D73RS1311 Current transfers within general government",11213
+"S13149 Other social security funds","D73RS1313 Current transfers within general government",704
 "S13149 Other social security funds","D73RS1314 Current transfers within general government",.
 "S13149 Other social security funds","D73RS13141 Current transfers within general government",.
 "S13149 Other social security funds","D73RS13149 Current transfers within general government",.
-"S13149 Other social security funds","D74R Transfers from international co-operation",6
+"S13149 Other social security funds","D74R Transfers from international co-operation",4
 "S13149 Other social security funds","D74RS1311 Transfers from international co-operation",.
 "S13149 Other social security funds","D74RS13141 Transfers from international co-operation",.
 "S13149 Other social security funds","D74RS13149 Transfers from international co-operation",.
-"S13149 Other social security funds","D74RS2 Transfers from international co-operation",6
+"S13149 Other social security funds","D74RS2 Transfers from international co-operation",4
 "S13149 Other social security funds","D74RS21 Transfers from international co-operation of the European Union",.
-"S13149 Other social security funds","D74RS22 Transfers from other international co-operation",6
+"S13149 Other social security funds","D74RS22 Transfers from other international co-operation",4
 "S13149 Other social security funds","D75R Miscellaneous current transfers",.
 "S13149 Other social security funds","D759RS1 Other transfers from home country",.
 "S13149 Other social security funds","D759RS11 Transfers from non-financial corporations and housing corporations",.
@@ -1196,35 +1196,35 @@
 "S13149 Other social security funds","D61322K Voluntary households' actual non-pension contributions",.
 "S13149 Other social security funds","D614K Households’ social contribution supplements",.
 "S13149 Other social security funds","D61SCK Social insurance scheme service charges",.
-"S13149 Other social security funds","D62K Social benefits other than social transfers in kind, payable",14748
-"S13149 Other social security funds","D621K Social security benefits in cash, payable",8768
-"S13149 Other social security funds","D6211K Social security pension benefits in cash",3470
-"S13149 Other social security funds","D6212K Social security non-pension benefits in cash",5298
+"S13149 Other social security funds","D62K Social benefits other than social transfers in kind, payable",14346
+"S13149 Other social security funds","D621K Social security benefits in cash, payable",8602
+"S13149 Other social security funds","D6211K Social security pension benefits in cash",3483
+"S13149 Other social security funds","D6212K Social security non-pension benefits in cash",5119
 "S13149 Other social security funds","D622K Other social insurance benefits, payable",.
 "S13149 Other social security funds","D6221K Other social insurance pension benefits",.
 "S13149 Other social security funds","D6222K Other social insurance non-pension benefits",.
-"S13149 Other social security funds","D623K Social assistance benefits in cash, payable",5980
-"S13149 Other social security funds","D7K Other current transfers, payable",1354
+"S13149 Other social security funds","D623K Social assistance benefits in cash, payable",5744
+"S13149 Other social security funds","D7K Other current transfers, payable",1310
 "S13149 Other social security funds","D71K Net non-life insurance premiums",.
 "S13149 Other social security funds","D72K Non-life insurance claims",.
-"S13149 Other social security funds","D73K Current transfers within general government",1054
-"S13149 Other social security funds","D73KS13 Current transfers within general government",1054
-"S13149 Other social security funds","D73KS1311 Current transfers within general government",63
-"S13149 Other social security funds","D73KS1313 Current transfers within general government",90
-"S13149 Other social security funds","D73KS1314 Current transfers within general government",901
-"S13149 Other social security funds","D73KS13141 Current transfers within general government",901
+"S13149 Other social security funds","D73K Current transfers within general government",996
+"S13149 Other social security funds","D73KS13 Current transfers within general government",996
+"S13149 Other social security funds","D73KS1311 Current transfers within general government",71
+"S13149 Other social security funds","D73KS1313 Current transfers within general government",86
+"S13149 Other social security funds","D73KS1314 Current transfers within general government",839
+"S13149 Other social security funds","D73KS13141 Current transfers within general government",839
 "S13149 Other social security funds","D73KS13149 Current transfers within general government",.
-"S13149 Other social security funds","D74K Transfers to international co-operation",22
+"S13149 Other social security funds","D74K Transfers to international co-operation",17
 "S13149 Other social security funds","D74KS1311 Transfers to international co-operation",.
 "S13149 Other social security funds","D74KS1313 Transfers to international co-operation",.
 "S13149 Other social security funds","D74KS13141 Transfers to international co-operation",.
 "S13149 Other social security funds","D74KS13149 Transfers to international co-operation",.
-"S13149 Other social security funds","D74KS2 Transfers to international co-operation",22
+"S13149 Other social security funds","D74KS2 Transfers to international co-operation",17
 "S13149 Other social security funds","D74KS21 Transfers to international co-operation of the European Union",.
-"S13149 Other social security funds","D74KS22 Transfers to other international co-operation",22
-"S13149 Other social security funds","D75K Miscellaneous current transfers",278
-"S13149 Other social security funds","D759KS1 Other transfers to home country",278
-"S13149 Other social security funds","D759KS11 Transfers to non-financial corporations and housing corporations",253
+"S13149 Other social security funds","D74KS22 Transfers to other international co-operation",17
+"S13149 Other social security funds","D75K Miscellaneous current transfers",297
+"S13149 Other social security funds","D759KS1 Other transfers to home country",297
+"S13149 Other social security funds","D759KS11 Transfers to non-financial corporations and housing corporations",273
 "S13149 Other social security funds","D759KS12 Transfers to financial corporations",.
 "S13149 Other social security funds","D759KS13 Transfers to general government",.
 "S13149 Other social security funds","D759KS1311 Transfers to central government",.
@@ -1233,33 +1233,33 @@
 "S13149 Other social security funds","D759KS13141 Transfers to employment pension schemes",.
 "S13149 Other social security funds","D759KS13149 Transfers to other social security funds",.
 "S13149 Other social security funds","D759KS14 Transfers to households",.
-"S13149 Other social security funds","D759KS15 Transfers to non-profit institutions",25
+"S13149 Other social security funds","D759KS15 Transfers to non-profit institutions",24
 "S13149 Other social security funds","D759KS2 Other current transfers to the rest of the world",.
 "S13149 Other social security funds","D759KS21 Other transfers to the EU",.
 "S13149 Other social security funds","D759KS22 Other transfers to other countries",.
 "S13149 Other social security funds","D76K VAT- and GNI-based EU own resources",.
 "S13149 Other social security funds","D761K Gross national income-based EU own resources",.
 "S13149 Other social security funds","D762K Value added tax-based EU own resources",.
-"S13149 Other social security funds","B6GT Disposable income, gross",2091
-"S13149 Other social security funds","B6NT Disposable income, net",2074
+"S13149 Other social security funds","B6GT Disposable income, gross",2189
+"S13149 Other social security funds","B6NT Disposable income, net",2171
 "S13149 Other social security funds","B12T Balance of payments",.
 "S13149 Other social security funds","D8R Adjustment for the change in pension entitlements",.
-"S13149 Other social security funds","P3K Final consumption expenditure",2884
-"S13149 Other social security funds","P31K Individual consumption expenditure",2884
+"S13149 Other social security funds","P3K Final consumption expenditure",2812
+"S13149 Other social security funds","P31K Individual consumption expenditure",2812
 "S13149 Other social security funds","P32K Collective consumption expenditure",.
 "S13149 Other social security funds","D8K Adjustment for the change in pension entitlements",.
-"S13149 Other social security funds","B8GT Saving, gross",-793
-"S13149 Other social security funds","B8NT Saving, net",-810
+"S13149 Other social security funds","B8GT Saving, gross",-623
+"S13149 Other social security funds","B8NT Saving, net",-641
 "S13149 Other social security funds","D9R Capital transfers, receivable",.
 "S13149 Other social security funds","D91R Tax on capital",.
 "S13149 Other social security funds","D92R Investment grants",.
 "S13149 Other social security funds","D99R Other capital transfers",.
-"S13149 Other social security funds","D9K Capital transfers, payable",10
+"S13149 Other social security funds","D9K Capital transfers, payable",16
 "S13149 Other social security funds","D91K Tax on capital",.
 "S13149 Other social security funds","D92K Investment grants",.
-"S13149 Other social security funds","D99K Other capital transfers",10
-"S13149 Other social security funds","B101T Changes in net worth due to saving and capital transfers",-820
-"S13149 Other social security funds","P51CR Consumption of fixed capital",17
+"S13149 Other social security funds","D99K Other capital transfers",16
+"S13149 Other social security funds","B101T Changes in net worth due to saving and capital transfers",-657
+"S13149 Other social security funds","P51CR Consumption of fixed capital",18
 "S13149 Other social security funds","P5K Gross capital formation",16
 "S13149 Other social security funds","P51K Gross fixed capital formation",16
 "S13149 Other social security funds","P52K Changes in inventories",.
@@ -1270,17 +1270,17 @@
 "S13149 Other social security funds","NP12K Disposals of natural resources",.
 "S13149 Other social security funds","NP2K Acquisitions less disposals of contracts, leases and licences",.
 "S13149 Other social security funds","DEB1*GT Statistical discrepancy of national balance of supply and demand",.
-"S13149 Other social security funds","B9T Net lending (+) / net borrowing (-)",-819
+"S13149 Other social security funds","B9T Net lending (+) / net borrowing (-)",-655
 "S13149 Other social security funds","D63R Social benefits in kind, receivable",.
 "S13149 Other social security funds","D631R Social transfers in kind  – non-market production",.
 "S13149 Other social security funds","D632R Social transfers in kind  – purchased market production",.
-"S13149 Other social security funds","D63K Social benefits in kind, payable",2884
-"S13149 Other social security funds","D631K Social transfers in kind  – non-market production",523
-"S13149 Other social security funds","D632K Social transfers in kind  – purchased market production",2361
-"S13149 Other social security funds","B7GT Adjusted disposable income, gross",-793
-"S13149 Other social security funds","B7NT Adjusted disposable income, net",-810
+"S13149 Other social security funds","D63K Social benefits in kind, payable",2812
+"S13149 Other social security funds","D631K Social transfers in kind  – non-market production",521
+"S13149 Other social security funds","D632K Social transfers in kind  – purchased market production",2291
+"S13149 Other social security funds","B7GT Adjusted disposable income, gross",-623
+"S13149 Other social security funds","B7NT Adjusted disposable income, net",-641
 "S13149 Other social security funds","P4K Actual final consumption",.
 "S13149 Other social security funds","P41K Actual individual consumption",.
 "S13149 Other social security funds","P42K Actual collective consumption",.
-"S13149 Other social security funds","OTRR Total revenue",18212
-"S13149 Other social security funds","OTEK Total expenditure",19031
+"S13149 Other social security funds","OTRR Total revenue",17862
+"S13149 Other social security funds","OTEK Total expenditure",18517

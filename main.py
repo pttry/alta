@@ -10,8 +10,8 @@ import os
 from shutil import copyfile
 
 
-# import importlib
-# importlib.reload(hwf)
+import importlib
+importlib.reload(hwf)
 
 # 1. Create national base data
 # ############################
@@ -30,11 +30,8 @@ from shutil import copyfile
 
 # 4. Merge the aggregated basedata and regional extensions
 # ########################################################
-# Run mergehars.bat
-# - Output: basedata.har
-
 hwf.mergeHAR("hardata", "basedata30.har", "regExtension.har", "basedata.har")
-
+# - Output: basedata.har
 
 
 # 5. Test the merged data for homogenity
@@ -82,6 +79,8 @@ hwf.govgeneric()
 # #############################################
 hwf.mkdata2()
 # - Output: premod.har, orgsets.har, aggsuppVERM.har
+copyfile("TERM/premod.har", "hardata/premod.har")
+copyfile("TERM/orgsets.har", "hardata/orgsets.har")
 
 
 
