@@ -27,6 +27,7 @@ termFolder = "TERM"
 # Read premod har-file that includes regionalized data
 premod = harpy.HarFileObj.loadFromDisk(termFolder+"/premod.har")
 
+
 # objects from premod
 make_obj = premod.getHeaderArrayObj("MAKE")
 use_obj = premod.getHeaderArrayObj("BSMR")
@@ -36,6 +37,63 @@ va_land_obj = premod.getHeaderArrayObj("1LND")
 trade_obj = premod.getHeaderArrayObj("TRAD")
 tradmar_obj = premod.getHeaderArrayObj("TMAR")
 suppmar_obj = premod.getHeaderArrayObj("MARS")
+
+
+base30=harpy.HarFileObj.loadFromDisk(termFolder+"/basedata30.har")
+use_e =base30.getHeaderArrayObj("4BAI")
+
+for j in range(0,18):
+    for i in range(0,29):
+        use_obj["array"][i,1,33,j]=use_obj["array"][i,0,33,j]/(use_obj["array"][i,0,33,:].sum()+0.000001)*use_e["array"][i]       
+use_obj["array"][:,1,33,:].sum()
+
+# Domestic national: 
+make_obj["array"][:,:,:].sum()
+#equal to 
+use_obj["array"][:,0,:,:].sum() - tradmar_obj["array"][:,0,:,:,:].sum() + suppmar_obj["array"][:,:,:,:].sum()
+#Imports National:
+use_obj["array"][:,1,:,:].sum()-tradmar_obj["array"][:,1,:,:,:].sum()
+
+#Total national:
+
+make_obj["array"][:,:,:].sum() + trade_obj["array"][:,1,:,:].sum()+use_obj["array"][:,1,33,:].sum()
+make_obj["array"][:,:,:].sum() + use_obj["array"][:,1,:,:].sum()-tradmar_obj["array"][:,1,:,:,:].sum()
+#equal to 
+use_obj["array"][:,:,:,:].sum() - tradmar_obj["array"][:,:,:,:,:].sum() + suppmar_obj["array"][:,:,:,:].sum()
+
+# domestic uusimaa: make+regional import=use-trad_mar+sup_mar+regional export
+use_obj["array"][:,0,:,0].sum() + suppmar_obj["array"][:,:,:,0].sum() - tradmar_obj["array"][:,0,:,:,0].sum() + trade_obj["array"][:,0,0,1:].sum() 
+#equal to 
+make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum() 
+
+
+# total uusimaa
+use_obj["array"][:,:,:,0].sum() - tradmar_obj["array"][:,:,:,:,0].sum() + suppmar_obj["array"][:,:,:,0].sum() + trade_obj["array"][:,0,0,1:].sum() 
+#equal to 
+make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum() + trade_obj["array"][:,1,:,0].sum()+use_obj["array"][:,1,33,0].sum()
+
+#equal to 
+make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum() + use_obj["array"][:,1,:,0].sum() - tradmar_obj["array"][:,1,:,:,0].sum()
+
+
+
+
+
+
+tradmar_obj["array"][:,1,:,:,:].sum()+use_obj["array"][:,1,33,:].sum()
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # regional tables
@@ -108,6 +166,11 @@ su.table
 use_obj["array"][:,0,:,0].sum() + suppmar_obj["array"][:,:,:,0].sum() - tradmar_obj["array"][:,0,:,:,0].sum() + trade_obj["array"][:,0,0,1:].sum() 
 make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum()
 
+use_obj["array"][:,:,:,0].sum() + suppmar_obj["array"][:,:,:,0].sum() - tradmar_obj["array"][:,:,:,:,0].sum() + trade_obj["array"][:,0,0,1:].sum() 
+make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum()+ trade_obj["array"][:,1,1:,0].sum()
+
+trade_obj["array"][:,:,1:,0].sum()
+
 use_obj["array"][:,0,:,0].sum(axis = 1) + suppmar_obj["array"][:,:,:,0].sum(axis = 1) - tradmar_obj["array"][:,0,:,:,0].sum(axis = 1) 
 trade_obj["array"][:,0,:,0].sum()
 trade_obj["array"][:,0,:,0].sum(axis = 1)
@@ -115,8 +178,12 @@ use_obj["array"][:,0,:,0].sum(axis = 1)- tradmar_obj["array"][:,0,:,:,0].sum(axi
 use_obj["array"][:,0,:,0].sum()- tradmar_obj["array"][:,0,:,:,0].sum()
 
 # total uusimaa
-use_obj["array"][:,:,:,0].sum() - (tradmar_obj["array"][:,:,:,:,0].sum() + suppmar_obj["array"][:,:,:,0].sum()) + trade_obj["array"][:,0,0,1:].sum() 
-make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum() + trade_obj["array"][:,1,:,0].sum()
+use_obj["array"][:,:,:,0].sum() - tradmar_obj["array"][:,:,:,:,0].sum() + suppmar_obj["array"][:,:,:,0].sum() + trade_obj["array"][:,0,0,1:].sum() 
+make_obj["array"][:,:,:].sum() + trade_obj["array"][:,1,:,:].sum()
+
+use_obj["array"][:,:,:,:].sum() - tradmar_obj["array"][:,:,:,:,:].sum() + suppmar_obj["array"][:,:,:,:].sum()
+
+use_obj["array"][29,1,:,:].sum()
 
 trade_obj["array"][:,0,0,0] / trade_obj["array"][:,0,:,0].sum(axis = 1)
 
