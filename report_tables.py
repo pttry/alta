@@ -27,6 +27,10 @@ termFolder = "TERM"
 # Read premod har-file that includes regionalized data
 premod = harpy.HarFileObj.loadFromDisk(termFolder+"/premod.har")
 
+#Read basedata30 where Exports from Imports Use Table is located
+base30=harpy.HarFileObj.loadFromDisk(termFolder+"/basedata30.har")
+#Read Exports from Imports Use Table (re-exports) into use_e
+use_e =base30.getHeaderArrayObj("4BAI")
 
 # objects from premod
 make_obj = premod.getHeaderArrayObj("MAKE")
@@ -41,9 +45,12 @@ taxes_obj = premod.getHeaderArrayObj("UTAX")
 stocks_obj = premod.getHeaderArrayObj("STOK")
 prodtaxes_obj = premod.getHeaderArrayObj("1PTX")
 
-base30=harpy.HarFileObj.loadFromDisk(termFolder+"/basedata30.har")
-use_e =base30.getHeaderArrayObj("4BAI")
 
+# Derive Exports in Imports Use table (Exp_imp) for regions based on shares of domestic Exports (exports in domestic use table);
+# This is a regionalization of Exp_imp alongside domestic Exports' regionalization strategy;
+#Regionalization is in loops for region 'j' in comodity 'i';
+#Note that column 33 is exports in use tables;
+# Exp_imp for comodity 'i' = (Domestic Export(i) in region j) /[National_export_domestic(i)]*National Exp_imp(i) 
 for j in range(0,18):
     for i in range(0,29):
         use_obj["array"][i,1,33,j]=use_obj["array"][i,0,33,j]/(use_obj["array"][i,0,33,:].sum()+0.000001)*use_e["array"][i]       
@@ -57,6 +64,7 @@ use_obj["array"][:,0,:,:].sum() - tradmar_obj["array"][:,0,:,:,:].sum() + suppma
 use_obj["array"][:,1,:,:].sum()-tradmar_obj["array"][:,1,:,:,:].sum()
 
 #Total national:
+#trade_obj["array"][:,1,:,:].sum()+use_obj["array"][:,1,33,:].sum()=use_obj["array"][:,1,:,:].sum()
 
 make_obj["array"][:,:,:].sum() + trade_obj["array"][:,1,:,:].sum()+use_obj["array"][:,1,33,:].sum()
 make_obj["array"][:,:,:].sum() + use_obj["array"][:,1,:,:].sum()-tradmar_obj["array"][:,1,:,:,:].sum()
