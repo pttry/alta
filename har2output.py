@@ -50,7 +50,7 @@ class regSupplyTables:
     def __init__(self, make_obj, trade_obj):
         
         def calc_imp(i, trade_obj):
-            imp_dom = pd.DataFrame(np.delete(trade_obj["array"][:,0,:,0],i, axis = 1).sum(axis = 1), columns = ["Imports_domestic"], index=trade_obj["sets"][0]["dim_desc"])
+            imp_dom = pd.DataFrame(np.delete(trade_obj["array"][:,0,:,i],i, axis = 1).sum(axis = 1), columns = ["Imports_domestic"], index=trade_obj["sets"][0]["dim_desc"])
             imp_ext = pd.DataFrame(trade_obj["array"][:,1,:,i].sum(axis = 1), columns = ["Imports_external"], index=trade_obj["sets"][0]["dim_desc"])
             imp = pd.concat([imp_dom, imp_ext], axis=1)
             return imp        
@@ -104,13 +104,15 @@ class useTable:
         self.Y_dom = np.matrix(use_dom[self.dims["FINAL"]])
         self.Y_dom_own = np.multiply(self.Y_dom, np.matrix(own_reg_share).transpose())
         self.Y_imp = np.matrix(use[self.dims["FINAL"]]) - np.matrix(use_dom[self.dims["FINAL"]])
-        # Export matrix domestic export, external export
-        # self.U_exp = np.matrix([(self.U_dom - self.U_dom_own).sum(axis = 1), (self.U - self.U_dom).sum(axis = 1)])
+        # Export matrix: domestic export, external export
+        self.U_exp = np.concatenate([(self.U_dom - self.U_dom_own).sum(axis = 1), (self.U - self.U_dom).sum(axis = 1)], axis = 1).transpose()
         self.va = np.matrix(va)
-        self.table = use
-        self.table = pd.concat([use, va], axis=0)
+        # self.table = use
+        self.table_imp = pd.DataFrame(self.U_imp, index = ["Export internal", "Export external"], columns = self.dims["IND"])
+        self.table = pd.concat([use, self.table_imp], axis=0)
+        self.table = pd.concat([self.table, va], axis=0)
         # self.table = pd.concat([self.table, final], axis = 1)
-        self.table = self.table.loc[use.index.tolist() + va.index.tolist(), use.columns.tolist()]   # to original order
+        self.table = self.table.loc[use.index.tolist() + self.table_imp.index.tolist() + va.index.tolist(), use.columns.tolist()]   # to original order
         self.table["Total_supply"] = self.table.sum(axis = 1)
 
 
@@ -180,7 +182,9 @@ class regUseTables:
                                      va_land_obj["coeff_name"].strip(): va_land_obj["array"][:,i]},\
                                      index=self.dims["IND"]).transpose(),\
                                 use_dom = calc_use_bp_dom(i, use_obj, trade_obj, tradmar_obj, suppmar_obj), \
-                                exp_dom = pd.DataFrame(np.delete(trade_obj["array"][:,0,0,:], i, axis=1).sum(axis = 1), index=self.dims["COM"], columns = ["Domestic_export"]), \
+                                # Domestic export: flow from i to all other than i
+                                exp_dom = pd.DataFrame(np.delete(trade_obj["array"][:,0,i,:], i, axis=1).sum(axis = 1), index=self.dims["COM"], columns = ["Domestic_export"]), \
+                                # Share of own region is use: flow from i to i / flow from all to i
                                 own_reg_share = (trade_obj["array"][:,0,i,i] / trade_obj["array"][:,0,:,i].sum(axis = 1))) \
                         for i in range(len(self.dims["DST"]))}
 

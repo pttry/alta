@@ -37,7 +37,9 @@ va_land_obj = premod.getHeaderArrayObj("1LND")
 trade_obj = premod.getHeaderArrayObj("TRAD")
 tradmar_obj = premod.getHeaderArrayObj("TMAR")
 suppmar_obj = premod.getHeaderArrayObj("MARS")
-
+taxes_obj = premod.getHeaderArrayObj("UTAX")
+stocks_obj = premod.getHeaderArrayObj("STOK")
+prodtaxes_obj = premod.getHeaderArrayObj("1PTX")
 
 base30=harpy.HarFileObj.loadFromDisk(termFolder+"/basedata30.har")
 use_e =base30.getHeaderArrayObj("4BAI")
@@ -101,6 +103,8 @@ tradmar_obj["array"][:,1,:,:,:].sum()+use_obj["array"][:,1,33,:].sum()
 reg_supp = ho.regSupplyTables(make_obj, trade_obj)
 reg_use = ho.regUseTables(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj)
 
+reg_use.tables["Uusimaa"].table
+
 importlib.reload(ho)
 u_io = ho.build_io(reg_supp.tables["Uusimaa"], reg_use.tables["Uusimaa"])
 u_io.table
@@ -108,8 +112,10 @@ u_io.table
 (reg_use.tables["Uusimaa"].U_dom - reg_use.tables["Uusimaa"].U_dom_own).sum()
 np.multiply(reg_use.tables["Uusimaa"].Y_dom, np.matrix(reg_use.tables["Uusimaa"].own_reg_share).transpose())
 np.multiply(reg_use.tables["Uusimaa"].U_dom, reg_use.tables["Uusimaa"].own_reg_share)
-reg_use.tables["Uusimaa"].own_reg_share
-np.matrix([(reg_use.tables["Uusimaa"].U_dom - reg_use.tables["Uusimaa"].U_dom_own).sum(axis = 1), (reg_use.tables["Uusimaa"].U - reg_use.tables["Uusimaa"].U_dom).sum(axis = 1)])
+
+m = np.concatenate([(reg_use.tables["Uusimaa"].U_dom - reg_use.tables["Uusimaa"].U_dom_own).sum(axis = 1), (reg_use.tables["Uusimaa"].U - reg_use.tables["Uusimaa"].U_dom).sum(axis = 1)], axis =1).transpose()
+pd.DataFrame(m)
+
 x1 = np.matrix(np.arange(9.0).reshape((3, 3)))
 
 
@@ -162,7 +168,28 @@ u_use_bp.sum(axis=1)
 su.table
 
 """  
+
+# Whole economy
+
+74585 - use_obj["array"][:,:,33,:].sum() 
+
+
+
+use_obj["array"][:,:,:,:].sum() + tradmar_obj["array"][:,:,:,:,:].sum() - suppmar_obj["array"][:,:,:,:].sum() \
++ taxes_obj["array"][:,:,:,:].sum() + prodtaxes_obj["array"][:,:].sum()
+
+use_obj["array"][:,:,:,:].sum() - tradmar_obj["array"][:,:,:,:,:].sum()
+trade_obj["array"][:,:,:,:].sum()
+make_obj["array"][:,:,:].sum() - suppmar_obj["array"][:,:,:,:].sum() + trade_obj["array"][:,1,:,:].sum()
+
+use_obj["array"][:,0,:,:].sum() - tradmar_obj["array"][:,0,:,:,:].sum()
+trade_obj["array"][:,0,:,:].sum()
+make_obj["array"][:,:,:].sum() - suppmar_obj["array"][:,:,:,:].sum() 
+
 # domestic uusimaa
+
+
+
 use_obj["array"][:,0,:,0].sum() + suppmar_obj["array"][:,:,:,0].sum() - tradmar_obj["array"][:,0,:,:,0].sum() + trade_obj["array"][:,0,0,1:].sum() 
 make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum()
 
@@ -187,6 +214,27 @@ use_obj["array"][29,1,:,:].sum()
 
 trade_obj["array"][:,0,0,0] / trade_obj["array"][:,0,:,0].sum(axis = 1)
 
+use_obj["array"][:,:,:,:].sum() 
+use_obj["array"][:,:,:,:].sum() - tradmar_obj["array"][:,:,:,:,:].sum() 
+make_obj["array"][:,:,:].sum() + trade_obj["array"][:,1,:,:].sum()
+trade_obj["array"][:,1,:,:].sum() + tradmar_obj["array"][:,1,:,:,:].sum() 
+
+ss = 0
+for i in range(19):
+    ss= ss + np.delete(trade_obj["array"][:,0,:,i],i, axis = 1).sum()
+ss
+
+ss = 0
+for i in range(19):
+    ss= ss + trade_obj["array"][:,0,:,i].sum()
+ss
+
+make_obj["array"][:,:,:].sum() 
+trade_obj["array"][:,1,:,:].sum() + tradmar_obj["array"][:,1,:,:,:].sum() 
+use_obj["array"][:,1,:,:].sum() 
+use_obj["array"][:,0,:,:].sum() 
+
+suppmar_obj["array"][:,:,:,:].sum()
 """
 make_obj["array"].shape
 trade_obj["array"].shape
@@ -200,7 +248,7 @@ make_obj["array"][:,:,:].sum()
 trade_obj["array"][:,:,:,:].sum()
 
 suppmar_obj["array"][:,:,:,:].sum()
-
+ 
 # whole economy
 use_obj["array"][:,:,:,:].sum() - tradmar_obj["array"][:,:,:,:,:].sum()
 trade_obj["array"][:,:,:,:].sum()
@@ -239,9 +287,14 @@ trade_obj["array"][:,0,0,:].sum() - trade_obj["array"][:,0,:,0].sum()
 
 trade_obj["array"][:,0,0,1:18].sum() - trade_obj["array"][:,0,1:18,0].sum()
 
-# domestic uusimaa
+""" # domestic uusimaa
 use_obj["array"][:,0,:,0].sum() + suppmar_obj["array"][:,:,:,0].sum() - tradmar_obj["array"][:,0,:,:,0].sum() + trade_obj["array"][:,0,0,1:].sum() 
+
+trade_obj["array"][:,0,0,1:].sum()  
 make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum()
+
+
+ """
 
 # total uusimaa
 use_obj["array"][:,:,:,0].sum() + suppmar_obj["array"][:,:,:,0].sum() - tradmar_obj["array"][:,:,:,:,0].sum()  + trade_obj["array"][:,0,0,1:].sum() 
