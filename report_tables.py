@@ -44,20 +44,21 @@ suppmar_obj = premod.getHeaderArrayObj("MARS")
 taxes_obj = premod.getHeaderArrayObj("UTAX")
 stocks_obj = premod.getHeaderArrayObj("STOK")
 prodtaxes_obj = premod.getHeaderArrayObj("1PTX")
-
-
 # Derive Exports in Imports Use table (Exp_imp) for regions based on shares of domestic Exports (exports in domestic use table);
 # This is a regionalization of Exp_imp alongside domestic Exports' regionalization strategy;
 #Regionalization is in loops for region 'j' in comodity 'i';
 #Note that column 33 is exports in use tables;
 # Exp_imp for comodity 'i' = (Domestic Export(i) in region j) /[National_export_domestic(i)]*National Exp_imp(i) 
-for j in range(0,18):
-    for i in range(0,29):
-        use_obj["array"][i,1,33,j]=use_obj["array"][i,0,33,j]/(use_obj["array"][i,0,33,:].sum()+0.000001)*use_e["array"][i]       
+for j in range(0,19):
+    for i in range(0,30):
+        use_obj["array"][i,1,33,j]=use_obj["array"][i,0,33,j]/(use_obj["array"][i,0,33,:].sum()+0.000001)*use_e["array"][i] 
+          
 use_obj["array"][:,1,33,:].sum()
 
 # Domestic national: 
 make_obj["array"][:,:,:].sum()
+#equal to 
+trade_obj["array"][:,0,:,:].sum()
 #equal to 
 use_obj["array"][:,0,:,:].sum() - tradmar_obj["array"][:,0,:,:,:].sum() + suppmar_obj["array"][:,:,:,:].sum()
 #Imports National:
@@ -85,20 +86,19 @@ make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum() + trade_obj[
 #equal to 
 make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum() + use_obj["array"][:,1,:,0].sum() - tradmar_obj["array"][:,1,:,:,0].sum()
 
+make_di[:,:,0].sum()+make_drp[:,:,0].sum() + use_obj["array"][:,1,:,0].sum() - tradmar_obj["array"][:,1,:,:,0].sum()
+use_obj["array"][:,:,:,0].sum() - tradmar_obj["array"][:,:,:,:,0].sum()  + trade_obj["array"][:,0,0,1:].sum() 
 
-
-
-
-
+trade_obj["array"][:,0,:,:].sum() 
 tradmar_obj["array"][:,1,:,:,:].sum()+use_obj["array"][:,1,33,:].sum()
 
 
 
 
 
+trade_obj["array"][:,0,:,:]
 
-
-
+make_obj["array"][:,:,:].sum()-trade_obj["array"][:,0,:,:].sum() 
 
 
 
