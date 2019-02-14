@@ -122,90 +122,89 @@ make_obj["array"][:,:,:].sum()+ tradmar_obj["array"][:,0,:,:,:].sum() - suppmar_
 use_obj["array"][:,0,:,:].sum() 
 
 
+###############################################################
+#Splitting make into make_own + make_regional (imports)
+#make_di---make internal or make_own
+
+
+#This is the identity in the example of Uusima
+make_obj["array"][:,:,0].sum()
+trade_obj["array"][:,0,0,:].sum()+suppmar_obj["array"][:,:,:,0].sum()
+
+
 for j in range(19):
         for i in range(2):
                 trade_obj["array"][i+16,0,j,j] = trade_obj["array"][i+16,0,j,j]+suppmar_obj["array"][i,:,:,j].sum()
                 
+#now this is the identity
+make_obj["array"][:,:,0].sum()
 trade_obj["array"][:,0,0,:].sum()
+
+#make_own (make_di)
 make_di = np.zeros([30,30,19])
-make_drp = np.zeros([30,30,19])
-make_drp2 = np.zeros([30,30,19])
 for j in range(19):
         for d in range(30):
                 for i in range(30):
                         make_di[d,i,j]=make_obj["array"][d,i,j]/(make_obj["array"][d,:,j].sum())*trade_obj["array"][d,0,j,j]
                         
-                        
+#make_drp is regional make or imports from other regions (rows summation will give that)                    
+make_drp = np.zeros([30,30,19])
+#make_drp2 = np.zeros([30,30,19])                 
 for j in range(19):
         for d in range(30):
                 for i in range(30):
                         #make_drp[d,i,j]=make_obj["array"][d,i,j]/(make_obj["array"][d,:,j].sum())*(make_obj["array"][d,:,j].sum() - trade_obj["array"][d,0,j,j])
                         make_drp[d,i,j]=make_obj["array"][d,i,j]/(make_obj["array"][d,:,j].sum())*(trade_obj["array"][d,0,j,:].sum() - trade_obj["array"][d,0,j,j])
                         #make_drp2[d,i,j]=make_obj["array"][d,i,j]/(make_obj["array"][d,:,j].sum())*(make_obj["array"][d,:,j].sum() - trade_obj["array"][d,0,j,j])
-                                  
-make_di[:,:,:].sum()
-make_drp[:,:,:].sum()
-make_drp2[:,:,:].sum()
 
-make_di[:,:,:].sum()+make_drp[:,:,:].sum()-make_drn[:,:,:].sum()
-make_obj["array"][:,:,:].sum()
-
-make_di[:,:,0].sum()
-make_drp[:,:,0].sum()
-make_drn[:,:,:].sum()
-make_di[:,:,0].sum()+make_drp[:,:,0].sum()
-make_obj["array"][:,:,0].sum()
-
-make_obj["array"][:,:,0].sum()
-trade_obj["array"][:,0,0,:].sum()
-
-for j in range(19):
-        for i in range(2):
-                trade_obj["array"][i+16,0,j,j] = trade_obj["array"][i+16,0,j,j]-suppmar_obj["array"][i,:,:,j].sum()
- 
-make_di[:,:,0].sum()
-make_drp[:,:,0].sum()
-make_di[:,:,0].sum()+make_drp[:,:,0].sum()
-make_obj["array"][:,:,0].sum()
+#identities with make national                                
 make_di[:,:,:].sum()
 make_drp[:,:,:].sum()
 make_di[:,:,:].sum()+make_drp[:,:,:].sum()
 make_obj["array"][:,:,:].sum()
 
+#identities with make uusimaa 
+make_di[:,:,0].sum()
+make_drp[:,:,0].sum()
+make_di[:,:,0].sum()+make_drp[:,:,0].sum()
+make_obj["array"][:,:,0].sum()
 
+#restoring original trade matrix
+for j in range(19):
+        for i in range(2):
+                trade_obj["array"][i+16,0,j,j] = trade_obj["array"][i+16,0,j,j]-suppmar_obj["array"][i,:,:,j].sum()
+###############################################################
 
-trade_obj["array"][:,0,0,:].sum()
+#splitting domestic use into use_own (use_di) and use regional exports use_drp
 
-use_obj["array"][:,:,0].sum()
-trade_obj["array"][:,0,:,0].sum()-tradmar_obj["array"][:,0,:,0].sum()
-
+#the identity to be achieved in the example of uusimaa
 use_obj["array"][:,0,:,0].sum()
 trade_obj["array"][:,0,:,0].sum() +tradmar_obj["array"][:,0,:,:,0].sum()
-
-
 
 for j in range(19):
         for i in range(30):
                 trade_obj["array"][i,0,j,j] = trade_obj["array"][i,0,j,j]+tradmar_obj["array"][i,0,:,:,j].sum()
 
+#now this is the identity
 use_obj["array"][:,0,:,0].sum()
-trade_obj["array"][:,0,:,0].sum(axis=1)
+trade_obj["array"][:,0,:,0].sum()
 
+#use_di is use domestic own
 use_di = np.zeros([30,2,34,19])
 use_drp = np.zeros([30,2,34,19])
-use_drp2 = np.zeros([30,2,34,19])
 for j in range(19):
         for d in range(30):
                 for i in range(34):
                         use_di[d,0,i,j]=use_obj["array"][d,0,i,j]/(use_obj["array"][d,0,:,j].sum())*trade_obj["array"][d,0,j,j]
                         
-                        
+#use_drp is use domestic regional export (rows summation will give that)                    
 for j in range(19):
         for d in range(30):
                 for i in range(34):
                         use_drp[d,0,i,j]=use_obj["array"][d,0,i,j]/(use_obj["array"][d,0,:,j].sum())*(use_obj["array"][d,0,:,j].sum() - trade_obj["array"][d,0,j,j])
                         
-                                  
+
+#identities with use domestic national                            
 use_di[:,0,:,:].sum()
 use_drp[:,0,:,:].sum()
 use_drp2[:,0,:,:].sum()
@@ -213,16 +212,20 @@ use_drp2[:,0,:,:].sum()
 use_di[:,0,:,:].sum()+use_drp[:,0,:,:].sum()
 use_obj["array"][:,1,:,:].sum()
 
+
+#identities with use domestic uusimaa
 use_di[:,0,:,0].sum()
 use_drp[:,0,:,0].sum()
-
 use_di[:,0,:,0].sum()+use_drp[:,0,:,0].sum()
 use_obj["array"][:,0,:,0].sum()
 
-use_obj["array"][:,0,:,0].sum()
-trade_obj["array"][:,0,0,:].sum()
 
-
+#restoring original trade matrix
+for j in range(19):
+        for i in range(30):
+                trade_obj["array"][i,0,j,j] = trade_obj["array"][i,0,j,j]-tradmar_obj["array"][i,0,:,:,j].sum()
+  
+###############################################################
 
 
 
