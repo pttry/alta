@@ -76,6 +76,7 @@ use_obj["array"][:,:,:,:].sum() - tradmar_obj["array"][:,:,:,:,:].sum() + suppma
 use_obj["array"][:,0,:,0].sum() + suppmar_obj["array"][:,:,:,0].sum() - tradmar_obj["array"][:,0,:,:,0].sum() + trade_obj["array"][:,0,0,1:].sum() 
 #equal to 
 make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum() 
+trade_obj["array"][:,0,0,0].sum() + trade_obj["array"][:,0,0,1:].sum()
 
 
 # total uusimaa
@@ -86,20 +87,148 @@ make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum() + trade_obj[
 #equal to 
 make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum() + use_obj["array"][:,1,:,0].sum() - tradmar_obj["array"][:,1,:,:,0].sum()
 
-make_di[:,:,0].sum()+make_drp[:,:,0].sum() + use_obj["array"][:,1,:,0].sum() - tradmar_obj["array"][:,1,:,:,0].sum()
-use_obj["array"][:,:,:,0].sum() - tradmar_obj["array"][:,:,:,:,0].sum()  + trade_obj["array"][:,0,0,1:].sum() 
 
-trade_obj["array"][:,0,:,:].sum() 
-tradmar_obj["array"][:,1,:,:,:].sum()+use_obj["array"][:,1,33,:].sum()
+# total uusimaa
+use_obj["array"][:,:,:,:].sum() - tradmar_obj["array"][:,:,:,:,:].sum() + suppmar_obj["array"][:,:,:,:].sum() 
 
-
-
+#equal to 
+make_obj["array"][:,:,:].sum() + trade_obj["array"][:,1,:,:].sum()+use_obj["array"][:,1,33,:].sum()
 
 
-trade_obj["array"][:,0,:,:]
+#################################
+#Margins all in make:
 
-make_obj["array"][:,:,:].sum()-trade_obj["array"][:,0,:,:].sum() 
+# total uusimaa
+use_obj["array"][:,:,:,0].sum() + trade_obj["array"][:,0,0,1:].sum() 
+#equal to 
+make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum() +use_obj["array"][:,1,:,0].sum() - tradmar_obj["array"][:,1,:,:,0].sum()- suppmar_obj["array"][:,:,:,0].sum() + tradmar_obj["array"][:,:,:,:,0].sum()
 
+# domestic uusimaa: make+regional import=use-trad_mar+sup_mar+regional export
+use_obj["array"][:,0,:,0].sum() + trade_obj["array"][:,0,0,1:].sum() 
+#equal to 
+make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum() - suppmar_obj["array"][:,:,:,0].sum() + tradmar_obj["array"][:,0,:,:,0].sum()
+
+
+#Total national:
+make_obj["array"][:,:,:].sum() + trade_obj["array"][:,1,:,:].sum()+use_obj["array"][:,1,33,:].sum()
+make_obj["array"][:,:,:].sum() + use_obj["array"][:,1,:,:].sum()-tradmar_obj["array"][:,1,:,:,:].sum()
+#equal to 
+use_obj["array"][:,:,:,:].sum() 
+
+
+# Domestic national: 
+make_obj["array"][:,:,:].sum()+ tradmar_obj["array"][:,0,:,:,:].sum() - suppmar_obj["array"][:,:,:,:].sum()
+#equal to 
+use_obj["array"][:,0,:,:].sum() 
+
+
+for j in range(19):
+        for i in range(2):
+                trade_obj["array"][i+16,0,j,j] = trade_obj["array"][i+16,0,j,j]+suppmar_obj["array"][i,:,:,j].sum()
+                
+trade_obj["array"][:,0,0,:].sum()
+make_di = np.zeros([30,30,19])
+make_drp = np.zeros([30,30,19])
+make_drp2 = np.zeros([30,30,19])
+for j in range(19):
+        for d in range(30):
+                for i in range(30):
+                        make_di[d,i,j]=make_obj["array"][d,i,j]/(make_obj["array"][d,:,j].sum())*trade_obj["array"][d,0,j,j]
+                        
+                        
+for j in range(19):
+        for d in range(30):
+                for i in range(30):
+                        #make_drp[d,i,j]=make_obj["array"][d,i,j]/(make_obj["array"][d,:,j].sum())*(make_obj["array"][d,:,j].sum() - trade_obj["array"][d,0,j,j])
+                        make_drp[d,i,j]=make_obj["array"][d,i,j]/(make_obj["array"][d,:,j].sum())*(trade_obj["array"][d,0,j,:].sum() - trade_obj["array"][d,0,j,j])
+                        #make_drp2[d,i,j]=make_obj["array"][d,i,j]/(make_obj["array"][d,:,j].sum())*(make_obj["array"][d,:,j].sum() - trade_obj["array"][d,0,j,j])
+                                  
+make_di[:,:,:].sum()
+make_drp[:,:,:].sum()
+make_drp2[:,:,:].sum()
+
+make_di[:,:,:].sum()+make_drp[:,:,:].sum()-make_drn[:,:,:].sum()
+make_obj["array"][:,:,:].sum()
+
+make_di[:,:,0].sum()
+make_drp[:,:,0].sum()
+make_drn[:,:,:].sum()
+make_di[:,:,0].sum()+make_drp[:,:,0].sum()
+make_obj["array"][:,:,0].sum()
+
+make_obj["array"][:,:,0].sum()
+trade_obj["array"][:,0,0,:].sum()
+
+for j in range(19):
+        for i in range(2):
+                trade_obj["array"][i+16,0,j,j] = trade_obj["array"][i+16,0,j,j]-suppmar_obj["array"][i,:,:,j].sum()
+ 
+make_di[:,:,0].sum()
+make_drp[:,:,0].sum()
+make_di[:,:,0].sum()+make_drp[:,:,0].sum()
+make_obj["array"][:,:,0].sum()
+make_di[:,:,:].sum()
+make_drp[:,:,:].sum()
+make_di[:,:,:].sum()+make_drp[:,:,:].sum()
+make_obj["array"][:,:,:].sum()
+
+
+
+trade_obj["array"][:,0,0,:].sum()
+
+use_obj["array"][:,:,0].sum()
+trade_obj["array"][:,0,:,0].sum()-tradmar_obj["array"][:,0,:,0].sum()
+
+use_obj["array"][:,0,:,0].sum()
+trade_obj["array"][:,0,:,0].sum() +tradmar_obj["array"][:,0,:,:,0].sum()
+
+
+
+for j in range(19):
+        for i in range(30):
+                trade_obj["array"][i,0,j,j] = trade_obj["array"][i,0,j,j]+tradmar_obj["array"][i,0,:,:,j].sum()
+
+use_obj["array"][:,0,:,0].sum()
+trade_obj["array"][:,0,:,0].sum(axis=1)
+
+use_di = np.zeros([30,2,34,19])
+use_drp = np.zeros([30,2,34,19])
+use_drp2 = np.zeros([30,2,34,19])
+for j in range(19):
+        for d in range(30):
+                for i in range(34):
+                        use_di[d,0,i,j]=use_obj["array"][d,0,i,j]/(use_obj["array"][d,0,:,j].sum())*trade_obj["array"][d,0,j,j]
+                        
+                        
+for j in range(19):
+        for d in range(30):
+                for i in range(34):
+                        use_drp[d,0,i,j]=use_obj["array"][d,0,i,j]/(use_obj["array"][d,0,:,j].sum())*(use_obj["array"][d,0,:,j].sum() - trade_obj["array"][d,0,j,j])
+                        
+                                  
+use_di[:,0,:,:].sum()
+use_drp[:,0,:,:].sum()
+use_drp2[:,0,:,:].sum()
+
+use_di[:,0,:,:].sum()+use_drp[:,0,:,:].sum()
+use_obj["array"][:,1,:,:].sum()
+
+use_di[:,0,:,0].sum()
+use_drp[:,0,:,0].sum()
+
+use_di[:,0,:,0].sum()+use_drp[:,0,:,0].sum()
+use_obj["array"][:,0,:,0].sum()
+
+use_obj["array"][:,0,:,0].sum()
+trade_obj["array"][:,0,0,:].sum()
+
+
+
+
+
+pd.DataFrame(trade_obj["array"][:,1,:,0].sum(axis = 1), columns = ["Imports_external"], index=trade_obj["sets"][0]["dim_desc"])
+
+pd.DataFrame(use_obj["array"][:,1,:,0].sum(axis = 1)- tradmar_obj["array"][:,1,:,:,0].sum(axis=(1,2)), columns = ["Imports_external"], index=use_obj["sets"][0]["dim_desc"])
 
 
 
@@ -107,11 +236,14 @@ make_obj["array"][:,:,:].sum()-trade_obj["array"][:,0,:,:].sum()
 
 
 # regional tables
-
-reg_supp = ho.regSupplyTables(make_obj, trade_obj)
+importlib.reload(ho)
+reg_supp = ho.regSupplyTables(make_obj, trade_obj, use_obj, tradmar_obj)
 reg_use = ho.regUseTables(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj)
+# Write to excel
+reg_supp.to_excel(file = "outdata/test_supp2014.xlsx")
+reg_use.to_excel(file = "outdata/test_use2014.xlsx")
 
-reg_use.tables["Uusimaa"].table
+
 
 importlib.reload(ho)
 u_io = ho.build_io(reg_supp.tables["Uusimaa"], reg_use.tables["Uusimaa"])
@@ -300,7 +432,8 @@ use_obj["array"][:,0,:,0].sum() + suppmar_obj["array"][:,:,:,0].sum() - tradmar_
 
 trade_obj["array"][:,0,0,1:].sum()  
 make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum()
-
+make_obj["array"][:,:,:].sum() - suppmar_obj["array"][:,:,:,:].sum()
+trade_obj["array"][:,0,0,0].sum() + trade_obj["array"][:,0,0,1:].sum() 
 
  """
 
