@@ -98,22 +98,45 @@ class useTable:
                     "IND": va.columns.tolist(),
                     "VA": va.index.tolist(),
                     "FINAL": use.columns[range(len(va.columns), len(use.columns))]}
+        # Matrices
+        self.U = np.matrix(use[self.dims["VA"]])
+        self.Ud = np.matrix(use_dom[self.dims["VA"]])
+        self.Ur = np.multiply(self.Ud, np.matrix(own_reg_share).transpose())
+        self.Umint = self.Ud - self.Ur
+        self.Umext = self.U - self.Ud
+
+        self.F = np.matrix(use[self.dims["FINAL"]])
+        self.Fd = np.matrix(use_dom[self.dims["FINAL"]])
+        self.Fr = np.multiply(self.Fd, np.matrix(own_reg_share).transpose())
+        self.Fmint = self.Fd - self.Fr
+        self.Fmext = self.F - self.Fd
+        
+        # Total
         self.U = np.matrix(use[va.columns.tolist()])
+        self.va = np.matrix(va)
+        self.Y = np.matrix(use[self.dims["FINAL"]])
+        self.table = pd.concat([use, self.table_imp], axis=0)
+        self.table = pd.concat([self.table, va], axis=0)
+        # self.table = pd.concat([self.table, final], axis = 1)
+        self.table = self.table.loc[use.index.tolist() + self.table_imp.index.tolist() + va.index.tolist(), use.columns.tolist()]   # to original order
+        self.table["Total_supply"] = self.table.sum(axis = 1)
+
+        # Domestic total
         self.U_dom = np.matrix(use_dom[va.columns.tolist()])
+        # Domestic import
+
+        # External import
+        self.U_imp_ext = self.U - self.U.dom
         self.U_dom_own = np.multiply(self.U_dom, np.matrix(own_reg_share).transpose())
         self.Y_dom = np.matrix(use_dom[self.dims["FINAL"]])
         self.Y_dom_own = np.multiply(self.Y_dom, np.matrix(own_reg_share).transpose())
         self.Y_imp = np.matrix(use[self.dims["FINAL"]]) - np.matrix(use_dom[self.dims["FINAL"]])
         # Export matrix: domestic export, external export
         self.U_exp = np.concatenate([(self.U_dom - self.U_dom_own).sum(axis = 1), (self.U - self.U_dom).sum(axis = 1)], axis = 1).transpose()
-        self.va = np.matrix(va)
+        
         # self.table = use
         self.table_imp = pd.DataFrame(self.U_imp, index = ["Export internal", "Export external"], columns = self.dims["IND"])
-        self.table = pd.concat([use, self.table_imp], axis=0)
-        self.table = pd.concat([self.table, va], axis=0)
-        # self.table = pd.concat([self.table, final], axis = 1)
-        self.table = self.table.loc[use.index.tolist() + self.table_imp.index.tolist() + va.index.tolist(), use.columns.tolist()]   # to original order
-        self.table["Total_supply"] = self.table.sum(axis = 1)
+
 
 
 class regUseTables:

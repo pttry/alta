@@ -28,9 +28,11 @@ termFolder = "TERM"
 premod = harpy.HarFileObj.loadFromDisk(termFolder+"/premod.har")
 
 #Read basedata30 where Exports from Imports Use Table is located
-base30=harpy.HarFileObj.loadFromDisk(termFolder+"/basedata30.har")
+base30 = harpy.HarFileObj.loadFromDisk(harFolder+"/basedata30.har")
+
+
 #Read Exports from Imports Use Table (re-exports) into use_e
-use_e =base30.getHeaderArrayObj("4BAI")
+use_e = base30.getHeaderArrayObj("4BAI")
 
 # objects from premod
 make_obj = premod.getHeaderArrayObj("MAKE")
@@ -44,6 +46,8 @@ suppmar_obj = premod.getHeaderArrayObj("MARS")
 taxes_obj = premod.getHeaderArrayObj("UTAX")
 stocks_obj = premod.getHeaderArrayObj("STOK")
 prodtaxes_obj = premod.getHeaderArrayObj("1PTX")
+
+
 # Derive Exports in Imports Use table (Exp_imp) for regions based on shares of domestic Exports (exports in domestic use table);
 # This is a regionalization of Exp_imp alongside domestic Exports' regionalization strategy;
 #Regionalization is in loops for region 'j' in comodity 'i';
@@ -54,6 +58,34 @@ for j in range(0,19):
         use_obj["array"][i,1,33,j]=use_obj["array"][i,0,33,j]/(use_obj["array"][i,0,33,:].sum()+0.000001)*use_e["array"][i] 
           
 use_obj["array"][:,1,33,:].sum()
+
+
+# regional tables
+
+importlib.reload(ho)
+
+reg_supp = ho.regSupplyTables(make_obj, trade_obj)
+reg_use = ho.regUseTables(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj)
+
+reg_supp.tables["Uusimaa"].table
+reg_use.tables["Uusimaa"].table
+
+reg_use.tables["Uusimaa"].Umext
+
+u_io = ho.build_io(reg_supp.tables["Uusimaa"], reg_use.tables["Uusimaa"])
+u_io.table
+
+(reg_use.tables["Uusimaa"].U_dom - reg_use.tables["Uusimaa"].U_dom_own).sum()
+np.multiply(reg_use.tables["Uusimaa"].Y_dom, np.matrix(reg_use.tables["Uusimaa"].own_reg_share).transpose())
+np.multiply(reg_use.tables["Uusimaa"].U_dom, reg_use.tables["Uusimaa"].own_reg_share)
+
+m = np.concatenate([(reg_use.tables["Uusimaa"].U_dom - reg_use.tables["Uusimaa"].U_dom_own).sum(axis = 1), (reg_use.tables["Uusimaa"].U - reg_use.tables["Uusimaa"].U_dom).sum(axis = 1)], axis =1).transpose()
+pd.DataFrame(m)
+
+
+
+
+
 
 # Domestic national: 
 make_obj["array"][:,:,:].sum()
