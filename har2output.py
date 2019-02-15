@@ -107,7 +107,7 @@ class useTable:
 
         self.F = np.matrix(use[self.dims["FINAL"]])
         self.Fd = np.matrix(use_dom[self.dims["FINAL"]])
-        self.Fr = np.multiply(self.Fd, np.matrix(own_reg_share).transpose()) + 444
+        self.Fr = np.multiply(self.Fd, np.matrix(own_reg_share).transpose()) 
         self.Fmint = self.Fd - self.Fr
         self.Fmext = self.F - self.Fd
         
