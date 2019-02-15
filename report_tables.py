@@ -59,7 +59,7 @@ for j in range(0,19):
           
 use_obj["array"][:,1,33,:].sum()
 
-
+use_obj["array"][:,:,:,:].sum()
 # regional tables
 
 importlib.reload(ho)
