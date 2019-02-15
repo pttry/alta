@@ -57,36 +57,6 @@ for j in range(0,19):
     for i in range(0,30):
         use_obj["array"][i,1,33,j]=use_obj["array"][i,0,33,j]/(use_obj["array"][i,0,33,:].sum()+0.000001)*use_e["array"][i] 
           
-use_obj["array"][:,1,33,:].sum()
-
-use_obj["array"][:,:,:,:].sum()
-# regional tables
-
-importlib.reload(ho)
-
-reg_supp = ho.regSupplyTables(make_obj, trade_obj)
-reg_use = ho.regUseTables(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj)
-
-reg_supp.tables["Uusimaa"].table
-reg_use.tables["Uusimaa"].table
-
-reg_use.tables["Uusimaa"].Umext
-
-u_io = ho.build_io(reg_supp.tables["Uusimaa"], reg_use.tables["Uusimaa"])
-u_io.table
-
-(reg_use.tables["Uusimaa"].U_dom - reg_use.tables["Uusimaa"].U_dom_own).sum()
-np.multiply(reg_use.tables["Uusimaa"].Y_dom, np.matrix(reg_use.tables["Uusimaa"].own_reg_share).transpose())
-np.multiply(reg_use.tables["Uusimaa"].U_dom, reg_use.tables["Uusimaa"].own_reg_share)
-
-m = np.concatenate([(reg_use.tables["Uusimaa"].U_dom - reg_use.tables["Uusimaa"].U_dom_own).sum(axis = 1), (reg_use.tables["Uusimaa"].U - reg_use.tables["Uusimaa"].U_dom).sum(axis = 1)], axis =1).transpose()
-pd.DataFrame(m)
-
-
-
-
-
-
 # Domestic national: 
 make_obj["array"][:,:,:].sum()
 #equal to 
@@ -129,6 +99,29 @@ reg_use.to_excel(file = "outdata/test_use2014.xlsx")
 
 #######################################################################################################################################################################################
 #######################################################################################################################################################################################
+# regional tables
+
+importlib.reload(ho)
+
+reg_supp = ho.regSupplyTables(make_obj, trade_obj)
+reg_use = ho.regUseTables(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj)
+
+reg_supp.tables["Uusimaa"].table
+reg_use.tables["Uusimaa"].table
+
+reg_use.tables["Uusimaa"].Umext
+
+u_io = ho.build_io(reg_supp.tables["Uusimaa"], reg_use.tables["Uusimaa"])
+u_io.table
+
+(reg_use.tables["Uusimaa"].U_dom - reg_use.tables["Uusimaa"].U_dom_own).sum()
+np.multiply(reg_use.tables["Uusimaa"].Y_dom, np.matrix(reg_use.tables["Uusimaa"].own_reg_share).transpose())
+np.multiply(reg_use.tables["Uusimaa"].U_dom, reg_use.tables["Uusimaa"].own_reg_share)
+
+m = np.concatenate([(reg_use.tables["Uusimaa"].U_dom - reg_use.tables["Uusimaa"].U_dom_own).sum(axis = 1), (reg_use.tables["Uusimaa"].U - reg_use.tables["Uusimaa"].U_dom).sum(axis = 1)], axis =1).transpose()
+pd.DataFrame(m)
+
+
 importlib.reload(ho)
 u_io = ho.build_io(reg_supp.tables["Uusimaa"], reg_use.tables["Uusimaa"])
 u_io.table
