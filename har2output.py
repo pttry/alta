@@ -165,7 +165,7 @@ class regUseTables:
 
     """
 
-    def __init__(self, use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj):
+    def __init__(self, use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj, prodtaxes_obj):
         # self.use_pp = use_obj["array"][:,0,0:len(va_labour_obj["sets"][0]["dim_desc"]),:]
         # self.final_pp = use_obj["array"][:,0,len(va_labour_obj["sets"][0]["dim_desc"]):,:]
         self.dims = {k["name"]: k["dim_desc"] for k in use_obj["sets"]}
@@ -205,6 +205,7 @@ class regUseTables:
                                     {va_labour_obj["coeff_name"].strip(): va_labour_obj["array"].sum(axis = 1)[:,i],\
                                      va_capital_obj["coeff_name"].strip(): va_capital_obj["array"][:,i],\
                                      va_land_obj["coeff_name"].strip(): va_land_obj["array"][:,i]},\
+                                     prodtaxes_obj["coeff_name"].strip(): prodtaxes_obj["array"][:,i]},\
                                      index=self.dims["IND"]).transpose(),\
                                 use_dom = calc_use_bp_dom(i, use_obj, trade_obj, tradmar_obj, suppmar_obj), \
                                 # Domestic export: flow from i to all other than i
