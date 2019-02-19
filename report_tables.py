@@ -56,7 +56,29 @@ prodtaxes_obj = premod.getHeaderArrayObj("1PTX")
 for j in range(0,19):
     for i in range(0,30):
         use_obj["array"][i,1,33,j]=use_obj["array"][i,0,33,j]/(use_obj["array"][i,0,33,:].sum()+0.000001)*use_e["array"][i] 
-          
+
+
+importlib.reload(ho)
+
+reg_supp = ho.regSupplyTables(make_obj, trade_obj)
+reg_use = ho.regUseTables(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj, prodtaxes_obj)
+
+
+# Write to excel
+reg_supp.to_excel(file = "outdata/test_supp2014.xlsx")
+reg_use.to_excel(file = "outdata/test_use2014.xlsx")
+
+np.concatenate((np.matrix(reg_supp.tables["Uusimaa"].table[["Imports_domestic", "Imports_external"]]), [0]), axis=1)
+reg_use.tables["Uusimaa"].table[[("Total_output", reg_use.tables["Uusimaa"].dims["FINAL"].values())]]
+reg_use.tables["Uusimaa"].table
+
+reg_use.tables["Uusimaa"].dims["FINAL"]
+reg_use.tables["Uusimaa"].Ud
+
+
+
+pd.DataFrame(use_obj["array"][:,0,:,0])[30:33]
+
 # Domestic national: 
 make_obj["array"][:,:,:].sum()
 #equal to 
@@ -87,15 +109,10 @@ make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum() + use_obj["a
 
 #######################################
 
-
 # regional tables
 importlib.reload(ho)
-reg_supp = ho.regSupplyTables(make_di,make_drp trade_obj, use_obj, tradmar_obj)
+reg_supp = ho.regSupplyTables(make_di,make_drp, trade_obj, use_obj, tradmar_obj)
 reg_use = ho.regUseTables(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj)
-# Write to excel
-reg_supp.to_excel(file = "outdata/test_supp2014.xlsx")
-reg_use.to_excel(file = "outdata/test_use2014.xlsx")
-
 
 #######################################################################################################################################################################################
 #######################################################################################################################################################################################
