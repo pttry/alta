@@ -58,17 +58,24 @@ for j in range(0,19):
         use_obj["array"][i,1,33,j]=use_obj["array"][i,0,33,j]/(use_obj["array"][i,0,33,:].sum()+0.000001)*use_e["array"][i] 
 
 
-importlib.reload(ho)
+
 
 reg_supp = ho.regSupplyTables(make_obj, trade_obj)
 reg_use = ho.regUseTables(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj, prodtaxes_obj)
-
+reg_io = ho.regIOtables(reg_supp, reg_use)
 
 # Write to excel
 reg_supp.to_excel(file = "outdata/test_supp2014.xlsx")
 reg_use.to_excel(file = "outdata/test_use2014.xlsx")
+reg_io.to_excel(file = "outdata/test_io2014.xlsx")
 
-np.concatenate((np.matrix(reg_supp.tables["Uusimaa"].table[["Imports_domestic", "Imports_external"]]), [0]), axis=1)
+importlib.reload(ho)
+u_io = ho.build_io(reg_supp.tables["Uusimaa"], reg_use.tables["Uusimaa"])
+u_io.table
+
+reg_io.tables["Uusimaa"].table
+
+reg_supp.tables.keys()
 reg_use.tables["Uusimaa"].table[[("Total_output", reg_use.tables["Uusimaa"].dims["FINAL"].values())]]
 reg_use.tables["Uusimaa"].table
 
@@ -139,9 +146,8 @@ m = np.concatenate([(reg_use.tables["Uusimaa"].U_dom - reg_use.tables["Uusimaa"]
 pd.DataFrame(m)
 
 
-importlib.reload(ho)
-u_io = ho.build_io(reg_supp.tables["Uusimaa"], reg_use.tables["Uusimaa"])
-u_io.table
+
+
 
 (reg_use.tables["Uusimaa"].U_dom - reg_use.tables["Uusimaa"].U_dom_own).sum()
 np.multiply(reg_use.tables["Uusimaa"].Y_dom, np.matrix(reg_use.tables["Uusimaa"].own_reg_share).transpose())

@@ -100,13 +100,13 @@ class useTable:
         self.U = np.matrix(use[self.dims["IND"]])
         self.Ud = np.matrix(use_dom[self.dims["IND"]])
         self.Ur = np.multiply(self.Ud, np.matrix(own_reg_share).transpose())
-        self.Umint = self.Ud - self.Ur
+        self.Umdom = self.Ud - self.Ur
         self.Umext = self.U - self.Ud
 
         self.Y = np.matrix(use[self.dims["FINAL"]])
         self.Yd = np.matrix(use_dom[self.dims["FINAL"]])
         self.Yr = np.multiply(self.Yd, np.matrix(own_reg_share).transpose()) 
-        self.Ymint = self.Yd - self.Yr
+        self.Ymdom = self.Yd - self.Yr
         self.Ymext = self.Y - self.Yd
         
         self.W = np.matrix(va)
@@ -239,7 +239,7 @@ class regUseTables:
         writer.save()
 
 
-class ioTable:
+class IOTable:
     """
     A class to hold an input-ouput  table
 
@@ -262,20 +262,55 @@ class ioTable:
         self.table = pd.concat([self.table, F], axis = 1)
         self.table = self.table.loc[B.index.tolist() + W.index.tolist(), B.columns.tolist() + F.columns.tolist()]   # to original order
 
-def build_io(sup_tab, use_tab):
-    """ 
-    To build input-output table from supply and use tables
+class regIOtables:
     """
-    # B = T * U = V * inv(diag(q)) * U
-    B = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.U_dom
-    # F = T * Y = V * inv(diag(q)) * Y
-    F = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Y_dom
-    W = use_tab.va  
-    B = pd.DataFrame(B, index=use_tab.dims["COM"], columns=use_tab.dims["IND"])
-    F = pd.DataFrame(F, index=use_tab.dims["COM"], columns=use_tab.dims["FINAL"])
-    W = pd.DataFrame(W, index=use_tab.dims["VA"], columns=use_tab.dims["IND"])
-    return ioTable(B, F, W)  
+    A class to hold an regional input-ouput tables
+
+    Parameters
+    ----------
+    sup : Obj
+        Object from regSupplyTables
+    use : Obj
+        Object from regUseTables   
+
+    """
+
+    def __init__(self, sup, use):
+
+        def build_io(sup_tab, use_tab):
+            """ 
+            To build input-output table from supply and use tables
+            """
+            # B = T * U = V * inv(diag(q)) * U
+            Br = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Ur
+            Bmdom = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Umdom
+            Bmext = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Umext
+            # F = T * Y = V * inv(diag(q)) * Y
+            Fr = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Yr
+            Fmdom = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Ymdom
+            Fmext = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Ymext
+            W = use_tab.W  
+
+            B = pd.DataFrame(Br, index=use_tab.dims["COM"], columns=use_tab.dims["IND"])
+            B.loc["Domestic_import"] = pd.DataFrame(Bmdom, columns=use_tab.dims["IND"]).sum(axis = 0)
+            B.loc["External_import"] = pd.DataFrame(Bmext, columns=use_tab.dims["IND"]).sum(axis = 0)
+
+            F = pd.DataFrame(Fr, index=use_tab.dims["COM"], columns=use_tab.dims["FINAL"])
+            F.loc["Domestic_import"] = pd.DataFrame(Fmdom, columns=use_tab.dims["FINAL"]).sum(axis = 0)
+            F.loc["External_import"] = pd.DataFrame(Fmext, columns=use_tab.dims["FINAL"]).sum(axis = 0)
+            
+            W = pd.DataFrame(W, index=use_tab.dims["VA"], columns=use_tab.dims["IND"])
+            return ioTable(B, F, W)  
+
+        self.tables = {i : build_io(sup.tables[i], use.tables[i]) \
+                        for i in sup.tables.keys()}
+
+    def to_excel(self, file):
+        writer = pd.ExcelWriter(file, engine='xlsxwriter')
+        for key,values in self.tables.items():
+                values.table.to_excel(writer, sheet_name = key)
+        writer.save()
 
 
-# reg_supp.tables["Uusimaa"].VT.shape
+
 
