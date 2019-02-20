@@ -202,6 +202,31 @@ class regUseTables:
             use_bp["Exp_dom"] = exp_dom
             return use_bp
 
+        def calc_use_bp2(i, use_obj, trade_obj, tradmar_obj, suppmar_obj):
+            # Use domestic at delivered prices (including margins)
+            use_dp_d = pd.DataFrame(use_obj["array"][:,0,:,i], columns=use_obj["sets"][2]["dim_desc"], index=use_obj["sets"][0]["dim_desc"]) 
+            # Margins domestic
+            suppmar = pd.DataFrame(suppmar_obj["array"][:,:,:,i].sum(axis = (1,2)), columns=["Suppy_margin"], index=suppmar_obj["sets"][0]["dim_desc"]) 
+            tradmar = pd.DataFrame(tradmar_obj["array"][:,0,:,:,i].sum(axis = (1,2)), columns=["Trade_margin"], index = tradmar_obj["sets"][0]["dim_desc"]) 
+            margin = pd.DataFrame(pd.concat([tradmar, suppmar], axis=1)).fillna(0) 
+            margin["Margins"] = margin["Trade_margin"] - margin["Suppy_margin"] 
+            # Use domestic at basic prices
+            use_bp_d = use_dp_d - use_dp_d.div(use_dp_d.sum(axis=1), axis = "rows").mul(margin["Margins"], axis = "rows").fillna(0)  
+            # Use imports at delivered prices (including margins)
+            use_dp_i = pd.DataFrame(use_obj["array"][:,1,:,i], columns=use_obj["sets"][2]["dim_desc"], index=use_obj["sets"][0]["dim_desc"]) 
+            # Margins imports
+            tradmar = pd.DataFrame(tradmar_obj["array"][:,1,:,:,i].sum(axis = (1,2)), columns=["Trade_margin"], index = tradmar_obj["sets"][0]["dim_desc"]) 
+            margin = pd.DataFrame(pd.concat([tradmar, suppmar], axis=1)).fillna(0) 
+            margin["Margins"] = margin["Trade_margin"]
+            # Use imports at basic prices    
+            use_bp_i = use_dp_i - use_dp_i.div(use_dp_i.sum(axis=1), axis = "rows").mul(margin["Margins"], axis = "rows").fillna(0)    
+            # Use total at basic prices
+            use_bp=use_bp_d+use_bp_i
+            # Domestic export: flow from i to all other than i
+            exp_dom = np.delete(trade_obj["array"][:,0,i,:], i, axis=1).sum(axis = 1)
+            use_bp["Exp_dom"] = exp_dom
+            return use_bp
+
         def calc_use_bp_dom(i, use_obj, trade_obj, tradmar_obj, suppmar_obj):
             # Use at delivered prices (including margins)
             use_dp = pd.DataFrame(use_obj["array"][:,0,:,i], columns=use_obj["sets"][2]["dim_desc"], index=use_obj["sets"][0]["dim_desc"]) 
