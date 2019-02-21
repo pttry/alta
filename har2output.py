@@ -267,7 +267,7 @@ class regUseTables:
 class IOTable:
     """
     A class to hold an input-ouput  table
-
+    
     Parameters
     ----------
     B : Datarame
@@ -276,8 +276,8 @@ class IOTable:
         DataFrame for a final use matrix
     W : DataFrame
         DataFrame for a value added matrix
-
     """
+    
     def __init__(self, B, F, W):
         self.B = np.matrix(B)
         self.F = np.matrix(F)
@@ -325,7 +325,7 @@ class regIOtables:
             F.loc["External_import"] = pd.DataFrame(Fmext, columns=use_tab.dims["FINAL"]).sum(axis = 0)
             
             W = pd.DataFrame(W, index=use_tab.dims["VA"], columns=use_tab.dims["IND"])
-            return ioTable(B, F, W)  
+            return IOTable(B, F, W)  
 
         self.tables = {i : build_io(sup.tables[i], use.tables[i]) \
                         for i in sup.tables.keys()}
