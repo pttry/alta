@@ -77,11 +77,31 @@ reg_io.tables["Uusimaa"].table
 
 reg_supp.tables.keys()
 reg_use.tables["Uusimaa"].table[[("Total_output", reg_use.tables["Uusimaa"].dims["FINAL"].values())]]
-reg_use.tables["Uusimaa"].table
 
+s = 0
+for i in reg_use.tables.keys():
+        s = s + reg_use.tables[i].table.loc[["Output"]]["Sum"].sum()
+
+s = 0
+for i in reg_use.tables.keys():
+        s = s + reg_use.tables[i].table.loc[["V1CAP", "V1LAB", "V1LND", "V1PTX"]]["I_02_03"].sum()
+
+
+s = 0
+for i in reg_supp.tables.keys():
+        s = s + reg_supp.tables[i].table.loc[["Products_total"]]["Total_output"].sum()
+
+
+
+reg_use.tables.keys()
+
+reg_use.tables[0].table.loc[["V1CAP", "V1LAB", "V1LND", "V1PTX"]]["Sum"]
 reg_use.tables["Uusimaa"].dims["FINAL"]
 reg_use.tables["Uusimaa"].Ud
 
+
+
+va_labour_obj["array"].sum(axis = 1)[:,:].sum() + va_capital_obj["array"][:,:].sum() + va_land_obj["array"][:,:].sum() + prodtaxes_obj["array"][:,:].sum()
 
 
 pd.DataFrame(use_obj["array"][:,0,:,0])[30:33]
