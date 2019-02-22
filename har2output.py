@@ -47,11 +47,11 @@ class regSupplyTables:
     trade_obj : HarFileObj
         A TRADE object for a har-file
     """
-    def __init__(self, make_obj, trade_obj):
+    def __init__(self, make_obj, use_obj, tradmar_obj, trade_obj):
         
         def calc_imp(i, trade_obj):
             imp_dom = pd.DataFrame(np.delete(trade_obj["array"][:,0,:,i],i, axis = 1).sum(axis = 1), columns = ["Imports_domestic"], index=trade_obj["sets"][0]["dim_desc"])
-            imp_ext = pd.DataFrame(trade_obj["array"][:,1,:,i].sum(axis = 1), columns = ["Imports_external"], index=trade_obj["sets"][0]["dim_desc"])
+            imp_ext = pd.DataFrame(use_obj["array"][:,1,:,i].sum(axis=1)-tradmar_obj["array"][:,1,:,:,i].sum(axis=(1,2)),columns = ["Imports_external"], index=trade_obj["sets"][0]["dim_desc"])
             imp = pd.concat([imp_dom, imp_ext], axis=1)
             return imp        
 
