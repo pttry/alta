@@ -60,7 +60,7 @@ for j in range(0,19):
 
 
 
-reg_supp = ho.regSupplyTables(make_obj, trade_obj)
+reg_supp = ho.regSupplyTables(make_obj, use_obj, tradmar_obj,trade_obj)
 reg_use = ho.regUseTables(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj, prodtaxes_obj)
 reg_io = ho.regIOtables(reg_supp, reg_use)
 
@@ -77,31 +77,11 @@ reg_io.tables["Uusimaa"].table
 
 reg_supp.tables.keys()
 reg_use.tables["Uusimaa"].table[[("Total_output", reg_use.tables["Uusimaa"].dims["FINAL"].values())]]
+reg_use.tables["Uusimaa"].table
 
-s = 0
-for i in reg_use.tables.keys():
-        s = s + reg_use.tables[i].table.loc[["Output"]]["Sum"].sum()
-
-s = 0
-for i in reg_use.tables.keys():
-        s = s + reg_use.tables[i].table.loc[["V1CAP", "V1LAB", "V1LND", "V1PTX"]]["I_02_03"].sum()
-
-
-s = 0
-for i in reg_supp.tables.keys():
-        s = s + reg_supp.tables[i].table.loc[["Products_total"]]["Total_output"].sum()
-
-
-
-reg_use.tables.keys()
-
-reg_use.tables[0].table.loc[["V1CAP", "V1LAB", "V1LND", "V1PTX"]]["Sum"]
 reg_use.tables["Uusimaa"].dims["FINAL"]
 reg_use.tables["Uusimaa"].Ud
 
-
-
-va_labour_obj["array"].sum(axis = 1)[:,:].sum() + va_capital_obj["array"][:,:].sum() + va_land_obj["array"][:,:].sum() + prodtaxes_obj["array"][:,:].sum()
 
 
 pd.DataFrame(use_obj["array"][:,0,:,0])[30:33]
@@ -124,17 +104,53 @@ make_obj["array"][:,:,:].sum() + use_obj["array"][:,1,:,:].sum()-tradmar_obj["ar
 use_obj["array"][:,:,:,:].sum() - tradmar_obj["array"][:,:,:,:,:].sum() + suppmar_obj["array"][:,:,:,:].sum()
 
 
-#domestic uusimaa: VERSION1
-use_obj["array"][:,0,:,0].sum() + suppmar_obj["array"][:,:,:,0].sum() - tradmar_obj["array"][:,0,:,:,0].sum() + trade_obj["array"][:,0,0,1:].sum() 
-#equal to 
-make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum() 
+#FINAL
+#########################################################
+#########################################################
 
-# total uusimaa
-use_obj["array"][:,:,:,0].sum() - tradmar_obj["array"][:,:,:,:,0].sum() + suppmar_obj["array"][:,:,:,0].sum() + trade_obj["array"][:,0,0,1:].sum() 
-#equal to 
-make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum() + use_obj["array"][:,1,:,0].sum() - tradmar_obj["array"][:,1,:,:,0].sum()
+#Ver-2 (Final) total uusimaa
+# Use at basic prices (use_obj-tradmar_obj+suppmar_obj) + Inter-regional exports at basic prices (trade from Uusimaa, which has tradmar_obj in itself + suppmar produced in Uusimaa going to all other regions from all possible routes)
+use_obj["array"][:,:,:,0].sum() - tradmar_obj["array"][:,:,:,:,0].sum()+suppmar_obj["array"][:,:,0,:].sum() + trade_obj["array"][:,0,0,1:].sum()+suppmar_obj["array"][:,:,1:,0].sum()
 
-#######################################
+#Output in Uusimaa + Inter-regional imports (trade from all other regions to Uusimaa+ suppmar produced in all other regions going to Uusimaa from all possible routes) + Foreign imports
+make_obj["array"][:,:,0].sum() + trade_obj["array"][:,0,1:,0].sum() +suppmar_obj["array"][:,:,0,1:].sum()+use_obj["array"][:,1,:,0].sum() - tradmar_obj["array"][:,1,:,:,0].sum()
+
+#Domestic
+use_obj["array"][:,0,:,0].sum() - tradmar_obj["array"][:,0,:,:,0].sum()+suppmar_obj["array"][:,:,0,:].sum() + trade_obj["array"][:,0,0,1:].sum()+suppmar_obj["array"][:,:,1:,0].sum()+use_obj["array"][:,1,:,0].sum() - tradmar_obj["array"][:,1,:,:,0].sum()
+
+
+#SOME EQUALITIES
+#tradmar_obj["array"][:,:,:,:,0].sum() = suppmar_obj["array"][:,:,0,:].sum()
+# suppmar_obj["array"][:,:,0,1:].sum()+suppmar_obj["array"][:,:,0,0].sum()=suppmar_obj["array"][:,:,0,:].sum()
+#minus
+# suppmar_obj["array"][:,:,1:,0].sum()+suppmar_obj["array"][:,:,0,0].sum()=suppmar_obj["array"][:,:,:,0].sum()
+# suppmar_obj["array"][:,:,0,1:].sum()-suppmar_obj["array"][:,:,1:,0].sum()=suppmar_obj["array"][:,:,0,:].sum()-suppmar_obj["array"][:,:,:,0].sum()
+# suppmar_obj["array"][:,:,0,1:].sum()-suppmar_obj["array"][:,:,1:,0].sum()=suppmar_obj["array"][:,:,0,:].sum()
+#suppmar_obj["array"][:,:,:,0].sum()=suppmar_obj["array"][:,:,0,:].sum()-suppmar_obj["array"][:,:,0,1:].sum()+suppmar_obj["array"][:,:,1:,0].sum()
+
+suppmar_obj["array"][:,1:,0,:].sum()-suppmar_obj["array"][:,1:,0,:].sum()
+
+tradmar_obj["array"][:,:,:,:,0].sum()
+suppmar_obj["array"][:,:,0,:].sum ()
+
+tradmar_obj["array"][:,:,:,0,0].sum()
+suppmar_obj["array"][:,0,0,:].sum()
+
+tradmar_obj["array"][:,:,:,0,1:].sum()
+suppmar_obj["array"][:,0,1:,:].sum()
+
+tradmar_obj["array"][:,:,:,1:,0].sum()
+suppmar_obj["array"][:,1:,0,:].sum()
+
+use_obj["array"][:,:,:,:].sum()-tradmar_obj["array"][:,:,:,:,:].sum()
+trade_obj["array"][:,:,:,:].sum()
+
+make_obj["array"][:,:,:].sum()
+trade_obj["array"][:,0,:,:].sum()+suppmar_obj["array"][:,:,:,:].sum()
+
+#tradmar_obj["array"][:,:,:,1:,0].sum()=tradmar_obj["array"][:,:,:,1:,0].sum()
+
+########################################
 
 # regional tables
 importlib.reload(ho)
@@ -142,6 +158,38 @@ reg_supp = ho.regSupplyTables(make_di,make_drp, trade_obj, use_obj, tradmar_obj)
 reg_use = ho.regUseTables(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj)
 
 #######################################################################################################################################################################################
+#TEST OF USE_PUR(IND)+GVA=OUTPUT
+s=np.zeros([1,30])
+for i in range(19):
+        s=s+va_labour_obj["array"][:,:,i].sum(axis=1) +va_capital_obj["array"][:,i] +va_land_obj["array"][:,i] + prodtaxes_obj["array"][:,i]
+s
+#national
+s.sum()+ tradmar_obj["array"][:,:,:,:,:].sum()- suppmar_obj["array"][:,:,:,:].sum() + taxes_obj["array"][:,:,0:30,:].sum()
+make_obj["array"][:,:,:].sum()
+
+#Uusimaa
+m=np.zeros([1,30])
+gva=np.zeros([1,30])
+gva=va_labour_obj["array"][:,:,0].sum(axis=1) +va_capital_obj["array"][:,0] +va_land_obj["array"][:,0] + prodtaxes_obj["array"][:,0]
+m=gva+taxes_obj["array"][:,:,0:30,0].sum(axis=(0,1))+use_obj["array"][:,:,0:30,0].sum(axis=(0,1))
+m-make_obj["array"][:,:,0].sum(axis=0)-stocks_obj["array"][:,0]
+
+m
+make_obj["array"][:,:,0].sum(axis=0)
+
+m=np.zeros([1,30])
+gva=np.zeros([1,30])
+for i in range(19):
+        u=va_labour_obj["array"][:,:,i].sum(axis=1) +va_capital_obj["array"][:,i] +va_land_obj["array"][:,i] + prodtaxes_obj["array"][:,i]
+        m=m+u+taxes_obj["array"][:,:,0:30,i].sum(axis=(0,1))+use_obj["array"][:,:,0:30,i].sum(axis=(0,1))
+        gva=gva+u
+m-make_obj["array"][:,:,:].sum(axis=(0,2))
+m
+taxes_obj["array"][:,:,0:30,:].sum(axis=(0,1,3))
+use_obj["array"][:,:,0:30,:].sum(axis=(0,1,3))
+make_obj["array"][:,:,:].sum(axis=(0,2))
+
+
 #######################################################################################################################################################################################
 # regional tables
 
