@@ -329,7 +329,7 @@ class regUseTables:
             use_bp["IVENTORIES"]=0
                           
             return use_bp
-xxxxxxxxxxxxxxxxxxxxxxxxxxxx   
+   
                               
         self.tables = {self.dims["DST"][i]: \
                         useTable(va = pd.DataFrame(\
