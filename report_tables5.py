@@ -61,14 +61,38 @@ for j in range(0,19):
 
 
 importlib.reload(ho)
-reg_supp = ho.regSupplyTables(make_obj, use_obj, tradmar_obj, suppmar_obj, trade_obj, stocks_obj)
-reg_use = ho.regUseTables(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj, prodtaxes_obj, taxes_obj, make_obj, stocks_obj)
-reg_io = ho.regIOtables(reg_supp, reg_use)
 
-# Write to excel
+#Supply table
+reg_supp = ho.regSupplyTables(make_obj, use_obj, tradmar_obj, suppmar_obj, trade_obj, stocks_obj)
 reg_supp.to_excel(file = "outdata/test_supp2014_5.xlsx")
+
+#use Table - total
+reg_use = ho.regUseTables(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj, prodtaxes_obj, taxes_obj, make_obj, stocks_obj)
 reg_use.to_excel(file = "outdata/test_use2014_5.xlsx")
+
+#use Table - domestic
+reg_use_dom = ho.regUseTab_dom(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj, prodtaxes_obj, taxes_obj, make_obj, stocks_obj)
+reg_use_dom.to_excel(file = "outdata/test_use_dom2014_5.xlsx")
+
+#use Table - regional
+reg_use_reg = ho.regUseTab_reg(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj, prodtaxes_obj, taxes_obj, make_obj, stocks_obj)
+reg_use_reg.to_excel(file = "outdata/test_use_reg2014_5.xlsx")
+
+#use Table - foreign imports
+reg_use_imp = ho.regUseTab_imp(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj, prodtaxes_obj, taxes_obj, make_obj, stocks_obj)
+reg_use_imp.to_excel(file = "outdata/test_use_imp2014_5.xlsx")
+
+#I-O table domestic
+reg_io = ho.regIOtables(reg_supp, reg_use)
 reg_io.to_excel(file = "outdata/test_io2014_5.xlsx")
+
+#I-O table regional
+reg_io_reg = ho.regIOtables_reg(reg_supp, reg_use)
+reg_io_reg.to_excel(file = "outdata/test_io_reg2014_5.xlsx")
+
+#I-O table foreign imports
+reg_io_imp = ho.regIOtables_imp(reg_supp, reg_use)
+reg_io_imp.to_excel(file = "outdata/test_io_imp2014_5.xlsx")
 
 #TEST UUSIMA
 
@@ -80,7 +104,7 @@ use_dp = pd.DataFrame(use_obj["array"][:,:,:,i].sum(axis = 1), columns=use_obj["
             # Margins
 suppmar = pd.DataFrame(suppmar_obj["array"][:,:,i,:].sum(axis = (1,2)), columns=["Suppy_margin"], index=suppmar_obj["sets"][0]["dim_desc"])
 tradmar = pd.DataFrame(tradmar_obj["array"][:,:,:,:,i].sum(axis = (1,2,3)), columns=["Trade_margin"], index = tradmar_obj["sets"][0]["dim_desc"])
-margin = pd.DataFrame(pd.concat([tradmar, suppmar], axis=1)).fillna(0)
+margin = pd.DataFrame(tradmar, axis=1)).fillna(0)
 margin["Sup_pr"]=suppmar.div(suppmar.sum(axis=0)).fillna(0)
 margin = margin.fillna(0)
 use_dp_tr=use_dp.div(use_dp.sum(axis=1), axis = "rows").mul(margin["Trade_margin"], axis = "rows")
@@ -174,8 +198,15 @@ use_bp = use_dp - use_dp_tr
 use_bp["Exp_dom"] = 0
 use_bp["IVENTORIES"]=0
 use_imp=use_bp
+use_imp1=use_imp
+use_imp.drop([use_imp.columns[-1],use_imp.columns[-2]], axis=1)
 
-
+use_bp_dom.sum(axis=1)
+use_bp_dom.sum(axis=1)
+dims = {"COM": use_bp_dom.index.tolist(), \
+        "ComImp": use_bp_dom.index.tolist() + ["Domestic imports", "Foreign imports"],
+        "FINAL": use_bp_dom.index.tolist()}
+dims["FINAL"]
 #Chosen path. Aming for this + correction for sup margin ()
 ##################################
 
