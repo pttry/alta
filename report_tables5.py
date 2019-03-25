@@ -99,7 +99,7 @@ reg_io_imp.to_excel(file = "outdata/test_io_imp2014_5.xlsx")
 i=0
 ##################################################################################
 #USE DOM
-
+ 
 use_dp = pd.DataFrame(use_obj["array"][:,:,:,i].sum(axis = 1), columns=use_obj["sets"][2]["dim_desc"], index=use_obj["sets"][0]["dim_desc"]) 
             # Margins
 suppmar = pd.DataFrame(suppmar_obj["array"][:,:,i,:].sum(axis = (1,2)), columns=["Suppy_margin"], index=suppmar_obj["sets"][0]["dim_desc"])
