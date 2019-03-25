@@ -37,12 +37,12 @@ class supplyTable:
         self.VT = np.matrix(make3)
         self.gt = self.VT.sum(axis=0)
         self.table = make3
-        self.table["Total_output"] = self.table.sum(axis = 1)  # colsum
+        self.table["Total output"] = self.table.sum(axis = 1)  # colsum
         self.table = pd.concat([self.table, imports], axis=1, sort=True)
-        self.table["Total_supply"] = self.table["Total_output"] + imports.sum(axis = 1)
-        self.q2 = self.table["Total_supply"].values
-        self.q = self.table["Total_output"].values
-        self.table.loc["Products_total"] = self.table.sum() # rowsum
+        self.table["Total supply"] = self.table["Total output"] + imports.sum(axis = 1)
+        self.q2 = self.table["Total supply"].values
+        self.q = self.table["Total output"].values
+        self.table.loc["Products total"] = self.table.sum() # rowsum
 
         
         
@@ -122,6 +122,15 @@ class regSupplyTables:
         writer = pd.ExcelWriter(file, engine='xlsxwriter')
         for key,values in self.tables.items():
                 values.table.to_excel(writer, sheet_name = key)
+                workbook  = writer.book
+                worksheet = writer.sheets[key]
+                format = workbook.add_format()
+                format.set_align('center')
+                format.set_align('vcenter')
+                format.set_num_format('0.000')
+                format.set_text_wrap()
+                worksheet.set_column(0,41,15, format)
+                
         writer.save()
 
 
@@ -166,16 +175,17 @@ class useTable:
         # tables 
 
         self.table = pd.DataFrame(self.U, index = self.dims["COM"], columns = self.dims["IND"])
-        self.table["Sum"] = self.table.sum(axis = 1)
+        self.table["Industries total"] = self.table.sum(axis = 1)
         table_int = self.table
         self.table = pd.concat([self.table, pd.DataFrame(self.Y, index = self.dims["COM"], columns = self.dims["FINAL"])], axis=1)
-        self.table["Total_use"] = self.table[self.dims["FINAL"]].sum(axis = 1).add(self.table["Sum"])
-
-
+        self.table["Final uses at basic prices"] = self.table[self.dims["FINAL"]].sum(axis = 1)
+        self.table["Total use at basic prices"] = self.table["Final uses at basic prices"].add(self.table["Industries total"])
+        self.table.loc["Products total"] = table_int.sum(axis = 0)
         table_va = pd.DataFrame(self.W, index = self.dims["VA"], columns = self.dims["IND"])
-        table_va["Sum"] = table_va.sum(axis = 1)
+        table_va.loc["Gross value added"] = table_va.sum(axis = 0)-table_va.loc["TAXES"]
+        table_va["Industries total"] = table_va.sum(axis = 1)
         self.table = pd.concat([self.table, table_va], axis=0, sort=True)[self.table.columns.tolist()]
-        self.table.loc["Output"] = table_int.sum(axis = 0) + table_va.sum(axis = 0)
+        self.table.loc["Output at basic prices"] = table_int.sum(axis = 0) + table_va.loc["Gross value added"]+table_va.loc["TAXES"]
               
 
         # # Total
@@ -361,6 +371,14 @@ class regUseTables:
         writer = pd.ExcelWriter(file, engine='xlsxwriter')
         for key,values in self.tables.items():
                 values.table.to_excel(writer, sheet_name = key)
+                workbook  = writer.book
+                worksheet = writer.sheets[key]
+                format = workbook.add_format()
+                format.set_align('center')
+                format.set_align('vcenter')
+                format.set_num_format('0.000')
+                format.set_text_wrap()
+                worksheet.set_column(0,41,21, format)
         writer.save()
 
 
@@ -392,32 +410,37 @@ class useTab_dom:
                     "FINAL": use_dom.columns[range(len(va.columns), len(use_dom.columns))]}
         # Matrices
         self.U = np.matrix(use_dom[self.dims["IND"]])+np.matrix(use_reg[self.dims["IND"]])+np.matrix(use_imp[self.dims["IND"]])
-        self.Ud = np.matrix(use_dom[self.dims["IND"]])
+        self.Ud = use_dom[self.dims["IND"]]
         self.Umdom = np.matrix(use_reg[self.dims["IND"]])
         self.Umdom1=pd.DataFrame(np.matrix(use_reg[self.dims["IND"]]).sum(axis=0), index = ["Domestic imports"], columns = self.dims["IND"])
         self.Umext = np.matrix(use_imp[self.dims["IND"]])
         self.Umext1=pd.DataFrame(np.matrix(use_imp[self.dims["IND"]]).sum(axis=0), index = ["Foreign imports"], columns = self.dims["IND"])
         self.Y = np.matrix(use_dom[self.dims["FINAL"]])+np.matrix(use_reg[self.dims["FINAL"]])+np.matrix(use_imp[self.dims["FINAL"]])
-        self.Yd = np.matrix(use_dom[self.dims["FINAL"]])
+        self.Yd = use_dom[self.dims["FINAL"]]
         self.Ymdom = np.matrix(use_reg[self.dims["FINAL"]])
         self.Ymdom1 = pd.DataFrame(np.matrix(use_reg[self.dims["FINAL"]]).sum(axis=0), index = ["Domestic imports"], columns = self.dims["FINAL"])
         self.Ymext = np.matrix(use_imp[self.dims["FINAL"]])
         self.Ymext1 = pd.DataFrame(np.matrix(use_imp[self.dims["FINAL"]]).sum(axis=0), index = ["Foreign imports"], columns = self.dims["FINAL"])
         self.W = np.matrix(va)
        
-        # tables 
-        self.Uall= pd.concat([pd.DataFrame(self.Ud, index = self.dims["COM"], columns = self.dims["IND"]), self.Umdom1, self.Umext1], axis=0, sort=True)
-        self.Yall= pd.concat([pd.DataFrame(self.Yd, index = self.dims["COM"], columns = self.dims["FINAL"]), self.Ymdom1, self.Ymext1], axis=0, sort=True)
+        # tables
+        
+        self.Ud.loc["Products total"]=self.Ud.sum(axis=0)
+        self.Yd.loc["Products total"]=self.Yd.sum(axis=0)
+        self.Uall= pd.concat([pd.DataFrame(self.Ud), self.Umdom1, self.Umext1], axis=0)
+        self.Uall["Industries total"] = self.Uall.sum(axis = 1)
+        self.Yall= pd.concat([pd.DataFrame(self.Yd), self.Ymdom1, self.Ymext1], axis=0, sort=True)
          
-        self.table = pd.DataFrame(self.Uall, index = self.dims["ComImp"], columns = self.dims["IND"])
-        self.table["Sum"] = self.table.sum(axis = 1)
-        table_int = self.table
-        self.table = pd.concat([self.table, pd.DataFrame(self.Yall, index = self.dims["ComImp"], columns = self.dims["FINAL"])], axis=1, sort=True)
-        self.table["Total_use"] = self.table[self.dims["FINAL"]].sum(axis = 1).add(self.table["Sum"])
+        self.table = pd.DataFrame(self.Uall, index=self.dims["COM"] +["Products total", "Domestic imports", "Foreign imports"])
+        #self.table["Industries total"] = self.table.sum(axis = 1)
+        self.table = pd.concat([self.table, pd.DataFrame(self.Yall, index =self.dims["COM"] +["Products total", "Domestic imports", "Foreign imports"], columns = self.dims["FINAL"])], axis=1)
+        self.table["Final uses at basic prices"] = self.table[self.dims["FINAL"]].sum(axis = 1)
+        self.table["Total use at basic prices"] = self.table["Final uses at basic prices"].add(self.table["Industries total"])
         table_va = pd.DataFrame(self.W, index = self.dims["VA"], columns = self.dims["IND"])
-        table_va["Sum"] = table_va.sum(axis = 1)
+        table_va.loc["Gross value added"] = table_va.sum(axis = 0)-table_va.loc["TAXES"]
+        table_va["Industries total"] = table_va.sum(axis = 1)
         self.table = pd.concat([self.table, table_va], axis=0, sort=True)[self.table.columns.tolist()]
-        self.table.loc["Output"] = table_int.sum(axis = 0) + table_va.sum(axis = 0)
+        self.table.loc["Output at basic prices"] = self.Uall.loc["Products total"]+ self.Uall.loc["Domestic imports"]+self.Uall.loc["Foreign imports"]+table_va.loc["Gross value added"]+table_va.loc["TAXES"]
               
 
         # # Total
@@ -603,6 +626,14 @@ class regUseTab_dom:
         writer = pd.ExcelWriter(file, engine='xlsxwriter')
         for key,values in self.tables.items():
                 values.table.to_excel(writer, sheet_name = key)
+                workbook  = writer.book
+                worksheet = writer.sheets[key]
+                format = workbook.add_format()
+                format.set_align('center')
+                format.set_align('vcenter')
+                format.set_num_format('0.000')
+                format.set_text_wrap()
+                worksheet.set_column(0,41,21, format)
         writer.save()
 
 
@@ -651,12 +682,13 @@ class useTab_reg:
         # tables 
  
         self.table = pd.DataFrame(self.Umdom, index = self.dims["COM"], columns = self.dims["IND"])
-        self.table["Sum"] = self.table.sum(axis = 1)
+        self.table["Industries total"] = self.table.sum(axis = 1)
         table_int = self.table
         self.table = pd.concat([self.table, pd.DataFrame(self.Ymdom, index = self.dims["COM"], columns = self.dims["FINAL"])], axis=1, sort=True)
-        self.table["Total_use"] = self.table[self.dims["FINAL"]].sum(axis = 1).add(self.table["Sum"])
+        self.table["Final uses at basic prices"] = self.table[self.dims["FINAL"]].sum(axis = 1)
+        self.table["Total use at basic prices"] = self.table["Final uses at basic prices"].add(self.table["Industries total"])
         self.table.drop(["Exp_dom", "IVENTORIES"], axis = 1, inplace = True)
-        self.table.loc["Sum"] = self.table.sum(axis = 0)
+        self.table.loc["Products total"] = self.table.sum(axis = 0)
         # # Total
         # self.U = np.matrix(use[va.columns.tolist()])
         # self.va = np.matrix(va)
@@ -840,6 +872,14 @@ class regUseTab_reg:
         writer = pd.ExcelWriter(file, engine='xlsxwriter')
         for key,values in self.tables.items():
                 values.table.to_excel(writer, sheet_name = key)
+                workbook  = writer.book
+                worksheet = writer.sheets[key]
+                format = workbook.add_format()
+                format.set_align('center')
+                format.set_align('vcenter')
+                format.set_num_format('0.000')
+                format.set_text_wrap()
+                worksheet.set_column(0,41,21, format)
         writer.save()
 
 
@@ -885,14 +925,13 @@ class useTab_imp:
         self.W = np.matrix(va)
        
         # tables 
-     
         self.table = pd.DataFrame(self.Umext, index = self.dims["COM"], columns = self.dims["IND"])
-        self.table["Sum"] = self.table.sum(axis = 1)
-        table_int = self.table
+        self.table["Industries total"] = self.table.sum(axis = 1)
         self.table = pd.concat([self.table, pd.DataFrame(self.Ymext, index = self.dims["COM"], columns = self.dims["FINAL"])], axis=1, sort=True)
-        self.table["Total_use"] = self.table[self.dims["FINAL"]].sum(axis = 1).add(self.table["Sum"])
+        self.table["Final uses at basic prices"] = self.table[self.dims["FINAL"]].sum(axis = 1)
+        self.table["Total use at basic prices"] = self.table["Final uses at basic prices"].add(self.table["Industries total"])
         self.table.drop(["Exp_dom", "IVENTORIES"], axis = 1, inplace = True)
-        self.table.loc["Sum"] = self.table.sum(axis = 0)
+        self.table.loc["Products total"] = self.table.sum(axis = 0)
         # # Total
         # self.U = np.matrix(use[va.columns.tolist()])
         # self.va = np.matrix(va)
@@ -1076,6 +1115,14 @@ class regUseTab_imp:
         writer = pd.ExcelWriter(file, engine='xlsxwriter')
         for key,values in self.tables.items():
                 values.table.to_excel(writer, sheet_name = key)
+                workbook  = writer.book
+                worksheet = writer.sheets[key]
+                format = workbook.add_format()
+                format.set_align('center')
+                format.set_align('vcenter')
+                format.set_num_format('0.000')
+                format.set_text_wrap()
+                worksheet.set_column(0,41,21, format)
         writer.save()
 
 
@@ -1162,6 +1209,14 @@ class regIOtables:
         writer = pd.ExcelWriter(file, engine='xlsxwriter')
         for key,values in self.tables.items():
                 values.table.to_excel(writer, sheet_name = key)
+                workbook  = writer.book
+                worksheet = writer.sheets[key]
+                format = workbook.add_format()
+                format.set_align('center')
+                format.set_align('vcenter')
+                format.set_num_format('0.000')
+                format.set_text_wrap()
+                worksheet.set_column(0,41,21, format)
         writer.save()
 
 
@@ -1242,6 +1297,14 @@ class regIOtables_reg:
         writer = pd.ExcelWriter(file, engine='xlsxwriter')
         for key,values in self.tables.items():
                 values.table.to_excel(writer, sheet_name = key)
+                workbook  = writer.book
+                worksheet = writer.sheets[key]
+                format = workbook.add_format()
+                format.set_align('center')
+                format.set_align('vcenter')
+                format.set_num_format('0.000')
+                format.set_text_wrap()
+                worksheet.set_column(0,41,21, format)
         writer.save()
 
 class IOTable_imp:
@@ -1320,6 +1383,14 @@ class regIOtables_imp:
         writer = pd.ExcelWriter(file, engine='xlsxwriter')
         for key,values in self.tables.items():
                 values.table.to_excel(writer, sheet_name = key)
+                workbook  = writer.book
+                worksheet = writer.sheets[key]
+                format = workbook.add_format()
+                format.set_align('center')
+                format.set_align('vcenter')
+                format.set_num_format('0.000')
+                format.set_text_wrap()
+                worksheet.set_column(0,41,21, format)
         writer.save()
 
 
