@@ -85,7 +85,7 @@ reg_use_imp.to_excel(file = "outdata/test_use_imp2014_5.xlsx")
 #I-O table domestic
 reg_io = ho.regIOtables(reg_supp, reg_use)
 reg_io.to_excel(file = "outdata/test_io2014_5.xlsx")
-
+ 
 #I-O table regional
 reg_io_reg = ho.regIOtables_reg(reg_supp, reg_use)
 reg_io_reg.to_excel(file = "outdata/test_io_reg2014_5.xlsx")
