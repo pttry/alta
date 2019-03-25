@@ -94,6 +94,9 @@ reg_io_reg.to_excel(file = "outdata/test_io_reg2014_5.xlsx")
 reg_io_imp = ho.regIOtables_imp(reg_supp, reg_use)
 reg_io_imp.to_excel(file = "outdata/test_io_imp2014_5.xlsx")
 
+
+reg_io_coef = ho.regIOtables_coef(reg_supp, reg_use)
+reg_io_coef.to_excel(file = "outdata/test_io_imp2014_5.xlsx")
 #TEST UUSIMA
 
 i=0

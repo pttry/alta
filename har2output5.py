@@ -1395,3 +1395,87 @@ class regIOtables_imp:
 
 
 
+
+
+
+
+
+class IOTable_coef:
+    """
+    A class to hold an input-ouput  table
+    
+    Parameters
+    ----------
+    B : Datarame
+        DataFrame for a intermediates matrix 
+    F : DataFrame
+        DataFrame for a final use matrix
+    W : DataFrame
+        DataFrame for a value added matrix
+    """
+    
+    def __init__(self, Ad, Amdom, Amext, R, use_tab):
+        self.table = Ad
+        self.table.loc["Industries total"]=pd.DataFrame(Ad, columns=use_tab.dims["IND"]).sum(axis = 0)
+        self.table.loc["Total use of dom. imp."] = pd.DataFrame(Amdom, columns=use_tab.dims["IND"]).sum(axis = 0)
+        self.table.loc["Total use of foreign imports"]= pd.DataFrame(Amext, columns=use_tab.dims["IND"]).sum(axis = 0)
+        self.table.loc["Taxes less subsidies"]=R.loc["TAXES"]
+        self.table.loc["Total intermediate consumption"]=self.table.sum(axis=0)-self.table.loc["Industries total"]
+        self.table.loc["V1LAB"]=R.loc["V1LAB"]
+        self.table.loc["V1CAP"]=R.loc["V1CAP"]
+        self.table.loc["V1LND"]=R.loc["V1LND"]
+        self.table.loc["V1PTX"]=R.loc["V1PTX"]
+        self.table.loc["Value added, gross at basic prices"]=R.loc["V1LAB"] + R.loc["V1CAP"] + R.loc["V1LND"]+R.loc["V1PTX"]
+        self.table.loc["Output at basic prices"] = self.table.loc["Total intermediate consumption"]+self.table.loc["Value added, gross at basic prices"]
+        
+        #self.table.loc["Sum"] = self.table.sum(axis=0)
+class regIOtables_coef:
+    """
+    A class to hold an regional input-ouput tables
+
+    Parameters
+    ----------
+    sup : Obj
+        Object from regSupplyTables
+    use : Obj
+        Object from regUseTables   
+
+    """
+
+    def __init__(self, sup, use):
+
+        def build_io(sup_tab, use_tab):
+            """ 
+            To build input-output table from supply and use tables
+            """
+            # A = T * U * * inv(diag(g))
+            Ad=sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Ud* np.linalg.inv(np.diagflat(sup_tab.gt.transpose())) 
+            Amdom=sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Umdom* np.linalg.inv(np.diagflat(sup_tab.gt.transpose())) 
+            Amext=sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Umext* np.linalg.inv(np.diagflat(sup_tab.gt.transpose())) 
+
+            R = use_tab.W * np.linalg.inv(np.diagflat(sup_tab.gt.transpose()))   
+
+            Ad = pd.DataFrame(Ad, index=use_tab.dims["COM"], columns=use_tab.dims["IND"])
+            Amdom = pd.DataFrame(Amdom, index=use_tab.dims["COM"], columns=use_tab.dims["IND"])
+            Amext = pd.DataFrame(Amext, index=use_tab.dims["COM"], columns=use_tab.dims["IND"])
+            R = pd.DataFrame(R, index=use_tab.dims["VA"], columns=use_tab.dims["IND"])
+            return IOTable_coef(Ad, Amdom, Amext, R, use_tab)  
+
+        self.tables = {i : build_io(sup.tables[i], use.tables[i]) \
+                        for i in sup.tables.keys()}
+ 
+    def to_excel(self, file):
+        writer = pd.ExcelWriter(file, engine='xlsxwriter')
+        for key,values in self.tables.items():
+                values.table.to_excel(writer, sheet_name = key)
+                workbook  = writer.book
+                worksheet = writer.sheets[key]
+                format = workbook.add_format()
+                format.set_align('center')
+                format.set_align('vcenter')
+                format.set_num_format('0.000')
+                format.set_text_wrap()
+                worksheet.set_column(0,41,25, format)
+        writer.save()
+
+
