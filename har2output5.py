@@ -1392,14 +1392,6 @@ class regIOtables_imp:
                 worksheet.set_column(0,41,21, format)
         writer.save()
 
-
-
-
-
-
-
-
-
 class IOTable_coef:
     """
     A class to hold an input-ouput  table
@@ -1479,3 +1471,123 @@ class regIOtables_coef:
         writer.save()
 
 
+
+class IOTable2:
+    """
+    A class to hold an input-ouput  table
+    
+    Parameters
+    ----------
+    B : Datarame
+        DataFrame for a intermediates matrix 
+    F : DataFrame
+        DataFrame for a final use matrix
+    W : DataFrame
+        DataFrame for a value added matrix
+    """
+    
+    def __init__(self, B, Bmdom, Bmext, F, Fmdom, Fmext, W, use_tab):
+
+
+        self.Bd = B
+        self.Bmdom = Bmdom
+        self.Bmdom1=pd.DataFrame(np.matrix(Bmdom).sum(axis=0), index = ["Use of dom. imp."], columns = use_tab.dims["IND"])
+        self.Bmext = Bmext
+        self.Bmext1=pd.DataFrame(np.matrix(Bmext).sum(axis=0), index = ["Use of foreign imp."], columns = use_tab.dims["IND"])
+        
+        self.Fd = F
+        self.Fmdom = Fmdom
+        self.Fmdom1 = pd.DataFrame(np.matrix(Fmdom).sum(axis=0), index = ["Use of dom. imp."], columns = use_tab.dims["FINAL"])
+        self.Fmext = Fmext
+        self.Fmext1 = pd.DataFrame(np.matrix(Fmext).sum(axis=0), index = ["Use of foreign imp."], columns = use_tab.dims["FINAL"])
+        self.W = W
+       
+        # tables
+        self.Bd.loc["Total use of dom. prod."]=self.Bd.sum(axis=0)
+        self.Fd.loc["Total use of dom. prod."]=self.Fd.sum(axis=0)
+        self.Ball= pd.concat([pd.DataFrame(self.Bd), self.Bmdom1, self.Bmext1], axis=0)
+        self.Ball["Industries total"] = self.Ball.sum(axis = 1)
+        self.Fall= pd.concat([pd.DataFrame(self.Fd), self.Fmdom1, self.Fmext1], axis=0, sort=True)
+
+        self.table = pd.DataFrame(self.Ball, index=use_tab.dims["COM"] +["Total use of dom. prod.", "Use of dom. imp.", "Use of foreign imp."])
+        
+        self.table = pd.concat([self.table, pd.DataFrame(self.Fall, index =use_tab.dims["COM"] +["Total use of dom. prod.", "Use of dom. imp.", "Use of foreign imp."], columns = use_tab.dims["FINAL"])], axis=1)
+        self.table["Final uses at basic prices"] = self.table[use_tab.dims["FINAL"]].sum(axis = 1)
+        self.table["Total use at basic prices"] = self.table["Final uses at basic prices"].add(self.table["Industries total"])
+        
+        self.table.loc["Taxes less subsidies"]=W.loc["TAXES"]
+        K=pd.DataFrame(self.table, columns = use_tab.dims["IND"]) 
+        self.table.loc["Total intermediate consumption"]=K.sum(axis=0)-self.table.loc["Total use of dom. prod."]
+        self.table.loc["V1LAB"]=W.loc["V1LAB"]
+        self.table.loc["V1CAP"]=W.loc["V1CAP"]
+        self.table.loc["V1LND"]=W.loc["V1LND"]
+        self.table.loc["V1PTX"]=W.loc["V1PTX"]
+        self.table.loc["Value added, gross at basic prices"]=W.loc["V1LAB"] + W.loc["V1CAP"] + W.loc["V1LND"]+W.loc["V1PTX"]
+        self.table.loc["Output at basic prices"] = self.table.loc["Total intermediate consumption"]+self.table.loc["Value added, gross at basic prices"]
+        
+        
+      
+
+class regIOtables2:
+    """
+    A class to hold an regional input-ouput tables
+
+    Parameters
+    ----------
+    sup : Obj
+        Object from regSupplyTables
+    use : Obj
+        Object from regUseTables   
+
+    """
+
+    def __init__(self, sup, use):
+
+        def build_io(sup_tab, use_tab):
+            """ 
+            To build input-output table from supply and use tables
+            """
+            # B = T * U = V * inv(diag(q)) * U
+            Bd = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Ud
+            Bmdom = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Umdom
+            Bmext = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Umext
+            # F = T * Y = V * inv(diag(q)) * Y
+
+            Fd = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Yd
+            Fmdom = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Ymdom
+            F_d_r=Fd+Fmdom
+            Fmext = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Ymext
+            F_y = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Y
+            W = pd.DataFrame(use_tab.W, index=use_tab.dims["VA"], columns=use_tab.dims["IND"])
+
+            B = pd.DataFrame(Bd, index=use_tab.dims["COM"], columns=use_tab.dims["IND"])
+            Bmdom = pd.DataFrame(Bmdom, index=use_tab.dims["COM"], columns=use_tab.dims["IND"])
+            Bmext = pd.DataFrame(Bmext, index=use_tab.dims["COM"], columns=use_tab.dims["IND"])
+            #B.loc["Domestic_import"] = pd.DataFrame(Bmdom, columns=use_tab.dims["IND"]).sum(axis = 0)
+            #B.loc["External_import"] = pd.DataFrame(Bmext, columns=use_tab.dims["IND"]).sum(axis = 0)
+
+            F = pd.DataFrame(Fd, index=use_tab.dims["COM"], columns=use_tab.dims["FINAL"])
+            Fmdom = pd.DataFrame(Fmdom, index=use_tab.dims["COM"], columns=use_tab.dims["FINAL"])
+            Fmext = pd.DataFrame(Fmext, index=use_tab.dims["COM"], columns=use_tab.dims["FINAL"])
+            #F.loc["Domestic_import"] = pd.DataFrame(Fmdom, columns=use_tab.dims["FINAL"]).sum(axis = 0)
+            #F.loc["External_import"] = pd.DataFrame(Fmext, columns=use_tab.dims["FINAL"]).sum(axis = 0)
+            
+
+            return IOTable2(B, Bmdom, Bmext, F, Fmdom, Fmext, W, use_tab)  
+
+        self.tables = {i : build_io(sup.tables[i], use.tables[i]) \
+                        for i in sup.tables.keys()}
+
+    def to_excel(self, file):
+        writer = pd.ExcelWriter(file, engine='xlsxwriter')
+        for key,values in self.tables.items():
+                values.table.to_excel(writer, sheet_name = key)
+                workbook  = writer.book
+                worksheet = writer.sheets[key]
+                format = workbook.add_format()
+                format.set_align('center')
+                format.set_align('vcenter')
+                format.set_num_format('0.000')
+                format.set_text_wrap()
+                worksheet.set_column(0,41,21, format)
+        writer.save()

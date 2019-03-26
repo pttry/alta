@@ -85,7 +85,11 @@ reg_use_imp.to_excel(file = "outdata/test_use_imp2014_5.xlsx")
 #I-O table domestic
 reg_io = ho.regIOtables(reg_supp, reg_use)
 reg_io.to_excel(file = "outdata/test_io2014_5.xlsx")
- 
+
+#I-O table domestic ver-2
+reg_io2 = ho.regIOtables2(reg_supp, reg_use)
+reg_io2.to_excel(file = "outdata/test_io_2_2014_5.xlsx")
+
 #I-O table regional
 reg_io_reg = ho.regIOtables_reg(reg_supp, reg_use)
 reg_io_reg.to_excel(file = "outdata/test_io_reg2014_5.xlsx")
@@ -96,7 +100,7 @@ reg_io_imp.to_excel(file = "outdata/test_io_imp2014_5.xlsx")
 
 
 reg_io_coef = ho.regIOtables_coef(reg_supp, reg_use)
-reg_io_coef.to_excel(file = "outdata/test_io_imp2014_5.xlsx")
+reg_io_coef.to_excel(file = "outdata/test_io_coef2014_5.xlsx")
 #TEST UUSIMA
 
 i=0
