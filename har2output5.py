@@ -180,7 +180,7 @@ class useTable:
         self.table = pd.concat([self.table, pd.DataFrame(self.Y, index = self.dims["COM"], columns = self.dims["FINAL"])], axis=1)
         self.table["Final uses at basic prices"] = self.table[self.dims["FINAL"]].sum(axis = 1)
         self.table["Total use at basic prices"] = self.table["Final uses at basic prices"].add(self.table["Industries total"])
-        self.table.loc["Products total"] = table_int.sum(axis = 0)
+        self.table.loc["Products total"] = self.table.sum(axis = 0)
         table_va = pd.DataFrame(self.W, index = self.dims["VA"], columns = self.dims["IND"])
         table_va.loc["Gross value added"] = table_va.sum(axis = 0)-table_va.loc["TAXES"]
         table_va["Industries total"] = table_va.sum(axis = 1)
@@ -1504,16 +1504,11 @@ class IOTable2:
        
         # tables
         self.Bd.loc["Total use of dom. prod."]=self.Bd.sum(axis=0)
-        self.Fd.loc["Total use of dom. prod."]=self.Fd.sum(axis=0)
+        
         self.Ball= pd.concat([pd.DataFrame(self.Bd), self.Bmdom1, self.Bmext1], axis=0)
-        self.Ball["Industries total"] = self.Ball.sum(axis = 1)
-        self.Fall= pd.concat([pd.DataFrame(self.Fd), self.Fmdom1, self.Fmext1], axis=0, sort=True)
-
+           
         self.table = pd.DataFrame(self.Ball, index=use_tab.dims["COM"] +["Total use of dom. prod.", "Use of dom. imp.", "Use of foreign imp."])
         
-        self.table = pd.concat([self.table, pd.DataFrame(self.Fall, index =use_tab.dims["COM"] +["Total use of dom. prod.", "Use of dom. imp.", "Use of foreign imp."], columns = use_tab.dims["FINAL"])], axis=1)
-        self.table["Final uses at basic prices"] = self.table[use_tab.dims["FINAL"]].sum(axis = 1)
-        self.table["Total use at basic prices"] = self.table["Final uses at basic prices"].add(self.table["Industries total"])
         
         self.table.loc["Taxes less subsidies"]=W.loc["TAXES"]
         K=pd.DataFrame(self.table, columns = use_tab.dims["IND"]) 
@@ -1524,10 +1519,15 @@ class IOTable2:
         self.table.loc["V1PTX"]=W.loc["V1PTX"]
         self.table.loc["Value added, gross at basic prices"]=W.loc["V1LAB"] + W.loc["V1CAP"] + W.loc["V1LND"]+W.loc["V1PTX"]
         self.table.loc["Output at basic prices"] = self.table.loc["Total intermediate consumption"]+self.table.loc["Value added, gross at basic prices"]
+        self.table["Industries total"] = self.table.sum(axis = 1)
+        self.Fd.loc["Total use of dom. prod."]=self.Fd.sum(axis=0)
+        self.Fall= pd.concat([pd.DataFrame(self.Fd), self.Fmdom1, self.Fmext1], axis=0, sort=True)
+        self.table = pd.concat([self.table, pd.DataFrame(self.Fall, index =use_tab.dims["COM"] +["Total use of dom. prod.", "Use of dom. imp.", "Use of foreign imp."], columns = use_tab.dims["FINAL"])], axis=1, sort=False)
+        K2=pd.DataFrame(self.table, index =use_tab.dims["COM"] +["Total use of dom. prod.", "Use of dom. imp.", "Use of foreign imp."], columns = use_tab.dims["FINAL"] )
+        self.table["Final uses at basic prices"] = K2.sum(axis = 1)
+        K2=pd.DataFrame(self.table, index =use_tab.dims["COM"] +["Total use of dom. prod.", "Use of dom. imp.", "Use of foreign imp."])
+        self.table["Total use at basic prices"] = K2["Final uses at basic prices"]+K2["Industries total"]
         
-        
-      
-
 class regIOtables2:
     """
     A class to hold an regional input-ouput tables

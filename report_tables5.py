@@ -58,8 +58,6 @@ for j in range(0,19):
         use_obj["array"][i,1,33,j]=use_obj["array"][i,0,33,j]/(use_obj["array"][i,0,33,:].sum()+0.000001)*use_e["array"][i] 
 
 
-
-
 importlib.reload(ho)
 
 #Supply table
@@ -615,13 +613,18 @@ make_obj["array"][:,:,0].sum(axis=0)
 
 m=np.zeros([1,30])
 gva=np.zeros([1,30])
+gdp1=0
 for i in range(19):
         u=va_labour_obj["array"][:,:,i].sum(axis=1) +va_capital_obj["array"][:,i] +va_land_obj["array"][:,i] + prodtaxes_obj["array"][:,i]
         m=m+u+taxes_obj["array"][:,:,0:30,i].sum(axis=(0,1))+use_obj["array"][:,:,0:30,i].sum(axis=(0,1))
         gva=gva+u
+        gdp1=gdp1+va_labour_obj["array"][:,:,i].sum() +va_capital_obj["array"][:,i].sum() +va_land_obj["array"][:,i].sum() + prodtaxes_obj["array"][:,i].sum()+taxes_obj["array"][:,:,0:30,i].sum()
+gdp1
+gva.sum()
 m-make_obj["array"][:,:,:].sum(axis=(0,2))
 m
-taxes_obj["array"][:,:,0:30,:].sum(axis=(0,1,3))
+va_labour_obj["array"][:,:,:].sum() +va_capital_obj["array"][:,:].sum() +va_land_obj["array"][:,:].sum() + prodtaxes_obj["array"][:,:].sum()+taxes_obj["array"][:,:,0:30,:].sum()
+taxes_obj["array"][:,:,0:30,0].sum()
 use_obj["array"][:,:,0:30,:].sum(axis=(0,1,3))
 make_obj["array"][:,:,:].sum(axis=(0,2))
 
