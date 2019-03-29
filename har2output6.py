@@ -171,6 +171,7 @@ class useTable:
         self.Ymext = np.matrix(use_imp[self.dims["FINAL"]])
 
         self.W =  np.matrix(va)
+        self.tax_f=tax_f
         W=pd.DataFrame(self.W, index = self.dims["VA"], columns = self.dims["IND"])
         tax_f=pd.DataFrame(np.matrix(tax_f))
         
@@ -464,7 +465,6 @@ class useTab_dom:
         tax_f=pd.DataFrame(np.matrix(tax_f), index=["Taxes less subsidies"], columns= self.dims["FINAL"])
         self.Yall=pd.concat([self.Yall, tax_f], axis=0, sort=True)
         self.Yall.loc["Total intermediate consumption"]=self.Yall.loc["Taxes less subsidies"]+self.Yall.loc["Total use of dom. prod."]+self.Yall.loc["Use of dom. imp."]+self.Yall.loc["Use of foreign imp."]
-        
         self.table = pd.concat([self.table, pd.DataFrame(self.Yall, index =self.dims["COM"] +["Total use of dom. prod.", "Use of dom. imp.", "Use of foreign imp.", "Taxes less subsidies", "Total intermediate consumption"], columns = self.dims["FINAL"])], axis=1, sort=False)
         K2=pd.DataFrame(self.table, index =self.dims["COM"] +["Total use of dom. prod.", "Use of dom. imp.", "Use of foreign imp.", "Taxes less subsidies", "Total intermediate consumption"], columns = self.dims["FINAL"] )
         self.table["Final uses at basic prices"] = K2.sum(axis = 1)
@@ -1381,6 +1381,7 @@ class regIOtables_imp:
             To build input-output table from supply and use tables
             """
             # B = T * U = V * inv(diag(q)) * U
+            tax_f=use_tab.tax_f
             Bd = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Ud
             Bmdom = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Umdom
             Bmext = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Umext
@@ -1553,12 +1554,20 @@ class IOTable2:
         self.table["Industries total"] = self.table.sum(axis = 1)
         self.Fd.loc["Total use of dom. prod."]=self.Fd.sum(axis=0)
         self.Fall= pd.concat([pd.DataFrame(self.Fd), self.Fmdom1, self.Fmext1], axis=0, sort=True)
-        self.table = pd.concat([self.table, pd.DataFrame(self.Fall, index =use_tab.dims["COM"] +["Total use of dom. prod.", "Use of dom. imp.", "Use of foreign imp."], columns = use_tab.dims["FINAL"])], axis=1, sort=False)
-        K2=pd.DataFrame(self.table, index =use_tab.dims["COM"] +["Total use of dom. prod.", "Use of dom. imp.", "Use of foreign imp."], columns = use_tab.dims["FINAL"] )
+
+        tax_f=pd.DataFrame(np.matrix(use_tab.tax_f))
+        tax_f["Exports domestic"]=0
+        tax_f["Inventories"]=0
+        tax_f=pd.DataFrame(np.matrix(tax_f), index=["Taxes less subsidies"], columns= use_tab.dims["FINAL"])
+        self.Fall=pd.concat([self.Fall, tax_f], axis=0, sort=True)
+        self.Fall.loc["Total intermediate consumption"]=self.Fall.loc["Taxes less subsidies"]+self.Fall.loc["Total use of dom. prod."]+self.Fall.loc["Use of dom. imp."]+self.Fall.loc["Use of foreign imp."]
+        self.table = pd.concat([self.table, pd.DataFrame(self.Fall, index =use_tab.dims["COM"] +["Total use of dom. prod.", "Use of dom. imp.", "Use of foreign imp.", "Taxes less subsidies", "Total intermediate consumption"], columns = use_tab.dims["FINAL"])], axis=1, sort=False)
+        K2=pd.DataFrame(self.table, index =use_tab.dims["COM"] +["Total use of dom. prod.", "Use of dom. imp.", "Use of foreign imp.", "Taxes less subsidies", "Total intermediate consumption"], columns = use_tab.dims["FINAL"] )
         self.table["Final uses at basic prices"] = K2.sum(axis = 1)
-        K2=pd.DataFrame(self.table, index =use_tab.dims["COM"] +["Total use of dom. prod.", "Use of dom. imp.", "Use of foreign imp."])
+        K2=pd.DataFrame(self.table, index =use_tab.dims["COM"] +["Total use of dom. prod.", "Use of dom. imp.", "Use of foreign imp.", "Taxes less subsidies", "Total intermediate consumption"])
         self.table["Total use at basic prices"] = K2["Final uses at basic prices"]+K2["Industries total"]
-        
+       
+
 class regIOtables2:
     """
     A class to hold an regional input-ouput tables
@@ -1583,7 +1592,7 @@ class regIOtables2:
             Bmdom = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Umdom
             Bmext = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Umext
             # F = T * Y = V * inv(diag(q)) * Y
-
+            
             Fd = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Yd
             Fmdom = sup_tab.VT.transpose() * np.linalg.inv(np.diagflat(sup_tab.q)) * use_tab.Ymdom
             F_d_r=Fd+Fmdom
