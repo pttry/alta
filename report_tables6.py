@@ -8,7 +8,7 @@ Report regional input output tables
 
 import pandas as pd
 import numpy as np
-import har2output5 as ho
+import har2output6 as ho
 import os
 
 import importlib
@@ -62,43 +62,43 @@ importlib.reload(ho)
 
 #Supply table
 reg_supp = ho.regSupplyTables(make_obj, use_obj, tradmar_obj, suppmar_obj, trade_obj, stocks_obj)
-reg_supp.to_excel(file = "outdata/test_supp2014_5.xlsx")
+reg_supp.to_excel(file = "outdata/test_supp2014_6.xlsx")
 
 #use Table - total
 reg_use = ho.regUseTables(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj, prodtaxes_obj, taxes_obj, make_obj, stocks_obj)
-reg_use.to_excel(file = "outdata/test_use2014_5.xlsx")
+reg_use.to_excel(file = "outdata/test_use2014_6.xlsx")
 
 #use Table - domestic
 reg_use_dom = ho.regUseTab_dom(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj, prodtaxes_obj, taxes_obj, make_obj, stocks_obj)
-reg_use_dom.to_excel(file = "outdata/test_use_dom2014_5.xlsx")
+reg_use_dom.to_excel(file = "outdata/test_use_dom2014_6.xlsx")
 
 #use Table - regional
 reg_use_reg = ho.regUseTab_reg(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj, prodtaxes_obj, taxes_obj, make_obj, stocks_obj)
-reg_use_reg.to_excel(file = "outdata/test_use_reg2014_5.xlsx")
+reg_use_reg.to_excel(file = "outdata/test_use_reg2014_6.xlsx")
 
 #use Table - foreign imports
 reg_use_imp = ho.regUseTab_imp(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj, prodtaxes_obj, taxes_obj, make_obj, stocks_obj)
-reg_use_imp.to_excel(file = "outdata/test_use_imp2014_5.xlsx")
+reg_use_imp.to_excel(file = "outdata/test_use_imp2014_6.xlsx")
 
 #I-O table domestic
 reg_io = ho.regIOtables(reg_supp, reg_use)
-reg_io.to_excel(file = "outdata/test_io2014_5.xlsx")
+reg_io.to_excel(file = "outdata/test_io2014_6.xlsx")
 
 #I-O table domestic ver-2
 reg_io2 = ho.regIOtables2(reg_supp, reg_use)
-reg_io2.to_excel(file = "outdata/test_io_2_2014_5.xlsx")
+reg_io2.to_excel(file = "outdata/test_io_2_2014_6.xlsx")
 
 #I-O table regional
 reg_io_reg = ho.regIOtables_reg(reg_supp, reg_use)
-reg_io_reg.to_excel(file = "outdata/test_io_reg2014_5.xlsx")
+reg_io_reg.to_excel(file = "outdata/test_io_reg2014_6.xlsx")
 
 #I-O table foreign imports
 reg_io_imp = ho.regIOtables_imp(reg_supp, reg_use)
-reg_io_imp.to_excel(file = "outdata/test_io_imp2014_5.xlsx")
+reg_io_imp.to_excel(file = "outdata/test_io_imp2014_6.xlsx")
 
 
 reg_io_coef = ho.regIOtables_coef(reg_supp, reg_use)
-reg_io_coef.to_excel(file = "outdata/test_io_coef2014_5.xlsx")
+reg_io_coef.to_excel(file = "outdata/test_io_coef2014_6.xlsx")
 #TEST UUSIMA
 
 i=0
@@ -621,6 +621,7 @@ for i in range(19):
         gdp1=gdp1+va_labour_obj["array"][:,:,i].sum() +va_capital_obj["array"][:,i].sum() +va_land_obj["array"][:,i].sum() + prodtaxes_obj["array"][:,i].sum()+taxes_obj["array"][:,:,0:30,i].sum()
 gdp1
 gva.sum()
+taxes_obj["array"][:,:,0:30,:].sum()
 m-make_obj["array"][:,:,:].sum(axis=(0,2))
 m
 va_labour_obj["array"][:,:,:].sum() +va_capital_obj["array"][:,:].sum() +va_land_obj["array"][:,:].sum() + prodtaxes_obj["array"][:,:].sum()+taxes_obj["array"][:,:,0:30,:].sum()
@@ -1116,3 +1117,15 @@ use_bp_reg2.sum(axis=1)+use_bp_dom.sum(axis=1)-make2.sum(axis=1)
 d.sum(axis=1)-make_obj["array"][:,:,0].sum(axis=1)
 make_obj["array"][:,:,0].sum(axis=1)
 use_bp_dom.sum(axis=1)-make_obj["array"][:,:,0].sum(axis=1)
+
+self = {"COM": make_obj["sets"][0]["dim_desc"], "IND": make_obj["sets"][1]["dim_desc"], "FINAL": use_bp_dt.columns[30:37]}
+i=0
+tax_f = pd.DataFrame(np.matrix(taxes_obj["array"][:,:,:,i].sum(axis = (0,1))[30:35]), index=[taxes_obj["coeff_name"].strip()], columns = [use_obj["sets"][2]["dim_desc"][30:35]])
+
+Y=pd.DataFrame(use_bp_dt, columns=self["FINAL"])
+Y.loc["Products total"]=Y.sum(axis=0)
+tax_f=pd.DataFrame(np.matrix(tax_f))
+tax_f["Exports domestic"]=0
+tax_f["Inventories"]=0
+tax_f=pd.DataFrame(np.matrix(tax_f), index=["TAX"], columns= self["FINAL"])
+Y=pd.concat([Y, tax_f], axis=0)
