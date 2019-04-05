@@ -105,3 +105,4 @@ venv.bak/
 
 # alta
 TERM/
+*.xlsx
