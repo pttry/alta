@@ -1,0 +1,19 @@
+!Inputs!
+auxiliary files = regcapital ;
+set element read style = flexible;
+File VERMDATA = hardata/premod.har   ;
+File VERMSETS = hardata/aggsuppVERM.har  ;
+File GOVACCDATA = hardata/govacc.har;
+File NATEXTRA  = hardata/natextra.har; 
+File EXTRA2 = hardata/govextra2.har ;!
+File REGEMPL = hardata/regsupp.har;
+
+
+!Outputs!
+File REGROREXTRA = hardata/regrorext.har ;
+File V1CHECK = hardata/V1CHECK.har;
+File EXTOUT = hardata/regextra.har ;
+File EXTOUT_L = hardata/regextra_lag.har ;
+!File GOVOUT = reggovacc.har ;!
+File REGSETS = hardata/regsets.har ;
+

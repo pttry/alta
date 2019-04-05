@@ -1,0 +1,5 @@
+
+# Prepare data for regionalization function
+
+- In CGE_regional_extension.ipyb
+  - Write regional data to reg_data-folder

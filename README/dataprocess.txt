@@ -1,0 +1,300 @@
+
+Tietokannan rakentamisprosessi seuraa melko tarkasti aiempaa dokumentaatiota, 
+joka löytyy README-kansiosta nimellä VATT_mallien_data_seloste_VANHA.docx.
+Pääsin noin kohtaan 10 (Panos-tuotos aineiston jako maakunnille).
+Myös pääomakannan jako (kohta 12) maakunnittain on tehty. Kohdat 8, 11, ja
+muut kohdat siitä eteenpäin, ovat kuitenkin tekemättä. Olen käyttänyt mahdollisimman 
+paljon samoja nimiä kuin aiemmassa versioissa, jotta jatkaminen tästä eteenpäin
+sujuisi mahdollisimman helposti. Myös yhtälöt ja muut aineiston muokkaukset olen
+koittanut siirtää aiemmista tablo-ohjelmista pythoniin mahdollisimman tarkasti.
+Virheitä on varmasti jäänyt, ja ne ovat tietenkin kaikki omiani. Kiitos kun korjailette.
+Vanha prosessi tiedostoineen on kokonaisuudessaan tallessa kansiossa VATT-Mallit_2014, joka
+on liian iso Githubiin siirrettäväksi. Jätän sen USB-tikulla Juhalle.
+
+Pääsääntöisesti GEMPACK-ohjelmat eivät ole minun kirjoittamiani, vaan otettu joko
+vanhasta tietokantaprosessista tai COPSin arkistosta (https://www.copsmodels.com/archivep.htm).
+Prosessissa käytetään esimerkiksi ORANI-G -mallia aineiston homogeenisyyden testaamiseen ja
+TERM-mallia aluejakoa tehdessä. Näiden vaiheiden osalta tarkemmat kuvaukset löytyvät oranig2013 ja
+TERM -kansioista (regdata.doc ja oraing06doc.pdf).
+
+Tämä tekstitiedosto on melko tiivis yleiskuvaus, ja
+työprosessin aikana tärkein dokumentaatio löytyy varmasti .ipynb-tiedostoista suoraan.
+Lisäksi .py-muotoiset aputiedostot sisältävät docstring-kommentit niiden käytöstä.
+Tämä koskee erityisesti datagetter-ohjelmaa, jossa erilaisia filttereitä ja toiminnallisuuksia
+on paljon.
+(Spyder on paras ohjelma niiden ajamiseen. Se löytyy myös Anacondan päävalikosta)
+
+README-kansiossa on myös COPSin tietokantojen rakentelua koskevia julkaisuja, joita kannattaa
+selata koodin ajamisen ohella.
+
+Tilastokeskukselta mahdollisesti saatava tarkempi aineisto tulee CGE_basedata-ohjelmaan.
+(Verot, marginaalit, tuontitullit)
+
+
+
+TODO:
+- supplementaryData/PARAMETERS64.xlsx joustojen ja muiden parametrien arvot kohdilleen.
+- Regional extension
+	- reg consum share -> Jaettu käytettävissä olevan tulon perusteella, ok?
+	- reg export share -> Puutteellinen! Tullin aineistossa ei hyödykedimensiota!
+	- reg govern share -> Puutteellinen! Jaettu maakunnittain asukasluvun perusteella.
+	- reg invent share -> Samat osuudet kuin investoinneilla, ok?
+	- MSHR (share of national imports, port of entry) PUUTTUU (regsupp.har)
+	- RIMS (port share of national imports) PUUTTUU (regsupp.har)
+
+- Capital dynamics. 
+	- Mitä reaalikorkoa käytetään (fixData["RINT"])? Korjaa oikea luku eri vuosille.
+	- seuraavat luvut on otettu suoraan vanhasta aineistosta. Korjaa/päivitä
+	  uudesta lähteestä:
+	  govData["TAX_AB_RATE"]  # Tax rate for all benefits
+	  govData["TAX_UB_RATE"]  # Tax rate for  unemployment benefits
+	  govData["TAX_OB_RATE"]  # Tax rate for  other benefits
+	- adjustdata-vaihe: Jossain vanhemmassa versiossa (uusimmasta kommentoitu pois päältä)
+	  on maatalouden, metsätalouden ja rakentamistoimialan huomattavan suuria toimintaylijäämiä
+	  siirretty palkkoihin (V1CAPista V1LABiin) sillä oletuksella, että ne ovat pääosin
+	  yrittäjän omalle työlle maksettavaa palkkaa. Jos tarpeellista, lisää tämä palikka.
+	  ks. vanha ainestovaihe CAPITAL/adjustdata.tab rivi 377. ja CGE_capital_dynamics.ipynb-ohjelman
+ 	  Data adjusting -vaihe.
+
+
+
+
+
+		  #######################################
+		  Overview of database generation process
+		  #######################################
+
+
+###############
+# Help files: #
+###############
+
+- Python programs:
+  (See docstrings inside the .py-files for more detail)
+	- checkerFunctions.py   (for quick data consistency checks)
+	- dataGetterFunction.py (to search and query StatFin data)
+	- mapperFunction.py     (for aggregating industries and commodities)
+	- harWriterFunction.py  (for writing data from Python dataframes to .har format)
+
+- supplementaryData folder:
+	- MITENNA_OCC60.xlsx (Occupation data from Mitenna database)
+	- regDistances.xlsx  (distance matrix between different regions)
+	- PARAMETERS.xlsx    (elasticities and other necessary parameters)
+
+- workflow.docx: program list and an overview of the process
+
+
+#################
+# Data process: #
+#################
+
+- all raw data will be stored into rawdata folder.
+- all output files (.HAR) will be stored into hardata folder.
+
+
+
+1. Create national base data
+############################
+
+Run CGE.basedata.ipynb (IPython notebook) step-by-step.
+- Output: basedata64.har, AGGSUP.har
+
+This step works with non-aggregated StatFin input-output data, with
+64 industries and 64 commodities.
+
+The main difficulty throughout this process is that StatFin uses different industry classifications 
+in different data sets. Input-output data is available for 64 industries, regional accounts only for
+30 industries, and national accounts for some 80 industries. Therefore, to create the regional 
+dimension, all data must be aggregated to this level.
+  
+The file AGGSUP.har is used to aggregate the national data (basedata.har) to the regional 
+level. The mapping from IND64 to IND30 and COM64 to COM30 are specified in MIND and MCOM. 
+Note that to be recocnised as mapping, also long_name have to speficified the mapping. Forexample:
+"Mapping MCOM from COM(64) to ACOM(30)                                 ". Note! 70 characters.
+
+
+
+2.Aggregate national data to regional level (IND and COM dimensions)
+####################################################################
+CGE_regional_extension.ipyr runs aggregation with hwf.aggHAR() (previosly AGG64to30.bat) 
+- Output: basedata30.har
+
+This step uses the aggsup.har file created earlier in Step 1.
+The aggregation is performed using the GEMPACK auxiliary program called
+Agghar. See GEMPACK manual for detailed Agghar instructions
+https://www.copsmodels.com/webhelp/viewhar/index.html?hc_agghar.htm
+
+In short:
+AggHAR is a command line program which you must run from a DOS box. You might type:
+AggHAR OLD.HAR NEW.HAR SUP.HAR -PM
+where
+OLD.HAR is the input file to be aggregated.
+NEW.HAR is the new output file (must NOT exist yet).
+SUP.HAR is another existing HAR file containing mappings.
+If the final, options, item is present, it must begin with a hyphen 
+and contain some or all the following letters:
+
+U discard headers Unaffected by aggregation
+P use Previous set names for new headers
+M conserve Memory - see
+
+If agghar executes with a FATAL ERROR, you most likely haven't
+specified the IND and COM mappings in the AGGSUP.har file.
+
+
+
+
+3. Data for regional extension (top-down regional split)
+########################################################
+Run CGE_regional_extension.ipynb notebook step-by-step.
+- Output: regExtension.har, REGSUPP.har
+
+This creates estimates for 
+* Regional output shares 
+* Regional investment shares 
+* Regional consumption shares 
+* Regional export shares 
+* Regional government spending shares 
+* Regional inventory shares 
+
+
+Also other regional data, from population to distances, are specified here.
+This are taken from either regional accounts (StatFin) or from the
+regdistances.xlsx in the supplementaryData folder.
+
+KORJAA ERITYISESTI:
+- R004 eli regExports.
+- MSHR Share of national imports, by port of entry
+- ja muut ohjelman lopuksi määritetyt parametrit (local commodities, distance factors...)
+
+
+
+
+4. Merge the aggregated basedata and regional extensions
+########################################################
+Run mergehars.bat
+- Output: basedata.har
+
+This combines the aggregated base data and the regional supplementary data 
+.har files into one HAR called basedata.har.
+
+Again, a GEMPACK auxiliary program (mergehar) is used.
+Instructions: http://www.copsmodels.com/gpmanual.htm#mergehar
+
+e.g.
+
+MERGEHAR OLD1.HAR OLD2.HAR NEW.HAR YY2
+
+The last three characters control the merging as follows:
+(Copied from GEMPACK manual)
+Char 1 for headers unique to OLD1: Y - copy, N - ignore. 
+Char 2 for headers unique to OLD2: Y - copy, N - ignore. 
+Char 3 for headers common to both: 1 - use OLD1, 2 - use OLD2, N - ignore
+
+So, for example, "YY2" means: 
+Take all headers from both files, except OLD1 headers that also exist 
+in OLD2 (ie, the OLD2 header will be copied if there is a "header clash".)
+
+This .bat file also copies the new basedata.har into the oranig2013 folder.
+
+
+
+
+5. Test the merged data for homogenity
+######################################
+Run oranig2013/homogtest.bat
+
+This step uses the ORANI-G (2013 version) that is available from the
+Centre of Policy Studies website (copsmodels.com archive, TPMH0110).
+Here, the numeraire variable (exchange rate phi) is given a shock of +10%.
+For a homogenous dataset, this should produce a +10% change in all
+endogenous variables.
+
+Before running the test, make sure that a fresh version of the basedata
+has been copied (basedata.har) to the oranig2013 folder.
+
+Results are written to htest.sl4.
+
+(VATT_mallien_data_seloste kohta 4.)
+
+
+
+6. Capital data for model dynamics
+##################################
+Run CGE_capital_dynamics.ipynb step-by-step
+- Output: capital.har, capitalextra.har, adjustdata.har
+
+(VATT_mallien_data_seloste kohta 5.)
+
+
+
+7. Update the old basedata using inputs from capital accounts
+#############################################################
+Run basedataupdate.bat
+Output: basedataNEW.har
+
+In the capital data, the depreciation rates and rates of return are capped
+to 20% and recalculated. The difference is allocated to V1OCT (other cost ticket)
+to maintain data balance. Thesee new entries are added to the old data in this .bat file.
+
+The .bat file also copies the new files into TERM folder, where they are later needed.
+
+Tästä todennäköisesti puuttuu jotain: muutoksia saattaa tulla myös V1LABiin (jos toiminta-
+ylijäämiä siirretään) sekä kaikkiin V2-alkuisiin virtoihin.
+
+(VATT_mallien_data_seloste kohta 5. (adjustdata.tab))
+
+
+8. Create data for government accounts
+######################################
+Run CGE_data_base_government_accounts.ipynb
+-Output: govdata.har, govextra.har, govsecsplit.har
+
+(VATT_mallien_data_seloste kohta 6.)
+
+
+
+9. Sum public sector data over different sectors
+################################################
+Run govgeneric.bat
+-Output: govacc.har, govextra2.har, base-extra.har
+
+(VATT_mallien_data_seloste kohta 6. govgeneric.tab Tämän pitäisi myös tarkastaa
+aineiston tasapaino, mutta tablo-ohjelma on sen suhteen keskeneräinen).
+
+
+
+
+10. Regional split of input-output data (TERM)
+#############################################
+The actual dirty work of creating regional data.
+In the TERM/data folder, refer to the regdata.doc for detailed instructions (by Mark Horridge).
+mkdata.bat runs the data manipulation sequence.
+Remember to copy files national.har and regsupp.har to the TERM/data folder before starting.
+
+Note: due to the errors in linear RAS procedure, the original mkdata.bat is modified to include 
+only the traditional RAS procedure. The number of steps is set to 1000. Also the
+aggregation procedures have been switched off.
+- Output: premod.har, orgsets.har, aggsuppVERM.har
+
+(VATT_mallien_data_seloste kohta 10.)
+
+
+11. Combine extra-files into a single har
+#########################################
+Run extramerge.bat
+-Output: natextra.hra
+
+Again, using mergehar auxiliary program.
+
+
+
+12. Regional split for capital
+###############################
+Run regcapital.bat
+-Output: regrorext.har, v1check.har, regextra.har, regextra_lag.har, regsets.har
+
+Capital data is divided to different regions simply by using shares from V1CAP, that was
+split in step 10.
+Most important stuff in regextra.har
+

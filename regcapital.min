@@ -1,0 +1,655 @@
+#FILES
+Logical Name         In/Out Ud  Type Actual Name
+VERMDATA              In     n  HAR
+ VERM-data from IO-core
+VERMSETS              In     n  HAR
+ Sets from VERM
+GOVACCDATA            In     n  HAR
+ Public data from regional Government accounts
+NATEXTRA              In     n  HAR
+ National extradata
+EXTRA2                In     n  HAR
+ 
+REGEMPL               In     n  HAR
+ Regional employment data (year 2008)
+V1CHECK               Out    n  HAR
+ VERM-datan tarkistus
+REGROREXTRA           Out    n  HAR
+ Regional extradata
+EXTOUT                Out    n  HAR
+ Regional extradata
+EXTOUT_L              Out    n  HAR
+ Regional extradata
+REGSETS               Out    n  HAR
+ Sets file
+(Display)             Out    n  DIS
+(Solution)            Out    n  SL4
+(Equations)           Out    n  EQ4
+#TABFILE
+regcapital.tab
+#TMDATE
+at 10:40:12 on 05-FEB-2019
+#STIFILE
+%none
+#SETS
+   10
+    1 COM             -1  u Commodities
+    2 IND             -1  u Industries
+    3 DST             -1  u Regions of use
+    4 SRC              2  k Description
+dom         
+imp         
+    5 USR             -1  u Users
+    6 ORG             -1  u Regions of origin
+    7 MAR             -1  u Margin coms
+    8 PRD             -1  u Regions of production
+    9 OCC             -1  u Skills
+   10 TIME            50  k TIME set for REGROREXT.HAR
+Y_2001      
+Y_2002      
+Y_2003      
+Y_2004      
+Y_2005      
+Y_2006      
+Y_2007      
+Y_2008      
+Y_2009      
+Y_2010      
+Y_2011      
+Y_2012      
+Y_2013      
+Y_2014      
+Y_2015      
+Y_2016      
+Y_2017      
+Y_2018      
+Y_2019      
+Y_2020      
+Y_2021      
+Y_2022      
+Y_2023      
+Y_2024      
+Y_2025      
+Y_2026      
+Y_2027      
+Y_2028      
+Y_2029      
+Y_2030      
+Y_2031      
+Y_2032      
+Y_2033      
+Y_2034      
+Y_2035      
+Y_2036      
+Y_2037      
+Y_2038      
+Y_2039      
+Y_2040      
+Y_2041      
+Y_2042      
+Y_2043      
+Y_2044      
+Y_2045      
+Y_2046      
+Y_2047      
+Y_2048      
+Y_2049      
+Y_2050      
+#VARIABLES
+         0
+#SUBSETS
+     0
+#COEFFICIENTS
+   81
+    1 MAKE            3 r y n  MAKE matrix
+    1    2    3
+    2 USE             4 r y n  Basic + margin flows
+    1    4    5    3
+    3 TAXES           4 r y n  TAXES(COM:SRC:USR:DST)
+    1    4    5    3
+    4 TRADE           4 r y n  Sourcing matrix
+    1    4    6    3
+    5 SUPPMAR         4 r y n  Margins supplied by PRD on goods passing from ORG to DST
+    7    6    3    8
+    6 TRADMAR         5 r y n  Margins on trade matrix
+    1    4    7    6    3
+    7 INVEST          3 r y n  Investment at purchasers prices
+    1    2    3
+    8 STOCKS          2 r y n  Domestic inventories
+    2    3
+    9 V1LAB           3 r y n  Wage matrix
+    2    9    3
+   10 V1CAP           2 r y n  Rentals to capital
+    2    3
+   11 V1LND           2 r y n  Rentals to land
+    2    3
+   12 V1PTX           2 r y n  Taxes on production
+    2    3
+   13 SIGMA1LAB       1 r y n  Labour Sigma
+    2
+   14 SIGMA1PRIM      1 r y n  Primary Factor Sigma
+    2
+   15 SIGMAFUELS      1 r n n  Fuels Sigma
+    2
+   16 SIGMAGREEN      1 r n n  Energy Nest Sigma
+    2
+   17 ARMSIGMA        1 r y n  Intermediate Armington
+    1
+   18 SIGMADOMDOM     1 r y n  Between-region Armington
+    1
+   19 SIGMAMAR        1 r y n  Elasticity of substitution between regions of margin production
+    7
+   20 POP             1 r y n  Regional population
+    3
+   21 FRISCH          1 r y n  Frisch LES parameter= total/luxury)
+    3
+   22 EPS             2 r y n  Expenditure elasticities
+    1    3
+   23 SIGMAOUT        1 r y n  Output Sigma
+    2
+   24 EXP_ELAST       1 r y n  Individual Export Elasticities
+    1
+   25 ALPHA1          0 r n n  Wage equation parameter 1
+   26 ALPHA2          0 r n n  Wage equation parameter 2
+   27 VCAP_AT_T_R     1 r y n  Start of year capital stocks valued at start of yr prices RU
+    2
+   28 TREND0005_R     1 r y n  Trend by industries 99-05
+    2
+   29 DEPNEW_R        1 r y n  Depresiation rate
+    2
+   30 RORNNEW_R       1 r y n  Normal rate of return
+    2
+   31 SMURF_R         1 r y n  Slopes of cap. supply curves at K_GR=TREND_K
+    2
+   32 ADJPROP         0 r n n
+   33 ADJ_RE          1 r y n
+    2
+   34 ADJ_COEFF       1 r y n  Adjustment coefficient by reg
+    2
+   35 DIFF            0 r y n  Maximum difference from trend rate growth
+   36 EMPLOY          0 r y n  Aggregate employment 1 in initial solution year t
+   37 EMP_ADJ         0 r y n  Direct adjustment parameter for employment
+   38 DUM_YEAR1       0 r y n  Dummy for first year
+   39 DUMMY_DEC       0 r n n
+   40 F_EEQROR        0 r y n  Sfalar shifter for equilibrium expected rate of return
+   41 F_EEQROR_I      1 r y n  Vector shifter for equilibrium expected rate of return
+    2
+   42 LAB_SUPN        0 r y n
+   43 LEV_CPI         0 r y n
+   44 LEV_CPI_L       0 r y n
+   45 LEV_CPI_2L      0 r y n
+   46 LEV_PLAB        0 r y n
+   47 LEV_PLAB_L      0 r y n
+   48 NINT            0 r y n
+   49 RINT            0 r y n
+   50 RINT_L          0 r y n
+   51 PCAP_I          1 r y n
+    2
+   52 PCAP_I_B        1 r y n
+    2
+   53 PCAP_I_L        1 r y n
+    2
+   54 PCAP_AT_T       1 r y n
+    2
+   55 PCAP_AT_T1      1 r y n
+    2
+   56 RALPH           0 r y n
+   57 RWAGE           0 r y n
+   58 TAX_L_R_PD      0 r y n
+   59 SHRASS_H        1 r n n
+    3
+   60 ADJ_COEFF_R     2 r n n  Adjustment coefficient by reg and ind
+    3    2
+   61 ADJ_E           2 r n n
+    3    2
+   62 DIFF_R          1 r n n  Maximum difference from trend rate of growth by reg
+    3
+   63 EMPLOY_R        1 r y n  Aggregated employment by reg (1 in initial solution year)
+    3
+   64 F_EEQROR_R      1 r n n  Scalar shifter for equilibrium expected rate of return
+    3
+   65 F_EEQROR_IR     2 r n n  Vector sifter for equilibrium expected rate of return
+    3    2
+   66 EROR_G          3 r n n  Matrix for transfer of info on expected rors between iterations
+    3    2   10
+   67 LAB_SUPN_R      1 r n n  Regional labour supply for year t
+    3
+   68 PCAP_IR         2 r n n  Asset price of capital stocks, base, t-1
+    3    2
+   69 PCAP_IR_B       2 r n n  Asset price of capital stocks, init sol, t-1
+    3    2
+   70 PCAP_IR_L       2 r n n  Asset price of capital stocks, start of forecast
+    3    2
+   71 PCAP_ATR_T      2 r n n  Asset price of capital stocks, t
+    3    2
+   72 PCAP_ATR_T1     2 r n n  Asset price of capital stocks, t-1
+    3    2
+   73 RWAGE_R         1 r n n  Real wage, initial solution for t=1
+    3
+   74 TYME            1 r n n
+   10
+   75 VCAP_AT_T       2 r n n  Start of year capital stocks valued at start of yr prices RU
+    3    2
+   76 TREND0005       2 r n n  Trend by ind and reg 99-05
+    3    2
+   77 DEPNEW          2 r n n  Depreciation rate by ind and reg
+    3    2
+   78 RORNNEW         2 r n n  Normal rate of return
+    3    2
+   79 SMURF           2 r n n  Reg slopes of cap. supply curves at K_GR=TREND_K
+    3    2
+   80 CAPSUM_D        1 r n n  Rentals to capital
+    2
+   81 CAPSHR          2 r n n  Rentals to capital
+    2    3
+#EQUATIONS
+    0
+#READS
+   53
+    1     1 MAKE              1 VERMDATA             MAKE a h     3
+     1     2     3
+    2     2 USE               1 VERMDATA             BSMR a h     4
+     1     4     5     3
+    3     3 TAXES             1 VERMDATA             UTAX a h     4
+     1     4     5     3
+    4     4 TRADE             1 VERMDATA             TRAD a h     4
+     1     4     6     3
+    5     5 SUPPMAR           1 VERMDATA             MARS a h     4
+     7     6     3     8
+    6     6 TRADMAR           1 VERMDATA             TMAR a h     5
+     1     4     7     6     3
+    7     7 INVEST            1 VERMDATA             2PUR a h     3
+     1     2     3
+    8     8 STOCKS            1 VERMDATA             STOK a h     2
+     2     3
+    9     9 V1LAB             1 VERMDATA             1LAB a h     3
+     2     9     3
+   10    10 V1CAP             1 VERMDATA             1CAP a h     2
+     2     3
+   11    11 V1LND             1 VERMDATA             1LND a h     2
+     2     3
+   12    12 V1PTX             1 VERMDATA             1PTX a h     2
+     2     3
+   13    13 SIGMA1LAB         1 VERMDATA             SLAB a h     1
+     2
+   14    14 SIGMA1PRIM        1 VERMDATA             P028 a h     1
+     2
+   15    17 ARMSIGMA          1 VERMDATA             P015 a h     1
+     1
+   16    18 SIGMADOMDOM       1 VERMDATA             SGDD a h     1
+     1
+   17    19 SIGMAMAR          1 VERMDATA             SMAR a h     1
+     7
+   18    20 POP               1 VERMDATA             PO01 a h     1
+     3
+   19    21 FRISCH            1 VERMDATA             P021 a h     1
+     3
+   20    22 EPS               1 VERMDATA             XPEL a h     2
+     1     3
+   21    23 SIGMAOUT          1 VERMDATA             SCET a h     1
+     2
+   22    24 EXP_ELAST         1 VERMDATA             P018 a h     1
+     1
+   23    27 VCAP_AT_T_R       4 NATEXTRA             VCAP a h     1
+     2
+   24    28 TREND0005_R       4 NATEXTRA             TRNK a h     1
+     2
+   25    29 DEPNEW_R          4 NATEXTRA             DEPR a h     1
+     2
+   26    30 RORNNEW_R         4 NATEXTRA             RORN a h     1
+     2
+   27    31 SMURF_R           4 NATEXTRA             SMRF a h     1
+     2
+   28    34 ADJ_COEFF         4 NATEXTRA             ADJC a h     1
+     2
+   29    33 ADJ_RE            4 NATEXTRA             ADRE a h     1
+     2
+   30    35 DIFF              4 NATEXTRA             DIFF a h     0
+   31    38 DUM_YEAR1         4 NATEXTRA             0045 a h     0
+   32    36 EMPLOY            4 NATEXTRA             EMPL a h     0
+   33    37 EMP_ADJ           4 NATEXTRA             EADJ a h     0
+   34    40 F_EEQROR          4 NATEXTRA             FCSE a h     0
+   35    41 F_EEQROR_I        4 NATEXTRA             FSTA a h     1
+     2
+   36    42 LAB_SUPN          4 NATEXTRA             LSUP a h     0
+   37    43 LEV_CPI           4 NATEXTRA             LCPI a h     0
+   38    44 LEV_CPI_L         4 NATEXTRA             CPIL a h     0
+   39    45 LEV_CPI_2L        4 NATEXTRA             LCP2 a h     0
+   40    46 LEV_PLAB          4 NATEXTRA             PLAB a h     0
+   41    47 LEV_PLAB_L        4 NATEXTRA             PLAL a h     0
+   42    48 NINT              3 GOVACCDATA           GNIT a h     0
+   43    49 RINT              4 NATEXTRA             RINT a h     0
+   44    50 RINT_L            4 NATEXTRA             RNTL a h     0
+   45    51 PCAP_I            4 NATEXTRA             PCAI a h     1
+     2
+   46    52 PCAP_I_B          4 NATEXTRA             PCAB a h     1
+     2
+   47    53 PCAP_I_L          4 NATEXTRA             PCAL a h     1
+     2
+   48    54 PCAP_AT_T         4 NATEXTRA             PCAP a h     1
+     2
+   49    55 PCAP_AT_T1        4 NATEXTRA             PCAT a h     1
+     2
+   50    56 RALPH             4 NATEXTRA             RLPH a h     0
+   51    57 RWAGE             4 NATEXTRA             RWAG a h     0
+   52    58 TAX_L_R_PD        5 EXTRA2               TLRT a h     0
+   53    63 EMPLOY_R          6 REGEMPL              EMPR a h     1
+     3
+#READ(EXTRA)
+    8
+    1 el
+ COM          VERMDATA             COM 
+    2 el
+ IND          VERMDATA             IND 
+    3 el
+ DST          VERMSETS             REGD
+    4 el
+ USR          VERMSETS             AUSR
+    5 el
+ ORG          VERMDATA             REGS
+    6 el
+ MAR          VERMDATA             MAR 
+    7 el
+ PRD          VERMDATA             REGP
+    8 el
+ OCC          VERMDATA             OCC 
+#NCVARIABLES
+    0
+#STATEMENTS
+      12   1 fl                                                 12  43    0 n
+      13   1 fl                                                 13  35    0 n
+      14   1 fl                                                 14  66    0 n
+      15   1 fl                                                 15  39    0 n
+      16   1 fl                                                 16  14    0 n
+      17   1 fl                                                 17  57    0 n
+      18   1 fl                                                 18  45    0 n
+      19   1 fl                                                 19  48    0 n
+      20   1 fl                                                 20  44    0 n
+      21   1 fl                                                 21  46    0 n
+      23   1 fl                                                 23  33    0 n
+      25   1 st COM                                             25  71    0 n
+      26   1 st IND                                             26  70    0 n
+      27   1 st DST                                             27  74    0 n
+      28   1 st SRC                                             28  35    0 n
+      29   1 st USR                                             29  65    0 n
+      30   1 st ORG                                             30  77    0 n
+      31   1 st MAR                                             31  71    0 n
+      32   1 st PRD                                             33  51    0 n
+      34   1 st OCC                                             34  65    0 n
+      35   1 st TIME                                            35  72    0 n
+      43   1 cs MAKE                                            45  36    0 n
+      46   5 cs USE                                             47  46    0 n
+      48   5 cs TAXES                                           49  50    0 n
+      50   5 cs TRADE                                           51  43    0 n
+      52   5 cs SUPPMAR                                         54  69    0 n
+      55   5 cs TRADMAR                                         56  55    0 n
+      57   5 cs INVEST                                          58  58    0 n
+      59   5 cs STOCKS                                          60  45    0 n
+      61   5 cs V1LAB                                           62  36    0 n
+      63   5 cs V1CAP                                           64  42    0 n
+      65   5 cs V1LND                                           66  39    0 n
+      67   5 cs V1PTX                                           68  43    0 n
+      69   5 cs SIGMA1LAB                                       70  38    0 n
+      71   5 cs SIGMA1PRIM                                      72  47    0 n
+      73   5 cs SIGMAFUELS                                      74  38    0 n
+      75   5 cs SIGMAGREEN                                      76  44    0 n
+      77   5 cs ARMSIGMA                                        78  47    0 n
+      79   5 cs SIGMADOMDOM                                     80  52    0 n
+      81   5 cs SIGMAMAR                                        83  76    0 n
+      84   5 cs POP                                             85  39    0 n
+      86   5 cs FRISCH                                          87  58    0 n
+      88   5 cs EPS                                             89  46    0 n
+      90   5 cs SIGMAOUT                                        91  37    0 n
+      92   5 cs EXP_ELAST                                       93  56    0 n
+      94   9 cs ALPHA1                                          94  45    0 n
+      95   9 cs ALPHA2                                          95  45    0 n
+      97   1 rd MAKE                 a                          98  49    0 n
+      99   2 rd USE                  a                          99  49    0 n
+     100   2 rd TAXES                a                         100  49    0 n
+     101   2 rd TRADE                a                         101  49    0 n
+     102   2 rd SUPPMAR              a                         102  49    0 n
+     103   2 rd TRADMAR              a                         103  49    0 n
+     104   2 rd INVEST               a                         104  49    0 n
+     105   2 rd STOCKS               a                         105  49    0 n
+     106   2 rd V1LAB                a                         106  49    0 n
+     107   2 rd V1CAP                a                         107  49    0 n
+     108   2 rd V1LND                a                         108  49    0 n
+     109   2 rd V1PTX                a                         109  49    0 n
+     110   2 rd SIGMA1LAB            a                         110  49    0 n
+     111   2 rd SIGMA1PRIM           a                         111  49    0 n
+     112   2 rd ARMSIGMA             a                         112  49    0 n
+     113   2 rd SIGMADOMDOM          a                         113  49    0 n
+     114   2 rd SIGMAMAR             a                         114  49    0 n
+     115   2 rd POP                  a                         115  49    0 n
+     116   2 rd FRISCH               a                         116  49    0 n
+     117   2 rd EPS                  a                         117  49    0 n
+     118   2 rd SIGMAOUT             a                         118  49    0 n
+     119   2 rd EXP_ELAST            a                         119  49    0 n
+     121   1 fm                                                123  28    0 n
+     124   5 fm                                                125  29    0 n
+     126   9 fm                                                126  20    0 n
+     127   9 fm                                                127  19    0 n
+     159   1 wr V1CAP                a                         160  42    0 n
+     161   1 wr V1LAB                a                         161  42    0 n
+     162   1 wr V1LND                a                         162  42    0 n
+     163   1 wr TAXES                a                         163  42    0 n
+     164   1 wr MAKE                 a                         164  42    0 n
+     165   1 wr USE                  a                         165  42    0 n
+     166   1 wr TRADE                a                         166  42    0 n
+     167   1 wr SUPPMAR              a                         167  42    0 n
+     168   1 wr TRADMAR              a                         168  42    0 n
+     169   1 wr INVEST               a                         169  42    0 n
+     170   1 wr STOCKS               a                         170  42    0 n
+     171   1 wr V1PTX                a                         171  42    0 n
+     172   1 wr SIGMA1LAB            a                         172  42    0 n
+     173   1 wr SIGMA1PRIM           a                         173  42    0 n
+     174   1 wr ARMSIGMA             a                         174  42    0 n
+     175   1 wr SIGMADOMDOM          a                         175  42    0 n
+     176   1 wr SIGMAMAR             a                         176  42    0 n
+     177   1 wr POP                  a                         177  42    0 n
+     178   1 wr FRISCH               a                         178  42    0 n
+     179   1 wr EPS                  a                         179  42    0 n
+     180   1 wr SIGMAOUT             a                         180  42    0 n
+     181   1 wr EXP_ELAST            a                         181  42    0 n
+     182   1 wr SIGMAFUELS           a                         182  42    0 n
+     183   1 wr SIGMAGREEN           a                         183  42    0 n
+     184   1 wr ALPHA1               a                         184  42    0 n
+     185   1 wr ALPHA2               a                         185  42    0 n
+     187   1 wr (COM)                a                         187  40    0 n
+     188   1 wr (IND)                a                         188  40    0 n
+     189   1 wr (DST)                a                         189  40    0 n
+     190   1 wr (SRC)                a                         190  39    0 n
+     191   1 wr (USR)                a                         191  40    0 n
+     192   1 wr (ORG)                a                         192  40    0 n
+     193   1 wr (MAR)                a                         193  40    0 n
+     194   1 wr (PRD)                a                         194  40    0 n
+     195   1 wr (OCC)                a                         195  40    0 n
+     204   1 cs VCAP_AT_T_R                                    207  73    0 n
+     208   5 cs TREND0005_R                                    209  53    0 n
+     210   5 cs DEPNEW_R                                       211  42    0 n
+     212   5 cs RORNNEW_R                                      213  47    0 n
+     214   5 cs SMURF_R                                        215  68    0 n
+     217   1 rd VCAP_AT_T_R          a                         218  49    0 n
+     219   2 rd TREND0005_R          a                         219  49    0 n
+     220   2 rd DEPNEW_R             a                         220  49    0 n
+     221   2 rd RORNNEW_R            a                         221  49    0 n
+     222   2 rd SMURF_R              a                         222  49    0 n
+     228   1 cs ADJPROP                                        229  16    0 n
+     230   5 cs ADJ_RE                                         231  18    0 n
+     232   5 cs ADJ_COEFF                                      233  55    0 n
+     234   9 cs DIFF                                           234  59    0 n
+     235   9 cs EMPLOY                                         235  69    0 n
+     236   9 cs EMP_ADJ                                        236  63    0 n
+     237   9 cs DUM_YEAR1                                      237  43    0 n
+     238   9 cs DUMMY_DEC                                      238  18    0 n
+     239   9 cs F_EEQROR                                       239  76    0 n
+     240   5 cs F_EEQROR_I                                     242  67    0 n
+     243   9 cs LAB_SUPN                                       243  17    0 n
+     244   9 cs LEV_CPI                                        244  16    0 n
+     245   9 cs LEV_CPI_L                                      245  18    0 n
+     246   9 cs LEV_CPI_2L                                     246  19    0 n
+     247   9 cs LEV_PLAB                                       247  17    0 n
+     248   9 cs LEV_PLAB_L                                     248  19    0 n
+     249   9 cs NINT                                           249  13    0 n
+     250   9 cs RINT                                           250  13    0 n
+     251   9 cs RINT_L                                         251  15    0 n
+     252   5 cs PCAP_I                                         253  18    0 n
+     254   5 cs PCAP_I_B                                       255  20    0 n
+     256   5 cs PCAP_I_L                                       257  20    0 n
+     258   5 cs PCAP_AT_T                                      259  22    0 n
+     260   5 cs PCAP_AT_T1                                     261  23    0 n
+     262   9 cs RALPH                                          262  14    0 n
+     263   9 cs RWAGE                                          263  14    0 n
+     264   9 cs TAX_L_R_PD                                     264  19    0 n
+     265   5 cs SHRASS_H                                       266  20    0 n
+     268   1 fm                                                269  20    0 n
+     270   9 fm                                                270  22    0 n
+     272   1 rd ADJ_COEFF            a                         272  54    0 n
+     273   1 rd ADJ_RE               a                         273  54    0 n
+     274   1 rd DIFF                 a                         274  54    0 n
+     275   1 rd DUM_YEAR1            a                         275  54    0 n
+     276   1 rd EMPLOY               a                         276  54    0 n
+     277   1 rd EMP_ADJ              a                         277  54    0 n
+     278   1 rd F_EEQROR             a                         278  54    0 n
+     279   1 rd F_EEQROR_I           a                         279  54    0 n
+     280   1 rd LAB_SUPN             a                         280  54    0 n
+     281   1 rd LEV_CPI              a                         281  54    0 n
+     282   1 rd LEV_CPI_L            a                         282  54    0 n
+     283   1 rd LEV_CPI_2L           a                         283  54    0 n
+     284   1 rd LEV_PLAB             a                         284  54    0 n
+     285   1 rd LEV_PLAB_L           a                         285  54    0 n
+     286   1 rd NINT                 a                         286  54    0 n
+     287   1 rd RINT                 a                         287  54    0 n
+     288   1 rd RINT_L               a                         288  54    0 n
+     289   1 rd PCAP_I               a                         289  54    0 n
+     290   1 rd PCAP_I_B             a                         290  54    0 n
+     291   1 rd PCAP_I_L             a                         291  54    0 n
+     292   1 rd PCAP_AT_T            a                         292  54    0 n
+     293   1 rd PCAP_AT_T1           a                         293  54    0 n
+     294   1 rd RALPH                a                         294  54    0 n
+     295   1 rd RWAGE                a                         295  54    0 n
+     296   1 rd TAX_L_R_PD           a                         296  54    0 n
+     298   1 cs ADJ_COEFF_R                                    300  67    0 n
+     301   5 cs ADJ_E                                          302  19    0 n
+     303   5 cs DIFF_R                                         304  74    0 n
+     305   5 cs EMPLOY_R                                       307  70    0 n
+     308   5 cs F_EEQROR_R                                     310  67    0 n
+     311   5 cs F_EEQROR_IR                                    313  66    0 n
+     314   5 cs EROR_G                                         316  76    0 n
+     317   5 cs LAB_SUPN_R                                     318  60    0 n
+     319   5 cs PCAP_IR                                        320  66    0 n
+     321   5 cs PCAP_IR_B                                      322  72    0 n
+     323   5 cs PCAP_IR_L                                      324  76    0 n
+     325   5 cs PCAP_ATR_T                                     326  62    0 n
+     327   5 cs PCAP_ATR_T1                                    328  65    0 n
+     329   5 cs RWAGE_R                                        330  59    0 n
+     331   5 cs TYME                                           332  16    0 n
+     334   1 rd EMPLOY_R             a                         334  46    0 n
+     336   1 fm                                                338  40    0 n
+     339   5 fm                                                340  31    0 n
+     341   5 fm                                                342  25    0 n
+     343   9 fm                                                343  41    0 n
+     344   5 fm                                                345  33    0 n
+     346   5 fm                                                347  41    0 n
+     348   5 fm                                                349  41    0 n
+     350   5 fm                                                351  33    0 n
+     352   5 fm                                                353  33    0 n
+     354   5 fm                                                355  37    0 n
+     356   5 fm                                                357  37    0 n
+     358   5 fm                                                359  40    0 n
+     360   5 fm                                                361  42    0 n
+     362   5 fm                                                363  27    0 n
+     364   5 fm                                                365  31    0 n
+     372   1 cs VCAP_AT_T                                      375  73    0 n
+     376   5 cs TREND0005                                      377  54    0 n
+     378   5 cs DEPNEW                                         379  57    0 n
+     380   5 cs RORNNEW                                        381  47    0 n
+     382   5 cs SMURF                                          383  72    0 n
+     384   5 cs CAPSUM_D                                       385  43    0 n
+     386   5 cs CAPSHR                                         387  43    0 n
+     389   1 fm                                                391  45    0 n
+     392   5 fm                                                393  45    0 n
+     394   5 fm                                                395  52    0 n
+     396   5 fm                                                397  40    0 n
+     398   5 fm                                                399  34    0 n
+     400   5 fm                                                401  36    0 n
+     402   5 fm                                                403  32    0 n
+     407   5 fm                                                409  76    0 n
+     415   1 wr VCAP_AT_T            a                         418  67    0 n
+     419   2 wr TREND0005            a                         419  71    0 n
+     420   2 wr DEPNEW               a                         420  68    0 n
+     421   2 wr RORNNEW              a                         421  69    0 n
+     422   2 wr SMURF                a                         422  67    0 n
+     423   2 wr ADJ_COEFF_R          a                         423  45    0 n
+     424   2 wr ADJPROP              a                         424  45    0 n
+     425   2 wr DIFF_R               a                         425  45    0 n
+     426   2 wr EMPLOY               a                         426  45    0 n
+     427   2 wr EMPLOY_R             a                         427  45    0 n
+     428   2 wr RWAGE                a                         428  45    0 n
+     429   2 wr RWAGE_R              a                         429  45    0 n
+     430   2 wr DUM_YEAR1            a                         430  44    0 n
+     431   2 wr F_EEQROR_R           a                         431  45    0 n
+     432   2 wr F_EEQROR_IR          a                         432  45    0 n
+     433   2 wr LAB_SUPN_R           a                         433  45    0 n
+     434   2 wr LEV_CPI              a                         434  45    0 n
+     435   2 wr LEV_CPI_L            a                         435  45    0 n
+     436   2 wr LEV_CPI_2L           a                         436  45    0 n
+     437   2 wr LEV_PLAB             a                         437  45    0 n
+     438   2 wr LEV_PLAB_L           a                         438  45    0 n
+     439   2 wr NINT                 a                         439  45    0 n
+     440   2 wr RINT                 a                         440  45    0 n
+     441   2 wr RINT_L               a                         441  45    0 n
+     442   2 wr PCAP_IR              a                         442  45    0 n
+     443   2 wr PCAP_IR_B            a                         443  45    0 n
+     444   2 wr PCAP_IR_L            a                         444  45    0 n
+     445   2 wr PCAP_ATR_T           a                         445  45    0 n
+     446   2 wr PCAP_ATR_T1          a                         446  45    0 n
+     447   2 wr RALPH                a                         447  45    0 n
+     448   2 wr EMP_ADJ              a                         448  45    0 n
+     449   2 wr DUM_YEAR1            a                         449  77    0 n
+     450   2 wr TAX_L_R_PD           a                         450  45    0 n
+     451   2 wr SHRASS_H             a                         451  45    0 n
+     454   2 wr VCAP_AT_T            a                         455  67    0 n
+     456   2 wr TREND0005            a                         456  73    0 n
+     457   2 wr DEPNEW               a                         457  70    0 n
+     458   2 wr RORNNEW              a                         458  71    0 n
+     459   2 wr SMURF                a                         459  69    0 n
+     460   2 wr ADJ_COEFF_R          a                         460  47    0 n
+     461   2 wr DIFF_R               a                         461  47    0 n
+     462   2 wr EMPLOY               a                         462  47    0 n
+     463   2 wr EMPLOY_R             a                         463  47    0 n
+     464   2 wr RWAGE                a                         464  47    0 n
+     465   2 wr RWAGE_R              a                         465  47    0 n
+     466   2 wr DUM_YEAR1            a                         466  46    0 n
+     467   2 wr F_EEQROR_R           a                         467  47    0 n
+     468   2 wr F_EEQROR_IR          a                         468  47    0 n
+     469   2 wr LAB_SUPN_R           a                         469  47    0 n
+     470   2 wr LEV_CPI              a                         470  47    0 n
+     471   2 wr LEV_CPI_L            a                         471  47    0 n
+     472   2 wr LEV_CPI_2L           a                         472  47    0 n
+     473   2 wr LEV_PLAB             a                         473  47    0 n
+     474   2 wr LEV_PLAB_L           a                         474  47    0 n
+     475   2 wr RINT                 a                         475  47    0 n
+     476   2 wr RINT_L               a                         476  47    0 n
+     477   2 wr PCAP_IR              a                         477  47    0 n
+     478   2 wr PCAP_IR_B            a                         478  47    0 n
+     479   2 wr PCAP_IR_L            a                         479  47    0 n
+     480   2 wr PCAP_ATR_T           a                         480  47    0 n
+     481   2 wr PCAP_ATR_T1          a                         481  47    0 n
+     482   2 wr RALPH                a                         482  47    0 n
+     483   2 wr TAX_L_R_PD           a                         483  47    0 n
+     486   2 wr ADJ_E                a                         486  50    0 n
+     487   2 wr DUMMY_DEC            a                         487  50    0 n
+     488   2 wr EROR_G               a                         488  50    0 n
+     489   2 wr (TIME)               a                         489  50    0 n
+     490   2 wr TYME                 a                         490  50    0 n
+     490   2 en TYME                 a                         490  50    0 n
+#GPVER
+  114004
+#PRVER
+    6500
+#FINAL_LEVEL
+#CSPSIM
+nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+n
