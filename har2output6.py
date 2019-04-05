@@ -1275,6 +1275,8 @@ class IOTable_reg:
         self.table = self.table.loc[B.index.tolist(), B.columns.tolist() + F.columns.tolist()]   # to original order
         self.table["SUM"]=self.table.sum(axis=1)
         self.table.loc["SUM"]=self.table.sum(axis=0)
+
+
 class regIOtables_reg:
     """
     A class to hold an regional input-ouput tables
@@ -1361,6 +1363,8 @@ class IOTable_imp:
         self.table = self.table.loc[B.index.tolist(), B.columns.tolist() + F.columns.tolist()]   # to original order
         self.table["SUM"]=self.table.sum(axis=1)
         self.table.loc["SUM"]=self.table.sum(axis=0)
+
+
 class regIOtables_imp:
     """
     A class to hold an regional input-ouput tables
@@ -1453,6 +1457,8 @@ class IOTable_coef:
         self.table.loc["Output at basic prices"] = self.table.loc["Total intermediate consumption"]+self.table.loc["Value added, gross at basic prices"]
         
         #self.table.loc["Sum"] = self.table.sum(axis=0)
+
+        
 class regIOtables_coef:
     """
     A class to hold an regional input-ouput tables
