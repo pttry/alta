@@ -1062,7 +1062,7 @@ paramSheets =[sheet for sheet in pd.read_excel("supplementaryData/PARAMETERS64.x
 #%%
 paramDict = {}
 for sheet in paramSheets:
-    paramDict[sheet] = pd.read_excel("supplementaryData/PARAMETERS64.xlsx", sheet_name = sheet)
+    paramDict[sheet] = pd.read_excel("supplementaryData/PARAMETERS64.xlsx", sheet_name = sheet, index_col = 0)
 
 
 #%%
