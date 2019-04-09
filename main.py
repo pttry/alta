@@ -7,11 +7,12 @@ See README/dataprocess.txt for details
 """
 import harWriterFunction  as hwf
 import os
+import subprocess
 from shutil import copyfile
 
 
-# import importlib
-# importlib.reload(hwf)
+import importlib
+importlib.reload(hwf)
 
 # 1. Create national base data
 # ############################
@@ -51,6 +52,7 @@ copyfile("hardata/basedata.har", "oranig2013/basedata.har")
 # ##################################
 # Run CGE_capital_dynamics.ipynb step-by-step
 # - Output: capital.har, capitalextra.har, adjustdata.har
+exec(open('CGE_capital_dynamics.py', encoding = "UTF-8").read())
 
 
 # 7. Update the old basedata using inputs from capital accounts
@@ -69,6 +71,7 @@ copyfile("hardata/REGSUPP.har", "TERM/REGSUPP.har")
 # -Output: govdata.har, govextra.har, govsecsplit.har
 
 # (VATT_mallien_data_seloste kohta 6.)
+exec(open('CGE_database_government_accounts.py', encoding = "UTF-8").read())
 
 
 # 9. Sum public sector data over different sectors
@@ -80,17 +83,19 @@ hwf.govgeneric()
 
 # 10. Regional split of input-output data (TERM)
 # #############################################
-hwf.mkdata2()
+
+subprocess.Popen('start mkdata2.bat', cwd = "TERM/", shell=True)
+
 # - Output: premod.har, orgsets.har, aggsuppVERM.har
 copyfile("TERM/premod.har", "hardata/premod.har")
 copyfile("TERM/orgsets.har", "hardata/orgsets.har")
 
 
-
 # 11. Combine extra-files into a single har
 # #########################################
 # Run extramerge.bat
-# -Output: natextra.hra
+subprocess.Popen('start extramerge.bat', shell=True)
+# -Output: natextra.har
 
 # Again, using mergehar auxiliary program.
 
@@ -99,6 +104,7 @@ copyfile("TERM/orgsets.har", "hardata/orgsets.har")
 # 12. Regional split for capital
 # ###############################
 # Run regcapital.bat
+subprocess.Popen('start regcapital.bat', shell=True)
 # -Output: regrorext.har, v1check.har, regextra.har, regextra_lag.har, regsets.har
 
 # Capital data is divided to different regions simply by using shares from V1CAP, that was

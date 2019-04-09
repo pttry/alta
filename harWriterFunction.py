@@ -180,7 +180,7 @@ def mkdata2():
 
     """
     
-    p = subprocess.Popen(["TERM/mkdata2.bat"], cwd = "TERM/", stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    p = subprocess.Popen(["TERM/mkdata2.bat"], cwd = "TERM/", stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding="UTF-8")
     out, err =  p.communicate()
     if p.returncode != 0:
         print(out)
