@@ -19,6 +19,8 @@ from shutil import copyfile
 # Run CGE.basedata.ipynb (IPython notebook) step-by-step.
 # - Output: basedata64.har, AGGSUP.har
 
+exec(open('CGE_basedata.py', encoding = "UTF-8").read())
+
 
 # 3. Data for regional extension (top-down regional split)
 # ########################################################
@@ -27,6 +29,7 @@ from shutil import copyfile
 # - Output: regExtension.har, REGSUPP.har
 # Previous step 2 included
 
+exec(open('CGE_regional_extension.py', encoding = "UTF-8").read())
 
 # 4. Merge the aggregated basedata and regional extensions
 # ########################################################
