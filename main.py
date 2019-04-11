@@ -100,7 +100,6 @@ subprocess.Popen('start extramerge.bat', shell=True)
 # Again, using mergehar auxiliary program.
 
 
-
 # 12. Regional split for capital
 # ###############################
 # Run regcapital.bat
