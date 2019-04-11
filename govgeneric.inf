@@ -9,33 +9,32 @@
        TTT      AAA    AAA   BBBBBBBBB    LLLLLLLLL   OOOOOOOOOO
        TTT      AAA    AAA   BBBBBBB      LLLLLLLLL   OOOOOOOOOO
 
- <TABLO  Version 6.5   January 2016>                                   
+ <TABLO  Version 7.0   August 2018>                                    
 
 
 
 
 
                      GEMPACK SOFTWARE
-     << COPYRIGHT 1987-2016:  The Impact Project and KPSOFT >>
+     << COPYRIGHT 1987-2018:  The Impact Project and KPSOFT >>
    
    
 
     +++  INFORMATION ABOUT THIS PRINT FILE  +++
    
- 
- ! This file was created at 10:21:54 on 05-FEB-2019 by the program
- !  <TABLO  Version 6.5   January 2016>
+
+ ! This file was created at 10:46:32 on 09-APR-2019 by the program
+ !  <TABLO  Version 7.0   August 2018>
  ! which accesses some of the routines in the GEMPACK software release
- !  <GEMPACK Release 11.4.004   October 2016>
+ !  <GEMPACK Release 12.0.004   March 2019>
  
  !     -------------------------------------------------------                
  !    !            GEMPACK Software System Licence            !               
- !    !  Unlimited Size Executable-image Licence for GEMPACK  !               
- !    !                 Licence No.  GEU-1600                 !               
+ !    !  Source Code Licence for the GEMPACK Software System  !               
+ !    !                 Licence No.  GFM-1650                 !               
  !    !          Licence for Release 12.0 of GEMPACK          !               
- !    !            Pellervo Economic Research PTT             !               
- !    !                    Course Licence                     !               
- !    !    (Your GEMPACK licence expires on 31-MAR-2019.)     !               
+ !    !              Pellervo Economic Research               !               
+ !    !    (Your GEMPACK licence expires on 31-MAY-2020.)     !               
  !     -------------------------------------------------------                
     
 
@@ -57,7 +56,7 @@
       INTERACTIVE
       BATCH
   --> UNSPECIFIED
- 
+
 
  ==================================================
  ++> TABLO Input file is 'govgeneric.tab'
@@ -310,41 +309,38 @@
     235   LUMPSUM to file OUTFILE3 header "LUMP";
     236   LEV_P0GNE to file OUTFILE3 header "P0GN";
     237    
- 
- 
+
+
 MESSAGE(S) ABOUT APPARENTLY REDUNDANT STATEMENTS
 ------------------------------------------------
- 
+
  FORMULA for 'COL_PAYRTOT' starting at line 160.
- 
- %%WARNING.    This formula appears to be redundant because
+
+ %%WARNING.  This formula appears to be redundant because
     the coefficient 'COL_PAYRTOT' affected by it occurs in no equation
     update or 'ORIG_LEVEL=' qualifier, nor on the right hand side of any
     subsequent formula, nor in any subsequent DISPLAY,
     ZERODIVIDE, WRITE or SET statement.
- 
+
  FORMULA for 'V2TOT_G_I' starting at line 198.
- 
- %%WARNING.    This formula appears to be redundant because
+
+ %%WARNING.  This formula appears to be redundant because
     the coefficient 'V2TOT_G_I' affected by it occurs in no equation
     update or 'ORIG_LEVEL=' qualifier, nor on the right hand side of any
     subsequent formula, nor in any subsequent DISPLAY,
     ZERODIVIDE, WRITE or SET statement.
- 
+
 COEFFICIENT INITIALIZATION SUMMARY
 ----------------------------------
- 
+
  %% NOTE the 2 WARNING(s) above about coefficients.
- 
- 
+
 MESSAGE(S) ABOUT UNUSED COEFFICIENTS
 ------------------------------------
- 
- %%WARNING.    Coefficient 'PSDATTPLUS1' is declared but is not used
- in the linear system.
- 
- %%WARNING.    Coefficient 'NET_TAXTOTG' is declared but is not used
- in the linear system.
+
+ %%WARNING.  Coefficient 'PSDATTPLUS1' is declared but is not used in the linear system.
+
+ %%WARNING.  Coefficient 'NET_TAXTOTG' is declared but is not used in the linear system.
 
 
 
@@ -356,142 +352,142 @@ MESSAGE(S) ABOUT UNUSED COEFFICIENTS
           Starts   Syntax  Semantic
   Number  at line  Error?   Error?            Description
   ------------------------------------------------------------
-     1         8     no       no      FILE 'INFILE              '             
-     2        10     no       no      FILE 'IN2FILE             '             
-     3        11     no       no      FILE 'OUTFILE             '             
-     4        12     no       no      FILE 'OUT2FILE            '             
-     5        13     no       no      FILE 'OUTFILE3            '             
-     6        15     no       no      SET 'PSEC        '                      
-     7        16     no       no      SET 'IND         '                      
-     8        20     no       no      COEFFICIENT 'OTHCAPGOV2  '              
-     9        22     no       no      COEFFICIENT 'UNEMPBEN2   '              
-    10        23     no       no      COEFFICIENT 'AGEBEN2     '              
-    11        24     no       no      COEFFICIENT 'OTHBEN2     '              
-    12        25     no       no      COEFFICIENT 'GRANT2      '              
-    13        26     no       no      COEFFICIENT 'PSDATT2     '              
-    14        27     no       no      COEFFICIENT 'NETINT_G2   '              
-    15        28     no       no      COEFFICIENT 'INTASS2     '              
-    16        30     no       no      COEFFICIENT 'RINT_PSD2   '              
-    17        32     no       no      COEFFICIENT 'OTHGOVREV2  '              
-    18        33     no       no      COEFFICIENT 'CORPTAX2    '              
+     1         8     no       no      FILE 'INFILE'                           
+     2        10     no       no      FILE 'IN2FILE'                          
+     3        11     no       no      FILE 'OUTFILE'                          
+     4        12     no       no      FILE 'OUT2FILE'                         
+     5        13     no       no      FILE 'OUTFILE3'                         
+     6        15     no       no      SET 'PSEC'                              
+     7        16     no       no      SET 'IND'                               
+     8        20     no       no      COEFFICIENT 'OTHCAPGOV2'                
+     9        22     no       no      COEFFICIENT 'UNEMPBEN2'                 
+    10        23     no       no      COEFFICIENT 'AGEBEN2'                   
+    11        24     no       no      COEFFICIENT 'OTHBEN2'                   
+    12        25     no       no      COEFFICIENT 'GRANT2'                    
+    13        26     no       no      COEFFICIENT 'PSDATT2'                   
+    14        27     no       no      COEFFICIENT 'NETINT_G2'                 
+    15        28     no       no      COEFFICIENT 'INTASS2'                   
+    16        30     no       no      COEFFICIENT 'RINT_PSD2'                 
+    17        32     no       no      COEFFICIENT 'OTHGOVREV2'                
+    18        33     no       no      COEFFICIENT 'CORPTAX2'                  
     19        34     no       no      COEFFICIENT 'TAX_AB_RATE2'              
     20        35     no       no      COEFFICIENT 'TAX_OB_RATE2'              
     21        36     no       no      COEFFICIENT 'TAX_UB_RATE2'              
-    22        38     no       no      COEFFICIENT 'OTHCAPGOV   '              
-    23        39     no       no      COEFFICIENT 'UNEMPBEN    '              
-    24        40     no       no      COEFFICIENT 'AGEBEN      '              
-    25        41     no       no      COEFFICIENT 'OTHBEN      '              
-    26        42     no       no      COEFFICIENT 'GRANT       '              
-    27        43     no       no      COEFFICIENT 'PSDATT      '              
-    28        44     no       no      COEFFICIENT 'NETINT_G    '              
-    29        45     no       no      COEFFICIENT 'INTASS      '              
-    30        46     no       no      COEFFICIENT 'OTHGOVREV   '              
-    31        47     no       no      COEFFICIENT 'CORPTAX     '              
-    32        48     no       no      COEFFICIENT 'TAX_AB_RATE '              
-    33        49     no       no      COEFFICIENT 'TAX_OB_RATE '              
-    34        50     no       no      COEFFICIENT 'TAX_UB_RATE '              
-    35        51     no       no      COEFFICIENT 'NINT_PSD    '              
-    36        52     no       no      COEFFICIENT 'RINT_PSD    '              
-    37        53     no       no      COEFFICIENT 'DIFFTAX     '              
-    38        54     no       no      COEFFICIENT 'SSSURPLUS   '              
-    39        56     no       no      READ into 'OTHCAPGOV2  '                
-    40        58     no       no      READ into 'UNEMPBEN2   '                
-    41        59     no       no      READ into 'AGEBEN2     '                
-    42        60     no       no      READ into 'OTHBEN2     '                
-    43        61     no       no      READ into 'GRANT2      '                
-    44        62     no       no      READ into 'PSDATT2     '                
-    45        63     no       no      READ into 'NETINT_G2   '                
-    46        64     no       no      READ into 'INTASS2     '                
-    47        65     no       no      READ into 'RINT_PSD2   '                
-    48        66     no       no      READ into 'OTHGOVREV2  '                
-    49        67     no       no      READ into 'CORPTAX2    '                
+    22        38     no       no      COEFFICIENT 'OTHCAPGOV'                 
+    23        39     no       no      COEFFICIENT 'UNEMPBEN'                  
+    24        40     no       no      COEFFICIENT 'AGEBEN'                    
+    25        41     no       no      COEFFICIENT 'OTHBEN'                    
+    26        42     no       no      COEFFICIENT 'GRANT'                     
+    27        43     no       no      COEFFICIENT 'PSDATT'                    
+    28        44     no       no      COEFFICIENT 'NETINT_G'                  
+    29        45     no       no      COEFFICIENT 'INTASS'                    
+    30        46     no       no      COEFFICIENT 'OTHGOVREV'                 
+    31        47     no       no      COEFFICIENT 'CORPTAX'                   
+    32        48     no       no      COEFFICIENT 'TAX_AB_RATE'               
+    33        49     no       no      COEFFICIENT 'TAX_OB_RATE'               
+    34        50     no       no      COEFFICIENT 'TAX_UB_RATE'               
+    35        51     no       no      COEFFICIENT 'NINT_PSD'                  
+    36        52     no       no      COEFFICIENT 'RINT_PSD'                  
+    37        53     no       no      COEFFICIENT 'DIFFTAX'                   
+    38        54     no       no      COEFFICIENT 'SSSURPLUS'                 
+    39        56     no       no      READ into 'OTHCAPGOV2'                  
+    40        58     no       no      READ into 'UNEMPBEN2'                   
+    41        59     no       no      READ into 'AGEBEN2'                     
+    42        60     no       no      READ into 'OTHBEN2'                     
+    43        61     no       no      READ into 'GRANT2'                      
+    44        62     no       no      READ into 'PSDATT2'                     
+    45        63     no       no      READ into 'NETINT_G2'                   
+    46        64     no       no      READ into 'INTASS2'                     
+    47        65     no       no      READ into 'RINT_PSD2'                   
+    48        66     no       no      READ into 'OTHGOVREV2'                  
+    49        67     no       no      READ into 'CORPTAX2'                    
     50        68     no       no      READ into 'TAX_AB_RATE2'                
     51        69     no       no      READ into 'TAX_OB_RATE2'                
     52        70     no       no      READ into 'TAX_UB_RATE2'                
-    53        71     no       no      READ into 'DIFFTAX     '                
-    54        72     no       no      READ into 'SSSURPLUS   '                
-    55        73     no       no      Formula for "OTHCAPGOV"                 
-    56        75     no       no      Formula for "UNEMPBEN"                  
-    57        76     no       no      Formula for "AGEBEN"                    
-    58        77     no       no      Formula for "OTHBEN"                    
-    59        78     no       no      Formula for "GRANT"                     
-    60        79     no       no      Formula for "PSDATT"                    
-    61        80     no       no      Formula for "NETINT_G"                  
-    62        81     no       no      Formula for "INTASS"                    
-    63        82     no       no      Formula for "NINT_PSD"                  
-    64        83     no       no      Formula for "RINT_PSD"                  
-    65        84     no       no      Formula for "OTHGOVREV"                 
-    66        85     no       no      Formula for "CORPTAX"                   
-    67        86     no       no      Formula for "TAX_AB_RATE"               
-    68        87     no       no      Formula for "TAX_OB_RATE"               
-    69        88     no       no      Formula for "TAX_UB_RATE"               
-    70        90     no       no      WRITE from 'OTHCAPGOV   '               
-    71        92     no       no      WRITE from 'UNEMPBEN    '               
-    72        93     no       no      WRITE from 'AGEBEN      '               
-    73        94     no       no      WRITE from 'OTHBEN      '               
-    74        95     no       no      WRITE from 'GRANT       '               
-    75        96     no       no      WRITE from 'PSDATT      '               
-    76        97     no       no      WRITE from 'NETINT_G    '               
-    77        98     no       no      WRITE from 'INTASS      '               
-    78        99     no       no      WRITE from 'NINT_PSD    '               
-    79       100     no       no      WRITE from 'RINT_PSD    '               
-    80       101     no       no      WRITE from 'OTHGOVREV   '               
-    81       102     no       no      WRITE from 'CORPTAX     '               
-    82       103     no       no      WRITE from 'TAX_AB_RATE '               
-    83       104     no       no      WRITE from 'TAX_OB_RATE '               
-    84       105     no       no      WRITE from 'TAX_UB_RATE '               
-    85       106     no       no      WRITE from 'SSSURPLUS   '               
-    86       107     no       no      WRITE from 'DIFFTAX     '               
-    87       110     no       no      COEFFICIENT 'TAX_L_RATE2 '              
-    88       112     no       no      COEFFICIENT 'TAX_K_RATE2 '              
-    89       113     no       no      COEFFICIENT 'TAX_L_RATE  '              
-    90       114     no       no      COEFFICIENT 'TAX_K_RATE  '              
-    91       116     no       no      READ into 'TAX_L_RATE2 '                
-    92       118     no       no      READ into 'TAX_K_RATE2 '                
-    93       120     no       no      Formula for "TAX_L_RATE"                
-    94       122     no       no      Formula for "TAX_K_RATE"                
-    95       124     no       no      WRITE from 'TAX_L_RATE  '               
-    96       126     no       no      WRITE from 'TAX_K_RATE  '               
-    97       136     no       no      COEFFICIENT 'PAYRSUM     '              
-    98       138     no       no      COEFFICIENT 'D11K        '              
-    99       139     no       no      COEFFICIENT 'POW_PAYROLL '              
-   100       140     no       no      COEFFICIENT 'V1LAB_O     '              
-   101       141     no       no      COEFFICIENT 'PAYR2       '              
-   102       142     no       no      COEFFICIENT 'COL_PAYROLL '              
-   103       143     no       no      COEFFICIENT 'COL_PAYRTOT '              
-   104       145     no       no      READ into 'PAYR2       '                
-   105       146     no       no      READ into 'V1LAB_O     '                
+    53        71     no       no      READ into 'DIFFTAX'                     
+    54        72     no       no      READ into 'SSSURPLUS'                   
+    55        73     no       no      Formula for 'OTHCAPGOV'                 
+    56        75     no       no      Formula for 'UNEMPBEN'                  
+    57        76     no       no      Formula for 'AGEBEN'                    
+    58        77     no       no      Formula for 'OTHBEN'                    
+    59        78     no       no      Formula for 'GRANT'                     
+    60        79     no       no      Formula for 'PSDATT'                    
+    61        80     no       no      Formula for 'NETINT_G'                  
+    62        81     no       no      Formula for 'INTASS'                    
+    63        82     no       no      Formula for 'NINT_PSD'                  
+    64        83     no       no      Formula for 'RINT_PSD'                  
+    65        84     no       no      Formula for 'OTHGOVREV'                 
+    66        85     no       no      Formula for 'CORPTAX'                   
+    67        86     no       no      Formula for 'TAX_AB_RATE'               
+    68        87     no       no      Formula for 'TAX_OB_RATE'               
+    69        88     no       no      Formula for 'TAX_UB_RATE'               
+    70        90     no       no      WRITE from 'OTHCAPGOV'                  
+    71        92     no       no      WRITE from 'UNEMPBEN'                   
+    72        93     no       no      WRITE from 'AGEBEN'                     
+    73        94     no       no      WRITE from 'OTHBEN'                     
+    74        95     no       no      WRITE from 'GRANT'                      
+    75        96     no       no      WRITE from 'PSDATT'                     
+    76        97     no       no      WRITE from 'NETINT_G'                   
+    77        98     no       no      WRITE from 'INTASS'                     
+    78        99     no       no      WRITE from 'NINT_PSD'                   
+    79       100     no       no      WRITE from 'RINT_PSD'                   
+    80       101     no       no      WRITE from 'OTHGOVREV'                  
+    81       102     no       no      WRITE from 'CORPTAX'                    
+    82       103     no       no      WRITE from 'TAX_AB_RATE'                
+    83       104     no       no      WRITE from 'TAX_OB_RATE'                
+    84       105     no       no      WRITE from 'TAX_UB_RATE'                
+    85       106     no       no      WRITE from 'SSSURPLUS'                  
+    86       107     no       no      WRITE from 'DIFFTAX'                    
+    87       110     no       no      COEFFICIENT 'TAX_L_RATE2'               
+    88       112     no       no      COEFFICIENT 'TAX_K_RATE2'               
+    89       113     no       no      COEFFICIENT 'TAX_L_RATE'                
+    90       114     no       no      COEFFICIENT 'TAX_K_RATE'                
+    91       116     no       no      READ into 'TAX_L_RATE2'                 
+    92       118     no       no      READ into 'TAX_K_RATE2'                 
+    93       120     no       no      Formula for 'TAX_L_RATE'                
+    94       122     no       no      Formula for 'TAX_K_RATE'                
+    95       124     no       no      WRITE from 'TAX_L_RATE'                 
+    96       126     no       no      WRITE from 'TAX_K_RATE'                 
+    97       136     no       no      COEFFICIENT 'PAYRSUM'                   
+    98       138     no       no      COEFFICIENT 'D11K'                      
+    99       139     no       no      COEFFICIENT 'POW_PAYROLL'               
+   100       140     no       no      COEFFICIENT 'V1LAB_O'                   
+   101       141     no       no      COEFFICIENT 'PAYR2'                     
+   102       142     no       no      COEFFICIENT 'COL_PAYROLL'               
+   103       143     no       no      COEFFICIENT 'COL_PAYRTOT'               
+   104       145     no       no      READ into 'PAYR2'                       
+   105       146     no       no      READ into 'V1LAB_O'                     
    106       148     no       no      ZERODIVIDE instruction                  
-   107       150     no       no      Formula for "PAYRSUM"                   
-   108       152     no       no      Formula for "D11K"                      
-   109       153     no       no      Formula for "POW_PAYROLL"               
+   107       150     no       no      Formula for 'PAYRSUM'                   
+   108       152     no       no      Formula for 'D11K'                      
+   109       153     no       no      Formula for 'POW_PAYROLL'               
    110       155     no       no      ZERODIVIDE instruction                  
-   111       158     no       no      Formula for "COL_PAYROLL"               
-   112       160     no       no      Formula for "COL_PAYRTOT"               
-   113       164     no       no      WRITE from 'POW_PAYROLL '               
-   114       170     no       no      COEFFICIENT 'INVS        '              
-   115       172     no       no      COEFFICIENT 'INVSHR      '              
-   116       173     no       no      COEFFICIENT 'INVSHR2     '              
-   117       174     no       no      COEFFICIENT 'V2TOT       '              
-   118       176     no       no      READ into 'INVS        '                
-   119       177     no       no      READ into 'V2TOT       '                
-   120       179     no       no      Formula for "INVSHR2"                   
-   121       181     no       no      Formula for "INVSHR"                    
-   122       183     no       no      WRITE from 'INVSHR      '               
-   123       184     no       no      WRITE from 'V2TOT       '               
-   124       193     no       no      COEFFICIENT 'PSDATTPLUS1 '              
-   125       195     no       no      COEFFICIENT 'V2TOT_G_I   '              
-   126       196     no       no      COEFFICIENT 'NET_TAXTOTG '              
-   127       198     no       no      Formula for "V2TOT_G_I"                 
-   128       213     no       no      COEFFICIENT 'NEWNETASS   '              
-   129       217     no       no      Formula for "NEWNETASS"                 
-   130       221     no       no      WRITE from 'NEWNETASS   '               
-   131       226     no       no      COEFFICIENT 'LUMPSUM     '              
-   132       228     no       no      COEFFICIENT 'LEV_P0GNE   '              
-   133       230     no       no      Formula for "LUMPSUM"                   
-   134       232     no       no      Formula for "LEV_P0GNE"                 
-   135       234     no       no      WRITE from 'LUMPSUM     '               
-   136       236     no       no      WRITE from 'LEV_P0GNE   '               
+   111       158     no       no      Formula for 'COL_PAYROLL'               
+   112       160     no       no      Formula for 'COL_PAYRTOT'               
+   113       164     no       no      WRITE from 'POW_PAYROLL'                
+   114       170     no       no      COEFFICIENT 'INVS'                      
+   115       172     no       no      COEFFICIENT 'INVSHR'                    
+   116       173     no       no      COEFFICIENT 'INVSHR2'                   
+   117       174     no       no      COEFFICIENT 'V2TOT'                     
+   118       176     no       no      READ into 'INVS'                        
+   119       177     no       no      READ into 'V2TOT'                       
+   120       179     no       no      Formula for 'INVSHR2'                   
+   121       181     no       no      Formula for 'INVSHR'                    
+   122       183     no       no      WRITE from 'INVSHR'                     
+   123       184     no       no      WRITE from 'V2TOT'                      
+   124       193     no       no      COEFFICIENT 'PSDATTPLUS1'               
+   125       195     no       no      COEFFICIENT 'V2TOT_G_I'                 
+   126       196     no       no      COEFFICIENT 'NET_TAXTOTG'               
+   127       198     no       no      Formula for 'V2TOT_G_I'                 
+   128       213     no       no      COEFFICIENT 'NEWNETASS'                 
+   129       217     no       no      Formula for 'NEWNETASS'                 
+   130       221     no       no      WRITE from 'NEWNETASS'                  
+   131       226     no       no      COEFFICIENT 'LUMPSUM'                   
+   132       228     no       no      COEFFICIENT 'LEV_P0GNE'                 
+   133       230     no       no      Formula for 'LUMPSUM'                   
+   134       232     no       no      Formula for 'LEV_P0GNE'                 
+   135       234     no       no      WRITE from 'LUMPSUM'                    
+   136       236     no       no      WRITE from 'LEV_P0GNE'                  
 
 
 
@@ -664,7 +660,7 @@ MESSAGE(S) ABOUT UNUSED COEFFICIENTS
  ++ WRITE TABLE
  ==============
 
-        Defined   Sem      Coeff        Write
+        Defined   Sem     Coeff/Var     Write
  Number at line  Error?   written       file   Header     Long Name
  --------------------------------------------------------------------------------
      1       90   no      OTHCAPGOV         3  OGIC    Not defined by the user
@@ -711,7 +707,7 @@ MESSAGE(S) ABOUT UNUSED COEFFICIENTS
  ======================
  ++ INPUT CHECK SUMMARY
  ======================
- 
+
  Total number of statements is 136.
  There are NO syntax errors or semantic problems.
 
@@ -726,11 +722,11 @@ MESSAGE(S) ABOUT UNUSED COEFFICIENTS
 
   CODE OPTIONS CHOSEN
   -------------------
- 
- 
+
+
                          TABLO PORTABLE
                CODE OPTIONS   ( --> indicates those in effect )
- 
+
       NEQ Do no equations       --> PGS Prepare output for GEMSIM
       NDS Do no displays            WFP Write a Fortran Program
       NWR Do no writes                    (i.e. a TABLO-generated program)
@@ -743,7 +739,7 @@ MESSAGE(S) ABOUT UNUSED COEFFICIENTS
                                     NRZ No run-time reports re use of
                                            ZERODIVIDE default values
                                     NXS No "extra" statements allowed
- 
+
   Select an option   :  <opt>      Deselect an option      : -<opt>
   Help for an option : ?<opt>      Help on all options     : ??
   Redisplay options  : /           Finish option selection : Carriage return
@@ -751,26 +747,23 @@ MESSAGE(S) ABOUT UNUSED COEFFICIENTS
   END OF CODE OPTIONS CHOSEN
   --------------------------
   
- 
+
  When used with GEMSIM, the GEMSIM Statement
   and Table files produced in this run of TABLO
      o can carry out 25 WRITEs
- 
+
  MXGSRS = 5, MXGSIS = 5.
  MXGSLG = 0, MXGSIC = 1.
- 
- MXGSOP = 22, MXGSIN = 28.
+
+ MXGSOP = 23, MXGSIN = 28.
  MXGSRC = 0, MXGSNS=2.
- ! (Model Information file is
- 
-! 'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
-!tilinpito - Documents\General\koodi\alta\govgeneric.min'.)
- 
+! (Model Information file is 'govgeneric.min'.)
+
  *******************************************************************
  Successful completion of TABLO.
- 
- When used with GEMSIM, the GEMSIM Statement
+
+ When used with GEMSIM, the GEMSIM Statement 
   and Table files produced in this run of TABLO
      o can carry out 25 WRITEs
- 
+
  *******************************************************************

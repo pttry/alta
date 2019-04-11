@@ -9,7 +9,7 @@ GOVACCDATA            In     n  HAR
 NATEXTRA              In     n  HAR
  National extradata
 EXTRA2                In     n  HAR
- 
+
 REGEMPL               In     n  HAR
  Regional employment data (year 2008)
 V1CHECK               Out    n  HAR
@@ -28,23 +28,23 @@ REGSETS               Out    n  HAR
 #TABFILE
 regcapital.tab
 #TMDATE
-at 10:40:12 on 05-FEB-2019
+at 10:49:01 on 09-APR-2019
 #STIFILE
 %none
 #SETS
    10
-    1 COM             -1  u Commodities
-    2 IND             -1  u Industries
-    3 DST             -1  u Regions of use
-    4 SRC              2  k Description
+    1 COM                 -1  u Commodities
+    2 IND                 -1  u Industries
+    3 DST                 -1  u Regions of use
+    4 SRC                  2  k Description
 dom         
 imp         
-    5 USR             -1  u Users
-    6 ORG             -1  u Regions of origin
-    7 MAR             -1  u Margin coms
-    8 PRD             -1  u Regions of production
-    9 OCC             -1  u Skills
-   10 TIME            50  k TIME set for REGROREXT.HAR
+    5 USR                 -1  u Users
+    6 ORG                 -1  u Regions of origin
+    7 MAR                 -1  u Margin coms
+    8 PRD                 -1  u Regions of production
+    9 OCC                 -1  u Skills
+   10 TIME                50  k TIME set for REGROREXT.HAR
 Y_2001      
 Y_2002      
 Y_2003      
@@ -645,9 +645,9 @@ Y_2050
      490   2 wr TYME                 a                         490  50    0 n
      490   2 en TYME                 a                         490  50    0 n
 #GPVER
-  114004
+  120004
 #PRVER
-    6500
+    7000
 #FINAL_LEVEL
 #CSPSIM
 nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn

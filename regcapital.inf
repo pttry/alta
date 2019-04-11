@@ -9,33 +9,32 @@
        TTT      AAA    AAA   BBBBBBBBB    LLLLLLLLL   OOOOOOOOOO
        TTT      AAA    AAA   BBBBBBB      LLLLLLLLL   OOOOOOOOOO
 
- <TABLO  Version 6.5   January 2016>                                   
+ <TABLO  Version 7.0   August 2018>                                    
 
 
 
 
 
                      GEMPACK SOFTWARE
-     << COPYRIGHT 1987-2016:  The Impact Project and KPSOFT >>
+     << COPYRIGHT 1987-2018:  The Impact Project and KPSOFT >>
    
    
 
     +++  INFORMATION ABOUT THIS PRINT FILE  +++
    
- 
- ! This file was created at 10:40:11 on 05-FEB-2019 by the program
- !  <TABLO  Version 6.5   January 2016>
+
+ ! This file was created at 10:49:00 on 09-APR-2019 by the program
+ !  <TABLO  Version 7.0   August 2018>
  ! which accesses some of the routines in the GEMPACK software release
- !  <GEMPACK Release 11.4.004   October 2016>
+ !  <GEMPACK Release 12.0.004   March 2019>
  
  !     -------------------------------------------------------                
  !    !            GEMPACK Software System Licence            !               
- !    !  Unlimited Size Executable-image Licence for GEMPACK  !               
- !    !                 Licence No.  GEU-1600                 !               
+ !    !  Source Code Licence for the GEMPACK Software System  !               
+ !    !                 Licence No.  GFM-1650                 !               
  !    !          Licence for Release 12.0 of GEMPACK          !               
- !    !            Pellervo Economic Research PTT             !               
- !    !                    Course Licence                     !               
- !    !    (Your GEMPACK licence expires on 31-MAR-2019.)     !               
+ !    !              Pellervo Economic Research               !               
+ !    !    (Your GEMPACK licence expires on 31-MAY-2020.)     !               
  !     -------------------------------------------------------                
     
 
@@ -57,7 +56,7 @@
       INTERACTIVE
       BATCH
   --> UNSPECIFIED
- 
+
 
  ==================================================
  ++> TABLO Input file is 'regcapital.tab'
@@ -580,293 +579,293 @@
           Starts   Syntax  Semantic
   Number  at line  Error?   Error?            Description
   ------------------------------------------------------------
-     1        12     no       no      FILE 'VERMDATA            '             
-     2        13     no       no      FILE 'VERMSETS            '             
-     3        14     no       no      FILE 'GOVACCDATA          '             
-     4        15     no       no      FILE 'NATEXTRA            '             
-     5        16     no       no      FILE 'EXTRA2              '             
-     6        17     no       no      FILE 'REGEMPL             '             
-     7        18     no       no      FILE 'V1CHECK             '             
-     8        19     no       no      FILE 'REGROREXTRA         '             
-     9        20     no       no      FILE 'EXTOUT              '             
-    10        21     no       no      FILE 'EXTOUT_L            '             
-    11        23     no       no      FILE 'REGSETS             '             
-    12        25     no       no      SET 'COM         '                      
-    13        26     no       no      SET 'IND         '                      
-    14        27     no       no      SET 'DST         '                      
-    15        28     no       no      SET 'SRC         '                      
-    16        29     no       no      SET 'USR         '                      
-    17        30     no       no      SET 'ORG         '                      
-    18        31     no       no      SET 'MAR         '                      
-    19        32     no       no      SET 'PRD         '                      
-    20        34     no       no      SET 'OCC         '                      
-    21        35     no       no      SET 'TIME        '                      
-    22        43     no       no      COEFFICIENT 'MAKE        '              
-    23        46     no       no      COEFFICIENT 'USE         '              
-    24        48     no       no      COEFFICIENT 'TAXES       '              
-    25        50     no       no      COEFFICIENT 'TRADE       '              
-    26        52     no       no      COEFFICIENT 'SUPPMAR     '              
-    27        55     no       no      COEFFICIENT 'TRADMAR     '              
-    28        57     no       no      COEFFICIENT 'INVEST      '              
-    29        59     no       no      COEFFICIENT 'STOCKS      '              
-    30        61     no       no      COEFFICIENT 'V1LAB       '              
-    31        63     no       no      COEFFICIENT 'V1CAP       '              
-    32        65     no       no      COEFFICIENT 'V1LND       '              
-    33        67     no       no      COEFFICIENT 'V1PTX       '              
-    34        69     no       no      COEFFICIENT 'SIGMA1LAB   '              
-    35        71     no       no      COEFFICIENT 'SIGMA1PRIM  '              
-    36        73     no       no      COEFFICIENT 'SIGMAFUELS  '              
-    37        75     no       no      COEFFICIENT 'SIGMAGREEN  '              
-    38        77     no       no      COEFFICIENT 'ARMSIGMA    '              
-    39        79     no       no      COEFFICIENT 'SIGMADOMDOM '              
-    40        81     no       no      COEFFICIENT 'SIGMAMAR    '              
-    41        84     no       no      COEFFICIENT 'POP         '              
-    42        86     no       no      COEFFICIENT 'FRISCH      '              
-    43        88     no       no      COEFFICIENT 'EPS         '              
-    44        90     no       no      COEFFICIENT 'SIGMAOUT    '              
-    45        92     no       no      COEFFICIENT 'EXP_ELAST   '              
-    46        94     no       no      COEFFICIENT 'ALPHA1      '              
-    47        95     no       no      COEFFICIENT 'ALPHA2      '              
-    48        97     no       no      READ into 'MAKE        '                
-    49        99     no       no      READ into 'USE         '                
-    50       100     no       no      READ into 'TAXES       '                
-    51       101     no       no      READ into 'TRADE       '                
-    52       102     no       no      READ into 'SUPPMAR     '                
-    53       103     no       no      READ into 'TRADMAR     '                
-    54       104     no       no      READ into 'INVEST      '                
-    55       105     no       no      READ into 'STOCKS      '                
-    56       106     no       no      READ into 'V1LAB       '                
-    57       107     no       no      READ into 'V1CAP       '                
-    58       108     no       no      READ into 'V1LND       '                
-    59       109     no       no      READ into 'V1PTX       '                
-    60       110     no       no      READ into 'SIGMA1LAB   '                
-    61       111     no       no      READ into 'SIGMA1PRIM  '                
-    62       112     no       no      READ into 'ARMSIGMA    '                
-    63       113     no       no      READ into 'SIGMADOMDOM '                
-    64       114     no       no      READ into 'SIGMAMAR    '                
-    65       115     no       no      READ into 'POP         '                
-    66       116     no       no      READ into 'FRISCH      '                
-    67       117     no       no      READ into 'EPS         '                
-    68       118     no       no      READ into 'SIGMAOUT    '                
-    69       119     no       no      READ into 'EXP_ELAST   '                
-    70       121     no       no      Formula for "SIGMAFUELS"                
-    71       124     no       no      Formula for "SIGMAGREEN"                
-    72       126     no       no      Formula for "ALPHA1"                    
-    73       127     no       no      Formula for "ALPHA2"                    
-    74       159     no       no      WRITE from 'V1CAP       '               
-    75       161     no       no      WRITE from 'V1LAB       '               
-    76       162     no       no      WRITE from 'V1LND       '               
-    77       163     no       no      WRITE from 'TAXES       '               
-    78       164     no       no      WRITE from 'MAKE        '               
-    79       165     no       no      WRITE from 'USE         '               
-    80       166     no       no      WRITE from 'TRADE       '               
-    81       167     no       no      WRITE from 'SUPPMAR     '               
-    82       168     no       no      WRITE from 'TRADMAR     '               
-    83       169     no       no      WRITE from 'INVEST      '               
-    84       170     no       no      WRITE from 'STOCKS      '               
-    85       171     no       no      WRITE from 'V1PTX       '               
-    86       172     no       no      WRITE from 'SIGMA1LAB   '               
-    87       173     no       no      WRITE from 'SIGMA1PRIM  '               
-    88       174     no       no      WRITE from 'ARMSIGMA    '               
-    89       175     no       no      WRITE from 'SIGMADOMDOM '               
-    90       176     no       no      WRITE from 'SIGMAMAR    '               
-    91       177     no       no      WRITE from 'POP         '               
-    92       178     no       no      WRITE from 'FRISCH      '               
-    93       179     no       no      WRITE from 'EPS         '               
-    94       180     no       no      WRITE from 'SIGMAOUT    '               
-    95       181     no       no      WRITE from 'EXP_ELAST   '               
-    96       182     no       no      WRITE from 'SIGMAFUELS  '               
-    97       183     no       no      WRITE from 'SIGMAGREEN  '               
-    98       184     no       no      WRITE from 'ALPHA1      '               
-    99       185     no       no      WRITE from 'ALPHA2      '               
-   100       187     no       no      WRITE of set 'COM         '             
-   101       188     no       no      WRITE of set 'IND         '             
-   102       189     no       no      WRITE of set 'DST         '             
-   103       190     no       no      WRITE of set 'SRC         '             
-   104       191     no       no      WRITE of set 'USR         '             
-   105       192     no       no      WRITE of set 'ORG         '             
-   106       193     no       no      WRITE of set 'MAR         '             
-   107       194     no       no      WRITE of set 'PRD         '             
-   108       195     no       no      WRITE of set 'OCC         '             
-   109       204     no       no      COEFFICIENT 'VCAP_AT_T_R '              
-   110       208     no       no      COEFFICIENT 'TREND0005_R '              
-   111       210     no       no      COEFFICIENT 'DEPNEW_R    '              
-   112       212     no       no      COEFFICIENT 'RORNNEW_R   '              
-   113       214     no       no      COEFFICIENT 'SMURF_R     '              
-   114       217     no       no      READ into 'VCAP_AT_T_R '                
-   115       219     no       no      READ into 'TREND0005_R '                
-   116       220     no       no      READ into 'DEPNEW_R    '                
-   117       221     no       no      READ into 'RORNNEW_R   '                
-   118       222     no       no      READ into 'SMURF_R     '                
-   119       228     no       no      COEFFICIENT 'ADJPROP     '              
-   120       230     no       no      COEFFICIENT 'ADJ_RE      '              
-   121       232     no       no      COEFFICIENT 'ADJ_COEFF   '              
-   122       234     no       no      COEFFICIENT 'DIFF        '              
-   123       235     no       no      COEFFICIENT 'EMPLOY      '              
-   124       236     no       no      COEFFICIENT 'EMP_ADJ     '              
-   125       237     no       no      COEFFICIENT 'DUM_YEAR1   '              
-   126       238     no       no      COEFFICIENT 'DUMMY_DEC   '              
-   127       239     no       no      COEFFICIENT 'F_EEQROR    '              
-   128       240     no       no      COEFFICIENT 'F_EEQROR_I  '              
-   129       243     no       no      COEFFICIENT 'LAB_SUPN    '              
-   130       244     no       no      COEFFICIENT 'LEV_CPI     '              
-   131       245     no       no      COEFFICIENT 'LEV_CPI_L   '              
-   132       246     no       no      COEFFICIENT 'LEV_CPI_2L  '              
-   133       247     no       no      COEFFICIENT 'LEV_PLAB    '              
-   134       248     no       no      COEFFICIENT 'LEV_PLAB_L  '              
-   135       249     no       no      COEFFICIENT 'NINT        '              
-   136       250     no       no      COEFFICIENT 'RINT        '              
-   137       251     no       no      COEFFICIENT 'RINT_L      '              
-   138       252     no       no      COEFFICIENT 'PCAP_I      '              
-   139       254     no       no      COEFFICIENT 'PCAP_I_B    '              
-   140       256     no       no      COEFFICIENT 'PCAP_I_L    '              
-   141       258     no       no      COEFFICIENT 'PCAP_AT_T   '              
-   142       260     no       no      COEFFICIENT 'PCAP_AT_T1  '              
-   143       262     no       no      COEFFICIENT 'RALPH       '              
-   144       263     no       no      COEFFICIENT 'RWAGE       '              
-   145       264     no       no      COEFFICIENT 'TAX_L_R_PD  '              
-   146       265     no       no      COEFFICIENT 'SHRASS_H    '              
-   147       268     no       no      Formula for "ADJPROP"                   
-   148       270     no       no      Formula for "DUMMY_DEC"                 
-   149       272     no       no      READ into 'ADJ_COEFF   '                
-   150       273     no       no      READ into 'ADJ_RE      '                
-   151       274     no       no      READ into 'DIFF        '                
-   152       275     no       no      READ into 'DUM_YEAR1   '                
-   153       276     no       no      READ into 'EMPLOY      '                
-   154       277     no       no      READ into 'EMP_ADJ     '                
-   155       278     no       no      READ into 'F_EEQROR    '                
-   156       279     no       no      READ into 'F_EEQROR_I  '                
-   157       280     no       no      READ into 'LAB_SUPN    '                
-   158       281     no       no      READ into 'LEV_CPI     '                
-   159       282     no       no      READ into 'LEV_CPI_L   '                
-   160       283     no       no      READ into 'LEV_CPI_2L  '                
-   161       284     no       no      READ into 'LEV_PLAB    '                
-   162       285     no       no      READ into 'LEV_PLAB_L  '                
-   163       286     no       no      READ into 'NINT        '                
-   164       287     no       no      READ into 'RINT        '                
-   165       288     no       no      READ into 'RINT_L      '                
-   166       289     no       no      READ into 'PCAP_I      '                
-   167       290     no       no      READ into 'PCAP_I_B    '                
-   168       291     no       no      READ into 'PCAP_I_L    '                
-   169       292     no       no      READ into 'PCAP_AT_T   '                
-   170       293     no       no      READ into 'PCAP_AT_T1  '                
-   171       294     no       no      READ into 'RALPH       '                
-   172       295     no       no      READ into 'RWAGE       '                
-   173       296     no       no      READ into 'TAX_L_R_PD  '                
-   174       298     no       no      COEFFICIENT 'ADJ_COEFF_R '              
-   175       301     no       no      COEFFICIENT 'ADJ_E       '              
-   176       303     no       no      COEFFICIENT 'DIFF_R      '              
-   177       305     no       no      COEFFICIENT 'EMPLOY_R    '              
-   178       308     no       no      COEFFICIENT 'F_EEQROR_R  '              
-   179       311     no       no      COEFFICIENT 'F_EEQROR_IR '              
-   180       314     no       no      COEFFICIENT 'EROR_G      '              
-   181       317     no       no      COEFFICIENT 'LAB_SUPN_R  '              
-   182       319     no       no      COEFFICIENT 'PCAP_IR     '              
-   183       321     no       no      COEFFICIENT 'PCAP_IR_B   '              
-   184       323     no       no      COEFFICIENT 'PCAP_IR_L   '              
-   185       325     no       no      COEFFICIENT 'PCAP_ATR_T  '              
-   186       327     no       no      COEFFICIENT 'PCAP_ATR_T1 '              
-   187       329     no       no      COEFFICIENT 'RWAGE_R     '              
-   188       331     no       no      COEFFICIENT 'TYME        '              
-   189       334     no       no      READ into 'EMPLOY_R    '                
-   190       336     no       no      Formula for "ADJ_COEFF_R"               
-   191       339     no       no      Formula for "ADJ_E"                     
-   192       341     no       no      Formula for "DIFF_R"                    
-   193       343     no       no      Formula for "EMPLOY"                    
-   194       344     no       no      Formula for "F_EEQROR_R"                
-   195       346     no       no      Formula for "F_EEQROR_IR"               
-   196       348     no       no      Formula for "EROR_G"                    
-   197       350     no       no      Formula for "LAB_SUPN_R"                
-   198       352     no       no      Formula for "PCAP_IR"                   
-   199       354     no       no      Formula for "PCAP_IR_B"                 
-   200       356     no       no      Formula for "PCAP_IR_L"                 
-   201       358     no       no      Formula for "PCAP_ATR_T"                
-   202       360     no       no      Formula for "PCAP_ATR_T1"               
-   203       362     no       no      Formula for "RWAGE_R"                   
-   204       364     no       no      Formula for "TYME"                      
-   205       372     no       no      COEFFICIENT 'VCAP_AT_T   '              
-   206       376     no       no      COEFFICIENT 'TREND0005   '              
-   207       378     no       no      COEFFICIENT 'DEPNEW      '              
-   208       380     no       no      COEFFICIENT 'RORNNEW     '              
-   209       382     no       no      COEFFICIENT 'SMURF       '              
-   210       384     no       no      COEFFICIENT 'CAPSUM_D    '              
-   211       386     no       no      COEFFICIENT 'CAPSHR      '              
-   212       389     no       no      Formula for "CAPSUM_D"                  
-   213       392     no       no      Formula for "CAPSHR"                    
-   214       394     no       no      Formula for "VCAP_AT_T"                 
-   215       396     no       no      Formula for "TREND0005"                 
-   216       398     no       no      Formula for "DEPNEW"                    
-   217       400     no       no      Formula for "RORNNEW"                   
-   218       402     no       no      Formula for "SMURF"                     
-   219       407     no       no      Formula for "SHRASS_H"                  
-   220       415     no       no      WRITE from 'VCAP_AT_T   '               
-   221       419     no       no      WRITE from 'TREND0005   '               
-   222       420     no       no      WRITE from 'DEPNEW      '               
-   223       421     no       no      WRITE from 'RORNNEW     '               
-   224       422     no       no      WRITE from 'SMURF       '               
-   225       423     no       no      WRITE from 'ADJ_COEFF_R '               
-   226       424     no       no      WRITE from 'ADJPROP     '               
-   227       425     no       no      WRITE from 'DIFF_R      '               
-   228       426     no       no      WRITE from 'EMPLOY      '               
-   229       427     no       no      WRITE from 'EMPLOY_R    '               
-   230       428     no       no      WRITE from 'RWAGE       '               
-   231       429     no       no      WRITE from 'RWAGE_R     '               
-   232       430     no       no      WRITE from 'DUM_YEAR1   '               
-   233       431     no       no      WRITE from 'F_EEQROR_R  '               
-   234       432     no       no      WRITE from 'F_EEQROR_IR '               
-   235       433     no       no      WRITE from 'LAB_SUPN_R  '               
-   236       434     no       no      WRITE from 'LEV_CPI     '               
-   237       435     no       no      WRITE from 'LEV_CPI_L   '               
-   238       436     no       no      WRITE from 'LEV_CPI_2L  '               
-   239       437     no       no      WRITE from 'LEV_PLAB    '               
-   240       438     no       no      WRITE from 'LEV_PLAB_L  '               
-   241       439     no       no      WRITE from 'NINT        '               
-   242       440     no       no      WRITE from 'RINT        '               
-   243       441     no       no      WRITE from 'RINT_L      '               
-   244       442     no       no      WRITE from 'PCAP_IR     '               
-   245       443     no       no      WRITE from 'PCAP_IR_B   '               
-   246       444     no       no      WRITE from 'PCAP_IR_L   '               
-   247       445     no       no      WRITE from 'PCAP_ATR_T  '               
-   248       446     no       no      WRITE from 'PCAP_ATR_T1 '               
-   249       447     no       no      WRITE from 'RALPH       '               
-   250       448     no       no      WRITE from 'EMP_ADJ     '               
-   251       449     no       no      WRITE from 'DUM_YEAR1   '               
-   252       450     no       no      WRITE from 'TAX_L_R_PD  '               
-   253       451     no       no      WRITE from 'SHRASS_H    '               
-   254       454     no       no      WRITE from 'VCAP_AT_T   '               
-   255       456     no       no      WRITE from 'TREND0005   '               
-   256       457     no       no      WRITE from 'DEPNEW      '               
-   257       458     no       no      WRITE from 'RORNNEW     '               
-   258       459     no       no      WRITE from 'SMURF       '               
-   259       460     no       no      WRITE from 'ADJ_COEFF_R '               
-   260       461     no       no      WRITE from 'DIFF_R      '               
-   261       462     no       no      WRITE from 'EMPLOY      '               
-   262       463     no       no      WRITE from 'EMPLOY_R    '               
-   263       464     no       no      WRITE from 'RWAGE       '               
-   264       465     no       no      WRITE from 'RWAGE_R     '               
-   265       466     no       no      WRITE from 'DUM_YEAR1   '               
-   266       467     no       no      WRITE from 'F_EEQROR_R  '               
-   267       468     no       no      WRITE from 'F_EEQROR_IR '               
-   268       469     no       no      WRITE from 'LAB_SUPN_R  '               
-   269       470     no       no      WRITE from 'LEV_CPI     '               
-   270       471     no       no      WRITE from 'LEV_CPI_L   '               
-   271       472     no       no      WRITE from 'LEV_CPI_2L  '               
-   272       473     no       no      WRITE from 'LEV_PLAB    '               
-   273       474     no       no      WRITE from 'LEV_PLAB_L  '               
-   274       475     no       no      WRITE from 'RINT        '               
-   275       476     no       no      WRITE from 'RINT_L      '               
-   276       477     no       no      WRITE from 'PCAP_IR     '               
-   277       478     no       no      WRITE from 'PCAP_IR_B   '               
-   278       479     no       no      WRITE from 'PCAP_IR_L   '               
-   279       480     no       no      WRITE from 'PCAP_ATR_T  '               
-   280       481     no       no      WRITE from 'PCAP_ATR_T1 '               
-   281       482     no       no      WRITE from 'RALPH       '               
-   282       483     no       no      WRITE from 'TAX_L_R_PD  '               
-   283       486     no       no      WRITE from 'ADJ_E       '               
-   284       487     no       no      WRITE from 'DUMMY_DEC   '               
-   285       488     no       no      WRITE from 'EROR_G      '               
-   286       489     no       no      WRITE of set 'TIME        '             
-   287       490     no       no      WRITE from 'TYME        '               
+     1        12     no       no      FILE 'VERMDATA'                         
+     2        13     no       no      FILE 'VERMSETS'                         
+     3        14     no       no      FILE 'GOVACCDATA'                       
+     4        15     no       no      FILE 'NATEXTRA'                         
+     5        16     no       no      FILE 'EXTRA2'                           
+     6        17     no       no      FILE 'REGEMPL'                          
+     7        18     no       no      FILE 'V1CHECK'                          
+     8        19     no       no      FILE 'REGROREXTRA'                      
+     9        20     no       no      FILE 'EXTOUT'                           
+    10        21     no       no      FILE 'EXTOUT_L'                         
+    11        23     no       no      FILE 'REGSETS'                          
+    12        25     no       no      SET 'COM'                               
+    13        26     no       no      SET 'IND'                               
+    14        27     no       no      SET 'DST'                               
+    15        28     no       no      SET 'SRC'                               
+    16        29     no       no      SET 'USR'                               
+    17        30     no       no      SET 'ORG'                               
+    18        31     no       no      SET 'MAR'                               
+    19        32     no       no      SET 'PRD'                               
+    20        34     no       no      SET 'OCC'                               
+    21        35     no       no      SET 'TIME'                              
+    22        43     no       no      COEFFICIENT 'MAKE'                      
+    23        46     no       no      COEFFICIENT 'USE'                       
+    24        48     no       no      COEFFICIENT 'TAXES'                     
+    25        50     no       no      COEFFICIENT 'TRADE'                     
+    26        52     no       no      COEFFICIENT 'SUPPMAR'                   
+    27        55     no       no      COEFFICIENT 'TRADMAR'                   
+    28        57     no       no      COEFFICIENT 'INVEST'                    
+    29        59     no       no      COEFFICIENT 'STOCKS'                    
+    30        61     no       no      COEFFICIENT 'V1LAB'                     
+    31        63     no       no      COEFFICIENT 'V1CAP'                     
+    32        65     no       no      COEFFICIENT 'V1LND'                     
+    33        67     no       no      COEFFICIENT 'V1PTX'                     
+    34        69     no       no      COEFFICIENT 'SIGMA1LAB'                 
+    35        71     no       no      COEFFICIENT 'SIGMA1PRIM'                
+    36        73     no       no      COEFFICIENT 'SIGMAFUELS'                
+    37        75     no       no      COEFFICIENT 'SIGMAGREEN'                
+    38        77     no       no      COEFFICIENT 'ARMSIGMA'                  
+    39        79     no       no      COEFFICIENT 'SIGMADOMDOM'               
+    40        81     no       no      COEFFICIENT 'SIGMAMAR'                  
+    41        84     no       no      COEFFICIENT 'POP'                       
+    42        86     no       no      COEFFICIENT 'FRISCH'                    
+    43        88     no       no      COEFFICIENT 'EPS'                       
+    44        90     no       no      COEFFICIENT 'SIGMAOUT'                  
+    45        92     no       no      COEFFICIENT 'EXP_ELAST'                 
+    46        94     no       no      COEFFICIENT 'ALPHA1'                    
+    47        95     no       no      COEFFICIENT 'ALPHA2'                    
+    48        97     no       no      READ into 'MAKE'                        
+    49        99     no       no      READ into 'USE'                         
+    50       100     no       no      READ into 'TAXES'                       
+    51       101     no       no      READ into 'TRADE'                       
+    52       102     no       no      READ into 'SUPPMAR'                     
+    53       103     no       no      READ into 'TRADMAR'                     
+    54       104     no       no      READ into 'INVEST'                      
+    55       105     no       no      READ into 'STOCKS'                      
+    56       106     no       no      READ into 'V1LAB'                       
+    57       107     no       no      READ into 'V1CAP'                       
+    58       108     no       no      READ into 'V1LND'                       
+    59       109     no       no      READ into 'V1PTX'                       
+    60       110     no       no      READ into 'SIGMA1LAB'                   
+    61       111     no       no      READ into 'SIGMA1PRIM'                  
+    62       112     no       no      READ into 'ARMSIGMA'                    
+    63       113     no       no      READ into 'SIGMADOMDOM'                 
+    64       114     no       no      READ into 'SIGMAMAR'                    
+    65       115     no       no      READ into 'POP'                         
+    66       116     no       no      READ into 'FRISCH'                      
+    67       117     no       no      READ into 'EPS'                         
+    68       118     no       no      READ into 'SIGMAOUT'                    
+    69       119     no       no      READ into 'EXP_ELAST'                   
+    70       121     no       no      Formula for 'SIGMAFUELS'                
+    71       124     no       no      Formula for 'SIGMAGREEN'                
+    72       126     no       no      Formula for 'ALPHA1'                    
+    73       127     no       no      Formula for 'ALPHA2'                    
+    74       159     no       no      WRITE from 'V1CAP'                      
+    75       161     no       no      WRITE from 'V1LAB'                      
+    76       162     no       no      WRITE from 'V1LND'                      
+    77       163     no       no      WRITE from 'TAXES'                      
+    78       164     no       no      WRITE from 'MAKE'                       
+    79       165     no       no      WRITE from 'USE'                        
+    80       166     no       no      WRITE from 'TRADE'                      
+    81       167     no       no      WRITE from 'SUPPMAR'                    
+    82       168     no       no      WRITE from 'TRADMAR'                    
+    83       169     no       no      WRITE from 'INVEST'                     
+    84       170     no       no      WRITE from 'STOCKS'                     
+    85       171     no       no      WRITE from 'V1PTX'                      
+    86       172     no       no      WRITE from 'SIGMA1LAB'                  
+    87       173     no       no      WRITE from 'SIGMA1PRIM'                 
+    88       174     no       no      WRITE from 'ARMSIGMA'                   
+    89       175     no       no      WRITE from 'SIGMADOMDOM'                
+    90       176     no       no      WRITE from 'SIGMAMAR'                   
+    91       177     no       no      WRITE from 'POP'                        
+    92       178     no       no      WRITE from 'FRISCH'                     
+    93       179     no       no      WRITE from 'EPS'                        
+    94       180     no       no      WRITE from 'SIGMAOUT'                   
+    95       181     no       no      WRITE from 'EXP_ELAST'                  
+    96       182     no       no      WRITE from 'SIGMAFUELS'                 
+    97       183     no       no      WRITE from 'SIGMAGREEN'                 
+    98       184     no       no      WRITE from 'ALPHA1'                     
+    99       185     no       no      WRITE from 'ALPHA2'                     
+   100       187     no       no      WRITE of set 'COM'                      
+   101       188     no       no      WRITE of set 'IND'                      
+   102       189     no       no      WRITE of set 'DST'                      
+   103       190     no       no      WRITE of set 'SRC'                      
+   104       191     no       no      WRITE of set 'USR'                      
+   105       192     no       no      WRITE of set 'ORG'                      
+   106       193     no       no      WRITE of set 'MAR'                      
+   107       194     no       no      WRITE of set 'PRD'                      
+   108       195     no       no      WRITE of set 'OCC'                      
+   109       204     no       no      COEFFICIENT 'VCAP_AT_T_R'               
+   110       208     no       no      COEFFICIENT 'TREND0005_R'               
+   111       210     no       no      COEFFICIENT 'DEPNEW_R'                  
+   112       212     no       no      COEFFICIENT 'RORNNEW_R'                 
+   113       214     no       no      COEFFICIENT 'SMURF_R'                   
+   114       217     no       no      READ into 'VCAP_AT_T_R'                 
+   115       219     no       no      READ into 'TREND0005_R'                 
+   116       220     no       no      READ into 'DEPNEW_R'                    
+   117       221     no       no      READ into 'RORNNEW_R'                   
+   118       222     no       no      READ into 'SMURF_R'                     
+   119       228     no       no      COEFFICIENT 'ADJPROP'                   
+   120       230     no       no      COEFFICIENT 'ADJ_RE'                    
+   121       232     no       no      COEFFICIENT 'ADJ_COEFF'                 
+   122       234     no       no      COEFFICIENT 'DIFF'                      
+   123       235     no       no      COEFFICIENT 'EMPLOY'                    
+   124       236     no       no      COEFFICIENT 'EMP_ADJ'                   
+   125       237     no       no      COEFFICIENT 'DUM_YEAR1'                 
+   126       238     no       no      COEFFICIENT 'DUMMY_DEC'                 
+   127       239     no       no      COEFFICIENT 'F_EEQROR'                  
+   128       240     no       no      COEFFICIENT 'F_EEQROR_I'                
+   129       243     no       no      COEFFICIENT 'LAB_SUPN'                  
+   130       244     no       no      COEFFICIENT 'LEV_CPI'                   
+   131       245     no       no      COEFFICIENT 'LEV_CPI_L'                 
+   132       246     no       no      COEFFICIENT 'LEV_CPI_2L'                
+   133       247     no       no      COEFFICIENT 'LEV_PLAB'                  
+   134       248     no       no      COEFFICIENT 'LEV_PLAB_L'                
+   135       249     no       no      COEFFICIENT 'NINT'                      
+   136       250     no       no      COEFFICIENT 'RINT'                      
+   137       251     no       no      COEFFICIENT 'RINT_L'                    
+   138       252     no       no      COEFFICIENT 'PCAP_I'                    
+   139       254     no       no      COEFFICIENT 'PCAP_I_B'                  
+   140       256     no       no      COEFFICIENT 'PCAP_I_L'                  
+   141       258     no       no      COEFFICIENT 'PCAP_AT_T'                 
+   142       260     no       no      COEFFICIENT 'PCAP_AT_T1'                
+   143       262     no       no      COEFFICIENT 'RALPH'                     
+   144       263     no       no      COEFFICIENT 'RWAGE'                     
+   145       264     no       no      COEFFICIENT 'TAX_L_R_PD'                
+   146       265     no       no      COEFFICIENT 'SHRASS_H'                  
+   147       268     no       no      Formula for 'ADJPROP'                   
+   148       270     no       no      Formula for 'DUMMY_DEC'                 
+   149       272     no       no      READ into 'ADJ_COEFF'                   
+   150       273     no       no      READ into 'ADJ_RE'                      
+   151       274     no       no      READ into 'DIFF'                        
+   152       275     no       no      READ into 'DUM_YEAR1'                   
+   153       276     no       no      READ into 'EMPLOY'                      
+   154       277     no       no      READ into 'EMP_ADJ'                     
+   155       278     no       no      READ into 'F_EEQROR'                    
+   156       279     no       no      READ into 'F_EEQROR_I'                  
+   157       280     no       no      READ into 'LAB_SUPN'                    
+   158       281     no       no      READ into 'LEV_CPI'                     
+   159       282     no       no      READ into 'LEV_CPI_L'                   
+   160       283     no       no      READ into 'LEV_CPI_2L'                  
+   161       284     no       no      READ into 'LEV_PLAB'                    
+   162       285     no       no      READ into 'LEV_PLAB_L'                  
+   163       286     no       no      READ into 'NINT'                        
+   164       287     no       no      READ into 'RINT'                        
+   165       288     no       no      READ into 'RINT_L'                      
+   166       289     no       no      READ into 'PCAP_I'                      
+   167       290     no       no      READ into 'PCAP_I_B'                    
+   168       291     no       no      READ into 'PCAP_I_L'                    
+   169       292     no       no      READ into 'PCAP_AT_T'                   
+   170       293     no       no      READ into 'PCAP_AT_T1'                  
+   171       294     no       no      READ into 'RALPH'                       
+   172       295     no       no      READ into 'RWAGE'                       
+   173       296     no       no      READ into 'TAX_L_R_PD'                  
+   174       298     no       no      COEFFICIENT 'ADJ_COEFF_R'               
+   175       301     no       no      COEFFICIENT 'ADJ_E'                     
+   176       303     no       no      COEFFICIENT 'DIFF_R'                    
+   177       305     no       no      COEFFICIENT 'EMPLOY_R'                  
+   178       308     no       no      COEFFICIENT 'F_EEQROR_R'                
+   179       311     no       no      COEFFICIENT 'F_EEQROR_IR'               
+   180       314     no       no      COEFFICIENT 'EROR_G'                    
+   181       317     no       no      COEFFICIENT 'LAB_SUPN_R'                
+   182       319     no       no      COEFFICIENT 'PCAP_IR'                   
+   183       321     no       no      COEFFICIENT 'PCAP_IR_B'                 
+   184       323     no       no      COEFFICIENT 'PCAP_IR_L'                 
+   185       325     no       no      COEFFICIENT 'PCAP_ATR_T'                
+   186       327     no       no      COEFFICIENT 'PCAP_ATR_T1'               
+   187       329     no       no      COEFFICIENT 'RWAGE_R'                   
+   188       331     no       no      COEFFICIENT 'TYME'                      
+   189       334     no       no      READ into 'EMPLOY_R'                    
+   190       336     no       no      Formula for 'ADJ_COEFF_R'               
+   191       339     no       no      Formula for 'ADJ_E'                     
+   192       341     no       no      Formula for 'DIFF_R'                    
+   193       343     no       no      Formula for 'EMPLOY'                    
+   194       344     no       no      Formula for 'F_EEQROR_R'                
+   195       346     no       no      Formula for 'F_EEQROR_IR'               
+   196       348     no       no      Formula for 'EROR_G'                    
+   197       350     no       no      Formula for 'LAB_SUPN_R'                
+   198       352     no       no      Formula for 'PCAP_IR'                   
+   199       354     no       no      Formula for 'PCAP_IR_B'                 
+   200       356     no       no      Formula for 'PCAP_IR_L'                 
+   201       358     no       no      Formula for 'PCAP_ATR_T'                
+   202       360     no       no      Formula for 'PCAP_ATR_T1'               
+   203       362     no       no      Formula for 'RWAGE_R'                   
+   204       364     no       no      Formula for 'TYME'                      
+   205       372     no       no      COEFFICIENT 'VCAP_AT_T'                 
+   206       376     no       no      COEFFICIENT 'TREND0005'                 
+   207       378     no       no      COEFFICIENT 'DEPNEW'                    
+   208       380     no       no      COEFFICIENT 'RORNNEW'                   
+   209       382     no       no      COEFFICIENT 'SMURF'                     
+   210       384     no       no      COEFFICIENT 'CAPSUM_D'                  
+   211       386     no       no      COEFFICIENT 'CAPSHR'                    
+   212       389     no       no      Formula for 'CAPSUM_D'                  
+   213       392     no       no      Formula for 'CAPSHR'                    
+   214       394     no       no      Formula for 'VCAP_AT_T'                 
+   215       396     no       no      Formula for 'TREND0005'                 
+   216       398     no       no      Formula for 'DEPNEW'                    
+   217       400     no       no      Formula for 'RORNNEW'                   
+   218       402     no       no      Formula for 'SMURF'                     
+   219       407     no       no      Formula for 'SHRASS_H'                  
+   220       415     no       no      WRITE from 'VCAP_AT_T'                  
+   221       419     no       no      WRITE from 'TREND0005'                  
+   222       420     no       no      WRITE from 'DEPNEW'                     
+   223       421     no       no      WRITE from 'RORNNEW'                    
+   224       422     no       no      WRITE from 'SMURF'                      
+   225       423     no       no      WRITE from 'ADJ_COEFF_R'                
+   226       424     no       no      WRITE from 'ADJPROP'                    
+   227       425     no       no      WRITE from 'DIFF_R'                     
+   228       426     no       no      WRITE from 'EMPLOY'                     
+   229       427     no       no      WRITE from 'EMPLOY_R'                   
+   230       428     no       no      WRITE from 'RWAGE'                      
+   231       429     no       no      WRITE from 'RWAGE_R'                    
+   232       430     no       no      WRITE from 'DUM_YEAR1'                  
+   233       431     no       no      WRITE from 'F_EEQROR_R'                 
+   234       432     no       no      WRITE from 'F_EEQROR_IR'                
+   235       433     no       no      WRITE from 'LAB_SUPN_R'                 
+   236       434     no       no      WRITE from 'LEV_CPI'                    
+   237       435     no       no      WRITE from 'LEV_CPI_L'                  
+   238       436     no       no      WRITE from 'LEV_CPI_2L'                 
+   239       437     no       no      WRITE from 'LEV_PLAB'                   
+   240       438     no       no      WRITE from 'LEV_PLAB_L'                 
+   241       439     no       no      WRITE from 'NINT'                       
+   242       440     no       no      WRITE from 'RINT'                       
+   243       441     no       no      WRITE from 'RINT_L'                     
+   244       442     no       no      WRITE from 'PCAP_IR'                    
+   245       443     no       no      WRITE from 'PCAP_IR_B'                  
+   246       444     no       no      WRITE from 'PCAP_IR_L'                  
+   247       445     no       no      WRITE from 'PCAP_ATR_T'                 
+   248       446     no       no      WRITE from 'PCAP_ATR_T1'                
+   249       447     no       no      WRITE from 'RALPH'                      
+   250       448     no       no      WRITE from 'EMP_ADJ'                    
+   251       449     no       no      WRITE from 'DUM_YEAR1'                  
+   252       450     no       no      WRITE from 'TAX_L_R_PD'                 
+   253       451     no       no      WRITE from 'SHRASS_H'                   
+   254       454     no       no      WRITE from 'VCAP_AT_T'                  
+   255       456     no       no      WRITE from 'TREND0005'                  
+   256       457     no       no      WRITE from 'DEPNEW'                     
+   257       458     no       no      WRITE from 'RORNNEW'                    
+   258       459     no       no      WRITE from 'SMURF'                      
+   259       460     no       no      WRITE from 'ADJ_COEFF_R'                
+   260       461     no       no      WRITE from 'DIFF_R'                     
+   261       462     no       no      WRITE from 'EMPLOY'                     
+   262       463     no       no      WRITE from 'EMPLOY_R'                   
+   263       464     no       no      WRITE from 'RWAGE'                      
+   264       465     no       no      WRITE from 'RWAGE_R'                    
+   265       466     no       no      WRITE from 'DUM_YEAR1'                  
+   266       467     no       no      WRITE from 'F_EEQROR_R'                 
+   267       468     no       no      WRITE from 'F_EEQROR_IR'                
+   268       469     no       no      WRITE from 'LAB_SUPN_R'                 
+   269       470     no       no      WRITE from 'LEV_CPI'                    
+   270       471     no       no      WRITE from 'LEV_CPI_L'                  
+   271       472     no       no      WRITE from 'LEV_CPI_2L'                 
+   272       473     no       no      WRITE from 'LEV_PLAB'                   
+   273       474     no       no      WRITE from 'LEV_PLAB_L'                 
+   274       475     no       no      WRITE from 'RINT'                       
+   275       476     no       no      WRITE from 'RINT_L'                     
+   276       477     no       no      WRITE from 'PCAP_IR'                    
+   277       478     no       no      WRITE from 'PCAP_IR_B'                  
+   278       479     no       no      WRITE from 'PCAP_IR_L'                  
+   279       480     no       no      WRITE from 'PCAP_ATR_T'                 
+   280       481     no       no      WRITE from 'PCAP_ATR_T1'                
+   281       482     no       no      WRITE from 'RALPH'                      
+   282       483     no       no      WRITE from 'TAX_L_R_PD'                 
+   283       486     no       no      WRITE from 'ADJ_E'                      
+   284       487     no       no      WRITE from 'DUMMY_DEC'                  
+   285       488     no       no      WRITE from 'EROR_G'                     
+   286       489     no       no      WRITE of set 'TIME'                     
+   287       490     no       no      WRITE from 'TYME'                       
 
 
 
@@ -1115,7 +1114,7 @@
  ++ WRITE TABLE
  ==============
 
-        Defined   Sem      Coeff        Write
+        Defined   Sem     Coeff/Var     Write
  Number at line  Error?   written       file   Header     Long Name
  --------------------------------------------------------------------------------
      1      159   no      V1CAP             7  1CAP    Not defined by the user
@@ -1231,7 +1230,7 @@
  ======================
  ++ INPUT CHECK SUMMARY
  ======================
- 
+
  Total number of statements is 287.
  There are NO syntax errors or semantic problems.
 
@@ -1246,11 +1245,11 @@
 
   CODE OPTIONS CHOSEN
   -------------------
- 
- 
+
+
                          TABLO PORTABLE
                CODE OPTIONS   ( --> indicates those in effect )
- 
+
       NEQ Do no equations       --> PGS Prepare output for GEMSIM
       NDS Do no displays            WFP Write a Fortran Program
       NWR Do no writes                    (i.e. a TABLO-generated program)
@@ -1263,7 +1262,7 @@
                                     NRZ No run-time reports re use of
                                            ZERODIVIDE default values
                                     NXS No "extra" statements allowed
- 
+
   Select an option   :  <opt>      Deselect an option      : -<opt>
   Help for an option : ?<opt>      Help on all options     : ??
   Redisplay options  : /           Finish option selection : Carriage return
@@ -1271,26 +1270,23 @@
   END OF CODE OPTIONS CHOSEN
   --------------------------
   
- 
+
  When used with GEMSIM, the GEMSIM Statement
   and Table files produced in this run of TABLO
      o can carry out 103 WRITEs
- 
+
  MXGSRS = 6, MXGSIS = 6.
  MXGSLG = 0, MXGSIC = 1.
- 
- MXGSOP = 26, MXGSIN = 37.
+
+ MXGSOP = 27, MXGSIN = 37.
  MXGSRC = 1, MXGSNS=2.
- ! (Model Information file is
- 
-! 'C:\Users\janne.huovari\Pellervon Taloustutkimus PTT ry\KT_S Alueellinen
-!tilinpito - Documents\General\koodi\alta\regcapital.min'.)
- 
+! (Model Information file is 'regcapital.min'.)
+
  *******************************************************************
  Successful completion of TABLO.
- 
- When used with GEMSIM, the GEMSIM Statement
+
+ When used with GEMSIM, the GEMSIM Statement 
   and Table files produced in this run of TABLO
      o can carry out 103 WRITEs
- 
+
  *******************************************************************
