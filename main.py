@@ -110,3 +110,6 @@ subprocess.Popen('start regcapital.bat', shell=True)
 # split in step 10.
 # Most important stuff in regextra.har
 
+# 13. Report tables
+####################
+exec(open('report_tables.py', encoding = "UTF-8").read())
