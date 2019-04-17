@@ -11,8 +11,8 @@ import subprocess
 from shutil import copyfile
 
 
-import importlib
-importlib.reload(hwf)
+# import importlib
+# importlib.reload(hwf)
 
 # 1. Create national base data
 # ############################
@@ -103,7 +103,7 @@ subprocess.Popen('start extramerge.bat', shell=True)
 # 12. Regional split for capital
 # ###############################
 # Run regcapital.bat
-subprocess.Popen('start regcapital.bat', shell=True)
+subprocess.Popen('start regcapital.bat', cwd = "capital/", shell=True)
 # -Output: regrorext.har, v1check.har, regextra.har, regextra_lag.har, regsets.har
 
 # Capital data is divided to different regions simply by using shares from V1CAP, that was

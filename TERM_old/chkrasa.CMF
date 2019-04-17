@@ -1,8 +1,0 @@
-auxiliary files = chkras;
-File INFILE = reg2.har;
-File DIAG = dgchkrasa.HAR;
-log file = yes ; 
-check-on-read all = no ;
-
-
-
