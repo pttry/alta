@@ -43,7 +43,7 @@ hwf.mergeHAR("hardata", "basedata30.har", "regExtension.har", "basedata.har")
 # copy the new basedata.har into the oranig2013 folder for test.
 copyfile("hardata/basedata.har", "oranig2013/basedata.har")
 # Run oranig2013/homogtest.bat
-
+subprocess.Popen('start homogtest.bat', cwd = "oranig2013/", shell=True)
 # This step uses the ORANI-G (2013 version) that is available from the
 # Centre of Policy Studies website (copsmodels.com archive, TPMH0110).
 # Results are written to htest.sl4.
@@ -84,7 +84,7 @@ hwf.govgeneric()
 # 10. Regional split of input-output data (TERM)
 # #############################################
 
-subprocess.Popen('start mkdata2.bat', cwd = "TERM/", shell=True)
+subprocess.Popen('start mkdata.bat', cwd = "TERM/", shell=True)
 
 # - Output: premod.har, orgsets.har, aggsuppVERM.har
 copyfile("TERM/premod.har", "hardata/premod.har")
