@@ -76,7 +76,7 @@ exec(open('CGE_database_government_accounts.py', encoding = "UTF-8").read())
 
 # 9. Sum public sector data over different sectors
 # ################################################
-hwf.govgeneric()
+subprocess.Popen('start govgeneric.bat', shell=True)
 # -Output: govacc.har, govextra2.har, base-extra.har
 
 
