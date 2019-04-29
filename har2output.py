@@ -9,6 +9,7 @@ Trasforming HAR file objects of output ready
 import pandas as pd
 import numpy  as np
 import os
+import copy
 
 import harpy
 
@@ -1640,7 +1641,7 @@ class regIOtables2:
 
 def translate_reg_tables(tables, trans_file_init, lang = "fi"):
         """
-        A class to hold a regional supply table
+        Translate table from codes.
 
          Parameters
         ----------
@@ -1652,8 +1653,26 @@ def translate_reg_tables(tables, trans_file_init, lang = "fi"):
         """
         tran_col = pd.read_csv("translate/" + trans_file_init + "_columns.csv", sep=";", encoding="latin_1")
         tran_ind = pd.read_csv("translate/" + trans_file_init + "_index.csv", sep=";", encoding="latin_1")
-        y = tables
+        y = copy.deepcopy(tables)
         for i in y.tables.keys():
                 y.tables[i].table.rename(index = dict(zip(tran_ind["index"], tran_ind[lang])), columns = dict(zip(tran_col["columns"], tran_col[lang])), inplace = True)
         return y
+
+def to_long_table(tables):
+        """
+        From wide to long form
+
+         Parameters
+        ----------
+        tables: object for regtable classes
+
+        """
+        long_table = pd.DataFrame()
+        for r in tables.tables.keys():
+                long = tables.tables[r].table.copy()
+                long["REG"] = r
+                long["COM"] = long.index
+                long = long.melt(id_vars = ["REG", "COM"], var_name = "IND")
+                long_table = long_table.append(long, sort=False)
+        return long_table
 
