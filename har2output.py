@@ -37,12 +37,12 @@ class supplyTable:
         self.VT = np.matrix(make3)
         self.gt = self.VT.sum(axis=0)
         self.table = make3
-        self.table["Total output"] = self.table.sum(axis = 1)  # colsum
+        self.table["I_0"] = self.table.sum(axis = 1)  # colsum
         self.table = pd.concat([self.table, imports], axis=1, sort=True)
-        self.table["Total supply"] = self.table["Total output"] + imports.sum(axis = 1)
-        self.q2 = self.table["Total supply"].values
-        self.q = self.table["Total output"].values
-        self.table.loc["Products total"] = self.table.sum() # rowsum
+        self.table["SUPP"] = self.table["I_0"] + imports.sum(axis = 1)
+        self.q2 = self.table["SUPP"].values
+        self.q = self.table["I_0"].values
+        self.table.loc["Prod_total"] = self.table.sum() # rowsum
 
         
         
@@ -101,8 +101,8 @@ class regSupplyTables:
             s1_C_49_53=np.array(exp_dom.loc["C_49_53"]+np.delete(suppmar_obj["array"][1,:,:,i], i, axis=1).sum())-s_C_49_53
 
 
-            imp_dom = pd.DataFrame(np.delete(trade_obj["array"][:,0,:,i],i, axis = 1).sum(axis = 1), columns = ["Imports regional"], index=trade_obj["sets"][0]["dim_desc"])
-            imp_ext = pd.DataFrame(use_obj["array"][:,1,:,i].sum(axis=1)-tradmar_obj["array"][:,1,:,:,i].sum(axis=(1,2)),columns = ["Imports foreign"], index=trade_obj["sets"][0]["dim_desc"])
+            imp_dom = pd.DataFrame(np.delete(trade_obj["array"][:,0,:,i],i, axis = 1).sum(axis = 1), columns = ["IMP_REG"], index=trade_obj["sets"][0]["dim_desc"])
+            imp_ext = pd.DataFrame(use_obj["array"][:,1,:,i].sum(axis=1)-tradmar_obj["array"][:,1,:,:,i].sum(axis=(1,2)),columns = ["IMP_FOR"], index=trade_obj["sets"][0]["dim_desc"])
             imp_dom.loc["C_45_47"]=imp_dom.loc["C_45_47"]+np.delete(suppmar_obj["array"][0,:,i,:], i, axis=1).sum()-s1_C_45_47
             imp_dom.loc["C_49_53"]=imp_dom.loc["C_49_53"]+np.delete(suppmar_obj["array"][1,:,i,:], i, axis=1).sum()-s1_C_49_53
             imp = pd.concat([imp_dom, imp_ext], axis=1, sort=True)
@@ -177,30 +177,30 @@ class useTable:
         
                # tables 
         U=pd.DataFrame(self.U, index=self.dims["COM"], columns=self.dims["IND"])
-        U.loc["Products total"]=U.sum(axis=0)
-        self.table = pd.DataFrame(U, index=self.dims["COM"] +["Products total"])
-        self.table.loc["Taxes less subsidies"]=W.loc["TAXES"]
+        U.loc["Prod_total"]=U.sum(axis=0)
+        self.table = pd.DataFrame(U, index=self.dims["COM"] +["Prod_total"])
+        self.table.loc["TAX_SUB"]=W.loc["TAXES"]
         K=pd.DataFrame(self.table, columns = self.dims["IND"]) 
-        self.table.loc["Total intermediate consumption"]=K.sum(axis=0)-self.table.loc["Products total"]
+        self.table.loc["TOT_INT"]=K.sum(axis=0)-self.table.loc["Prod_total"]
         self.table.loc["V1LAB"]=W.loc["V1LAB"]
         self.table.loc["V1CAP"]=W.loc["V1CAP"]
         self.table.loc["V1LND"]=W.loc["V1LND"]
         self.table.loc["V1PTX"]=W.loc["V1PTX"]
-        self.table.loc["Value added, gross at basic prices"]=W.loc["V1LAB"] + W.loc["V1CAP"] + W.loc["V1LND"]+W.loc["V1PTX"]
-        self.table.loc["Output at basic prices"] = self.table.loc["Total intermediate consumption"]+self.table.loc["Value added, gross at basic prices"]
-        self.table["Industries total"] = self.table.sum(axis = 1)
+        self.table.loc["VA"]=W.loc["V1LAB"] + W.loc["V1CAP"] + W.loc["V1LND"]+W.loc["V1PTX"]
+        self.table.loc["Output at basic prices"] = self.table.loc["TOT_INT"]+self.table.loc["VA"]
+        self.table["IND_TOT"] = self.table.sum(axis = 1)
         Y=pd.DataFrame(self.Y, index=self.dims["COM"], columns=self.dims["FINAL"])
-        Y.loc["Products total"]=Y.sum(axis=0)
-        tax_f["Exports regional"]=0
+        Y.loc["Prod_total"]=Y.sum(axis=0)
+        tax_f["EXP_REG"]=0
         tax_f["Inventories"]=0
-        tax_f=pd.DataFrame(np.matrix(tax_f), index=["Taxes less subsidies"], columns= self.dims["FINAL"])
+        tax_f=pd.DataFrame(np.matrix(tax_f), index=["TAX_SUB"], columns= self.dims["FINAL"])
         Y=pd.concat([Y, tax_f], axis=0)
-        Y.loc["Total intermediate consumption"]=Y.loc["Taxes less subsidies"]+Y.loc["Products total"]
-        self.table = pd.concat([self.table, pd.DataFrame(Y, index =self.dims["COM"] +["Products total", "Taxes less subsidies", "Total intermediate consumption"], columns = self.dims["FINAL"])], axis=1, sort=False)
-        K2=pd.DataFrame(self.table, index =self.dims["COM"] +["Products total", "Taxes less subsidies", "Total intermediate consumption"], columns = self.dims["FINAL"] )
-        self.table["Final uses at basic prices"] = K2.sum(axis = 1)
-        K2=pd.DataFrame(self.table, index =self.dims["COM"] +["Products total", "Taxes less subsidies", "Total intermediate consumption"])
-        self.table["Total use at basic prices"] = K2["Final uses at basic prices"]+K2["Industries total"]
+        Y.loc["TOT_INT"]=Y.loc["TAX_SUB"]+Y.loc["Prod_total"]
+        self.table = pd.concat([self.table, pd.DataFrame(Y, index =self.dims["COM"] +["Prod_total", "TAX_SUB", "TOT_INT"], columns = self.dims["FINAL"])], axis=1, sort=False)
+        K2=pd.DataFrame(self.table, index =self.dims["COM"] +["Prod_total", "TAX_SUB", "TOT_INT"], columns = self.dims["FINAL"] )
+        self.table["FIN_USE"] = K2.sum(axis = 1)
+        K2=pd.DataFrame(self.table, index =self.dims["COM"] +["Prod_total", "TAX_SUB", "TOT_INT"])
+        self.table["TOT_USE"] = K2["FIN_USE"]+K2["IND_TOT"]
         
         # # Total
         # self.U = np.matrix(use[va.columns.tolist()])
@@ -305,7 +305,7 @@ class regUseTables:
             exp_dom.loc["C_49_53"]=exp_dom.loc["C_49_53"]+np.delete(suppmar_obj["array"][1,:,:,i], i, axis=1).sum()
             exp_dom.loc["C_45_47"]=cor.loc["C_45_47"]
             exp_dom.loc["C_49_53"]=cor.loc["C_49_53"]  
-            use_bp["Exports regional"] = exp_dom
+            use_bp["EXP_REG"] = exp_dom
              
             #Inventories
             stocks=stocks_obj["array"][:,i]
@@ -349,7 +349,7 @@ class regUseTables:
             u = np.matrix(use_bp)
             use_bp= u - np.multiply(u, np.matrix(own_reg_share).transpose())
             use_bp= pd.DataFrame(use_bp, columns=use_obj["sets"][2]["dim_desc"], index=use_obj["sets"][0]["dim_desc"]) 
-            use_bp["Exports regional"] = 0
+            use_bp["EXP_REG"] = 0
             #use_bp["Exp"] = 0
             use_bp["Inventories"]=0
                           
@@ -363,7 +363,7 @@ class regUseTables:
             # Use at basic prices
             use_dp_tr=use_dp.div(use_dp.sum(axis=1), axis = "rows").mul(margin["Trade_margin"], axis = "rows").fillna(0)
             use_bp = use_dp - use_dp_tr
-            use_bp["Exports regional"] = 0
+            use_bp["EXP_REG"] = 0
             use_bp["Inventories"]=0
             return use_bp      
                               
@@ -419,7 +419,7 @@ class useTab_dom:
     """
     def __init__(self, use_dom, use_reg, use_imp, va, tax_f):
         self.dims = {"COM": use_dom.index.tolist(), \
-                    "ComImp": use_dom.index.tolist() + ["Domestic imports", "Foreign imports"],
+                    "ComImp": use_dom.index.tolist() + ["IMP_DOM", "IMP_FOR"],
                     "IND": va.columns.tolist(),
                     "VA": va.index.tolist(),
                     "FINAL": use_dom.columns[range(len(va.columns), len(use_dom.columns))]}
@@ -427,14 +427,14 @@ class useTab_dom:
 
         self.Ud = use_dom[self.dims["IND"]]
         self.Umdom = use_reg[self.dims["IND"]]
-        self.Umdom1=pd.DataFrame(np.matrix(self.Umdom).sum(axis=0), index = ["Use of reg. imp."], columns = self.dims["IND"])
+        self.Umdom1=pd.DataFrame(np.matrix(self.Umdom).sum(axis=0), index = ["IMP_REG_USE"], columns = self.dims["IND"])
         self.Umext = use_imp[self.dims["IND"]]
-        self.Umext1=pd.DataFrame(np.matrix(self.Umext).sum(axis=0), index = ["Use of foreign imp."], columns = self.dims["IND"])
+        self.Umext1=pd.DataFrame(np.matrix(self.Umext).sum(axis=0), index = ["IMP_FOR_USE"], columns = self.dims["IND"])
         self.Yd = use_dom[self.dims["FINAL"]]
         self.Ymdom = use_reg[self.dims["FINAL"]]
-        self.Ymdom1 = pd.DataFrame(np.matrix(self.Ymdom).sum(axis=0), index = ["Use of reg. imp."], columns = self.dims["FINAL"])
+        self.Ymdom1 = pd.DataFrame(np.matrix(self.Ymdom).sum(axis=0), index = ["IMP_REG_USE"], columns = self.dims["FINAL"])
         self.Ymext = use_imp[self.dims["FINAL"]]
-        self.Ymext1 = pd.DataFrame(np.matrix(self.Ymext).sum(axis=0), index = ["Use of foreign imp."], columns = self.dims["FINAL"])
+        self.Ymext1 = pd.DataFrame(np.matrix(self.Ymext).sum(axis=0), index = ["IMP_FOR_USE"], columns = self.dims["FINAL"])
 
         self.W = pd.DataFrame(va)
 
@@ -442,34 +442,34 @@ class useTab_dom:
         K=pd.DataFrame(np.matrix(self.Ud.sum(axis=0)), index=["Total use of dom. prod."], columns=self.dims["IND"])
         self.Ud=pd.concat([self.Ud, K], axis=0, sort=True)
         self.Uall= pd.concat([pd.DataFrame(self.Ud), self.Umdom1, self.Umext1], axis=0)
-        self.table = pd.DataFrame(self.Uall, index=self.dims["COM"] +["Total use of dom. prod.", "Use of reg. imp.", "Use of foreign imp."])
-        self.table.loc["Taxes less subsidies"]=self.W.loc["TAXES"]
+        self.table = pd.DataFrame(self.Uall, index=self.dims["COM"] +["Total use of dom. prod.", "IMP_REG_USE", "IMP_FOR_USE"])
+        self.table.loc["TAX_SUB"]=self.W.loc["TAXES"]
 
         K=pd.DataFrame(self.table, columns = self.dims["IND"]) 
-        self.table.loc["Total intermediate consumption"]=K.sum(axis=0)-self.table.loc["Total use of dom. prod."]
+        self.table.loc["TOT_INT"]=K.sum(axis=0)-self.table.loc["Total use of dom. prod."]
         self.table.loc["V1LAB"]=self.W.loc["V1LAB"]
         self.table.loc["V1CAP"]=self.W.loc["V1CAP"]
         self.table.loc["V1LND"]=self.W.loc["V1LND"]
         self.table.loc["V1PTX"]=self.W.loc["V1PTX"]
-        self.table.loc["Value added, gross at basic prices"]=self.W.loc["V1LAB"] + self.W.loc["V1CAP"] + self.W.loc["V1LND"]+self.W.loc["V1PTX"]
-        self.table.loc["Output at basic prices"] = self.table.loc["Total intermediate consumption"]+self.table.loc["Value added, gross at basic prices"]
-        self.table["Industries total"] = self.table.sum(axis = 1)
+        self.table.loc["VA"]=self.W.loc["V1LAB"] + self.W.loc["V1CAP"] + self.W.loc["V1LND"]+self.W.loc["V1PTX"]
+        self.table.loc["Output at basic prices"] = self.table.loc["TOT_INT"]+self.table.loc["VA"]
+        self.table["IND_TOT"] = self.table.sum(axis = 1)
        
         K=pd.DataFrame(np.matrix(self.Yd.sum(axis=0)), index=["Total use of dom. prod."], columns=self.dims["FINAL"])
         self.Yd=pd.concat([self.Yd, K], axis=0, sort=True)
 
         #self.Yd.loc["Total use of dom. prod."]=self.Yd.sum(axis=0)
         self.Yall= pd.concat([pd.DataFrame(self.Yd), self.Ymdom1, self.Ymext1], axis=0, sort=True)
-        tax_f["Exports regional"]=0
+        tax_f["EXP_REG"]=0
         tax_f["Inventories"]=0
-        tax_f=pd.DataFrame(np.matrix(tax_f), index=["Taxes less subsidies"], columns= self.dims["FINAL"])
+        tax_f=pd.DataFrame(np.matrix(tax_f), index=["TAX_SUB"], columns= self.dims["FINAL"])
         self.Yall=pd.concat([self.Yall, tax_f], axis=0, sort=True)
-        self.Yall.loc["Total intermediate consumption"]=self.Yall.loc["Taxes less subsidies"]+self.Yall.loc["Total use of dom. prod."]+self.Yall.loc["Use of reg. imp."]+self.Yall.loc["Use of foreign imp."]
-        self.table = pd.concat([self.table, pd.DataFrame(self.Yall, index =self.dims["COM"] +["Total use of dom. prod.", "Use of reg. imp.", "Use of foreign imp.", "Taxes less subsidies", "Total intermediate consumption"], columns = self.dims["FINAL"])], axis=1, sort=False)
-        K2=pd.DataFrame(self.table, index =self.dims["COM"] +["Total use of dom. prod.", "Use of reg. imp.", "Use of foreign imp.", "Taxes less subsidies", "Total intermediate consumption"], columns = self.dims["FINAL"] )
-        self.table["Final uses at basic prices"] = K2.sum(axis = 1)
-        K2=pd.DataFrame(self.table, index =self.dims["COM"] +["Total use of dom. prod.", "Use of reg. imp.", "Use of foreign imp.", "Taxes less subsidies", "Total intermediate consumption"])
-        self.table["Total use at basic prices"] = K2["Final uses at basic prices"]+K2["Industries total"]
+        self.Yall.loc["TOT_INT"]=self.Yall.loc["TAX_SUB"]+self.Yall.loc["Total use of dom. prod."]+self.Yall.loc["IMP_REG_USE"]+self.Yall.loc["IMP_FOR_USE"]
+        self.table = pd.concat([self.table, pd.DataFrame(self.Yall, index =self.dims["COM"] +["Total use of dom. prod.", "IMP_REG_USE", "IMP_FOR_USE", "TAX_SUB", "TOT_INT"], columns = self.dims["FINAL"])], axis=1, sort=False)
+        K2=pd.DataFrame(self.table, index =self.dims["COM"] +["Total use of dom. prod.", "IMP_REG_USE", "IMP_FOR_USE", "TAX_SUB", "TOT_INT"], columns = self.dims["FINAL"] )
+        self.table["FIN_USE"] = K2.sum(axis = 1)
+        K2=pd.DataFrame(self.table, index =self.dims["COM"] +["Total use of dom. prod.", "IMP_REG_USE", "IMP_FOR_USE", "TAX_SUB", "TOT_INT"])
+        self.table["TOT_USE"] = K2["FIN_USE"]+K2["IND_TOT"]
         
 
         # # Total
@@ -575,7 +575,7 @@ class regUseTab_dom:
             exp_dom.loc["C_49_53"]=exp_dom.loc["C_49_53"]+np.delete(suppmar_obj["array"][1,:,:,i], i, axis=1).sum()
             exp_dom.loc["C_45_47"]=cor.loc["C_45_47"]
             exp_dom.loc["C_49_53"]=cor.loc["C_49_53"]  
-            use_bp["Exports regional"] = exp_dom
+            use_bp["EXP_REG"] = exp_dom
              
             #Inventories
             stocks=stocks_obj["array"][:,i]
@@ -619,7 +619,7 @@ class regUseTab_dom:
             u = np.matrix(use_bp)
             use_bp= u - np.multiply(u, np.matrix(own_reg_share).transpose())
             use_bp= pd.DataFrame(use_bp, columns=use_obj["sets"][2]["dim_desc"], index=use_obj["sets"][0]["dim_desc"]) 
-            use_bp["Exports regional"] = 0
+            use_bp["EXP_REG"] = 0
             #use_bp["Exp"] = 0
             use_bp["Inventories"]=0
                           
@@ -633,7 +633,7 @@ class regUseTab_dom:
             # Use at basic prices
             use_dp_tr=use_dp.div(use_dp.sum(axis=1), axis = "rows").mul(margin["Trade_margin"], axis = "rows").fillna(0)
             use_bp = use_dp - use_dp_tr
-            use_bp["Exports regional"] = 0
+            use_bp["EXP_REG"] = 0
             use_bp["Inventories"]=0
             return use_bp      
                               
@@ -690,7 +690,7 @@ class useTab_reg:
     """
     def __init__(self, use_dom, use_reg, use_imp, va):
         self.dims = {"COM": use_dom.index.tolist(), \
-                    "ComImp": use_dom.index.tolist() + ["Domestic imports", "Foreign imports"],
+                    "ComImp": use_dom.index.tolist() + ["IMP_DOM", "IMP_FOR"],
                     "IND": va.columns.tolist(),
                     "VA": va.index.tolist(),
                     "FINAL": use_dom.columns[range(len(va.columns), len(use_dom.columns))]}
@@ -698,27 +698,27 @@ class useTab_reg:
         self.U = np.matrix(use_dom[self.dims["IND"]])+np.matrix(use_reg[self.dims["IND"]])+np.matrix(use_imp[self.dims["IND"]])
         self.Ud = np.matrix(use_dom[self.dims["IND"]])
         self.Umdom = np.matrix(use_reg[self.dims["IND"]])
-        self.Umdom1=pd.DataFrame(np.matrix(use_reg[self.dims["IND"]]).sum(axis=0), index = ["Domestic imports"], columns = self.dims["IND"])
+        self.Umdom1=pd.DataFrame(np.matrix(use_reg[self.dims["IND"]]).sum(axis=0), index = ["IMP_DOM"], columns = self.dims["IND"])
         self.Umext = np.matrix(use_imp[self.dims["IND"]])
-        self.Umext1=pd.DataFrame(np.matrix(use_imp[self.dims["IND"]]).sum(axis=0), index = ["Foreign imports"], columns = self.dims["IND"])
+        self.Umext1=pd.DataFrame(np.matrix(use_imp[self.dims["IND"]]).sum(axis=0), index = ["IMP_FOR"], columns = self.dims["IND"])
         self.Y = np.matrix(use_dom[self.dims["FINAL"]])+np.matrix(use_reg[self.dims["FINAL"]])+np.matrix(use_imp[self.dims["FINAL"]])
         self.Yd = np.matrix(use_dom[self.dims["FINAL"]])
         self.Ymdom = np.matrix(use_reg[self.dims["FINAL"]])
-        self.Ymdom1 = pd.DataFrame(np.matrix(use_reg[self.dims["FINAL"]]).sum(axis=0), index = ["Domestic imports"], columns = self.dims["FINAL"])
+        self.Ymdom1 = pd.DataFrame(np.matrix(use_reg[self.dims["FINAL"]]).sum(axis=0), index = ["IMP_DOM"], columns = self.dims["FINAL"])
         self.Ymext = np.matrix(use_imp[self.dims["FINAL"]])
-        self.Ymext1 = pd.DataFrame(np.matrix(use_imp[self.dims["FINAL"]]).sum(axis=0), index = ["Foreign imports"], columns = self.dims["FINAL"])
+        self.Ymext1 = pd.DataFrame(np.matrix(use_imp[self.dims["FINAL"]]).sum(axis=0), index = ["IMP_FOR"], columns = self.dims["FINAL"])
         self.W = np.matrix(va)
        
         # tables 
  
         self.table = pd.DataFrame(self.Umdom, index = self.dims["COM"], columns = self.dims["IND"])
-        self.table["Industries total"] = self.table.sum(axis = 1)
+        self.table["IND_TOT"] = self.table.sum(axis = 1)
         table_int = self.table
         self.table = pd.concat([self.table, pd.DataFrame(self.Ymdom, index = self.dims["COM"], columns = self.dims["FINAL"])], axis=1, sort=True)
-        self.table["Final uses at basic prices"] = self.table[self.dims["FINAL"]].sum(axis = 1)
-        self.table["Total use at basic prices"] = self.table["Final uses at basic prices"].add(self.table["Industries total"])
-        self.table.drop(["Exports regional", "Inventories"], axis = 1, inplace = True)
-        self.table.loc["Products total"] = self.table.sum(axis = 0)
+        self.table["FIN_USE"] = self.table[self.dims["FINAL"]].sum(axis = 1)
+        self.table["TOT_USE"] = self.table["FIN_USE"].add(self.table["IND_TOT"])
+        self.table.drop(["EXP_REG", "Inventories"], axis = 1, inplace = True)
+        self.table.loc["Prod_total"] = self.table.sum(axis = 0)
         # # Total
         # self.U = np.matrix(use[va.columns.tolist()])
         # self.va = np.matrix(va)
@@ -822,7 +822,7 @@ class regUseTab_reg:
             exp_dom.loc["C_49_53"]=exp_dom.loc["C_49_53"]+np.delete(suppmar_obj["array"][1,:,:,i], i, axis=1).sum()
             exp_dom.loc["C_45_47"]=cor.loc["C_45_47"]
             exp_dom.loc["C_49_53"]=cor.loc["C_49_53"]  
-            use_bp["Exports regional"] = exp_dom
+            use_bp["EXP_REG"] = exp_dom
              
             #Inventories
             stocks=stocks_obj["array"][:,i]
@@ -866,7 +866,7 @@ class regUseTab_reg:
             u = np.matrix(use_bp)
             use_bp= u - np.multiply(u, np.matrix(own_reg_share).transpose())
             use_bp= pd.DataFrame(use_bp, columns=use_obj["sets"][2]["dim_desc"], index=use_obj["sets"][0]["dim_desc"]) 
-            use_bp["Exports regional"] = 0
+            use_bp["EXP_REG"] = 0
             #use_bp["Exp"] = 0
             use_bp["Inventories"]=0
                           
@@ -880,7 +880,7 @@ class regUseTab_reg:
             # Use at basic prices
             use_dp_tr=use_dp.div(use_dp.sum(axis=1), axis = "rows").mul(margin["Trade_margin"], axis = "rows").fillna(0)
             use_bp = use_dp - use_dp_tr
-            use_bp["Exports regional"] = 0
+            use_bp["EXP_REG"] = 0
             use_bp["Inventories"]=0
             return use_bp      
                               
@@ -935,7 +935,7 @@ class useTab_imp:
     """
     def __init__(self, use_dom, use_reg, use_imp, va):
         self.dims = {"COM": use_dom.index.tolist(), \
-                    "ComImp": use_dom.index.tolist() + ["Domestic imports", "Foreign imports"],
+                    "ComImp": use_dom.index.tolist() + ["IMP_DOM", "IMP_FOR"],
                     "IND": va.columns.tolist(),
                     "VA": va.index.tolist(),
                     "FINAL": use_dom.columns[range(len(va.columns), len(use_dom.columns))]}
@@ -943,25 +943,25 @@ class useTab_imp:
         self.U = np.matrix(use_dom[self.dims["IND"]])+np.matrix(use_reg[self.dims["IND"]])+np.matrix(use_imp[self.dims["IND"]])
         self.Ud = np.matrix(use_dom[self.dims["IND"]])
         self.Umdom = np.matrix(use_reg[self.dims["IND"]])
-        self.Umdom1=pd.DataFrame(np.matrix(use_reg[self.dims["IND"]]).sum(axis=0), index = ["Domestic imports"], columns = self.dims["IND"])
+        self.Umdom1=pd.DataFrame(np.matrix(use_reg[self.dims["IND"]]).sum(axis=0), index = ["IMP_DOM"], columns = self.dims["IND"])
         self.Umext = np.matrix(use_imp[self.dims["IND"]])
-        self.Umext1=pd.DataFrame(np.matrix(use_imp[self.dims["IND"]]).sum(axis=0), index = ["Foreign imports"], columns = self.dims["IND"])
+        self.Umext1=pd.DataFrame(np.matrix(use_imp[self.dims["IND"]]).sum(axis=0), index = ["IMP_FOR"], columns = self.dims["IND"])
         self.Y = np.matrix(use_dom[self.dims["FINAL"]])+np.matrix(use_reg[self.dims["FINAL"]])+np.matrix(use_imp[self.dims["FINAL"]])
         self.Yd = np.matrix(use_dom[self.dims["FINAL"]])
         self.Ymdom = np.matrix(use_reg[self.dims["FINAL"]])
-        self.Ymdom1 = pd.DataFrame(np.matrix(use_reg[self.dims["FINAL"]]).sum(axis=0), index = ["Domestic imports"], columns = self.dims["FINAL"])
+        self.Ymdom1 = pd.DataFrame(np.matrix(use_reg[self.dims["FINAL"]]).sum(axis=0), index = ["IMP_DOM"], columns = self.dims["FINAL"])
         self.Ymext = np.matrix(use_imp[self.dims["FINAL"]])
-        self.Ymext1 = pd.DataFrame(np.matrix(use_imp[self.dims["FINAL"]]).sum(axis=0), index = ["Foreign imports"], columns = self.dims["FINAL"])
+        self.Ymext1 = pd.DataFrame(np.matrix(use_imp[self.dims["FINAL"]]).sum(axis=0), index = ["IMP_FOR"], columns = self.dims["FINAL"])
         self.W = np.matrix(va)
        
         # tables 
         self.table = pd.DataFrame(self.Umext, index = self.dims["COM"], columns = self.dims["IND"])
-        self.table["Industries total"] = self.table.sum(axis = 1)
+        self.table["IND_TOT"] = self.table.sum(axis = 1)
         self.table = pd.concat([self.table, pd.DataFrame(self.Ymext, index = self.dims["COM"], columns = self.dims["FINAL"])], axis=1, sort=True)
-        self.table["Final uses at basic prices"] = self.table[self.dims["FINAL"]].sum(axis = 1)
-        self.table["Total use at basic prices"] = self.table["Final uses at basic prices"].add(self.table["Industries total"])
-        self.table.drop(["Exports regional", "Inventories"], axis = 1, inplace = True)
-        self.table.loc["Products total"] = self.table.sum(axis = 0)
+        self.table["FIN_USE"] = self.table[self.dims["FINAL"]].sum(axis = 1)
+        self.table["TOT_USE"] = self.table["FIN_USE"].add(self.table["IND_TOT"])
+        self.table.drop(["EXP_REG", "Inventories"], axis = 1, inplace = True)
+        self.table.loc["Prod_total"] = self.table.sum(axis = 0)
         # # Total
         # self.U = np.matrix(use[va.columns.tolist()])
         # self.va = np.matrix(va)
@@ -1065,7 +1065,7 @@ class regUseTab_imp:
             exp_dom.loc["C_49_53"]=exp_dom.loc["C_49_53"]+np.delete(suppmar_obj["array"][1,:,:,i], i, axis=1).sum()
             exp_dom.loc["C_45_47"]=cor.loc["C_45_47"]
             exp_dom.loc["C_49_53"]=cor.loc["C_49_53"]  
-            use_bp["Exports regional"] = exp_dom
+            use_bp["EXP_REG"] = exp_dom
              
             #Inventories
             stocks=stocks_obj["array"][:,i]
@@ -1109,7 +1109,7 @@ class regUseTab_imp:
             u = np.matrix(use_bp)
             use_bp= u - np.multiply(u, np.matrix(own_reg_share).transpose())
             use_bp= pd.DataFrame(use_bp, columns=use_obj["sets"][2]["dim_desc"], index=use_obj["sets"][0]["dim_desc"]) 
-            use_bp["Exports regional"] = 0
+            use_bp["EXP_REG"] = 0
             #use_bp["Exp"] = 0
             use_bp["Inventories"]=0
                           
@@ -1123,7 +1123,7 @@ class regUseTab_imp:
             # Use at basic prices
             use_dp_tr=use_dp.div(use_dp.sum(axis=1), axis = "rows").mul(margin["Trade_margin"], axis = "rows").fillna(0)
             use_bp = use_dp - use_dp_tr
-            use_bp["Exports regional"] = 0
+            use_bp["EXP_REG"] = 0
             use_bp["Inventories"]=0
             return use_bp      
                               
@@ -1318,7 +1318,7 @@ class regIOtables_reg:
             #F_t=Fd+Fmdom+Fmext
             F = pd.DataFrame(F, columns=use_tab.dims["FINAL"])
             #F["Sum"]=pd.DataFrame(F, index=use_tab.dims["COM"], columns=use_tab.dims["FINAL"]).sum(axis=1)+pd.DataFrame(B, index=use_tab.dims["COM"], columns=use_tab.dims["IND"]).sum(axis=1)
-            F.drop(["Exports regional", "Inventories"], axis = 1, inplace = True)
+            F.drop(["EXP_REG", "Inventories"], axis = 1, inplace = True)
             #B.loc["Sum"] = pd.DataFrame(B, columns=use_tab.dims["IND"]).sum(axis = 0)
             return IOTable_reg(B, F)  
 
@@ -1407,7 +1407,7 @@ class regIOtables_imp:
             #F_t=Fd+Fmdom+Fmext
             F = pd.DataFrame(F, columns=use_tab.dims["FINAL"])
             #F["Sum"]=pd.DataFrame(F, index=use_tab.dims["COM"], columns=use_tab.dims["FINAL"]).sum(axis=1)+pd.DataFrame(B, index=use_tab.dims["COM"], columns=use_tab.dims["IND"]).sum(axis=1)
-            F.drop(["Exports regional", "Inventories"], axis = 1, inplace = True)
+            F.drop(["EXP_REG", "Inventories"], axis = 1, inplace = True)
             #B.loc["Sum"] = pd.DataFrame(B, columns=use_tab.dims["IND"]).sum(axis = 0)
             return IOTable_imp(B, F)  
 
@@ -1444,17 +1444,17 @@ class IOTable_coef:
     
     def __init__(self, Ad, Amdom, Amext, R, use_tab):
         self.table = Ad
-        self.table.loc["Industries total"]=pd.DataFrame(Ad, columns=use_tab.dims["IND"]).sum(axis = 0)
-        self.table.loc["Total Use of reg. imp."] = pd.DataFrame(Amdom, columns=use_tab.dims["IND"]).sum(axis = 0)
-        self.table.loc["Total use of foreign imports"]= pd.DataFrame(Amext, columns=use_tab.dims["IND"]).sum(axis = 0)
-        self.table.loc["Taxes less subsidies"]=R.loc["TAXES"]
-        self.table.loc["Total intermediate consumption"]=self.table.sum(axis=0)-self.table.loc["Industries total"]
+        self.table.loc["IND_TOT"]=pd.DataFrame(Ad, columns=use_tab.dims["IND"]).sum(axis = 0)
+        self.table.loc["IMP_REG_USE"] = pd.DataFrame(Amdom, columns=use_tab.dims["IND"]).sum(axis = 0)
+        self.table.loc["IMP_FOR_USE"]= pd.DataFrame(Amext, columns=use_tab.dims["IND"]).sum(axis = 0)
+        self.table.loc["TAX_SUB"]=R.loc["TAXES"]
+        self.table.loc["TOT_INT"]=self.table.sum(axis=0)-self.table.loc["IND_TOT"]
         self.table.loc["V1LAB"]=R.loc["V1LAB"]
         self.table.loc["V1CAP"]=R.loc["V1CAP"]
         self.table.loc["V1LND"]=R.loc["V1LND"]
         self.table.loc["V1PTX"]=R.loc["V1PTX"]
-        self.table.loc["Value added, gross at basic prices"]=R.loc["V1LAB"] + R.loc["V1CAP"] + R.loc["V1LND"]+R.loc["V1PTX"]
-        self.table.loc["Output at basic prices"] = self.table.loc["Total intermediate consumption"]+self.table.loc["Value added, gross at basic prices"]
+        self.table.loc["VA"]=R.loc["V1LAB"] + R.loc["V1CAP"] + R.loc["V1LND"]+R.loc["V1PTX"]
+        self.table.loc["Output at basic prices"] = self.table.loc["TOT_INT"]+self.table.loc["VA"]
         
         #self.table.loc["Sum"] = self.table.sum(axis=0)
 
@@ -1529,15 +1529,15 @@ class IOTable2:
 
         self.Bd = B
         self.Bmdom = Bmdom
-        self.Bmdom1=pd.DataFrame(np.matrix(Bmdom).sum(axis=0), index = ["Use of reg. imp."], columns = use_tab.dims["IND"])
+        self.Bmdom1=pd.DataFrame(np.matrix(Bmdom).sum(axis=0), index = ["IMP_REG_USE"], columns = use_tab.dims["IND"])
         self.Bmext = Bmext
-        self.Bmext1=pd.DataFrame(np.matrix(Bmext).sum(axis=0), index = ["Use of foreign imp."], columns = use_tab.dims["IND"])
+        self.Bmext1=pd.DataFrame(np.matrix(Bmext).sum(axis=0), index = ["IMP_FOR_USE"], columns = use_tab.dims["IND"])
         
         self.Fd = F
         self.Fmdom = Fmdom
-        self.Fmdom1 = pd.DataFrame(np.matrix(Fmdom).sum(axis=0), index = ["Use of reg. imp."], columns = use_tab.dims["FINAL"])
+        self.Fmdom1 = pd.DataFrame(np.matrix(Fmdom).sum(axis=0), index = ["IMP_REG_USE"], columns = use_tab.dims["FINAL"])
         self.Fmext = Fmext
-        self.Fmext1 = pd.DataFrame(np.matrix(Fmext).sum(axis=0), index = ["Use of foreign imp."], columns = use_tab.dims["FINAL"])
+        self.Fmext1 = pd.DataFrame(np.matrix(Fmext).sum(axis=0), index = ["IMP_FOR_USE"], columns = use_tab.dims["FINAL"])
         self.W = W
        
         # tables
@@ -1545,33 +1545,33 @@ class IOTable2:
         
         self.Ball= pd.concat([pd.DataFrame(self.Bd), self.Bmdom1, self.Bmext1], axis=0)
            
-        self.table = pd.DataFrame(self.Ball, index=use_tab.dims["COM"] +["Total use of dom. prod.", "Use of reg. imp.", "Use of foreign imp."])
+        self.table = pd.DataFrame(self.Ball, index=use_tab.dims["COM"] +["Total use of dom. prod.", "IMP_REG_USE", "IMP_FOR_USE"])
         
         
-        self.table.loc["Taxes less subsidies"]=W.loc["TAXES"]
+        self.table.loc["TAX_SUB"]=W.loc["TAXES"]
         K=pd.DataFrame(self.table, columns = use_tab.dims["IND"]) 
-        self.table.loc["Total intermediate consumption"]=K.sum(axis=0)-self.table.loc["Total use of dom. prod."]
+        self.table.loc["TOT_INT"]=K.sum(axis=0)-self.table.loc["Total use of dom. prod."]
         self.table.loc["V1LAB"]=W.loc["V1LAB"]
         self.table.loc["V1CAP"]=W.loc["V1CAP"]
         self.table.loc["V1LND"]=W.loc["V1LND"]
         self.table.loc["V1PTX"]=W.loc["V1PTX"]
-        self.table.loc["Value added, gross at basic prices"]=W.loc["V1LAB"] + W.loc["V1CAP"] + W.loc["V1LND"]+W.loc["V1PTX"]
-        self.table.loc["Output at basic prices"] = self.table.loc["Total intermediate consumption"]+self.table.loc["Value added, gross at basic prices"]
-        self.table["Industries total"] = self.table.sum(axis = 1)
+        self.table.loc["VA"]=W.loc["V1LAB"] + W.loc["V1CAP"] + W.loc["V1LND"]+W.loc["V1PTX"]
+        self.table.loc["Output at basic prices"] = self.table.loc["TOT_INT"]+self.table.loc["VA"]
+        self.table["IND_TOT"] = self.table.sum(axis = 1)
         self.Fd.loc["Total use of dom. prod."]=self.Fd.sum(axis=0)
         self.Fall= pd.concat([pd.DataFrame(self.Fd), self.Fmdom1, self.Fmext1], axis=0, sort=True)
 
         tax_f=pd.DataFrame(np.matrix(use_tab.tax_f))
-        tax_f["Exports regional"]=0
+        tax_f["EXP_REG"]=0
         tax_f["Inventories"]=0
-        tax_f=pd.DataFrame(np.matrix(tax_f), index=["Taxes less subsidies"], columns= use_tab.dims["FINAL"])
+        tax_f=pd.DataFrame(np.matrix(tax_f), index=["TAX_SUB"], columns= use_tab.dims["FINAL"])
         self.Fall=pd.concat([self.Fall, tax_f], axis=0, sort=True)
-        self.Fall.loc["Total intermediate consumption"]=self.Fall.loc["Taxes less subsidies"]+self.Fall.loc["Total use of dom. prod."]+self.Fall.loc["Use of reg. imp."]+self.Fall.loc["Use of foreign imp."]
-        self.table = pd.concat([self.table, pd.DataFrame(self.Fall, index =use_tab.dims["COM"] +["Total use of dom. prod.", "Use of reg. imp.", "Use of foreign imp.", "Taxes less subsidies", "Total intermediate consumption"], columns = use_tab.dims["FINAL"])], axis=1, sort=False)
-        K2=pd.DataFrame(self.table, index =use_tab.dims["COM"] +["Total use of dom. prod.", "Use of reg. imp.", "Use of foreign imp.", "Taxes less subsidies", "Total intermediate consumption"], columns = use_tab.dims["FINAL"] )
-        self.table["Final uses at basic prices"] = K2.sum(axis = 1)
-        K2=pd.DataFrame(self.table, index =use_tab.dims["COM"] +["Total use of dom. prod.", "Use of reg. imp.", "Use of foreign imp.", "Taxes less subsidies", "Total intermediate consumption"])
-        self.table["Total use at basic prices"] = K2["Final uses at basic prices"]+K2["Industries total"]
+        self.Fall.loc["TOT_INT"]=self.Fall.loc["TAX_SUB"]+self.Fall.loc["Total use of dom. prod."]+self.Fall.loc["IMP_REG_USE"]+self.Fall.loc["IMP_FOR_USE"]
+        self.table = pd.concat([self.table, pd.DataFrame(self.Fall, index =use_tab.dims["COM"] +["Total use of dom. prod.", "IMP_REG_USE", "IMP_FOR_USE", "TAX_SUB", "TOT_INT"], columns = use_tab.dims["FINAL"])], axis=1, sort=False)
+        K2=pd.DataFrame(self.table, index =use_tab.dims["COM"] +["Total use of dom. prod.", "IMP_REG_USE", "IMP_FOR_USE", "TAX_SUB", "TOT_INT"], columns = use_tab.dims["FINAL"] )
+        self.table["FIN_USE"] = K2.sum(axis = 1)
+        K2=pd.DataFrame(self.table, index =use_tab.dims["COM"] +["Total use of dom. prod.", "IMP_REG_USE", "IMP_FOR_USE", "TAX_SUB", "TOT_INT"])
+        self.table["TOT_USE"] = K2["FIN_USE"]+K2["IND_TOT"]
        
 
 class regIOtables2:
@@ -1637,3 +1637,23 @@ class regIOtables2:
                 format.set_text_wrap()
                 worksheet.set_column(0,41,21, format)
         writer.save()
+
+def translate_reg_tables(tables, trans_file_init, lang = "fi"):
+        """
+        A class to hold a regional supply table
+
+         Parameters
+        ----------
+        tables: object for regtable classes
+        trans_file_init: str
+                A initial part of the tranlastion csv-files in the translate folder. ie before _index and _columns appendix.
+        lang: str
+                A column name in tranlate files.
+        """
+        tran_col = pd.read_csv("translate/" + trans_file_init + "_columns.csv", sep=";", encoding="latin_1")
+        tran_ind = pd.read_csv("translate/" + trans_file_init + "_index.csv", sep=";", encoding="latin_1")
+        y = tables
+        for i in y.tables.keys():
+                y.tables[i].table.rename(index = dict(zip(tran_ind["index"], tran_ind[lang])), columns = dict(zip(tran_col["columns"], tran_col[lang])), inplace = True)
+        return y
+

@@ -1,0 +1,35 @@
+columns;fi
+I_01;01 Maatalous ja metsästys
+I_02_03;02_03 Metsätalous ja kalatalous
+I_05_09;05_09 Kaivostoiminta ja louhinta
+I_10_12;10_12 Elintarviketeollisuus ym.
+I_13_15;13_15 Tekstiili-, vaatetus- ja nahkateollisuus
+I_16;16 Puuteollisuus
+I_17_18;17_18 Paperiteollisuus ja painaminen
+I_19_22;19_22 Kemianteollisuus
+I_23;23 Rakennusaineteollisuus
+I_24_25;24_25 Metallien jalostus ja metallituotteiden valmistus (pl. koneet ja laitteet)
+I_26_27;26_27 Sähkö- ja elektroniikkateollisuus
+I_28;28 Muiden koneiden ja laitteiden valmistus
+I_29_30;29_30 Kulkuneuvojen valmistus
+I_31_33;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitteiden korjaus, huolto ja ase
+I_35_39;35_39 Energiahuolto: Vesi- ja jätehuolto
+I_41_43;41_43 Rakentaminen
+I_45_47;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus
+I_49_53;49_53 Kuljetus ja varastointi
+I_55_56;55_56 Majoitus- ja ravitsemistoiminta
+I_58_63;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu
+I_64_66;64_66 Rahoitus- ja vakuutustoiminta
+I_68;681+68209+683 Muu kiinteistötoiminta
+I_68A;68201_68202 Asuntojen vuokraus ja hallinta
+I_69_75;69_75 Ammatillinen, tieteellinen ja tekninen toiminta
+I_77_82;77_82 Hallinto- ja tukipalvelutoiminta
+I_84;84 Julkinen hallinto ja sosiaalivakuutus
+I_85;85 Koulutus
+I_86_88;86_88 Terveys- ja sosiaalipalvelut
+I_90_96;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta
+I_97_98;97_98 Kotitalouspalvelut
+I_0;0 Toimialat yhteensä
+IMP_REG;Tuonti Suomesta
+IMP_FOR;Tuonti ulkomailta
+SUPP;Tarjonta yhteensä perushintaan

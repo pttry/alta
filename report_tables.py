@@ -60,6 +60,9 @@ for j in range(0,19):
 
 #Supply table
 reg_supp = ho.regSupplyTables(make_obj, use_obj, tradmar_obj, suppmar_obj, trade_obj, stocks_obj)
+# pd.DataFrame(reg_supp.tables["Uusimaa"].table.columns, columns=["columns"]).to_csv("translate/reg_supp_columns.csv", index=False, sep=";")
+
+reg_supp_fi = translate_reg_tables(reg_supp, "reg_supp")
 reg_supp.to_excel(file = outdataFolder + "/supp2014.xlsx")
 
 #use Table - total
