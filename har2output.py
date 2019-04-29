@@ -187,7 +187,7 @@ class useTable:
         self.table.loc["V1LND"]=W.loc["V1LND"]
         self.table.loc["V1PTX"]=W.loc["V1PTX"]
         self.table.loc["VA"]=W.loc["V1LAB"] + W.loc["V1CAP"] + W.loc["V1LND"]+W.loc["V1PTX"]
-        self.table.loc["Output at basic prices"] = self.table.loc["TOT_INT"]+self.table.loc["VA"]
+        self.table.loc["P1R"] = self.table.loc["TOT_INT"]+self.table.loc["VA"]
         self.table["IND_TOT"] = self.table.sum(axis = 1)
         Y=pd.DataFrame(self.Y, index=self.dims["COM"], columns=self.dims["FINAL"])
         Y.loc["Prod_total"]=Y.sum(axis=0)
@@ -439,36 +439,36 @@ class useTab_dom:
         self.W = pd.DataFrame(va)
 
         tax_f=pd.DataFrame(np.matrix(tax_f))
-        K=pd.DataFrame(np.matrix(self.Ud.sum(axis=0)), index=["Total use of dom. prod."], columns=self.dims["IND"])
+        K=pd.DataFrame(np.matrix(self.Ud.sum(axis=0)), index=["TOT_USE_DOM"], columns=self.dims["IND"])
         self.Ud=pd.concat([self.Ud, K], axis=0, sort=True)
         self.Uall= pd.concat([pd.DataFrame(self.Ud), self.Umdom1, self.Umext1], axis=0)
-        self.table = pd.DataFrame(self.Uall, index=self.dims["COM"] +["Total use of dom. prod.", "IMP_REG_USE", "IMP_FOR_USE"])
+        self.table = pd.DataFrame(self.Uall, index=self.dims["COM"] +["TOT_USE_DOM", "IMP_REG_USE", "IMP_FOR_USE"])
         self.table.loc["TAX_SUB"]=self.W.loc["TAXES"]
 
         K=pd.DataFrame(self.table, columns = self.dims["IND"]) 
-        self.table.loc["TOT_INT"]=K.sum(axis=0)-self.table.loc["Total use of dom. prod."]
+        self.table.loc["TOT_INT"]=K.sum(axis=0)-self.table.loc["TOT_USE_DOM"]
         self.table.loc["V1LAB"]=self.W.loc["V1LAB"]
         self.table.loc["V1CAP"]=self.W.loc["V1CAP"]
         self.table.loc["V1LND"]=self.W.loc["V1LND"]
         self.table.loc["V1PTX"]=self.W.loc["V1PTX"]
         self.table.loc["VA"]=self.W.loc["V1LAB"] + self.W.loc["V1CAP"] + self.W.loc["V1LND"]+self.W.loc["V1PTX"]
-        self.table.loc["Output at basic prices"] = self.table.loc["TOT_INT"]+self.table.loc["VA"]
+        self.table.loc["P1R"] = self.table.loc["TOT_INT"]+self.table.loc["VA"]
         self.table["IND_TOT"] = self.table.sum(axis = 1)
        
-        K=pd.DataFrame(np.matrix(self.Yd.sum(axis=0)), index=["Total use of dom. prod."], columns=self.dims["FINAL"])
+        K=pd.DataFrame(np.matrix(self.Yd.sum(axis=0)), index=["TOT_USE_DOM"], columns=self.dims["FINAL"])
         self.Yd=pd.concat([self.Yd, K], axis=0, sort=True)
 
-        #self.Yd.loc["Total use of dom. prod."]=self.Yd.sum(axis=0)
+        #self.Yd.loc["TOT_USE_DOM"]=self.Yd.sum(axis=0)
         self.Yall= pd.concat([pd.DataFrame(self.Yd), self.Ymdom1, self.Ymext1], axis=0, sort=True)
         tax_f["EXP_REG"]=0
         tax_f["Inventories"]=0
         tax_f=pd.DataFrame(np.matrix(tax_f), index=["TAX_SUB"], columns= self.dims["FINAL"])
         self.Yall=pd.concat([self.Yall, tax_f], axis=0, sort=True)
-        self.Yall.loc["TOT_INT"]=self.Yall.loc["TAX_SUB"]+self.Yall.loc["Total use of dom. prod."]+self.Yall.loc["IMP_REG_USE"]+self.Yall.loc["IMP_FOR_USE"]
-        self.table = pd.concat([self.table, pd.DataFrame(self.Yall, index =self.dims["COM"] +["Total use of dom. prod.", "IMP_REG_USE", "IMP_FOR_USE", "TAX_SUB", "TOT_INT"], columns = self.dims["FINAL"])], axis=1, sort=False)
-        K2=pd.DataFrame(self.table, index =self.dims["COM"] +["Total use of dom. prod.", "IMP_REG_USE", "IMP_FOR_USE", "TAX_SUB", "TOT_INT"], columns = self.dims["FINAL"] )
+        self.Yall.loc["TOT_INT"]=self.Yall.loc["TAX_SUB"]+self.Yall.loc["TOT_USE_DOM"]+self.Yall.loc["IMP_REG_USE"]+self.Yall.loc["IMP_FOR_USE"]
+        self.table = pd.concat([self.table, pd.DataFrame(self.Yall, index =self.dims["COM"] +["TOT_USE_DOM", "IMP_REG_USE", "IMP_FOR_USE", "TAX_SUB", "TOT_INT"], columns = self.dims["FINAL"])], axis=1, sort=False)
+        K2=pd.DataFrame(self.table, index =self.dims["COM"] +["TOT_USE_DOM", "IMP_REG_USE", "IMP_FOR_USE", "TAX_SUB", "TOT_INT"], columns = self.dims["FINAL"] )
         self.table["FIN_USE"] = K2.sum(axis = 1)
-        K2=pd.DataFrame(self.table, index =self.dims["COM"] +["Total use of dom. prod.", "IMP_REG_USE", "IMP_FOR_USE", "TAX_SUB", "TOT_INT"])
+        K2=pd.DataFrame(self.table, index =self.dims["COM"] +["TOT_USE_DOM", "IMP_REG_USE", "IMP_FOR_USE", "TAX_SUB", "TOT_INT"])
         self.table["TOT_USE"] = K2["FIN_USE"]+K2["IND_TOT"]
         
 
@@ -1454,7 +1454,7 @@ class IOTable_coef:
         self.table.loc["V1LND"]=R.loc["V1LND"]
         self.table.loc["V1PTX"]=R.loc["V1PTX"]
         self.table.loc["VA"]=R.loc["V1LAB"] + R.loc["V1CAP"] + R.loc["V1LND"]+R.loc["V1PTX"]
-        self.table.loc["Output at basic prices"] = self.table.loc["TOT_INT"]+self.table.loc["VA"]
+        self.table.loc["P1R"] = self.table.loc["TOT_INT"]+self.table.loc["VA"]
         
         #self.table.loc["Sum"] = self.table.sum(axis=0)
 
@@ -1541,24 +1541,24 @@ class IOTable2:
         self.W = W
        
         # tables
-        self.Bd.loc["Total use of dom. prod."]=self.Bd.sum(axis=0)
+        self.Bd.loc["TOT_USE_DOM"]=self.Bd.sum(axis=0)
         
         self.Ball= pd.concat([pd.DataFrame(self.Bd), self.Bmdom1, self.Bmext1], axis=0)
            
-        self.table = pd.DataFrame(self.Ball, index=use_tab.dims["COM"] +["Total use of dom. prod.", "IMP_REG_USE", "IMP_FOR_USE"])
+        self.table = pd.DataFrame(self.Ball, index=use_tab.dims["COM"] +["TOT_USE_DOM", "IMP_REG_USE", "IMP_FOR_USE"])
         
         
         self.table.loc["TAX_SUB"]=W.loc["TAXES"]
         K=pd.DataFrame(self.table, columns = use_tab.dims["IND"]) 
-        self.table.loc["TOT_INT"]=K.sum(axis=0)-self.table.loc["Total use of dom. prod."]
+        self.table.loc["TOT_INT"]=K.sum(axis=0)-self.table.loc["TOT_USE_DOM"]
         self.table.loc["V1LAB"]=W.loc["V1LAB"]
         self.table.loc["V1CAP"]=W.loc["V1CAP"]
         self.table.loc["V1LND"]=W.loc["V1LND"]
         self.table.loc["V1PTX"]=W.loc["V1PTX"]
         self.table.loc["VA"]=W.loc["V1LAB"] + W.loc["V1CAP"] + W.loc["V1LND"]+W.loc["V1PTX"]
-        self.table.loc["Output at basic prices"] = self.table.loc["TOT_INT"]+self.table.loc["VA"]
+        self.table.loc["P1R"] = self.table.loc["TOT_INT"]+self.table.loc["VA"]
         self.table["IND_TOT"] = self.table.sum(axis = 1)
-        self.Fd.loc["Total use of dom. prod."]=self.Fd.sum(axis=0)
+        self.Fd.loc["TOT_USE_DOM"]=self.Fd.sum(axis=0)
         self.Fall= pd.concat([pd.DataFrame(self.Fd), self.Fmdom1, self.Fmext1], axis=0, sort=True)
 
         tax_f=pd.DataFrame(np.matrix(use_tab.tax_f))
@@ -1566,11 +1566,11 @@ class IOTable2:
         tax_f["Inventories"]=0
         tax_f=pd.DataFrame(np.matrix(tax_f), index=["TAX_SUB"], columns= use_tab.dims["FINAL"])
         self.Fall=pd.concat([self.Fall, tax_f], axis=0, sort=True)
-        self.Fall.loc["TOT_INT"]=self.Fall.loc["TAX_SUB"]+self.Fall.loc["Total use of dom. prod."]+self.Fall.loc["IMP_REG_USE"]+self.Fall.loc["IMP_FOR_USE"]
-        self.table = pd.concat([self.table, pd.DataFrame(self.Fall, index =use_tab.dims["COM"] +["Total use of dom. prod.", "IMP_REG_USE", "IMP_FOR_USE", "TAX_SUB", "TOT_INT"], columns = use_tab.dims["FINAL"])], axis=1, sort=False)
-        K2=pd.DataFrame(self.table, index =use_tab.dims["COM"] +["Total use of dom. prod.", "IMP_REG_USE", "IMP_FOR_USE", "TAX_SUB", "TOT_INT"], columns = use_tab.dims["FINAL"] )
+        self.Fall.loc["TOT_INT"]=self.Fall.loc["TAX_SUB"]+self.Fall.loc["TOT_USE_DOM"]+self.Fall.loc["IMP_REG_USE"]+self.Fall.loc["IMP_FOR_USE"]
+        self.table = pd.concat([self.table, pd.DataFrame(self.Fall, index =use_tab.dims["COM"] +["TOT_USE_DOM", "IMP_REG_USE", "IMP_FOR_USE", "TAX_SUB", "TOT_INT"], columns = use_tab.dims["FINAL"])], axis=1, sort=False)
+        K2=pd.DataFrame(self.table, index =use_tab.dims["COM"] +["TOT_USE_DOM", "IMP_REG_USE", "IMP_FOR_USE", "TAX_SUB", "TOT_INT"], columns = use_tab.dims["FINAL"] )
         self.table["FIN_USE"] = K2.sum(axis = 1)
-        K2=pd.DataFrame(self.table, index =use_tab.dims["COM"] +["Total use of dom. prod.", "IMP_REG_USE", "IMP_FOR_USE", "TAX_SUB", "TOT_INT"])
+        K2=pd.DataFrame(self.table, index =use_tab.dims["COM"] +["TOT_USE_DOM", "IMP_REG_USE", "IMP_FOR_USE", "TAX_SUB", "TOT_INT"])
         self.table["TOT_USE"] = K2["FIN_USE"]+K2["IND_TOT"]
        
 

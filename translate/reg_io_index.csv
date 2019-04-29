@@ -1,0 +1,39 @@
+index;fi
+C_01;01 Maatalous ja metsästys
+C_02_03;02_03 Metsätalous ja kalatalous
+C_05_09;05_09 Kaivostoiminta ja louhinta
+C_10_12;10_12 Elintarviketeollisuus ym.
+C_13_15;13_15 Tekstiili-, vaatetus- ja nahkateollisuus
+C_16;16 Puuteollisuus
+C_17_18;17_18 Paperiteollisuus ja painaminen
+C_19_22;19_22 Kemianteollisuus
+C_23;23 Rakennusaineteollisuus
+C_24_25;24_25 Metallien jalostus ja metallituotteiden valmistus (pl. koneet ja laitteet)
+C_26_27;26_27 Sähkö- ja elektroniikkateollisuus
+C_28;28 Muiden koneiden ja laitteiden valmistus
+C_29_30;29_30 Kulkuneuvojen valmistus
+C_31_33;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitteiden korjaus, huolto ja ase
+C_35_39;35_39 Energiahuolto: Vesi- ja jätehuolto
+C_41_43;41_43 Rakentaminen
+C_45_47;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus
+C_49_53;49_53 Kuljetus ja varastointi
+C_55_56;55_56 Majoitus- ja ravitsemistoiminta
+C_58_63;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu
+C_64_66;64_66 Rahoitus- ja vakuutustoiminta
+C_68;681+68209+683 Muu kiinteistötoiminta
+C_68A;68201_68202 Asuntojen vuokraus ja hallinta
+C_69_75;69_75 Ammatillinen, tieteellinen ja tekninen toiminta
+C_77_82;77_82 Hallinto- ja tukipalvelutoiminta
+C_84;84 Julkinen hallinto ja sosiaalivakuutus
+C_85;85 Koulutus
+C_86_88;86_88 Terveys- ja sosiaalipalvelut
+C_90_96;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta
+C_97_98;97_98 Kotitalouspalvelut
+Domestic_import;Kotimaisten tuontituotteiden käyttö yhteensä
+External_import;Ulkomaisten tuontituotteiden käyttö yhteensä
+TAXES;Tuoteverot miinus tuotetukipalkkio
+V1LAB;Palkansaajakorvaukset
+V1CAP;Pääomakorvaukset
+V1LND;Maankäytön korvaukset
+V1PTX;Muut tuotantoverot, netto
+Sum;Tuotos perushintaan
