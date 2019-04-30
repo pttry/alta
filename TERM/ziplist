@@ -1,0 +1,17 @@
+*.doc
+*.tab
+*.sti
+*.cmf
+*.bat
+*.txt
+*.agg
+cmbhar.sif
+national.har
+distgon?.har
+regsupp.har
+later.exe
+seterr.exe
+diffhar.exe
+agghar.exe
+tsthar.exe
+ziplist
