@@ -10,7 +10,6 @@
 
 File
       INFILE  # Input data File #;
-      labShareFile #Shares for labour compensation#; !JLe ************************************!
 (new) OUTFILE # Output file #;
 (new) DIAG    # Diag file #;
 (new) DUMSUPP # Dummy file of supplementary regional data for later editing #;
@@ -132,7 +131,7 @@ Read
  R004 from file INFILE header "R004";
  R005 from file INFILE header "R005";
  R006 from file INFILE header "R006";
- R007 from file labShareFile header "R007"; !JLe ************************************!
+ R007 from file INFILE header "R007"; !JLe ************************************!
 
 Assertion
 # V1BAS >=0 # (all,c,COM)(all,s,SRC)(all,i,IND) V1BAS(c,s,i) >= 0.0;
