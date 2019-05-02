@@ -1,0 +1,12 @@
+del *.bak
+del *.log
+del *.gss
+del *.gst
+del *.min
+del *.inf
+del *.mnc
+del *.for
+del *.mod
+del opt*
+del national.har
+del regsupp.har

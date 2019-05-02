@@ -16,13 +16,13 @@ OUTFILE3              Out    n  HAR
 #TABFILE
 govgeneric.tab
 #TMDATE
-at 12:11:37 on 23-APR-2019
+at 10:54:16 on 02-MAY-2019
 #STIFILE
 %none
 #SETS
     2
-    1 PSEC            -1  u Public sectors
-    2 IND             -1  u Industries
+    1 PSEC                -1  u Public sectors
+    2 IND                 -1  u Industries
 #VARIABLES
          0
 #SUBSETS
@@ -298,9 +298,9 @@ at 12:11:37 on 23-APR-2019
      236   1 wr LEV_P0GNE            a                         236  41    0 n
      236   1 en LEV_P0GNE            a                         236  41    0 n
 #GPVER
-  114004
+  120004
 #PRVER
-    6500
+    7000
 #FINAL_LEVEL
 #CSPSIM
 nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn

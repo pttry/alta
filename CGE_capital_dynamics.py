@@ -628,7 +628,7 @@ empData = {}
 #%%
 # Query regional labour force survey data from Statistics Finland:
 urlDict = {
-"Labour force survey": "tym/tyti/statfin_tyti_pxt_008.px"}
+"Labour force survey": "tym/tyti/vv/statfin_tyti_pxt_11pn.px"}
 
 dgf.getData(urlDict)
 
@@ -646,19 +646,19 @@ for i in surveyData:
     # Rename:
     surveyData[i].rename(columns = {"Region 2011": "Region",
                                     "Population, 1000 persons": "WA_POP",
-                                    "Active population, 1000 persons": "LAB_SUP",
+                                    "Active population (employed and unemployed in total), 1000 persons": "LAB_SUP",
                                     "Employed, 1000 persons": "EMP",
                                     "Unemployed, 1000 persons": "UNEMP"}, inplace = True)
     
     # Drop redundant columns:
-    for redundant in ["Activity rate, %", "Employment rate (15-64 yr), %", "Unemployment rate, %"]:
+    for redundant in ["Activity rate, %", "Employment rate, %", "Unemployment rate, %"]:
         if redundant in surveyData[i].columns:
             surveyData[i].drop(redundant, axis = 1, inplace = True)
 
 
 #%%
 # Drop the regional dimension, it is not needed here:
-empData["wfData"] = surveyData["Labour force survey"][surveyData["Labour force survey"]["Region"] == "Whole country"].set_index("Year").drop("Region", axis = 1)
+empData["wfData"] = surveyData["Labour force survey"][surveyData["Labour force survey"]["Region"] == "WHOLE COUNTRY"].set_index("Year").drop("Region", axis = 1)
 
 
 #%%

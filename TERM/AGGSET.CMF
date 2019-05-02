@@ -1,0 +1,8 @@
+auxiliary files = aggset;
+File     INFILE = aggmod.HAR;
+File     NEWSETS = AGGSETS.HAR;
+set elements read style = flexible ;
+log file         = yes ; 
+!check-on-read all = no ;
+
+
