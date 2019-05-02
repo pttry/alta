@@ -88,6 +88,7 @@ subprocess.Popen('start mkdata.bat', cwd = "TERM/", shell=True)
 
 # - Output: premod.har, orgsets.har, aggsuppVERM.har
 copyfile("TERM/premod.har", "hardata/premod.har")
+
 copyfile("TERM/orgsets.har", "hardata/orgsets.har")
 copyfile("TERM/aggsupp.har", "hardata/aggsuppVERM.har")
 

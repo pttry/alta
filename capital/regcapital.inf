@@ -23,7 +23,11 @@
     +++  INFORMATION ABOUT THIS PRINT FILE  +++
    
 
+<<<<<<< HEAD:capital/regcapital.inf
  ! This file was created at 11:15:42 on 02-MAY-2019 by the program
+=======
+ ! This file was created at 15:06:44 on 30-APR-2019 by the program
+>>>>>>> 46f9595a782eb6eddd0458b28a0dc6d6a7548b32:regcapital.inf
  !  <TABLO  Version 7.0   August 2018>
  ! which accesses some of the routines in the GEMPACK software release
  !  <GEMPACK Release 12.0.004   March 2019>

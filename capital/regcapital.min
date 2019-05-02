@@ -28,7 +28,11 @@ REGSETS               Out    n  HAR
 #TABFILE
 regcapital.tab
 #TMDATE
+<<<<<<< HEAD:capital/regcapital.min
 at 11:15:42 on 02-MAY-2019
+=======
+at 15:06:45 on 30-APR-2019
+>>>>>>> 46f9595a782eb6eddd0458b28a0dc6d6a7548b32:regcapital.min
 #STIFILE
 %none
 #SETS
