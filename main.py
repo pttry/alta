@@ -89,7 +89,7 @@ subprocess.Popen('start mkdata.bat', cwd = "TERM/", shell=True)
 # - Output: premod.har, orgsets.har, aggsuppVERM.har
 copyfile("TERM/premod.har", "hardata/premod.har")
 copyfile("TERM/orgsets.har", "hardata/orgsets.har")
-
+copyfile("TERM/aggsupp.har", "hardata/aggsuppVERM.har")
 
 # 11. Combine extra-files into a single har
 # #########################################
@@ -103,8 +103,21 @@ subprocess.Popen('start extramerge.bat', shell=True)
 # 12. Regional split for capital
 # ###############################
 # Run regcapital.bat
+copyfile("hardata/premod.har", "capital/premod.har")
+copyfile("hardata/aggsuppVERM.har", "capital/aggsuppVERM.har")
+copyfile("hardata/govacc.har", "capital/govacc.har")
+copyfile("hardata/natextra.har", "capital/natextra.har")
+copyfile("hardata/govextra2.har", "capital/govextra2.har")
+copyfile("hardata/regsupp.har", "capital/regsupp.har")
+
 subprocess.Popen('start regcapital.bat', cwd = "capital/", shell=True)
 # -Output: regrorext.har, v1check.har, regextra.har, regextra_lag.har, regsets.har
+
+copyfile("capital/regrorext.har", "hardata/regrorext.har") 
+copyfile("capital/v1check.har", "hardata/v1check.har") 
+copyfile("capital/regextra.har", "hardata/regextra.har") 
+copyfile("capital/regextra_lag.har", "hardata/regextra_lag.har") 
+copyfile("capital/regsets.har", "hardata/regsets.har")
 
 # Capital data is divided to different regions simply by using shares from V1CAP, that was
 # split in step 10.
