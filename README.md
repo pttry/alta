@@ -4,9 +4,9 @@ Python and GEMPACK code for constructing a regional input output tables and a re
 
 ## Input-output tables
 
-Input-output tables in xlsx and csv -formats are in (outdata)-folder
+Input-output tables in xlsx and csv -formats are in [outdata-folder](outdata/)
 
-- Domestic input-output table [io_2014.xlsx][outdata/io_2014.csv]
+- Domestic input-output table [io_2014.xlsx](outdata/io_2014.csv)
 
 
 ### See README/dataprocess.txt and workflow.docx for details!
