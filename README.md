@@ -1,8 +1,7 @@
 # Finnish regional input-output tables
 
-Python and GEMPACK code for constructing a regional input output tables and a regional CGE database for Finland using official published data.
 
-Regional Supply, Use, and Input-output (I-O) tables for 2014 in xlsx and csv -formats are in [outdata-folder](outdata/).
+Regional Supply, Use, and Input-output (I-O) tables for 2014 in xlsx and csv -formats are in [outdata-folder](outdata/). Data for a GEMPACK model in har-format are in [hardata-folder](hardata/).
 
 ## Input-output tables
 
@@ -22,4 +21,11 @@ Regional Supply, Use, and Input-output (I-O) tables for 2014 in xlsx and csv -fo
 
 - Supply tables [supp2014.xlsx](outdata/supp2014.xlsx) and [supp2014.csv](outdata/supp2014.csv) 
 
-### See README/dataprocess.txt and workflow.docx for details!
+# Code to estimate regional input-output tables
+
+Python and GEMPACK code for constructing a regional input output tables and a regional CGE database for Finland using official published data.
+
+The estimation can be done running `main.py`.
+
+
+ See README/dataprocess.txt and workflow.docx for details!
