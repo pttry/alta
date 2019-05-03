@@ -29,10 +29,12 @@ I_85;85 Koulutus
 I_86_88;86_88 Terveys- ja sosiaalipalvelut
 I_90_96;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta
 I_97_98;97_98 Kotitalouspalvelut
+IND_TOT;0 Toimialat yhteensä
 Hou;P3/S14 Kotitalouksien kulutusmenot
 Inv;P5 Pääoman bruttomuodostus
 Gov;P3/S13 Julkisyhteisöjen kulutusmenot
 Exp;P6K Tavaroiden ja palvelujen vienti
 EXP_REG;Tavaroiden ja palvelujen vienti kotimaahan
 Inventories;P52 Varastojen muutos
-Sum;USE_PH Käyttö yhteensä perushintaan
+FIN_USE;FUSE_PH Loppukäyttö perushintaan
+TOT_USE;USE_PH Käyttö yhteensä perushintaan

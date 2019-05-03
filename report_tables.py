@@ -89,23 +89,27 @@ reg_use_imp = ho.regUseTab_imp(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_
 reg_use_imp_fi = ho.translate_reg_tables(reg_use_imp, "reg_use_imp")
 reg_use_imp.to_excel(file = outdataFolder + "/use_imp2014.xlsx")
 
-#I-O table domestic
-reg_io = ho.regIOtables(reg_supp, reg_use)
-reg_io_fi = ho.translate_reg_tables(reg_io, "reg_io")
-reg_io_fi.to_excel(file = outdataFolder + "/io2014.xlsx")
+#I-O table domestic old
+# reg_io = ho.regIOtables(reg_supp, reg_use)
+# reg_io_fi = ho.translate_reg_tables(reg_io, "reg_io")
+# reg_io_fi.to_excel(file = outdataFolder + "/io2014.xlsx")
 
-#I-O table domestic ver-2
-reg_io2 = ho.regIOtables2(reg_supp, reg_use)
-reg_io2.to_excel(file = outdataFolder + "/io_2_2014.xlsx")
+#I-O table domestic
+reg_io = ho.regIOtables2(reg_supp, reg_use)
+reg_io_fi = ho.translate_reg_tables(reg_io, "reg_io")
+reg_io_fi.to_excel(file = outdataFolder + "/io_2014.xlsx")
 
 #I-O table regional
 reg_io_reg = ho.regIOtables_reg(reg_supp, reg_use)
-reg_io_reg.to_excel(file = outdataFolder + "/io_reg2014.xlsx")
+reg_io_reg_fi = ho.translate_reg_tables(reg_io_reg, "reg_io")
+reg_io_reg_fi.to_excel(file = outdataFolder + "/io_reg2014.xlsx")
 
 #I-O table foreign imports
 reg_io_imp = ho.regIOtables_imp(reg_supp, reg_use)
-reg_io_imp.to_excel(file = outdataFolder + "/io_imp2014.xlsx")
+reg_io_imp_fi = ho.translate_reg_tables(reg_io_imp, "reg_io")
+reg_io_imp_fi.to_excel(file = outdataFolder + "/io_imp2014.xlsx")
 
 reg_io_coef = ho.regIOtables_coef(reg_supp, reg_use)
-reg_io_coef.to_excel(file = outdataFolder + "/io_coef2014.xlsx")
+reg_io_coef_fi = ho.translate_reg_tables(reg_io_coef, "reg_io")
+reg_io_coef_fi.to_excel(file = outdataFolder + "/io_coef2014.xlsx")
 

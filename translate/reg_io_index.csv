@@ -29,11 +29,14 @@ C_85;85 Koulutus
 C_86_88;86_88 Terveys- ja sosiaalipalvelut
 C_90_96;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta
 C_97_98;97_98 Kotitalouspalvelut
-Domestic_import;Kotimaisten tuontituotteiden käyttö yhteensä
-External_import;Ulkomaisten tuontituotteiden käyttö yhteensä
-TAXES;Tuoteverot miinus tuotetukipalkkio
+TOT_USE_DOM;Tuotteet yhteensä
+IMP_REG_USE;Kotimaisten tuontituotteiden käyttö yhteensä
+IMP_FOR_USE;Ulkomaisten tuontituotteiden käyttö yhteensä
+TAX_SUB;Tuoteverot miinus tuotetukipalkkio
+TOT_INT;Välituotekäyttö/loppukäyttö yhteensä ostajanhintaan
 V1LAB;Palkansaajakorvaukset
 V1CAP;Pääomakorvaukset
 V1LND;Maankäytön korvaukset
 V1PTX;Muut tuotantoverot, netto
-Sum;Tuotos perushintaan
+VA;Arvonlisäys, brutto perushintaan
+P1R;Tuotos perushintaan
