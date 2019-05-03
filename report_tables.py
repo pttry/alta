@@ -66,7 +66,7 @@ reg_supp = ho.regSupplyTables(make_obj, use_obj, tradmar_obj, suppmar_obj, trade
 reg_supp_fi = ho.translate_reg_tables(reg_supp, "reg_supp")
 reg_supp_fi.to_excel(file = outdataFolder + "/supp2014.xlsx")
 
-ho.to_long_table(reg_supp_fi).to_csv(outdataFolder + "/use2014.csv", sep = ";", index = False)
+ho.to_long_table(reg_supp_fi).to_csv(outdataFolder + "/supp2014.csv", sep = ";", index = False)
 
 
 #use Table - total
