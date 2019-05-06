@@ -172,7 +172,9 @@ regLevels = {}
 
 regInfos = {      # Dimensions:
 "R001": "P1R",    # (IND, REG)
-"R002": "P51TOT"} # (IND, REG)
+"R002": "P51TOT", # (IND, REG)
+"R007": "D1K",    # (IND, REG)
+"R008": "B1GPHT"}    # (IND, REG)
 
 
 #%%
@@ -263,6 +265,9 @@ regExports2 ={
 for r in regExports:
     regLevels["R004"][r] = regExports[r]
 
+#%%
+# capital compensation levels fron value added and labour compensation
+regLevels["R009"] = regLevels["R008"]-regLevels["R007"]
 
 #%%
 # Sort dataframes:
@@ -369,19 +374,7 @@ regEmp = regOutput[(regOutput["Transaction"] == "E1_1H") &
                    (regOutput["Sector"] == "S1") &
                    (regOutput["Data"] == "CP")].groupby(["Area"]).sum().reindex(REG)
 
-#%%
 
-# Regional share of labour compenstation
-labCompensation = regionalData["Output and employment by region"][(regionalData["Output and employment by region"]["Transaction"] == "D1K") &                                                 (regionalData["Output and employment by region"]["Sector"] == "S1") &                                                 (regionalData["Output and employment by region"]["Data"] == "CP")]
-
-labCompensation = labCompensation.drop(["Sector", "Data", "Transaction"], axis = 1)
-labCompensation = labCompensation.pivot(index = "Industry", columns = "Area", values = str(baseYear))
-labCompensation = labCompensation[REG]
-
-cfs.check4negs(labCompensation)
-
-rowsum = labCompensation.sum(axis=1)
-labCompenShares = labCompensation.divide(rowsum, axis = "index")
 
 #%% [markdown]
 # ### Output data to HAR format
@@ -397,7 +390,9 @@ regData={
 "REGSHR4": (regShares["R004"], "R004", "Regional export shares", ["COM", "REG"]),
 "REGSHR5": (regShares["R005"], "R005", "Regional government shares", ["COM", "REG"]),
 "REGSHR6": (regShares["R006"], "R006", "Regional inventory shares", ["COM", "REG"]),
-"REGSHR7": (labCompenShares, "R007", "Regional labour compensation shares", ["IND", "REG"]),
+"REGSHR7": (regShares["R007"], "R007", "Regional labour compensation shares", ["IND", "REG"]),
+"REGSHR8": (regShares["R008"], "R008", "Regional gross value added shares", ["IND", "REG"]),
+"REGSHR8": (regShares["R009"], "R009", "Regional capital compensation shares approx", ["IND", "REG"]),
 }
 
 
