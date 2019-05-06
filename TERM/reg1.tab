@@ -73,6 +73,7 @@ Coefficient
 (all,c,COM)(all,d,DST) R004(c,d) # Regional export shares #;
 (all,c,COM)(all,d,DST) R005(c,d) # Regional gov shares #;
 (all,i,IND)(all,d,DST) R007(i,d) # Regional labour compensation shares #; !JLe ************************************!
+(all,i,IND)(all,d,DST) R009(i,d) # Regional labour compensation shares #; !Nau ************************************!
 Read
  R001 from file INFILE header "R001";
  R002 from file INFILE header "R002";
@@ -80,7 +81,7 @@ Read
  R004 from file INFILE header "R004";
  R005 from file INFILE header "R005";
  R007 from file INFILE header "R007"; !JLe ************************************!
-
+ R009 from file INFILE header "R009"; !Nau ************************************!
 Coefficient
 (all,i,IND) INDTOT(i);
 (all,c,COM) COMTOT(c);
@@ -104,6 +105,7 @@ Assertion ! if below not true, program will stop with message !
  # R004 shares add to 1 # (all,c,COM) ABS[1-sum{d,DST,R004(c,d)}] <0.00001;
  # R005 shares add to 1 # (all,c,COM) ABS[1-sum{d,DST,R005(c,d)}] <0.00001;
  # R007 shares add to 1 # (all,i,IND) ABS[1-sum{d,DST,R007(i,d)}] <0.00001; !JLe ************************************!
+
 Coefficient
 !(all,i,IND)(all,d,DST) OUTPUT(i,d) # Provisional output #;
 (all,d,DST) OUTPUT_I(d) # Provisional output by region #;
@@ -219,9 +221,9 @@ Formula
 
 !new:!
 (all,i,IND)(all,d,DST)               FAC(i,"Labour",d)= R007(i,d)*NATFAC(i,"Labour");
-(all,i,IND)(all,d,DST)               FAC(i,"Capital",d)= R002(i,d)*NATFAC(i,"Capital");
-(all,i,IND)(all,d,DST)               FAC(i,"Land",d)= R001(i,d)*NATFAC(i,"Land");
-(all,i,IND)(all,d,DST)               FAC(i,"ProdTax",d)= R001(i,d)*NATFAC(i,"ProdTax");
+(all,i,IND)(all,d,DST)               FAC(i,"Capital",d)= R009(i,d)*NATFAC(i,"Capital");
+(all,i,IND)(all,d,DST)               FAC(i,"Land",d)= R009(i,d)*NATFAC(i,"Land");
+(all,i,IND)(all,d,DST)               FAC(i,"ProdTax",d)= R009(i,d)*NATFAC(i,"ProdTax");
 !-------------------------------------------------------------------------------!
 
 Zerodivide off;

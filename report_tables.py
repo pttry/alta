@@ -80,7 +80,7 @@ ho.to_long_table(reg_use_fi).to_csv(outdataFolder + "/use2014.csv", sep = ";", i
 reg_use_dom = ho.regUseTab_dom(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj, prodtaxes_obj, taxes_obj, make_obj, stocks_obj)
 reg_use_dom_fi = ho.translate_reg_tables(reg_use_dom, "reg_use_dom")
 reg_use_dom_fi.to_excel(file = outdataFolder + "/use_dom2014.xlsx")
-
+reg_use_dom.to_excel(file = outdataFolder + "/use_dom2014_en.xlsx")
 ho.to_long_table(reg_use_dom_fi).to_csv(outdataFolder + "/use_dom2014.csv", sep = ";", index = False)
 
 

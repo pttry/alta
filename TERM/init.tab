@@ -88,7 +88,7 @@ Coefficient
 (all,c,COM)(all,r,REG) R005(c,r) # Regional government shares #;
 (all,c,COM)(all,r,REG) R006(c,r) # Regional inventory shares #;
 (all,i,IND)(all,r,REG) R007(i,r) # Regional labor compensation shares #; !JLe ************************************!
-
+(all,i,IND)(all,r,REG) R009(i,r) # Regional cap. compensation shares #; !Nau ************************************!
 Read
  V1BAS from file INFILE header "1BAS";
  V2BAS from file INFILE header "2BAS";
@@ -132,7 +132,7 @@ Read
  R005 from file INFILE header "R005";
  R006 from file INFILE header "R006";
  R007 from file INFILE header "R007"; !JLe ************************************!
-
+ R009 from file INFILE header "R009"; !Nau ************************************!
 Assertion
 # V1BAS >=0 # (all,c,COM)(all,s,SRC)(all,i,IND) V1BAS(c,s,i) >= 0.0;
 # V2BAS >=0 # (all,c,COM)(all,s,SRC)(all,i,IND) V2BAS(c,s,i) >= 0.0;
@@ -515,6 +515,7 @@ Write
  R005 to file DIAG header "R005";
  R006 to file DIAG header "R006";
  R007 to file DIAG header "R007"; !JLe ************************************!
+ R009 to file DIAG header "R009"; !Nau ************************************!
 Assertion
 # Sum-over-REG R001 = 1 # (all,i,IND) ABS[1-sum{r,REG,R001(i,r)}] <0.001;
 # Sum-over-REG R002 = 1 # (all,i,IND) ABS[1-sum{r,REG,R002(i,r)}] <0.001;
@@ -636,7 +637,7 @@ Write
  R005 to file OUTFILE header "R005" longname "Regional government shares";
 ! R006 to file OUTFILE header "R006" longname "Regional inventory shares";!
  R007 to file OUTFILE header "R007" longname "Regional labour compensation shares"; !JLe ************************************!
-
+ R009 to file OUTFILE header "R009" longname "Regional cap. compensation shares"; !Nau ************************************!
 !********************************************************************!
 ! Create dummy file of supplementary regional data for later editing !
 

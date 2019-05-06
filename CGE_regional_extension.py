@@ -392,7 +392,7 @@ regData={
 "REGSHR6": (regShares["R006"], "R006", "Regional inventory shares", ["COM", "REG"]),
 "REGSHR7": (regShares["R007"], "R007", "Regional labour compensation shares", ["IND", "REG"]),
 "REGSHR8": (regShares["R008"], "R008", "Regional gross value added shares", ["IND", "REG"]),
-"REGSHR8": (regShares["R009"], "R009", "Regional capital compensation shares approx", ["IND", "REG"]),
+"REGSHR9": (regShares["R009"], "R009", "Regional capital compensation shares approx", ["IND", "REG"]),
 }
 
 
