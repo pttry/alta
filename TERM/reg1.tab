@@ -214,7 +214,7 @@ Formula
 
 
 !-------------------------------------------------------------------------------!
-!JLe added 29.4.2019!
+!JLe added 29.4.2019 & this corrected by Nau with R009 intro!
 
 !original:!
 !(all,i,IND)(all,g,FACTOR)(all,d,DST) FAC(i,g,d)= R001(i,d)*NATFAC(i,g);!
