@@ -180,8 +180,8 @@ for i in reg:
                 k=i+"_"+j
                 list.append(k)
         
-Inv_mat_dat=pd.DataFrame(np.matrix(Inv_mat), index=[list], columns=list)
-Inv_mat_C_dat=pd.DataFrame(np.matrix(Inv_mat_C), index=[list], columns=list)
+Inv_mat_dat=pd.DataFrame(np.matrix(Inv_mat), index=list, columns=list)
+Inv_mat_C_dat=pd.DataFrame(np.matrix(Inv_mat_C), index=list, columns=list)
 writer = pd.ExcelWriter(outdataFolder + "/Inv_mat.xlsx", engine='xlsxwriter')
 Inv_mat_dat.to_excel(writer, sheet_name = "Inverse matrix")
 workbook  = writer.book
