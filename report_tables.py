@@ -170,3 +170,34 @@ Inv_mat=pd.DataFrame(np.linalg.inv(np.identity(570, dtype = None)-C_mat*A_mat))
 #Inverse_matrix*C
 #For details, see Chapter 3 in Miller & Blair, 2009, "Input-Output Analysis: Foundations And Extensions", 2nd Edition
 Inv_mat_C=pd.DataFrame(np.linalg.inv(np.identity(570, dtype = None)-C_mat*A_mat)*C_mat)
+
+com=use_obj["sets"][0]["dim_desc"]
+
+list=[]
+
+for i in reg:
+        for j in com:
+                k=i+"_"+j
+                list.append(k)
+        
+Inv_mat_dat=pd.DataFrame(np.matrix(Inv_mat), index=[list], columns=list)
+Inv_mat_C_dat=pd.DataFrame(np.matrix(Inv_mat_C), index=[list], columns=list)
+writer = pd.ExcelWriter(outdataFolder + "/Inv_mat.xlsx", engine='xlsxwriter')
+Inv_mat_dat.to_excel(writer, sheet_name = "Inverse matrix")
+workbook  = writer.book
+worksheet = writer.sheets["Inverse matrix"]
+format = workbook.add_format()
+format.set_align('center')
+format.set_align('vcenter')
+format.set_num_format('0.000')
+format.set_text_wrap()
+worksheet.set_column('A:UZ',21, format)
+Inv_mat_C_dat.to_excel(writer, sheet_name = "Inv_mat_to_C")
+worksheet = writer.sheets["Inv_mat_to_C"]
+format = workbook.add_format()
+format.set_align('center')
+format.set_align('vcenter')
+format.set_num_format('0.000')
+format.set_text_wrap()
+worksheet.set_column('A:UZ',21, format)
+writer.save()
