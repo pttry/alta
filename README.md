@@ -29,3 +29,8 @@ The estimation can be done running `main.py`.
 
 
  See README/dataprocess.txt and workflow.docx for details!
+
+# Terms of Use:
+
+The ALTA data base and the program code used to create it  are open source, but reference should be made to the original report. Reference:
+Honkatukia et al. (2019): ALTA - Regional economic database for Finland. Prime Minister’s Office Publications 41 / 2019.
