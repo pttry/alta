@@ -64,24 +64,24 @@ OCC = [o.strip(' ') for o in OCC]
 
 #%%
 urlDict = {
-"Capital formation":           "kan/vtp/statfin_vtp_pxt_016.px",
-"Consumption and retirement":  "kan/vtp/statfin_vtp_pxt_017.px",
+"Capital formation":           "kan/vtp/statfinpas_vtp_pxt_016_201700.px",
+"Consumption and retirement":  "kan/vtp/statfinpas_vtp_pxt_017_201700.px",
 }
 # 016 -- Gross fixed capital formation 1975-2017
 # 017 -- Gross capital, Net capital, consumption and retirements of fixed capital 1975-2017
 
-dgf.getData(urlDict, filters={"Sektori": ["S1"], "Vara": ["TOT"]})
+dgf.getData(urlDict, filters={"Sektori": ["S1"], "Vara": ["TOT"]}, active=False)
 
 
 #%%
-urlDict2 = {"Employment": "kan/vtp/statfin_vtp_pxt_008.px"}
+urlDict2 = {"Employment": "kan/vtp/statfinpas_vtp_pxt_008_201700.px"}
 # 008 -- Employment and hours worked 1975-2017
 
 dgf.getData(urlDict2, filters={"Sektori": ["S1"]})
 
 
 #%%
-urlDict3 = {"Production accounts": "kan/vtp/statfin_vtp_pxt_007.px"}
+urlDict3 = {"Production accounts": "kan/vtp/statfinpas_vtp_pxt_007_201700.px"}
 # 007 -- Production and generation of income accounts 1975-2017
 
 dgf.getData(urlDict3, filters = {"Sektori": ["S1"], "Taloustoimi": ["B2NT", "B3NT", "P51CK"]})
@@ -251,37 +251,46 @@ for data in [key for key in nataccData.keys() if key != "Employment"]:
 
 #%%
 urlDict = {
-"Taxes": "jul/vermak/statfin_vermak_pxt_002.px"}
+"Taxes": "jul/vermak/statfin_vermak_pxt_127f.px"}
 
-dgf.getData(urlDict)
+dgf.getData(urlDict, filters = {"Tiedot": ["cp"]}, active=True)
 
 
 #%%
 # Read in data:
-taxData = {k: pd.read_csv(rawFolder+"/"+str(k)+"_Rawdata.csv",encoding="utf-8",na_values =".") for k in urlDict.keys()} 
+taxData = {k: pd.read_csv(rawFolder+"/"+str(k)+"_Rawdata.csv",encoding="latin1",na_values =".") for k in urlDict.keys()} 
 
 # And clean data:
 for i in taxData:
     taxData[i].fillna(0, inplace = True)
         
     # Shorten the names of following variable values:
-    if "Data" in taxData[i].columns:
-        taxData[i].replace({"Current prices": "CP", 
-                            "Ratio to GDP, %": "GDPratio",
-                            "Share of the sectors' total taxes, %": "ShrOfSectorTotal",
-                            "Per capita, EUR": "eurPerCap"}, inplace = True)
+   # if "Data" in taxData[i].columns:
+   #     taxData[i].replace({"Current prices": "CP", 
+   #                         "Ratio to GDP, %": "GDPratio",
+   #                         "Share of the sectors' total taxes, %": "ShrOfSectorTotal",
+   #                         "Per capita, EUR": "eurPerCap"}, inplace = True)
     
+    #if "Data" in taxData[i].columns:
+    #    taxData[i].replace({"Current prices": "CP"}, inplace = True)
+
     # Rename government sectors: "S1311 Central government" becomes "S1311" etc.
     for col in taxData[i]:
         if col == "Sector":
             taxData[i][col] = taxData[i][col].apply(lambda x: x.split(" ")[0])          
 
-
 #%%
 # Last, we only need the current price data, so drop everything else:
 govTaxlike = taxData["Taxes"].copy()
-govTaxlike = govTaxlike[govTaxlike["Data"] == "CP"].reset_index(drop = True)
+#govTaxlike = govTaxlike[govTaxlike["Data"] == "CP"].reset_index(drop = True)
 
+#Rename columns
+#Example: From '2018 Current prices, millions of euro' TO '2018'
+for i in range(2,len(govTaxlike.keys()),1):
+    n=govTaxlike.keys()[i][0:4]
+    govTaxlike.rename(columns={govTaxlike.keys()[i]:n}, inplace=True)
+
+   
 #%% [markdown]
 # ### Compile needed sources from different data tables:
 # (datacheck.tab in the old database process, VATT-mallien-seloste.docx)
@@ -515,7 +524,7 @@ fixData["RQK"] = 100 * ((fixData["OSCP"] - capData["DCP"]) / capData["NCP"])
 
 #%%
 # Then, query consumer price index (CPI) data from Statistics Finland:
-urlDict = {"CPI": "/hin/khi/statfin_khi_pxt_006.px"}
+urlDict = {"CPI": "/hin/khi/statfinpas_khi_pxt_006_201904.px"}
 # 006 -- Consumer Price Indices, overall index
 dgf.getData(urlDict)
 
@@ -578,8 +587,9 @@ fixData["INT"].index = fixData["INT"].index.map(int)
 # toimintaylijäämän arvolla koko kansantalouden tasolla. 
 
 # First, filter out the current-priced duty on interests for the whole economy:
-fixData["TAXK"] = govTaxlike[(govTaxlike["Tax category"] == "-1000 Duty on interests") &                             (govTaxlike["Sector"] == "S13") &                             (govTaxlike["Data"] == "CP")].copy()
-
+#fixData["TAXK"] = govTaxlike[(govTaxlike["Tax category"] == "-1000 Duty on interests") & (govTaxlike["Sector"] == "S13") & (govTaxlike["Data"] == "CP")].copy()
+#fixData["TAXK"] = govTaxlike[(govTaxlike["Tax category"] == "-1000 Duty on interests") & (govTaxlike["Sector"] == "S13")].copy()
+fixData["TAXK"] = govTaxlike[(govTaxlike["Tax category"] == "110001 Duty on interests") & (govTaxlike["Sector"] == "S13")].copy()
 # Transpose data to suitable form and rename the column:
 fixData["TAXK"] = fixData["TAXK"][[year for year in year_tr]].transpose().rename_axis('Year', axis=1)
 fixData["TAXK"].rename(columns={fixData["TAXK"].columns[0]: "TAX_CAP" }, inplace = True)
@@ -630,7 +640,7 @@ empData = {}
 urlDict = {
 "Labour force survey": "tym/tyti/vv/statfin_tyti_pxt_11pn.px"}
 
-dgf.getData(urlDict)
+dgf.getData(urlDict, active=True)
 
 
 #%%

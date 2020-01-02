@@ -47,16 +47,16 @@ hwf.aggHAR(harFolder, "basedata64.har", "basedata30.har", "AGGSUP.har")
 #%%
 # Define regional data location:
 urlDict = {
-"Output and employment by region":    "kan/altp/statfin_altp_pxt_008.px",
-"Households' transactions by region": "kan/altp/statfin_altp_pxt_016.px"}
+"Output and employment by region":    "kan/altp/statfinpas_altp_pxt_008_201600.px",
+"Households' transactions by region": "kan/altp/statfinpas_altp_pxt_016_201600.px"}
 
 # Get data:
-dgf.getData(urlDict, baseYear = baseYear)
+dgf.getData(urlDict, baseYear = baseYear, active=False)
 
 
 #%%
 # Check the available regions from regional accounts:
-print([x["valueTexts"] for x in dgf.getParams("kan/altp/statfin_altp_pxt_008.px", "kunnat") if x["code"] == "Alue"][0])
+print([x["valueTexts"] for x in dgf.getParams("kan/altp/statfinpas_altp_pxt_008_201600.px", "kunnat") if x["code"] == "Alue"][0])
 
 
 #%%

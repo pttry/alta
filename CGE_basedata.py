@@ -87,10 +87,10 @@ if not flag:
 
 #%%
 urlDict = {
-"Supply table at basic prices":          "kan/pt/statfin_pt_pxt_001.px",
-"Use table at basic prices":             "kan/pt/statfin_pt_pxt_002.px",
-"Use table at purchasers prices":        "kan/pt/statfin_pt_pxt_003.px",
-"Imports use table at basic prices":     "kan/pt/statfin_pt_pxt_005.px",
+"Supply table at basic prices":          "kan/pt/statfinpas_pt_pxt_001_201500.px",
+"Use table at basic prices":             "kan/pt/statfinpas_pt_pxt_002_201500.px",
+"Use table at purchasers prices":        "kan/pt/statfinpas_pt_pxt_003_201500.px",
+"Imports use table at basic prices":     "kan/pt/statfinpas_pt_pxt_005_201500.px",
 }
 
 
@@ -856,7 +856,7 @@ for i in IND:
 
 #%%
 # Query the data on gross fixed capital formation:
-urlDict = {"Gross fixed capital": "kan/vtp/statfin_vtp_pxt_016.px"}
+urlDict = {"Gross fixed capital": "kan/vtp/statfinpas_vtp_pxt_016_201700.px"}
 dgf.getData(urlDict, baseYear = baseYear, filters= {"Tiedot": ["CP"]})
 
 
@@ -1202,7 +1202,7 @@ V4PUR    = VPUR_S["V4PUR"]["P6K"]
 
 #%%
 # Query for regional industy classification: (StatFin: Output and employment by region)
-regIndRaw = [x["values"] for x in dgf.getParams("kan/altp/statfin_altp_pxt_008.px", "names") if x["code"] == "Toimiala"][0]
+regIndRaw = [x["values"] for x in dgf.getParams("kan/altp/statfinpas_altp_pxt_008_201600.px", "names") if x["code"] == "Toimiala"][0]
 # ['0', '01', '02_03', '05_09', '10_12', '13_15', '16', '17_18', '19_22', '23', '24_25', '26_27', 
 # '28', '29_30', '31_33', '35_39', '41_43', '45_47', '49_53', '55_56', '58_63', '64_66', '681+68209+683', 
 # '68201_68202', '69_75', '77_82', '84', '85', '86_88', '90_96', '97_98']

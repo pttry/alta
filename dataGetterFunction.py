@@ -9,7 +9,9 @@ import pandas as pd
 import json
 import ast
 import os
-apiRoot = "http://pxnet2.stat.fi/PXWeb/api/v1/en/StatFin/"
+
+apiRoot = "http://pxnet2.stat.fi/PXWeb/api/v1/en/StatFin_Passiivi/"
+apiRoot_act = "http://pxnet2.stat.fi/PXWeb/api/v1/en/StatFin/"
 
 def searchStatfin(phrase, base_url = apiRoot, language = "en"):
     """
@@ -28,13 +30,15 @@ def searchStatfin(phrase, base_url = apiRoot, language = "en"):
     Output: dataframe with the location url for each match.
        
     """
+    
     if language != "en":
         if language == "fi":
-            base_url = "http://pxnet2.stat.fi/PXWeb/api/v1/fi/StatFin/"
+            base_url = "http://pxnet2.stat.fi/PXWeb/api/v1/fi/StatFin_Passiivi/"
         elif language == "sv":
-            base_url = "http://pxnet2.stat.fi/PXWeb/api/v1/sv/StatFin/"
+            base_url = "http://pxnet2.stat.fi/PXWeb/api/v1/sv/StatFin_Passiivi/"
         else:
             raise ValueError("Language must be set either to 'en', 'fi' or 'sv'")
+
     if type(phrase) is not str:
         raise ValueError("Search phrase must be in string format!")
             
@@ -62,16 +66,19 @@ def searchStatfin(phrase, base_url = apiRoot, language = "en"):
     return dfOut
 
 
-def parseUrl(dataId, baseUrl=apiRoot):
+def parseUrl(dataId, baseUrl=apiRoot, baseUrl2=apiRoot_act, active=False):
     """
     Combine the StatFin API root address and data table ID to a functioning URL address.
     apiRoot is a http://... address
     dataId is a StatFin .px table location
     """
+    if active: 
+        baseUrl=baseUrl2
+    
     fullUrl = baseUrl + dataId
     return fullUrl
 
-def getParams(dataId, dataName, baseYear = None, filters = None, search = False):
+def getParams(dataId, dataName, baseYear = None, filters = None, search = False, active=False):
     """
     Gets the available variables for the given data table.
     By default, this function gets all available variables for a given baseYear.
@@ -99,7 +106,7 @@ def getParams(dataId, dataName, baseYear = None, filters = None, search = False)
         if not all(type(value)==list for value in filters.values()):
             raise ValueError("All filter values must be stored inside a list! {'Filtered variable': [list of filters]}")
         
-    fullUrl = parseUrl(dataId)
+    fullUrl = parseUrl(dataId, active=active)
     allParams = pd.read_json(fullUrl)
     paramsList = [entry for entry in allParams.iloc[:,1]]
     varList = [var["code"] for var in paramsList]
@@ -135,9 +142,9 @@ def getParams(dataId, dataName, baseYear = None, filters = None, search = False)
                         z["values"] = filterVals
     return paramsList
 
-def parseQuery(dataId, dataName, baseYear = None, filters = None, search = False):
+def parseQuery(dataId, dataName, baseYear = None, filters = None, search = False, active=False):
     """Parses available parameters into a functioning API query."""
-    params = getParams(dataId, dataName, baseYear, filters, search)
+    params = getParams(dataId, dataName, baseYear, filters, search, active=active)
     nparams = len(params)
     params_list = list(range(nparams))
     query_element = {}
@@ -159,7 +166,7 @@ def parseQuery(dataId, dataName, baseYear = None, filters = None, search = False
     return query
 
 
-def getData(dataDict, baseYear = None, filters =None, search = False, outputfolder = "rawdata"):
+def getData(dataDict, baseYear = None, filters =None, search = False, outputfolder = "rawdata", active = False):
     """Perform the actual data query. Input must be a dictionary where keys are 
     (user-specifiable) names and values are StatFin table ids. Note that if 
     baseYear is not specified, all data is queried, which might cause API 
@@ -168,15 +175,15 @@ def getData(dataDict, baseYear = None, filters =None, search = False, outputfold
         
         dataId = dataDict[i]
         dataName = i
-        url = parseUrl(dataId)
-        queryParams = parseQuery(dataId, dataName, baseYear, filters, search)
+        url = parseUrl(dataId, active=active)
+        queryParams = parseQuery(dataId, dataName, baseYear, filters, search, active=active)
         r = requests.post(url, data= queryParams)
         # 403 Client Error
         if r.status_code == 403:
             dataLoc = None
             try: # Try to debug on the fly
                 splitUrl = dataId.split("/")
-                dataLoc = "http://pxnet2.stat.fi/PXWeb/pxweb/en/StatFin/StatFin__"+splitUrl[0]+"__"+splitUrl[1]+"/"+splitUrl[2]
+                dataLoc = "http://pxnet2.stat.fi/PXWeb/pxweb/en/StatFin__"+splitUrl[0]+"__"+splitUrl[1]+"/"+splitUrl[2]
             except:
                 pass
             

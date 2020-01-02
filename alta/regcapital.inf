@@ -1,0 +1,1292 @@
+
+    TTTTTTTTTT  AAAAAAAAAA   BBBBBBB      LLLL        OOOOOOOOOO
+    TTTTTTTTTT  AAA    AAA   BBBBBBBBB    LLLL        OOOOOOOOOO
+       TTT      AAA    AAA   BBB    BBB   LLLL        OOO    OOO
+       TTT      AAA    AAA   BBB  BBB     LLLL        OOO    OOO
+       TTT      AAAAAAAAAA   BBBBBBB      LLLL        OOO    OOO
+       TTT      AAAAAAAAAA   BBB  BBB     LLLL        OOO    OOO
+       TTT      AAA    AAA   BBB    BBB   LLLL        OOO    OOO
+       TTT      AAA    AAA   BBBBBBBBB    LLLLLLLLL   OOOOOOOOOO
+       TTT      AAA    AAA   BBBBBBB      LLLLLLLLL   OOOOOOOOOO
+
+ <TABLO  Version 7.0   August 2018>                                    
+
+
+
+
+
+                     GEMPACK SOFTWARE
+     << COPYRIGHT 1987-2018:  The Impact Project and KPSOFT >>
+   
+   
+
+    +++  INFORMATION ABOUT THIS PRINT FILE  +++
+   
+
+ ! This file was created at 10:49:00 on 09-APR-2019 by the program
+ !  <TABLO  Version 7.0   August 2018>
+ ! which accesses some of the routines in the GEMPACK software release
+ !  <GEMPACK Release 12.0.004   March 2019>
+ 
+ !     -------------------------------------------------------                
+ !    !            GEMPACK Software System Licence            !               
+ !    !  Source Code Licence for the GEMPACK Software System  !               
+ !    !                 Licence No.  GFM-1650                 !               
+ !    !          Licence for Release 12.0 of GEMPACK          !               
+ !    !              Pellervo Economic Research               !               
+ !    !    (Your GEMPACK licence expires on 31-MAY-2020.)     !               
+ !     -------------------------------------------------------                
+    
+
+    +++  END OF INFORMATION ABOUT THIS PRINT FILE  +++
+
+ ======================================================
+           TABLO PORTABLE   
+ ++> TABLO OPTIONS   ( --> indicates those in effect )
+ ======================================================
+
+
+
+      -----------                   ----------
+  --> F1 CHECK                      L1 CHECK
+      F2 CONDENSATION               L2 CONDENSATION
+      F3 CODE GENERATION        --> L3 CODE GENERATION
+      Mode
+      ----
+      INTERACTIVE
+      BATCH
+  --> UNSPECIFIED
+
+
+ ==================================================
+ ++> TABLO Input file is 'regcapital.tab'
+ ++> This Information file is 'regcapital'
+ ==================================================
+
+
+
+ ******************************************************************************
+ -1-
+ -->                     Starting CHECK stage
+
+ ******************************************************************************
+
+
+      1   !****************************************************************************!
+      2   !*      reg_capital.TAB                                                     *!
+      3   !* - Program creates regional dimensions for used extrafiles in VERM        *!
+      4   !* - Before use of this data, you must run national database for whole      *!
+      5   !*   country and regional IO-gore and government accounts.                  *!
+      6   !****************************************************************************!
+      7    
+      8   !****************************************************************************!
+      9   !* 1. DEFINE USED FILES AND SETS                                            *!
+     10   !****************************************************************************!
+     11    
+     12   File VERMDATA   # VERM-data from IO-core #;
+     13   File VERMSETS   # Sets from VERM #;
+     14   File GOVACCDATA # Public data from regional Government accounts #;
+     15   File NATEXTRA   # National extradata #;
+     16   File EXTRA2  ;
+     17   File REGEMPL    # Regional employment data (year 2008) #;
+     18   File (new) V1CHECK   # VERM-datan tarkistus#;
+     19   File (new) REGROREXTRA   # Regional extradata #;
+     20   File (new) EXTOUT    # Regional extradata #;
+     21   File (new) EXTOUT_L    # Regional extradata #;
+     22   !File (new) GOVOUT    # Regional govaccdata #;!
+     23   File (new) REGSETS # Sets file #;
+     24    
+     25   Set COM # Commodities # read elements from file VERMDATA header "COM ";
+     26   Set IND # Industries # read elements from file VERMDATA header "IND ";
+     27   Set DST # Regions of use # read elements from file VERMSETS header "REGD";
+     28   Set SRC # Description # (dom, imp);
+     29   Set USR # Users # read elements from file VERMSETS header "AUSR";
+     30   Set ORG # Regions of origin # read elements from file VERMDATA header "REGS";
+     31   Set MAR # Margin coms # read elements from file VERMDATA header "MAR ";
+     32   Set PRD # Regions of production #
+     33       read elements from file VERMDATA header "REGP";
+     34   Set OCC # Skills # read elements from file VERMDATA header "OCC";
+     35   Set (intertemporal) TIME # TIME set for REGROREXT.HAR # (Y_2001-Y_2050);
+     36    
+     37   !Set YEAR read elements from file GOVACCDATA header "YEAR";!
+     38    
+     39   !****************************************************************************!
+     40   !* 2a. READ VERM DATA                                                       *!
+     41   !****************************************************************************!
+     42    
+     43   Coefficient
+     44       (all,c,COM)(all,i,IND)(all,d,DST)
+     45           MAKE(c,i,d) # MAKE matrix #;
+     46       (all,c,COM)(all,s,SRC)(all,u,USR)(all,d,DST)
+     47           USE(c,s,u,d) # Basic + margin flows #;
+     48       (all,c,COM)(all,s,SRC)(all,u,USR)(all,d,DST)
+     49           TAXES(c,s,u,d) # TAXES(COM:SRC:USR:DST) #;
+     50       (all,c,COM)(all,s,SRC)(all,o,ORG)(all,d,DST)
+     51           TRADE(c,s,o,d) # Sourcing matrix #;
+     52       (all,m,MAR)(all,o,ORG)(all,d,DST)(all,p,PRD)
+     53           SUPPMAR(m,o,d,p)
+     54           # Margins supplied by PRD on goods passing from ORG to DST #;
+     55       (all,c,COM)(all,s,SRC)(all,m,MAR)(all,o,ORG)(all,d,DST)
+     56           TRADMAR(c,s,m,o,d) # Margins on trade matrix #;
+     57       (all,c,COM)(all,i,IND)(all,d,DST)
+     58           INVEST(c,i,d) # Investment at purchasers prices #;
+     59       (all,i,IND)(all,d,DST)
+     60           STOCKS(i,d) # Domestic inventories #;
+     61       (all,i,IND)(all,o,OCC)(all,d,DST)
+     62           V1LAB(i,o,d)# Wage matrix #;
+     63       (all,i,IND)(all,d,DST)
+     64           V1CAP(i,d) # Rentals to capital #;
+     65       (all,i,IND)(all,d,DST)
+     66           V1LND(i,d) # Rentals to land #;
+     67       (all,i,IND)(all,d,DST)
+     68           V1PTX(i,d) # Taxes on production #;
+     69       (all,i,IND)
+     70           SIGMA1LAB(i) # Labour Sigma #;
+     71       (all,i,IND)
+     72           SIGMA1PRIM(i) # Primary Factor Sigma #;
+     73       (all,i,IND)
+     74           SIGMAFUELS(i) # Fuels Sigma #;
+     75       (all,i,IND)
+     76           SIGMAGREEN(i) # Energy Nest Sigma #;
+     77       (all,c,COM)
+     78           ARMSIGMA(c) # Intermediate Armington #;
+     79       (all,c,COM)
+     80           SIGMADOMDOM(c) # Between-region Armington #;
+     81       (all,m,MAR)
+     82           SIGMAMAR(m)
+     83           # Elasticity of substitution between regions of margin production #;
+     84       (all,d,DST)
+     85           POP(d) # Regional population #;
+     86       (all,d,DST)
+     87           FRISCH(d) # Frisch LES parameter= total/luxury) #;
+     88       (all,c,COM)(all,d,DST)
+     89           EPS(c,d) # Expenditure elasticities #;
+     90       (all,i,IND)
+     91           SIGMAOUT(i) # Output Sigma #;
+     92       (all,c,COM)
+     93           EXP_ELAST(c) # Individual Export Elasticities #;
+     94           ALPHA1 # Wage equation parameter 1 #;
+     95           ALPHA2 # Wage equation parameter 2 #;
+     96    
+     97   Read
+     98    MAKE           from file VERMDATA header "MAKE";
+     99    USE            from file VERMDATA header "BSMR";
+    100    TAXES          from file VERMDATA header "UTAX";
+    101    TRADE          from file VERMDATA header "TRAD";
+    102    SUPPMAR        from file VERMDATA header "MARS";
+    103    TRADMAR        from file VERMDATA header "TMAR";
+    104    INVEST         from file VERMDATA header "2PUR";
+    105    STOCKS         from file VERMDATA header "STOK";
+    106    V1LAB          from file VERMDATA header "1LAB";
+    107    V1CAP          from file VERMDATA header "1CAP";
+    108    V1LND          from file VERMDATA header "1LND";
+    109    V1PTX          from file VERMDATA header "1PTX";
+    110    SIGMA1LAB      from file VERMDATA header "SLAB";
+    111    SIGMA1PRIM     from file VERMDATA header "P028";
+    112    ARMSIGMA       from file VERMDATA header "P015";
+    113    SIGMADOMDOM    from file VERMDATA header "SGDD";
+    114    SIGMAMAR       from file VERMDATA header "SMAR";
+    115    POP            from file VERMDATA header "PO01";
+    116    FRISCH         from file VERMDATA header "P021";
+    117    EPS            from file VERMDATA header "XPEL";
+    118    SIGMAOUT       from file VERMDATA header "SCET";
+    119    EXP_ELAST      from file VERMDATA header "P018";
+    120    
+    121   Formula
+    122       (all,i,IND)
+    123           SIGMAFUELS(i) = 0.5;
+    124       (all,i,IND)
+    125           SIGMAGREEN(i) = 0.25;
+    126           ALPHA1 = .4;
+    127           ALPHA2 = 0;
+    128    
+    129   !Adjust VERM DATA!
+    130    
+    131   !Set NOCAP (I_05,I_061,I_062);
+    132   Subset NOCAP is subset of IND;
+    133    
+    134   Formula (all,i,nocap)(ALL,d,DST) V1CAP(i,D) =  0;
+    135   Formula (all,i,nocap)(ALL,O,occ)(ALL,d,DST) V1LAB(i,o,D) =  0;!
+    136   ![[!
+    137   Coefficient
+    138       (all,i,IND) V1CAPSUM(i);
+    139       (all,i,IND) V1LABSUM(i);
+    140       (all,i,IND)(all,d,DST) RGSHRV1CAP(i,d);
+    141       (all,i,IND)(all,o,OCC)(all,d,DST) RGSHRV1LAB(i,o,d);
+    142    
+    143   Formula
+    144       (all,i,IND)
+    145           V1CAPSUM(i) = sum{d,DST, V1CAP(i,d)};
+    146       (all,i,IND)
+    147           V1LABSUM(i) = sum{d,DST, sum{o,OCC, V1LAB(i,o,d)}};
+    148    
+    149       (all,i,IND)(all,d,DST)
+    150           RGSHRV1CAP(i,d) = V1CAP(i,d)/V1CAPSUM(i);
+    151       (all,i,IND)(all,o,OCC)(all,d,DST)
+    152           RGSHRV1LAB(i,o,d) = V1LAB(i,o,d)/V1LABSUM(i);
+    153       (all,i,IND)(all,d,DST)
+    154           V1CAP(i,d) = V1CAP(i,d) + rgshrV1CAP(i,d)!*CORRV1CAP(i)!;
+    155       (all,i,IND)(all,o,OCC)(all,d,DST)
+    156           V1LAB(i,o,d) = V1LAB(i,o,d) + rgshrV1LAB(i,o,d)!*CORRV1LAB(i)! ;
+    157   !]]!
+    158    
+    159   Write
+    160   V1CAP       to file V1CHECK header "1CAP";
+    161   V1LAB       to file V1CHECK header "1LAB";
+    162   V1LND       to file V1CHECK header "1LND";
+    163   TAXES       to file V1CHECK header "UTAX";
+    164   MAKE        to file V1CHECK header "MAKE";
+    165   USE         to file V1CHECK header "BSMR";
+    166   TRADE       to file V1CHECK header "TRAD";
+    167   SUPPMAR     to file V1CHECK header "MARS";
+    168   TRADMAR     to file V1CHECK header "TMAR";
+    169   INVEST      to file V1CHECK header "2PUR";
+    170   STOCKS      to file V1CHECK header "STOK";
+    171   V1PTX       to file V1CHECK header "1PTX";
+    172   SIGMA1LAB   to file V1CHECK header "SLAB";
+    173   SIGMA1PRIM  to file V1CHECK header "P028";
+    174   ARMSIGMA    to file V1CHECK header "P015";
+    175   SIGMADOMDOM to file V1CHECK header "SGDD";
+    176   SIGMAMAR    to file V1CHECK header "SMAR";
+    177   POP         to file V1CHECK header "PO01";
+    178   FRISCH      to file V1CHECK header "P021";
+    179   EPS         to file V1CHECK header "XPEL";
+    180   SIGMAOUT    to file V1CHECK header "SCET";
+    181   EXP_ELAST   to file V1CHECK header "P018";
+    182   SIGMAFUELS  to file V1CHECK header "SIFU";
+    183   SIGMAGREEN  to file V1CHECK header "SIGR";
+    184   ALPHA1      to file V1CHECK header "ALF1";
+    185   ALPHA2      to file V1CHECK header "ALF2";
+    186    
+    187   (Set) COM to file REGSETS header "COM ";
+    188   (Set) IND to file REGSETS header "IND ";
+    189   (Set) DST to file REGSETS header "REGD";
+    190   (Set) SRC to file REGSETS header "SRC";
+    191   (Set) USR to file REGSETS header "AUSR";
+    192   (Set) ORG to file REGSETS header "REGS";
+    193   (Set) MAR to file V1CHECK header "MAR ";
+    194   (Set) PRD to file REGSETS header "REGP";
+    195   (Set) OCC to file REGSETS header "OCC ";
+    196    
+    197    
+    198   !****************************************************************************!
+    199   !* 2c. READ NATIONAL EXTRADATA                                              *!
+    200   !****************************************************************************!
+    201    
+    202   !Set IND read elements from file NATEXTRA header "IND";!
+    203    
+    204   Coefficient
+    205       (all,i,IND)
+    206           VCAP_AT_T_R(i)
+    207           # Start of year capital stocks valued at start of yr prices RU #;
+    208       (all,i,IND)
+    209           TREND0005_R(i) # Trend by industries 99-05 #;
+    210       (all,i,IND)
+    211           DEPNEW_R(i) # Depresiation rate #;
+    212       (all,i,IND)
+    213           RORNNEW_R(i) # Normal rate of return #;
+    214       (all,i,IND)
+    215           SMURF_R(i) # Slopes of cap. supply curves at K_GR=TREND_K #;
+    216    
+    217   Read
+    218    VCAP_AT_T_R    from file NATEXTRA header "VCAP";
+    219    TREND0005_R    from file NATEXTRA header "TRNK";
+    220    DEPNEW_R       from file NATEXTRA header "DEPR";
+    221    RORNNEW_R      from file NATEXTRA header "RORN";
+    222    SMURF_R        from file NATEXTRA header "SMRF";
+    223    
+    224   !****************************************************************************!
+    225   !* 2c. READ NATIONAL EXTRA-FILE (OLD DATA)                                  *!
+    226   !****************************************************************************!
+    227    
+    228   Coefficient
+    229           ADJPROP;
+    230       (all,i,IND)
+    231           ADJ_RE(i);
+    232       (all,i,IND)
+    233           ADJ_COEFF(i) # Adjustment coefficient by reg #;
+    234           DIFF # Maximum difference from trend rate growth #;
+    235           EMPLOY # Aggregate employment 1 in initial solution year t #;
+    236           EMP_ADJ # Direct adjustment parameter for employment #;
+    237           DUM_YEAR1 # Dummy for first year #;
+    238           DUMMY_DEC;
+    239           F_EEQROR # Sfalar shifter for equilibrium expected rate of return #;
+    240       (all,i,IND)
+    241           F_EEQROR_I(i)
+    242           # Vector shifter for equilibrium expected rate of return #;
+    243           LAB_SUPN;
+    244           LEV_CPI;
+    245           LEV_CPI_L;
+    246           LEV_CPI_2L;
+    247           LEV_PLAB;
+    248           LEV_PLAB_L;
+    249           NINT;
+    250           RINT;
+    251           RINT_L;
+    252       (all,i,IND)
+    253           PCAP_I(i);
+    254       (all,i,IND)
+    255           PCAP_I_B(i);
+    256       (all,i,IND)
+    257           PCAP_I_L(i);
+    258       (all,i,IND)
+    259           PCAP_AT_T (i);
+    260       (all,i,IND)
+    261           PCAP_AT_T1 (i);
+    262           RALPH;
+    263           RWAGE;
+    264           TAX_L_R_PD;
+    265       (all,d,DST)
+    266           SHRASS_H(d);
+    267    
+    268   Formula
+    269           ADJPROP = 0;
+    270           DUMMY_DEC = 0;
+    271    
+    272   Read ADJ_COEFF  from file NATEXTRA      header "ADJC";
+    273   Read ADJ_RE     from file NATEXTRA      header "ADRE";
+    274   Read DIFF       from file NATEXTRA      header "DIFF";
+    275   Read DUM_YEAR1  from file NATEXTRA      header "0045";
+    276   Read EMPLOY     from file NATEXTRA      header "EMPL";
+    277   Read EMP_ADJ    from file NATEXTRA      header "EADJ";
+    278   Read F_EEQROR   from file NATEXTRA      header "FCSE";
+    279   Read F_EEQROR_I from file NATEXTRA      header "FSTA";
+    280   Read LAB_SUPN   from file NATEXTRA      header "LSUP";
+    281   Read LEV_CPI    from file NATEXTRA      header "LCPI";
+    282   Read LEV_CPI_L  from file NATEXTRA      header "CPIL";
+    283   Read LEV_CPI_2L from file NATEXTRA      header "LCP2";
+    284   Read LEV_PLAB   from file NATEXTRA      header "PLAB";
+    285   Read LEV_PLAB_L from file NATEXTRA      header "PLAL";
+    286   Read NINT       from file GOVACCDATA    header "GNIT";
+    287   Read RINT       from file NATEXTRA      header "RINT";
+    288   Read RINT_L     from file NATEXTRA      header "RNTL";
+    289   Read PCAP_I     from file NATEXTRA      header "PCAI";
+    290   Read PCAP_I_B   from file NATEXTRA      header "PCAB";
+    291   Read PCAP_I_L   from file NATEXTRA      header "PCAL";
+    292   Read PCAP_AT_T  from file NATEXTRA      header "PCAP";
+    293   Read PCAP_AT_T1 from file NATEXTRA      header "PCAT";
+    294   Read RALPH      from file NATEXTRA      header "RLPH";
+    295   Read RWAGE      from file NATEXTRA      header "RWAG";
+    296   Read TAX_L_R_PD from file EXTRA2        header "TLRT";
+    297    
+    298   Coefficient
+    299       (all,r,DST)(all,i,IND)
+    300           ADJ_COEFF_R(r,i) # Adjustment coefficient by reg and ind #;
+    301       (all,d,DST)(all,i,IND)
+    302           ADJ_E(d,i);
+    303       (all,d,DST)
+    304           DIFF_R(d) # Maximum difference from trend rate of growth by reg #;
+    305       (all,d,DST)
+    306           EMPLOY_R(d)
+    307           # Aggregated employment by reg (1 in initial solution year) #;
+    308       (all,d,DST)
+    309           F_EEQROR_R(d)
+    310           # Scalar shifter for equilibrium expected rate of return #;
+    311       (all,d,DST)(all,i,IND)
+    312           F_EEQROR_IR(d,i)
+    313           # Vector sifter for equilibrium expected rate of return #;
+    314       (all,d,DST)(all,i,IND)(all,t,TIME)
+    315           EROR_G(d,i,t)
+    316           # Matrix for transfer of info on expected rors between iterations #;
+    317       (all,d,DST)
+    318           LAB_SUPN_R(d) # Regional labour supply for year t #;
+    319       (all,d,DST)(all,i,IND)
+    320           PCAP_IR(d,i) # Asset price of capital stocks, base, t-1 #;
+    321       (all,d,DST)(all,i,IND)
+    322           PCAP_IR_B(d,i) # Asset price of capital stocks, init sol, t-1 #;
+    323       (all,d,DST)(all,i,IND)
+    324           PCAP_IR_L(d,i) # Asset price of capital stocks, start of forecast #;
+    325       (all,d,DST)(all,i,IND)
+    326           PCAP_ATR_T (d,i) # Asset price of capital stocks, t #;
+    327       (all,d,DST)(all,i,IND)
+    328           PCAP_ATR_T1 (d,i) # Asset price of capital stocks, t-1 #;
+    329       (all,d,DST)
+    330           RWAGE_R(d) # Real wage, initial solution for t=1 #;
+    331       (all,t,TIME)
+    332           TYME(t);
+    333    
+    334   Read EMPLOY_R from file REGEMPL header "EMPR";
+    335    
+    336   Formula
+    337       (all,r,DST)(all,i,IND)
+    338           ADJ_COEFF_R(r,i) = ADJ_COEFF(i);
+    339       (all,d,DST)(all,i,IND)
+    340           ADJ_E(d,i) = ADJ_RE(i);
+    341       (all,d,DST)
+    342           DIFF_R(d) = DIFF;
+    343           EMPLOY = sum{r,DST, EMPLOY_R(r)};
+    344       (all,d,DST)
+    345           F_EEQROR_R(d) = F_EEQROR;
+    346       (all,d,DST)(all,i,IND)
+    347           F_EEQROR_IR(d,i) = F_EEQROR_I(i);
+    348       (all,d,DST)(all,i,IND)(all,t,TIME)
+    349           EROR_G(d,i,t) = F_EEQROR_IR(d,i);
+    350       (all,d,DST)
+    351           LAB_SUPN_R(d) = LAB_SUPN;
+    352       (all,d,DST)(all,i,IND)
+    353           PCAP_IR(d,i) = PCAP_I(i);
+    354       (all,d,DST)(all,i,IND)
+    355           PCAP_IR_B(d,i) = PCAP_I_B(i);
+    356       (all,d,DST)(all,i,IND)
+    357           PCAP_IR_L(d,i) = PCAP_I_L(i);
+    358       (all,d,DST)(all,i,IND)
+    359           PCAP_ATR_T(d,i) = PCAP_AT_T (i);
+    360       (all,d,DST)(all,i,IND)
+    361           PCAP_ATR_T1(d,i) = PCAP_AT_T1 (i);
+    362       (all,d,DST)
+    363           RWAGE_R(d) = RWAGE;
+    364       (all,t,TIME)
+    365           TYME(t) = $pos(t,TIME);
+    366    
+    367    
+    368   !****************************************************************************!
+    369   !* 3. ALL FORMULAS FOR REGIONAL DIMENSIONS                                  *!
+    370   !****************************************************************************!
+    371    
+    372   Coefficient
+    373       (all,d,DST)(all,i,IND)
+    374           VCAP_AT_T(d,i)
+    375           # Start of year capital stocks valued at start of yr prices RU #;
+    376       (all,d,DST)(all,i,IND)
+    377           TREND0005(d,i) # Trend by ind and reg 99-05 #;
+    378       (all,d,DST)(all,i,IND)
+    379           DEPNEW(d,i) # Depreciation rate by ind and reg #;
+    380       (all,d,DST)(all,i,IND)
+    381           RORNNEW(d,i) # Normal rate of return #;
+    382       (all,d,DST)(all,i,IND)
+    383           SMURF(d,i) # Reg slopes of cap. supply curves at K_GR=TREND_K #;
+    384       (all,i,IND)
+    385           CAPSUM_D(i) # Rentals to capital #;
+    386       (all,i,IND)(all,d,DST)
+    387           CAPSHR(i,d) # Rentals to capital #;
+    388    
+    389   Formula
+    390       (all,i,IND)
+    391           CAPSUM_D(i) = sum{d,DST, V1CAP(i,d)};
+    392       (all,i,IND)(all,d,DST)
+    393           CAPSHR(i,d) = V1CAP(i,d)/CAPSUM_D(i);
+    394       (all,d,DST)(all,i,IND)
+    395           VCAP_AT_T(d,i) = VCAP_AT_T_R(i)*CAPSHR(i,d);
+    396       (all,d,DST)(all,i,IND)
+    397           TREND0005(d,i) = TREND0005_R(i);
+    398       (all,d,DST)(all,i,IND)
+    399           DEPNEW(d,i) = DEPNEW_R(i);
+    400       (all,d,DST)(all,i,IND)
+    401           RORNNEW(d,i) = RORNNEW_R(i);
+    402       (all,d,DST)(all,i,IND)
+    403           SMURF(d,i) = SMURF_R(i);
+    404    
+    405   ! Share of regional assets defined approximately by shares of capital stocks
+    406      - could be improved later with better data - Antti 9/2012 !
+    407       (all,d,DST)
+    408           SHRASS_H(d) =
+    409           sum{i,IND, VCAP_AT_T(d,i)}/sum{dd,DST, sum{i,IND, VCAP_AT_T(dd,i)}};
+    410    
+    411   !****************************************************************************!
+    412   !* 4. WRITE NEW DATASETS                                                    *!
+    413   !****************************************************************************!
+    414    
+    415   Write
+    416   !WRITE IN EXTRA-FILE (REGEXTRA.HAR)!
+    417    VCAP_AT_T      to file EXTOUT header "VCAP" longname
+    418       "Start of year capital stocks valued at start of yr prices RU";
+    419    TREND0005      to file EXTOUT header "TRNK" longname "TREND0005(IND)";
+    420    DEPNEW         to file EXTOUT header "DEPR" longname "DEPnew(IND)";
+    421    RORNNEW        to file EXTOUT header "RORN" longname "RORNnew(IND)";
+    422    SMURF          to file EXTOUT header "SMRF" longname "SMURF(IND)";
+    423    ADJ_COEFF_R    to file EXTOUT header "ADJC";
+    424    ADJPROP        to file EXTOUT header "ADJP";
+    425    DIFF_R         to file EXTOUT header "DIFF";
+    426    EMPLOY         to file EXTOUT header "EMPL";
+    427    EMPLOY_R       to file EXTOUT header "EMPR";
+    428    RWAGE          to file EXTOUT header "RWAG";
+    429    RWAGE_R        to file EXTOUT header "RWAR";
+    430    DUM_YEAR1      to file EXTOUT header"0045";
+    431    F_EEQROR_R     to file EXTOUT header "FCSE";
+    432    F_EEQROR_IR    to file EXTOUT header "FSTA";
+    433    LAB_SUPN_R     to file EXTOUT header "LSUP";
+    434    LEV_CPI        to file EXTOUT header "LCPI";
+    435    LEV_CPI_L      to file EXTOUT header "CPIL";
+    436    LEV_CPI_2L     to file EXTOUT header "LCP2";
+    437    LEV_PLAB       to file EXTOUT header "PLAB";
+    438    LEV_PLAB_L     to file EXTOUT header "PLAL";
+    439    NINT           to file EXTOUT header "NINT";
+    440    RINT           to file EXTOUT header "RINT";
+    441    RINT_L         to file EXTOUT header "RNTL";
+    442    PCAP_IR        to file EXTOUT header "PCAI";
+    443    PCAP_IR_B      to file EXTOUT header "PCAB";
+    444    PCAP_IR_L      to file EXTOUT header "PCAL";
+    445    PCAP_ATR_T     to file EXTOUT header "PCAP";
+    446    PCAP_ATR_T1    to file EXTOUT header "PCAT";
+    447    RALPH          to file EXTOUT header "RLPH";
+    448    EMP_ADJ        to file EXTOUT header "EADJ";
+    449    DUM_YEAR1      to file EXTOUT header "YEAR" longname "Dummy for first year";
+    450    TAX_L_R_PD     to file EXTOUT header "TLRT";
+    451    SHRASS_H       to file EXTOUT header "SHRA";
+    452    
+    453   !WRITE IN LAGGED EXTRA-FILE (REGEXTRA_LAG.HAR)!
+    454    VCAP_AT_T      to file EXTOUT_L header "VCAP" longname
+    455       "Start of year capital stocks valued at start of yr prices RU";
+    456    TREND0005      to file EXTOUT_L header "TRNK" longname "TREND0005(IND)";
+    457    DEPNEW         to file EXTOUT_L header "DEPR" longname "DEPnew(IND)";
+    458    RORNNEW        to file EXTOUT_L header "RORN" longname "RORNnew(IND)";
+    459    SMURF          to file EXTOUT_L header "SMRF" longname "SMURF(IND)";
+    460    ADJ_COEFF_R    to file EXTOUT_L header "ADJC";
+    461    DIFF_R         to file EXTOUT_L header "DIFF";
+    462    EMPLOY         to file EXTOUT_L header "EMPL";
+    463    EMPLOY_R       to file EXTOUT_L header "EMPR";
+    464    RWAGE          to file EXTOUT_L header "RWAG";
+    465    RWAGE_R        to file EXTOUT_L header "RWAR";
+    466    DUM_YEAR1      to file EXTOUT_L header"0045";
+    467    F_EEQROR_R     to file EXTOUT_L header "FCSE";
+    468    F_EEQROR_IR    to file EXTOUT_L header "FSTA";
+    469    LAB_SUPN_R     to file EXTOUT_L header "LSUP";
+    470    LEV_CPI        to file EXTOUT_L header "LCPI";
+    471    LEV_CPI_L      to file EXTOUT_L header "CPIL";
+    472    LEV_CPI_2L     to file EXTOUT_L header "LCP2";
+    473    LEV_PLAB       to file EXTOUT_L header "PLAB";
+    474    LEV_PLAB_L     to file EXTOUT_L header "PLAL";
+    475    RINT           to file EXTOUT_L header "RINT";
+    476    RINT_L         to file EXTOUT_L header "RNTL";
+    477    PCAP_IR        to file EXTOUT_L header "PCAI";
+    478    PCAP_IR_B      to file EXTOUT_L header "PCAB";
+    479    PCAP_IR_L      to file EXTOUT_L header "PCAL";
+    480    PCAP_ATR_T     to file EXTOUT_L header "PCAP";
+    481    PCAP_ATR_T1    to file EXTOUT_L header "PCAT";
+    482    RALPH          to file EXTOUT_L header "RLPH";
+    483    TAX_L_R_PD     to file EXTOUT_L header "TLRT";
+    484    
+    485   !WRITE ROREXT-FILE!
+    486    ADJ_E          to file REGROREXTRA header "ADRE";
+    487    DUMMY_DEC      to file REGROREXTRA header "DMDC";
+    488    EROR_G         to file REGROREXTRA header "RORG";
+    489    (Set) TIME     to file REGROREXTRA header "TIME";
+    490    TYME           to file REGROREXTRA header "TYME";
+    491   !Transfer "HORZ" from file NATROREXT to file REGROREXTRA;
+    492   Transfer "NFIT" from file NATROREXT to file REGROREXTRA;
+    493   Transfer "YRPL" from file NATROREXT to file REGROREXTRA;!
+    494    
+    495   !WRITE IN GOVACC-FILE (REGGOVACC.HAR)!
+    496   !Transfer unwritten from file GOVACCDATA to file GOVOUT;!
+
+
+
+
+ ========================
+ ++ INPUT STATEMENT TABLE
+ ========================
+
+          Starts   Syntax  Semantic
+  Number  at line  Error?   Error?            Description
+  ------------------------------------------------------------
+     1        12     no       no      FILE 'VERMDATA'                         
+     2        13     no       no      FILE 'VERMSETS'                         
+     3        14     no       no      FILE 'GOVACCDATA'                       
+     4        15     no       no      FILE 'NATEXTRA'                         
+     5        16     no       no      FILE 'EXTRA2'                           
+     6        17     no       no      FILE 'REGEMPL'                          
+     7        18     no       no      FILE 'V1CHECK'                          
+     8        19     no       no      FILE 'REGROREXTRA'                      
+     9        20     no       no      FILE 'EXTOUT'                           
+    10        21     no       no      FILE 'EXTOUT_L'                         
+    11        23     no       no      FILE 'REGSETS'                          
+    12        25     no       no      SET 'COM'                               
+    13        26     no       no      SET 'IND'                               
+    14        27     no       no      SET 'DST'                               
+    15        28     no       no      SET 'SRC'                               
+    16        29     no       no      SET 'USR'                               
+    17        30     no       no      SET 'ORG'                               
+    18        31     no       no      SET 'MAR'                               
+    19        32     no       no      SET 'PRD'                               
+    20        34     no       no      SET 'OCC'                               
+    21        35     no       no      SET 'TIME'                              
+    22        43     no       no      COEFFICIENT 'MAKE'                      
+    23        46     no       no      COEFFICIENT 'USE'                       
+    24        48     no       no      COEFFICIENT 'TAXES'                     
+    25        50     no       no      COEFFICIENT 'TRADE'                     
+    26        52     no       no      COEFFICIENT 'SUPPMAR'                   
+    27        55     no       no      COEFFICIENT 'TRADMAR'                   
+    28        57     no       no      COEFFICIENT 'INVEST'                    
+    29        59     no       no      COEFFICIENT 'STOCKS'                    
+    30        61     no       no      COEFFICIENT 'V1LAB'                     
+    31        63     no       no      COEFFICIENT 'V1CAP'                     
+    32        65     no       no      COEFFICIENT 'V1LND'                     
+    33        67     no       no      COEFFICIENT 'V1PTX'                     
+    34        69     no       no      COEFFICIENT 'SIGMA1LAB'                 
+    35        71     no       no      COEFFICIENT 'SIGMA1PRIM'                
+    36        73     no       no      COEFFICIENT 'SIGMAFUELS'                
+    37        75     no       no      COEFFICIENT 'SIGMAGREEN'                
+    38        77     no       no      COEFFICIENT 'ARMSIGMA'                  
+    39        79     no       no      COEFFICIENT 'SIGMADOMDOM'               
+    40        81     no       no      COEFFICIENT 'SIGMAMAR'                  
+    41        84     no       no      COEFFICIENT 'POP'                       
+    42        86     no       no      COEFFICIENT 'FRISCH'                    
+    43        88     no       no      COEFFICIENT 'EPS'                       
+    44        90     no       no      COEFFICIENT 'SIGMAOUT'                  
+    45        92     no       no      COEFFICIENT 'EXP_ELAST'                 
+    46        94     no       no      COEFFICIENT 'ALPHA1'                    
+    47        95     no       no      COEFFICIENT 'ALPHA2'                    
+    48        97     no       no      READ into 'MAKE'                        
+    49        99     no       no      READ into 'USE'                         
+    50       100     no       no      READ into 'TAXES'                       
+    51       101     no       no      READ into 'TRADE'                       
+    52       102     no       no      READ into 'SUPPMAR'                     
+    53       103     no       no      READ into 'TRADMAR'                     
+    54       104     no       no      READ into 'INVEST'                      
+    55       105     no       no      READ into 'STOCKS'                      
+    56       106     no       no      READ into 'V1LAB'                       
+    57       107     no       no      READ into 'V1CAP'                       
+    58       108     no       no      READ into 'V1LND'                       
+    59       109     no       no      READ into 'V1PTX'                       
+    60       110     no       no      READ into 'SIGMA1LAB'                   
+    61       111     no       no      READ into 'SIGMA1PRIM'                  
+    62       112     no       no      READ into 'ARMSIGMA'                    
+    63       113     no       no      READ into 'SIGMADOMDOM'                 
+    64       114     no       no      READ into 'SIGMAMAR'                    
+    65       115     no       no      READ into 'POP'                         
+    66       116     no       no      READ into 'FRISCH'                      
+    67       117     no       no      READ into 'EPS'                         
+    68       118     no       no      READ into 'SIGMAOUT'                    
+    69       119     no       no      READ into 'EXP_ELAST'                   
+    70       121     no       no      Formula for 'SIGMAFUELS'                
+    71       124     no       no      Formula for 'SIGMAGREEN'                
+    72       126     no       no      Formula for 'ALPHA1'                    
+    73       127     no       no      Formula for 'ALPHA2'                    
+    74       159     no       no      WRITE from 'V1CAP'                      
+    75       161     no       no      WRITE from 'V1LAB'                      
+    76       162     no       no      WRITE from 'V1LND'                      
+    77       163     no       no      WRITE from 'TAXES'                      
+    78       164     no       no      WRITE from 'MAKE'                       
+    79       165     no       no      WRITE from 'USE'                        
+    80       166     no       no      WRITE from 'TRADE'                      
+    81       167     no       no      WRITE from 'SUPPMAR'                    
+    82       168     no       no      WRITE from 'TRADMAR'                    
+    83       169     no       no      WRITE from 'INVEST'                     
+    84       170     no       no      WRITE from 'STOCKS'                     
+    85       171     no       no      WRITE from 'V1PTX'                      
+    86       172     no       no      WRITE from 'SIGMA1LAB'                  
+    87       173     no       no      WRITE from 'SIGMA1PRIM'                 
+    88       174     no       no      WRITE from 'ARMSIGMA'                   
+    89       175     no       no      WRITE from 'SIGMADOMDOM'                
+    90       176     no       no      WRITE from 'SIGMAMAR'                   
+    91       177     no       no      WRITE from 'POP'                        
+    92       178     no       no      WRITE from 'FRISCH'                     
+    93       179     no       no      WRITE from 'EPS'                        
+    94       180     no       no      WRITE from 'SIGMAOUT'                   
+    95       181     no       no      WRITE from 'EXP_ELAST'                  
+    96       182     no       no      WRITE from 'SIGMAFUELS'                 
+    97       183     no       no      WRITE from 'SIGMAGREEN'                 
+    98       184     no       no      WRITE from 'ALPHA1'                     
+    99       185     no       no      WRITE from 'ALPHA2'                     
+   100       187     no       no      WRITE of set 'COM'                      
+   101       188     no       no      WRITE of set 'IND'                      
+   102       189     no       no      WRITE of set 'DST'                      
+   103       190     no       no      WRITE of set 'SRC'                      
+   104       191     no       no      WRITE of set 'USR'                      
+   105       192     no       no      WRITE of set 'ORG'                      
+   106       193     no       no      WRITE of set 'MAR'                      
+   107       194     no       no      WRITE of set 'PRD'                      
+   108       195     no       no      WRITE of set 'OCC'                      
+   109       204     no       no      COEFFICIENT 'VCAP_AT_T_R'               
+   110       208     no       no      COEFFICIENT 'TREND0005_R'               
+   111       210     no       no      COEFFICIENT 'DEPNEW_R'                  
+   112       212     no       no      COEFFICIENT 'RORNNEW_R'                 
+   113       214     no       no      COEFFICIENT 'SMURF_R'                   
+   114       217     no       no      READ into 'VCAP_AT_T_R'                 
+   115       219     no       no      READ into 'TREND0005_R'                 
+   116       220     no       no      READ into 'DEPNEW_R'                    
+   117       221     no       no      READ into 'RORNNEW_R'                   
+   118       222     no       no      READ into 'SMURF_R'                     
+   119       228     no       no      COEFFICIENT 'ADJPROP'                   
+   120       230     no       no      COEFFICIENT 'ADJ_RE'                    
+   121       232     no       no      COEFFICIENT 'ADJ_COEFF'                 
+   122       234     no       no      COEFFICIENT 'DIFF'                      
+   123       235     no       no      COEFFICIENT 'EMPLOY'                    
+   124       236     no       no      COEFFICIENT 'EMP_ADJ'                   
+   125       237     no       no      COEFFICIENT 'DUM_YEAR1'                 
+   126       238     no       no      COEFFICIENT 'DUMMY_DEC'                 
+   127       239     no       no      COEFFICIENT 'F_EEQROR'                  
+   128       240     no       no      COEFFICIENT 'F_EEQROR_I'                
+   129       243     no       no      COEFFICIENT 'LAB_SUPN'                  
+   130       244     no       no      COEFFICIENT 'LEV_CPI'                   
+   131       245     no       no      COEFFICIENT 'LEV_CPI_L'                 
+   132       246     no       no      COEFFICIENT 'LEV_CPI_2L'                
+   133       247     no       no      COEFFICIENT 'LEV_PLAB'                  
+   134       248     no       no      COEFFICIENT 'LEV_PLAB_L'                
+   135       249     no       no      COEFFICIENT 'NINT'                      
+   136       250     no       no      COEFFICIENT 'RINT'                      
+   137       251     no       no      COEFFICIENT 'RINT_L'                    
+   138       252     no       no      COEFFICIENT 'PCAP_I'                    
+   139       254     no       no      COEFFICIENT 'PCAP_I_B'                  
+   140       256     no       no      COEFFICIENT 'PCAP_I_L'                  
+   141       258     no       no      COEFFICIENT 'PCAP_AT_T'                 
+   142       260     no       no      COEFFICIENT 'PCAP_AT_T1'                
+   143       262     no       no      COEFFICIENT 'RALPH'                     
+   144       263     no       no      COEFFICIENT 'RWAGE'                     
+   145       264     no       no      COEFFICIENT 'TAX_L_R_PD'                
+   146       265     no       no      COEFFICIENT 'SHRASS_H'                  
+   147       268     no       no      Formula for 'ADJPROP'                   
+   148       270     no       no      Formula for 'DUMMY_DEC'                 
+   149       272     no       no      READ into 'ADJ_COEFF'                   
+   150       273     no       no      READ into 'ADJ_RE'                      
+   151       274     no       no      READ into 'DIFF'                        
+   152       275     no       no      READ into 'DUM_YEAR1'                   
+   153       276     no       no      READ into 'EMPLOY'                      
+   154       277     no       no      READ into 'EMP_ADJ'                     
+   155       278     no       no      READ into 'F_EEQROR'                    
+   156       279     no       no      READ into 'F_EEQROR_I'                  
+   157       280     no       no      READ into 'LAB_SUPN'                    
+   158       281     no       no      READ into 'LEV_CPI'                     
+   159       282     no       no      READ into 'LEV_CPI_L'                   
+   160       283     no       no      READ into 'LEV_CPI_2L'                  
+   161       284     no       no      READ into 'LEV_PLAB'                    
+   162       285     no       no      READ into 'LEV_PLAB_L'                  
+   163       286     no       no      READ into 'NINT'                        
+   164       287     no       no      READ into 'RINT'                        
+   165       288     no       no      READ into 'RINT_L'                      
+   166       289     no       no      READ into 'PCAP_I'                      
+   167       290     no       no      READ into 'PCAP_I_B'                    
+   168       291     no       no      READ into 'PCAP_I_L'                    
+   169       292     no       no      READ into 'PCAP_AT_T'                   
+   170       293     no       no      READ into 'PCAP_AT_T1'                  
+   171       294     no       no      READ into 'RALPH'                       
+   172       295     no       no      READ into 'RWAGE'                       
+   173       296     no       no      READ into 'TAX_L_R_PD'                  
+   174       298     no       no      COEFFICIENT 'ADJ_COEFF_R'               
+   175       301     no       no      COEFFICIENT 'ADJ_E'                     
+   176       303     no       no      COEFFICIENT 'DIFF_R'                    
+   177       305     no       no      COEFFICIENT 'EMPLOY_R'                  
+   178       308     no       no      COEFFICIENT 'F_EEQROR_R'                
+   179       311     no       no      COEFFICIENT 'F_EEQROR_IR'               
+   180       314     no       no      COEFFICIENT 'EROR_G'                    
+   181       317     no       no      COEFFICIENT 'LAB_SUPN_R'                
+   182       319     no       no      COEFFICIENT 'PCAP_IR'                   
+   183       321     no       no      COEFFICIENT 'PCAP_IR_B'                 
+   184       323     no       no      COEFFICIENT 'PCAP_IR_L'                 
+   185       325     no       no      COEFFICIENT 'PCAP_ATR_T'                
+   186       327     no       no      COEFFICIENT 'PCAP_ATR_T1'               
+   187       329     no       no      COEFFICIENT 'RWAGE_R'                   
+   188       331     no       no      COEFFICIENT 'TYME'                      
+   189       334     no       no      READ into 'EMPLOY_R'                    
+   190       336     no       no      Formula for 'ADJ_COEFF_R'               
+   191       339     no       no      Formula for 'ADJ_E'                     
+   192       341     no       no      Formula for 'DIFF_R'                    
+   193       343     no       no      Formula for 'EMPLOY'                    
+   194       344     no       no      Formula for 'F_EEQROR_R'                
+   195       346     no       no      Formula for 'F_EEQROR_IR'               
+   196       348     no       no      Formula for 'EROR_G'                    
+   197       350     no       no      Formula for 'LAB_SUPN_R'                
+   198       352     no       no      Formula for 'PCAP_IR'                   
+   199       354     no       no      Formula for 'PCAP_IR_B'                 
+   200       356     no       no      Formula for 'PCAP_IR_L'                 
+   201       358     no       no      Formula for 'PCAP_ATR_T'                
+   202       360     no       no      Formula for 'PCAP_ATR_T1'               
+   203       362     no       no      Formula for 'RWAGE_R'                   
+   204       364     no       no      Formula for 'TYME'                      
+   205       372     no       no      COEFFICIENT 'VCAP_AT_T'                 
+   206       376     no       no      COEFFICIENT 'TREND0005'                 
+   207       378     no       no      COEFFICIENT 'DEPNEW'                    
+   208       380     no       no      COEFFICIENT 'RORNNEW'                   
+   209       382     no       no      COEFFICIENT 'SMURF'                     
+   210       384     no       no      COEFFICIENT 'CAPSUM_D'                  
+   211       386     no       no      COEFFICIENT 'CAPSHR'                    
+   212       389     no       no      Formula for 'CAPSUM_D'                  
+   213       392     no       no      Formula for 'CAPSHR'                    
+   214       394     no       no      Formula for 'VCAP_AT_T'                 
+   215       396     no       no      Formula for 'TREND0005'                 
+   216       398     no       no      Formula for 'DEPNEW'                    
+   217       400     no       no      Formula for 'RORNNEW'                   
+   218       402     no       no      Formula for 'SMURF'                     
+   219       407     no       no      Formula for 'SHRASS_H'                  
+   220       415     no       no      WRITE from 'VCAP_AT_T'                  
+   221       419     no       no      WRITE from 'TREND0005'                  
+   222       420     no       no      WRITE from 'DEPNEW'                     
+   223       421     no       no      WRITE from 'RORNNEW'                    
+   224       422     no       no      WRITE from 'SMURF'                      
+   225       423     no       no      WRITE from 'ADJ_COEFF_R'                
+   226       424     no       no      WRITE from 'ADJPROP'                    
+   227       425     no       no      WRITE from 'DIFF_R'                     
+   228       426     no       no      WRITE from 'EMPLOY'                     
+   229       427     no       no      WRITE from 'EMPLOY_R'                   
+   230       428     no       no      WRITE from 'RWAGE'                      
+   231       429     no       no      WRITE from 'RWAGE_R'                    
+   232       430     no       no      WRITE from 'DUM_YEAR1'                  
+   233       431     no       no      WRITE from 'F_EEQROR_R'                 
+   234       432     no       no      WRITE from 'F_EEQROR_IR'                
+   235       433     no       no      WRITE from 'LAB_SUPN_R'                 
+   236       434     no       no      WRITE from 'LEV_CPI'                    
+   237       435     no       no      WRITE from 'LEV_CPI_L'                  
+   238       436     no       no      WRITE from 'LEV_CPI_2L'                 
+   239       437     no       no      WRITE from 'LEV_PLAB'                   
+   240       438     no       no      WRITE from 'LEV_PLAB_L'                 
+   241       439     no       no      WRITE from 'NINT'                       
+   242       440     no       no      WRITE from 'RINT'                       
+   243       441     no       no      WRITE from 'RINT_L'                     
+   244       442     no       no      WRITE from 'PCAP_IR'                    
+   245       443     no       no      WRITE from 'PCAP_IR_B'                  
+   246       444     no       no      WRITE from 'PCAP_IR_L'                  
+   247       445     no       no      WRITE from 'PCAP_ATR_T'                 
+   248       446     no       no      WRITE from 'PCAP_ATR_T1'                
+   249       447     no       no      WRITE from 'RALPH'                      
+   250       448     no       no      WRITE from 'EMP_ADJ'                    
+   251       449     no       no      WRITE from 'DUM_YEAR1'                  
+   252       450     no       no      WRITE from 'TAX_L_R_PD'                 
+   253       451     no       no      WRITE from 'SHRASS_H'                   
+   254       454     no       no      WRITE from 'VCAP_AT_T'                  
+   255       456     no       no      WRITE from 'TREND0005'                  
+   256       457     no       no      WRITE from 'DEPNEW'                     
+   257       458     no       no      WRITE from 'RORNNEW'                    
+   258       459     no       no      WRITE from 'SMURF'                      
+   259       460     no       no      WRITE from 'ADJ_COEFF_R'                
+   260       461     no       no      WRITE from 'DIFF_R'                     
+   261       462     no       no      WRITE from 'EMPLOY'                     
+   262       463     no       no      WRITE from 'EMPLOY_R'                   
+   263       464     no       no      WRITE from 'RWAGE'                      
+   264       465     no       no      WRITE from 'RWAGE_R'                    
+   265       466     no       no      WRITE from 'DUM_YEAR1'                  
+   266       467     no       no      WRITE from 'F_EEQROR_R'                 
+   267       468     no       no      WRITE from 'F_EEQROR_IR'                
+   268       469     no       no      WRITE from 'LAB_SUPN_R'                 
+   269       470     no       no      WRITE from 'LEV_CPI'                    
+   270       471     no       no      WRITE from 'LEV_CPI_L'                  
+   271       472     no       no      WRITE from 'LEV_CPI_2L'                 
+   272       473     no       no      WRITE from 'LEV_PLAB'                   
+   273       474     no       no      WRITE from 'LEV_PLAB_L'                 
+   274       475     no       no      WRITE from 'RINT'                       
+   275       476     no       no      WRITE from 'RINT_L'                     
+   276       477     no       no      WRITE from 'PCAP_IR'                    
+   277       478     no       no      WRITE from 'PCAP_IR_B'                  
+   278       479     no       no      WRITE from 'PCAP_IR_L'                  
+   279       480     no       no      WRITE from 'PCAP_ATR_T'                 
+   280       481     no       no      WRITE from 'PCAP_ATR_T1'                
+   281       482     no       no      WRITE from 'RALPH'                      
+   282       483     no       no      WRITE from 'TAX_L_R_PD'                 
+   283       486     no       no      WRITE from 'ADJ_E'                      
+   284       487     no       no      WRITE from 'DUMMY_DEC'                  
+   285       488     no       no      WRITE from 'EROR_G'                     
+   286       489     no       no      WRITE of set 'TIME'                     
+   287       490     no       no      WRITE from 'TYME'                       
+
+
+
+
+ ============
+ ++ SET TABLE
+ ============
+
+                    Defined   [Max] Inter             Set numbers this
+  Number    Name    at line    Size temp? Elements    is subset of
+  ---------------------------------------------------------------------
+     1  COM            25 [       0]  no   read 
+     2  IND            26 [       0]  no   read 
+     3  DST            27 [       0]  no   read 
+     4  SRC            28         2   no   fixed
+     5  USR            29 [       0]  no   read 
+     6  ORG            30 [       0]  no   read 
+     7  MAR            31 [       0]  no   read 
+     8  PRD            32 [       0]  no   read 
+     9  OCC            34 [       0]  no   read 
+    10  TIME           35        50  yes   fixed
+
+
+
+
+ =============
+ ++ FILE TABLE
+ =============
+
+         Logical            Defined  File  File
+  Number  Name              at line  Type  Form  Actual name (if given)
+  --------------------------------------------------------------------
+     1  VERMDATA                12    old  head
+     2  VERMSETS                13    old  head
+     3  GOVACCDATA              14    old  head
+     4  NATEXTRA                15    old  head
+     5  EXTRA2                  16    old  head
+     6  REGEMPL                 17    old  head
+     7  V1CHECK                 18    new  head
+     8  REGROREXTRA             19    new  head
+     9  EXTOUT                  20    new  head
+    10  EXTOUT_L                21    new  head
+    11  REGSETS                 23    new  head
+
+
+
+
+ ====================
+ ++ COEFFICIENT TABLE
+ ====================
+
+                        Defined  No            Arguments range
+  Number    Name        at line  Args Type     over sets numbered
+  ------------------------------------------------------------
+     1    MAKE              43     3  real       1     2     3
+     2    USE               46     4  real       1     4     5     3
+     3    TAXES             48     4  real       1     4     5     3
+     4    TRADE             50     4  real       1     4     6     3
+     5    SUPPMAR           52     4  real       7     6     3     8
+     6    TRADMAR           55     5  real       1     4     7     6     3
+
+     7    INVEST            57     3  real       1     2     3
+     8    STOCKS            59     2  real       2     3
+     9    V1LAB             61     3  real       2     9     3
+    10    V1CAP             63     2  real       2     3
+    11    V1LND             65     2  real       2     3
+    12    V1PTX             67     2  real       2     3
+    13    SIGMA1LAB         69     1  real       2
+    14    SIGMA1PRIM        71     1  real       2
+    15    SIGMAFUELS        73     1  real       2
+    16    SIGMAGREEN        75     1  real       2
+    17    ARMSIGMA          77     1  real       1
+    18    SIGMADOMDOM       79     1  real       1
+    19    SIGMAMAR          81     1  real       7
+    20    POP               84     1  real       3
+    21    FRISCH            86     1  real       3
+    22    EPS               88     2  real       1     3
+    23    SIGMAOUT          90     1  real       2
+    24    EXP_ELAST         92     1  real       1
+    25    ALPHA1            94     0  real
+    26    ALPHA2            95     0  real
+    27    VCAP_AT_T_R      204     1  real       2
+    28    TREND0005_R      208     1  real       2
+    29    DEPNEW_R         210     1  real       2
+    30    RORNNEW_R        212     1  real       2
+    31    SMURF_R          214     1  real       2
+    32    ADJPROP          228     0  real
+    33    ADJ_RE           230     1  real       2
+    34    ADJ_COEFF        232     1  real       2
+    35    DIFF             234     0  real
+    36    EMPLOY           235     0  real
+    37    EMP_ADJ          236     0  real
+    38    DUM_YEAR1        237     0  real
+    39    DUMMY_DEC        238     0  real
+    40    F_EEQROR         239     0  real
+    41    F_EEQROR_I       240     1  real       2
+    42    LAB_SUPN         243     0  real
+    43    LEV_CPI          244     0  real
+    44    LEV_CPI_L        245     0  real
+    45    LEV_CPI_2L       246     0  real
+    46    LEV_PLAB         247     0  real
+    47    LEV_PLAB_L       248     0  real
+    48    NINT             249     0  real
+    49    RINT             250     0  real
+    50    RINT_L           251     0  real
+    51    PCAP_I           252     1  real       2
+    52    PCAP_I_B         254     1  real       2
+    53    PCAP_I_L         256     1  real       2
+    54    PCAP_AT_T        258     1  real       2
+    55    PCAP_AT_T1       260     1  real       2
+    56    RALPH            262     0  real
+    57    RWAGE            263     0  real
+    58    TAX_L_R_PD       264     0  real
+    59    SHRASS_H         265     1  real       3
+    60    ADJ_COEFF_R      298     2  real       3     2
+    61    ADJ_E            301     2  real       3     2
+    62    DIFF_R           303     1  real       3
+    63    EMPLOY_R         305     1  real       3
+    64    F_EEQROR_R       308     1  real       3
+    65    F_EEQROR_IR      311     2  real       3     2
+    66    EROR_G           314     3  real       3     2    10
+    67    LAB_SUPN_R       317     1  real       3
+    68    PCAP_IR          319     2  real       3     2
+    69    PCAP_IR_B        321     2  real       3     2
+    70    PCAP_IR_L        323     2  real       3     2
+    71    PCAP_ATR_T       325     2  real       3     2
+    72    PCAP_ATR_T1      327     2  real       3     2
+    73    RWAGE_R          329     1  real       3
+    74    TYME             331     1  real      10
+    75    VCAP_AT_T        372     2  real       3     2
+    76    TREND0005        376     2  real       3     2
+    77    DEPNEW           378     2  real       3     2
+    78    RORNNEW          380     2  real       3     2
+    79    SMURF            382     2  real       3     2
+    80    CAPSUM_D         384     1  real       2
+    81    CAPSHR           386     2  real       2     3
+
+
+
+
+ ================
+ ++ FORMULA TABLE
+ ================
+
+           Defined   Semantic      LHS                RHS
+  Number   at line    Error?    coefficient       coefficient numbers
+  -------------------------------------------------------------------
+     1         121     no      SIGMAFUELS  
+     2         124     no      SIGMAGREEN  
+     3         126     no      ALPHA1      
+     4         127     no      ALPHA2      
+     5         268     no      ADJPROP     
+     6         270     no      DUMMY_DEC   
+     7         336     no      ADJ_COEFF_R       34
+     8         339     no      ADJ_E             33
+     9         341     no      DIFF_R            35
+    10         343     no      EMPLOY            63
+    11         344     no      F_EEQROR_R        40
+    12         346     no      F_EEQROR_IR       41
+    13         348     no      EROR_G            65
+    14         350     no      LAB_SUPN_R        42
+    15         352     no      PCAP_IR           51
+    16         354     no      PCAP_IR_B         52
+    17         356     no      PCAP_IR_L         53
+    18         358     no      PCAP_ATR_T        54
+    19         360     no      PCAP_ATR_T1       55
+    20         362     no      RWAGE_R           57
+    21         364     no      TYME        
+    22         389     no      CAPSUM_D          10
+    23         392     no      CAPSHR            10    80
+    24         394     no      VCAP_AT_T         27    81
+    25         396     no      TREND0005         28
+    26         398     no      DEPNEW            29
+    27         400     no      RORNNEW           30
+    28         402     no      SMURF             31
+    29         407     no      SHRASS_H          75
+
+
+
+
+ =============
+ ++ READ TABLE
+ =============
+
+           Defined    Semantic  Coefficient   File number
+  Number   at line     Error?    read into     read from   Header
+  ---------------------------------------------------------------
+     1         97       no      MAKE                1       MAKE
+     2         99       no      USE                 1       BSMR
+     3        100       no      TAXES               1       UTAX
+     4        101       no      TRADE               1       TRAD
+     5        102       no      SUPPMAR             1       MARS
+     6        103       no      TRADMAR             1       TMAR
+     7        104       no      INVEST              1       2PUR
+     8        105       no      STOCKS              1       STOK
+     9        106       no      V1LAB               1       1LAB
+    10        107       no      V1CAP               1       1CAP
+    11        108       no      V1LND               1       1LND
+    12        109       no      V1PTX               1       1PTX
+    13        110       no      SIGMA1LAB           1       SLAB
+    14        111       no      SIGMA1PRIM          1       P028
+    15        112       no      ARMSIGMA            1       P015
+    16        113       no      SIGMADOMDOM         1       SGDD
+    17        114       no      SIGMAMAR            1       SMAR
+    18        115       no      POP                 1       PO01
+    19        116       no      FRISCH              1       P021
+    20        117       no      EPS                 1       XPEL
+    21        118       no      SIGMAOUT            1       SCET
+    22        119       no      EXP_ELAST           1       P018
+    23        217       no      VCAP_AT_T_R         4       VCAP
+    24        219       no      TREND0005_R         4       TRNK
+    25        220       no      DEPNEW_R            4       DEPR
+    26        221       no      RORNNEW_R           4       RORN
+    27        222       no      SMURF_R             4       SMRF
+    28        272       no      ADJ_COEFF           4       ADJC
+    29        273       no      ADJ_RE              4       ADRE
+    30        274       no      DIFF                4       DIFF
+    31        275       no      DUM_YEAR1           4       0045
+    32        276       no      EMPLOY              4       EMPL
+    33        277       no      EMP_ADJ             4       EADJ
+    34        278       no      F_EEQROR            4       FCSE
+    35        279       no      F_EEQROR_I          4       FSTA
+    36        280       no      LAB_SUPN            4       LSUP
+    37        281       no      LEV_CPI             4       LCPI
+    38        282       no      LEV_CPI_L           4       CPIL
+    39        283       no      LEV_CPI_2L          4       LCP2
+    40        284       no      LEV_PLAB            4       PLAB
+    41        285       no      LEV_PLAB_L          4       PLAL
+    42        286       no      NINT                3       GNIT
+    43        287       no      RINT                4       RINT
+    44        288       no      RINT_L              4       RNTL
+    45        289       no      PCAP_I              4       PCAI
+    46        290       no      PCAP_I_B            4       PCAB
+    47        291       no      PCAP_I_L            4       PCAL
+    48        292       no      PCAP_AT_T           4       PCAP
+    49        293       no      PCAP_AT_T1          4       PCAT
+    50        294       no      RALPH               4       RLPH
+    51        295       no      RWAGE               4       RWAG
+    52        296       no      TAX_L_R_PD          5       TLRT
+    53        334       no      EMPLOY_R            6       EMPR
+
+
+
+
+ ==============
+ ++ WRITE TABLE
+ ==============
+
+        Defined   Sem     Coeff/Var     Write
+ Number at line  Error?   written       file   Header     Long Name
+ --------------------------------------------------------------------------------
+     1      159   no      V1CAP             7  1CAP    Not defined by the user
+     2      161   no      V1LAB             7  1LAB    Not defined by the user
+     3      162   no      V1LND             7  1LND    Not defined by the user
+     4      163   no      TAXES             7  UTAX    Not defined by the user
+     5      164   no      MAKE              7  MAKE    Not defined by the user
+     6      165   no      USE               7  BSMR    Not defined by the user
+     7      166   no      TRADE             7  TRAD    Not defined by the user
+     8      167   no      SUPPMAR           7  MARS    Not defined by the user
+     9      168   no      TRADMAR           7  TMAR    Not defined by the user
+    10      169   no      INVEST            7  2PUR    Not defined by the user
+    11      170   no      STOCKS            7  STOK    Not defined by the user
+    12      171   no      V1PTX             7  1PTX    Not defined by the user
+    13      172   no      SIGMA1LAB         7  SLAB    Not defined by the user
+    14      173   no      SIGMA1PRIM        7  P028    Not defined by the user
+    15      174   no      ARMSIGMA          7  P015    Not defined by the user
+    16      175   no      SIGMADOMDOM       7  SGDD    Not defined by the user
+    17      176   no      SIGMAMAR          7  SMAR    Not defined by the user
+    18      177   no      POP               7  PO01    Not defined by the user
+    19      178   no      FRISCH            7  P021    Not defined by the user
+    20      179   no      EPS               7  XPEL    Not defined by the user
+    21      180   no      SIGMAOUT          7  SCET    Not defined by the user
+    22      181   no      EXP_ELAST         7  P018    Not defined by the user
+    23      182   no      SIGMAFUELS        7  SIFU    Not defined by the user
+    24      183   no      SIGMAGREEN        7  SIGR    Not defined by the user
+    25      184   no      ALPHA1            7  ALF1    Not defined by the user
+    26      185   no      ALPHA2            7  ALF2    Not defined by the user
+    27      187   no      COM              11  COM     Not defined by the user
+    28      188   no      IND              11  IND     Not defined by the user
+    29      189   no      DST              11  REGD    Not defined by the user
+    30      190   no      SRC              11  SRC     Not defined by the user
+    31      191   no      USR              11  AUSR    Not defined by the user
+    32      192   no      ORG              11  REGS    Not defined by the user
+    33      193   no      MAR               7  MAR     Not defined by the user
+    34      194   no      PRD              11  REGP    Not defined by the user
+    35      195   no      OCC              11  OCC     Not defined by the user
+    36      415   no      VCAP_AT_T         9  VCAP   "Start of year capital st
+                                                       ocks valued at start of 
+                                                       yr prices RU"
+    37      419   no      TREND0005         9  TRNK   "TREND0005(IND)"
+    38      420   no      DEPNEW            9  DEPR   "DEPnew(IND)"
+    39      421   no      RORNNEW           9  RORN   "RORNnew(IND)"
+    40      422   no      SMURF             9  SMRF   "SMURF(IND)"
+    41      423   no      ADJ_COEFF_R       9  ADJC    Not defined by the user
+    42      424   no      ADJPROP           9  ADJP    Not defined by the user
+    43      425   no      DIFF_R            9  DIFF    Not defined by the user
+    44      426   no      EMPLOY            9  EMPL    Not defined by the user
+    45      427   no      EMPLOY_R          9  EMPR    Not defined by the user
+    46      428   no      RWAGE             9  RWAG    Not defined by the user
+    47      429   no      RWAGE_R           9  RWAR    Not defined by the user
+    48      430   no      DUM_YEAR1         9  0045    Not defined by the user
+    49      431   no      F_EEQROR_R        9  FCSE    Not defined by the user
+    50      432   no      F_EEQROR_IR       9  FSTA    Not defined by the user
+    51      433   no      LAB_SUPN_R        9  LSUP    Not defined by the user
+    52      434   no      LEV_CPI           9  LCPI    Not defined by the user
+    53      435   no      LEV_CPI_L         9  CPIL    Not defined by the user
+    54      436   no      LEV_CPI_2L        9  LCP2    Not defined by the user
+    55      437   no      LEV_PLAB          9  PLAB    Not defined by the user
+    56      438   no      LEV_PLAB_L        9  PLAL    Not defined by the user
+    57      439   no      NINT              9  NINT    Not defined by the user
+    58      440   no      RINT              9  RINT    Not defined by the user
+    59      441   no      RINT_L            9  RNTL    Not defined by the user
+    60      442   no      PCAP_IR           9  PCAI    Not defined by the user
+    61      443   no      PCAP_IR_B         9  PCAB    Not defined by the user
+    62      444   no      PCAP_IR_L         9  PCAL    Not defined by the user
+    63      445   no      PCAP_ATR_T        9  PCAP    Not defined by the user
+    64      446   no      PCAP_ATR_T1       9  PCAT    Not defined by the user
+    65      447   no      RALPH             9  RLPH    Not defined by the user
+    66      448   no      EMP_ADJ           9  EADJ    Not defined by the user
+    67      449   no      DUM_YEAR1         9  YEAR   "Dummy for first year"
+    68      450   no      TAX_L_R_PD        9  TLRT    Not defined by the user
+    69      451   no      SHRASS_H          9  SHRA    Not defined by the user
+    70      454   no      VCAP_AT_T        10  VCAP   "Start of year capital st
+                                                       ocks valued at start of 
+                                                       yr prices RU"
+    71      456   no      TREND0005        10  TRNK   "TREND0005(IND)"
+    72      457   no      DEPNEW           10  DEPR   "DEPnew(IND)"
+    73      458   no      RORNNEW          10  RORN   "RORNnew(IND)"
+    74      459   no      SMURF            10  SMRF   "SMURF(IND)"
+    75      460   no      ADJ_COEFF_R      10  ADJC    Not defined by the user
+    76      461   no      DIFF_R           10  DIFF    Not defined by the user
+    77      462   no      EMPLOY           10  EMPL    Not defined by the user
+    78      463   no      EMPLOY_R         10  EMPR    Not defined by the user
+    79      464   no      RWAGE            10  RWAG    Not defined by the user
+    80      465   no      RWAGE_R          10  RWAR    Not defined by the user
+    81      466   no      DUM_YEAR1        10  0045    Not defined by the user
+    82      467   no      F_EEQROR_R       10  FCSE    Not defined by the user
+    83      468   no      F_EEQROR_IR      10  FSTA    Not defined by the user
+    84      469   no      LAB_SUPN_R       10  LSUP    Not defined by the user
+    85      470   no      LEV_CPI          10  LCPI    Not defined by the user
+    86      471   no      LEV_CPI_L        10  CPIL    Not defined by the user
+    87      472   no      LEV_CPI_2L       10  LCP2    Not defined by the user
+    88      473   no      LEV_PLAB         10  PLAB    Not defined by the user
+    89      474   no      LEV_PLAB_L       10  PLAL    Not defined by the user
+    90      475   no      RINT             10  RINT    Not defined by the user
+    91      476   no      RINT_L           10  RNTL    Not defined by the user
+    92      477   no      PCAP_IR          10  PCAI    Not defined by the user
+    93      478   no      PCAP_IR_B        10  PCAB    Not defined by the user
+    94      479   no      PCAP_IR_L        10  PCAL    Not defined by the user
+    95      480   no      PCAP_ATR_T       10  PCAP    Not defined by the user
+    96      481   no      PCAP_ATR_T1      10  PCAT    Not defined by the user
+    97      482   no      RALPH            10  RLPH    Not defined by the user
+    98      483   no      TAX_L_R_PD       10  TLRT    Not defined by the user
+    99      486   no      ADJ_E             8  ADRE    Not defined by the user
+   100      487   no      DUMMY_DEC         8  DMDC    Not defined by the user
+   101      488   no      EROR_G            8  RORG    Not defined by the user
+   102      489   no      TIME              8  TIME    Not defined by the user
+   103      490   no      TYME              8  TYME    Not defined by the user
+
+
+   
+ ======================
+ ++ INPUT CHECK SUMMARY
+ ======================
+
+ Total number of statements is 287.
+ There are NO syntax errors or semantic problems.
+
+
+ ******************************************************************************
+ -3-
+ -->                     Starting CODE GENERATION
+
+ ******************************************************************************
+
+
+
+  CODE OPTIONS CHOSEN
+  -------------------
+
+
+                         TABLO PORTABLE
+               CODE OPTIONS   ( --> indicates those in effect )
+
+      NEQ Do no equations       --> PGS Prepare output for GEMSIM
+      NDS Do no displays            WFP Write a Fortran Program
+      NWR Do no writes                    (i.e. a TABLO-generated program)
+                                --> FC5 Fast Compile TG-prog under LF95
+      ACC All comment lines in      DMS Allow simulations even
+             code                         though are no UPDATEs
+                                --> CIN Code file name same as
+                                          Information file name
+                                    CDM Old option. Has no effect.
+                                    NRZ No run-time reports re use of
+                                           ZERODIVIDE default values
+                                    NXS No "extra" statements allowed
+
+  Select an option   :  <opt>      Deselect an option      : -<opt>
+  Help for an option : ?<opt>      Help on all options     : ??
+  Redisplay options  : /           Finish option selection : Carriage return
+
+  END OF CODE OPTIONS CHOSEN
+  --------------------------
+  
+
+ When used with GEMSIM, the GEMSIM Statement
+  and Table files produced in this run of TABLO
+     o can carry out 103 WRITEs
+
+ MXGSRS = 6, MXGSIS = 6.
+ MXGSLG = 0, MXGSIC = 1.
+
+ MXGSOP = 27, MXGSIN = 37.
+ MXGSRC = 1, MXGSNS=2.
+! (Model Information file is 'regcapital.min'.)
+
+ *******************************************************************
+ Successful completion of TABLO.
+
+ When used with GEMSIM, the GEMSIM Statement 
+  and Table files produced in this run of TABLO
+     o can carry out 103 WRITEs
+
+ *******************************************************************

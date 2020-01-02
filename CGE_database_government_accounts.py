@@ -110,13 +110,13 @@ V5MAR = baseData.getHeaderArrayObj("5MAR")["array"]
 #%%
 # Specify data location:
 urlDict = {
-"Sector accounts": "kan/vtp/statfin_vtp_pxt_012.px",
-"Govt accounts" :"kan/vtp/statfin_vtp_pxt_014.px"}
+"Sector accounts": "kan/vtp/statfinpas_vtp_pxt_012_201800.px",
+"Govt accounts" :"kan/vtp/statfinpas_vtp_pxt_014_201800.px"}
 # 012 -- Sector accounts 1975-2017
 # 014 -- General government's total revenue and -expenditure 1975-2017
 
 # Perform query:
-dgf.getData(urlDict, baseYear = baseYear, filters = {"Sektori": ["S13"]}, search = True)
+dgf.getData(urlDict, baseYear = baseYear, filters = {"Sektori": ["S13"]}, search = True, active=False)
 
 
 #%%
@@ -143,21 +143,38 @@ sectorData["Govt accounts"] = sectorData["Govt accounts"][sectorData["Govt accou
 
 #%%
 # Specify data location:
-urlDict = {"Expenditure":    "jul/jmete/statfin_jmete_pxt_001.px",
-           "Debt":           "jul/jali/statfin_jali_pxt_002.px",
-           "Deficit":        "jul/jali/statfin_jali_pxt_001.px"}
+#urlDict = {"Expenditure":    "jul/jmete/statfin_jmete_pxt_001.px",
+#           "Debt":           "jul/jali/statfin_jali_pxt_002.px",
+#           "Deficit":        "jul/jali/statfin_jali_pxt_001.px"}
 # 001 -- General goverment expenditures by function 1990-2016
 # 002 -- General government debt, consolidated between sub-sectors 1975-2017
 # 001 -- General government deficit and debt 1975-2017
 
 # Perform query:
-dgf.getData(urlDict, baseYear = baseYear)
+#dgf.getData(urlDict, baseYear = baseYear)
 
 
 #%%
-# Read in data:
-cofogData = {k: pd.read_csv(rawFolder+"/"+str(k)+"_Rawdata.csv",encoding="ISO-8859-1",na_values =".")             for k in list(urlDict.keys())}
+# Specify data location:
+urlDict = {"Expenditure":    "jul/jmete/statfin_jmete_pxt_001.px",
+           "Deficit":        "jul/jali/statfin_jali_pxt_122g.px"}
+# 001 -- General goverment expenditures by function 1990-2016
+# 001 -- General government deficit and debt 1975-2017
 
+
+urlDict2 = {"Debt": "jul/jali/statfinpas_jali_pxt_002_201800.px"}
+
+# 002 -- General government debt, consolidated between sub-sectors 1975-2017
+
+
+# Perform query:
+dgf.getData(urlDict, baseYear = baseYear, active=True)
+#%%
+# Read in data:
+cofogData = {k: pd.read_csv(rawFolder+"/"+str(k)+"_Rawdata.csv",encoding="ISO-8859-1",na_values =".") for k in list(urlDict.keys())}
+dgf.getData(urlDict2, baseYear = baseYear, active=False)
+cofogData2 = {k: pd.read_csv(rawFolder+"/"+str(k)+"_Rawdata.csv",encoding="ISO-8859-1",na_values =".") for k in list(urlDict2.keys())}
+cofogData.update(cofogData2)
 
 #%%
 # Clean data:
@@ -172,21 +189,21 @@ for i in cofogData:
 # Include only current price values:            
 cofogData["Expenditure"] = cofogData["Expenditure"][cofogData["Expenditure"]["Data"]=="CP"].reset_index(drop=True)
 cofogData["Debt"] = cofogData["Debt"][cofogData["Debt"]["Value"] == "Million Euro"]
-cofogData["Deficit"] = cofogData["Deficit"][cofogData["Deficit"]["Value"] == "Million Euro"]
-
+#cofogData["Deficit"] = cofogData["Deficit"][cofogData["Deficit"]["Value"] == "Million Euro"]
+#cofogData["Deficit"] = [cofogData["Deficit"]["Year"], cofogData["Deficit"]["Sector"], cofogData["Deficit"]["EDP deficit (-) / EDP surplus (+), millions of euro"], cofogData["Deficit"]["EDP debt, millions of euro"]]
 #%% [markdown]
 # #### Production accounts
 
 #%%
 # Specify data location:
 urlDict = {
-"Production": "kan/vtp/statfin_vtp_pxt_007.px",
-"Investment": "kan/vtp/statfin_vtp_pxt_016.px"}
+"Production": "kan/vtp/statfinpas_vtp_pxt_007_201700.px",
+"Investment": "statfinpas_vtp_pxt_016_201700.px"}
 # 007 -- Production and generation of income accounts 1975-2017
 # 016 -- Gross fixed capital formation 1975-2017
 
 # Perform query:
-dgf.getData(urlDict, baseYear = baseYear, filters = {"Sektori": ["S1", "S1311", "S1313", "S1314"]})
+dgf.getData(urlDict, baseYear = baseYear, filters = {"Sektori": ["S1", "S1311", "S1313", "S1314"]}, active=False)
 
 
 #%%
@@ -300,11 +317,11 @@ for sec in prodData["Investment"].Sector.unique():
 
 #%%
 # Specify data location:
-urlDict = {"Taxes": "jul/vermak/statfin_vermak_pxt_002.px"}
+urlDict = {"Taxes": "jul/vermak/statfin_vermak_pxt_127f.px"}
 # 002 -- Taxes and tax-like payments, tax types 1975-2017
 
 # Perform query:
-dgf.getData(urlDict)
+dgf.getData(urlDict, filters = {"Tiedot": ["cp"]}, active=True)
 
 
 #%%
@@ -321,9 +338,11 @@ for i in taxData:
     
     for col in taxData[i]:
         if col in ["Sector"]:
-            taxData[i][col] = taxData[i][col].apply(lambda x: x.split(" ")[0])  
+            taxData[i][col] = taxData[i][col].apply(lambda x: x.split(" ")[0])
+
+
 # Include only current price values:            
-taxData["Taxes"] = taxData["Taxes"][taxData["Taxes"]["Data"]=="CP"].reset_index(drop=True)
+#taxData["Taxes"] = taxData["Taxes"][taxData["Taxes"]["Data"]=="CP"].reset_index(drop=True)
 
 #%% [markdown]
 # ## Step 2: Create government data
@@ -532,6 +551,11 @@ DTI = pd.DataFrame(0.0, index = incTypes, columns = pubSecs)
 taxBase = taxData["Taxes"].copy()
 taxBase = taxBase[taxBase["Sector"].isin(pubSecs)]
 
+#Rename columns
+#Example: From '2018 Current prices, millions of euro' TO '2018'
+for i in range(2,len(taxBase.keys()),1):
+    n=taxBase.keys()[i][0:4]
+    taxBase.rename(columns={taxBase.keys()[i]:n}, inplace=True)
 
 #%%
 for s in pubSecs:
@@ -540,16 +564,19 @@ for s in pubSecs:
     
     DTI.loc["PROPINC"][s] =    float(secBase[(secBase["aggSector"] == s) & (secBase["Transaction"] == "D4R")][value]) -    float(secBase[(secBase["aggSector"] == s) & (secBase["Transaction"] == "D41R")][value])
     
-    DTI.loc["SRCTAX"][s] =    float(taxBase[(taxBase["Sector"] == s) & (taxBase["Tax category"] == "-1000 Duty on interests")][value])
+    #DTI.loc["SRCTAX"][s] =    float(taxBase[(taxBase["Sector"] == s) & (taxBase["Tax category"] == "-1000 Duty on interests")][value])
+    DTI.loc["SRCTAX"][s] =    float(taxBase[(taxBase["Sector"] == s) & (taxBase["Tax category"] == "110001 Duty on interests")][value])
+    #DTI.loc["INCTAX"][s] =    float(taxBase[(taxBase["Sector"] == s) & (taxBase["Tax category"] == "-1000 Income tax of households")][value])
+    DTI.loc["INCTAX"][s] =    float(taxBase[(taxBase["Sector"] == s) & (taxBase["Tax category"] == "110002 Income tax of households")][value])
     
-    DTI.loc["INCTAX"][s] =    float(taxBase[(taxBase["Sector"] == s) & (taxBase["Tax category"] == "-1000 Income tax of households")][value])
-    
-    DTI.loc["CORPTAX"][s] =    float(taxBase[(taxBase["Sector"] == s) & (taxBase["Tax category"] == "-1000 Income tax of corporations")][value])
-    
+    #DTI.loc["CORPTAX"][s] =    float(taxBase[(taxBase["Sector"] == s) & (taxBase["Tax category"] == "-1000 Income tax of corporations")][value])
+    DTI.loc["CORPTAX"][s] =    float(taxBase[(taxBase["Sector"] == s) & (taxBase["Tax category"] == "120001 Income tax of corporations")][value])
+
     DTI.loc["OTHTAX"][s] =    float(secBase[(secBase["aggSector"] == s) & (secBase["Transaction"] == "D51R")][value]) -    DTI.loc["SRCTAX"][s] - DTI.loc["INCTAX"][s] - DTI.loc["CORPTAX"][s]
     
-    DTI.loc["MAINFEE"][s] =    float(taxBase[(taxBase["Sector"] == s) & (taxBase["Tax category"] == "-4000 Tax on real-estate")][value])
-    
+    #DTI.loc["MAINFEE"][s] =    float(taxBase[(taxBase["Sector"] == s) & (taxBase["Tax category"] == "-4000 Tax on real-estate")][value])
+    DTI.loc["MAINFEE"][s] =    float(taxBase[(taxBase["Sector"] == s) & (taxBase["Tax category"] == "410001 Tax on real-estate")][value])
+
     DTI.loc["OTHFEE"][s] =    float(secBase[(secBase["aggSector"] == s) & (secBase["Transaction"] == "D59R")][value]) -    DTI.loc["MAINFEE"][s]
     
     DTI.loc["CURTFS"][s] =    float(secBase[(secBase["aggSector"] == s) & (secBase["Transaction"] == "D7R")][value]) -    float(secBase[(secBase["aggSector"] == s) & (secBase["Transaction"] == "D73R")][value])
@@ -791,8 +818,7 @@ psurplus = revflows - expflows.sum() - govData["INTASS"].sum() + govData["NETINT
 #%%
 # Social security funds deficit/surplus
 
-SSSURPLUS = float(cofogData["Deficit"][(cofogData["Deficit"]["Deficit/Debt"] == "Deficit (-) / surplus (+)") &                                  (cofogData["Deficit"]["Sector"] == "S1314")][str(baseYear)])
-
+SSSURPLUS = float(cofogData["Deficit"][(cofogData["Deficit"]["Sector"] == "S1314")]["EDP deficit (-) / EDP surplus (+), millions of euro"])
 
 #%%
 # Velka tilastovuoden lopussa
