@@ -23,7 +23,7 @@
     +++  INFORMATION ABOUT THIS PRINT FILE  +++
    
 
- ! This file was created at 01:19:28 on 31-DEC-2019 by the program
+ ! This file was created at 10:41:57 on 07-JAN-2020 by the program
  !  <TABLO  Version 7.0   August 2018>
  ! which accesses some of the routines in the GEMPACK software release
  !  <GEMPACK Release 12.0.004   March 2019>
@@ -1495,8 +1495,8 @@
    1421   Write EPSTOT  to file SUMMARY header "ETOT";
    1422    
    1423   Assertion ! if below not true, program will stop with message !
-   1424    # Sales check # (all,c,COM) ABS[COMRPT(c,"PCTDIFF")]<0.001;
-   1425    # Costs check # (all,i,IND) ABS[INDRPT(i,"PCTDIFF")]<0.001;
+   1424    # Sales check # (all,c,COM) ABS[COMRPT(c,"PCTDIFF")]<0.5;
+   1425    # Costs check # (all,i,IND) ABS[INDRPT(i,"PCTDIFF")]<0.5;
    1426    (initial) # Average Engel elasticity = 1 #  ABS[1-EPSTOT] <0.001;
    1427    
    1428   ! Excerpt 38 of TABLO input file: !

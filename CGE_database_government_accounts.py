@@ -23,7 +23,7 @@ import checkerFunctions as cfs
 
 #%%
 # Choose base year for data:
-baseYear = 2014
+baseYear = 2015
 # Raw data folder:
 rawFolder = "rawdata"
 # Folder for output HAR-files:
@@ -198,7 +198,7 @@ cofogData["Debt"] = cofogData["Debt"][cofogData["Debt"]["Value"] == "Million Eur
 # Specify data location:
 urlDict = {
 "Production": "kan/vtp/statfinpas_vtp_pxt_007_201700.px",
-"Investment": "statfinpas_vtp_pxt_016_201700.px"}
+"Investment": "kan/vtp/statfinpas_vtp_pxt_016_201700.px"}
 # 007 -- Production and generation of income accounts 1975-2017
 # 016 -- Gross fixed capital formation 1975-2017
 
@@ -245,7 +245,7 @@ for i in prodData:
             
             prodData[i].replace({"I_41+432_439": "I_41",
                                  "I_42+431": "I_42_43",
-                                 "I_68201_68202":"I_68A",
+                                 "I_68201_68202":"I_68202",
                                  "I_681+68209+683": "I_68"}, inplace = True)
             
 
@@ -852,7 +852,7 @@ com2gov = {
 'C_58_63': "G0", # Publishing activities -> 
 'C_64_66': "G0", # Financial and insurance activities -> 
 'C_68':    "G0", # Other real estate activities -> 
-'C_68A':   "G0", # Letting and operation of dwellings -> 
+'C_68202':   "G0", # Letting and operation of dwellings -> 
 'C_69_75': "G0", # Professional, scientific and technical activities -> 
 'C_77_82': "G01",   # Administrative and support service activities -> General public services
 'C_84':    "G0",   # Public administration and social security -> All functions  

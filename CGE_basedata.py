@@ -34,7 +34,7 @@ import mapperFunction as mf       # Function to map industries and commodities t
 
 #%%
 # Choose base year for data:
-baseYear = 2014
+baseYear = 2015
 # Raw data folder:
 rawFolder = "rawdata"
 # Folder for output HAR-files:
@@ -87,10 +87,10 @@ if not flag:
 
 #%%
 urlDict = {
-"Supply table at basic prices":          "kan/pt/statfinpas_pt_pxt_001_201500.px",
-"Use table at basic prices":             "kan/pt/statfinpas_pt_pxt_002_201500.px",
-"Use table at purchasers prices":        "kan/pt/statfinpas_pt_pxt_003_201500.px",
-"Imports use table at basic prices":     "kan/pt/statfinpas_pt_pxt_005_201500.px",
+"Supply table at basic prices":          "kan/pt/statfin_pt_pxt_11gu.px",
+"Use table at basic prices":             "kan/pt/statfin_pt_pxt_11h8.px",
+"Use table at purchasers prices":        "kan/pt/statfin_pt_pxt_11b4.px",
+"Imports use table at basic prices":     "kan/pt/statfin_pt_pxt_11ha.px",
 }
 
 
@@ -98,7 +98,7 @@ urlDict = {
 # Perform query. Raw data files (.csv) should appear in the rawdata directory.
 # If baseYear is not specified, this will query data for all available years.
 
-dgf.getData(urlDict, baseYear = baseYear)
+dgf.getData(urlDict, baseYear = baseYear, active=True)
 
 
 #%%
@@ -125,6 +125,20 @@ def splitNrename(df, attribute, prefix):
         dataCode = x.split(" ")[0]
         if "/" in dataCode:
             dataCode = dataCode.replace("/","_")
+        if "B" in dataCode:
+            if len(dataCode)==1:
+                dataCode = dataCode.replace("B","05_09")   
+        if "-" in dataCode:
+            dataCode = dataCode.replace("-","_")
+        if "F" in dataCode:
+            if len(dataCode)==1:
+                dataCode = dataCode.replace("F","41_43")
+        if "I" in dataCode:
+            if len(dataCode)==1:
+                dataCode = dataCode.replace("I","55_56")
+        if "," in dataCode:
+            dataCode = dataCode.replace(",","")
+            dataCode=dataCode+"_"+str((int(dataCode.replace(",", ""))+1))
         if dataCode[0].isdigit():
             newName = prefix + dataCode
         else:
@@ -137,14 +151,14 @@ def splitNrename(df, attribute, prefix):
 for i in ioData:
     # Take only current prices data if also other available 
     if "Information" in ioData[i].columns:
-        ioData[i] = ioData[i][ioData[i].Information == "Current prices"]
+        ioData[i] = ioData[i][ioData[i].Information == "Current prices, millions of euro"]
         ioData[i].drop("Information", axis = 1, inplace = True)
     # Replace missing values with zeros:
     ioData[i].fillna(0, inplace = True)
     # Set the product column as index:
-    ioData[i].set_index("Product", inplace = True)
+    ioData[i].set_index("Product, transaction, additional details", inplace = True)
     # Drop redundant columns if they exist:
-    for redundant in ["Year", "0 Industries total"]:
+    for redundant in ["Year", "A-X Industries total (00-99)"]:
         if redundant in ioData[i].columns:
             ioData[i].drop(redundant, axis = 1, inplace = True)
     # Rename rows and columms using the splitNrename function above.
@@ -169,18 +183,18 @@ print("Size is", len(IND), "x", len(COM))
 
 #%%
 finUse = [   # Final users
-"P51",       # Gross fixed capital formation
-"P52",       # Changes in inventories
+"P51K",       # Gross fixed capital formation
+"P52K",       # Changes in inventories
 "P6K",       # Exports
-"P3_S13",    # Government consumption
-"P3_S14",    # Household consumption
-"P3_S15"]    # Consumption by non-profit organisations
+"P3KS13",    # Government consumption
+"P3KS14",    # Household consumption
+"P3KS15"]    # Consumption by non-profit organisations
 
 valAdd = [   # Value add components
-"D1",        # Compensation of employees
-"D29MD39",   # Other net taxes on production
-"P51C",      # Consumption of fixed capital
-"B13NT"]     # Operating surplus + mixed income 
+"D1K",        # Compensation of employees
+"D29N",   # Other net taxes on production
+"P51CK",      # Consumption of fixed capital
+"B13N"]     # Operating surplus + mixed income 
     
 supComp = [   # Supply components
 "P7R_CIF",   # Imports at c.i.f. prices
@@ -208,12 +222,12 @@ flag = True
 for commodity in COM:
     for user in IND + finUse:
         for priceType in ["PP", "BP"]: # Purchaser price, basic price
-            if user != "P52": # Negative values are allowed in inventory changes, so exclude those
+            if user != "P52K": # Negative values are allowed in inventory changes, so exclude those
                 dataLocation = cleanData["usetable_"+priceType].loc[commodity]
                 if dataLocation[user] < 0:   
                     flag = False
                     negValue = dataLocation[user]                     
-                    dataLocation["P52"] += negValue                   
+                    dataLocation["P52K"] += negValue                   
                     dataLocation[user] = 0                           
                     print(priceType, user, commodity,": value", negValue, " assigned to changes in inventories!")
                     
@@ -251,7 +265,7 @@ cfs.checkColSums(cleanData["supplytable_BP"].loc[COM], cleanData["usetable_PP"].
 
 #%%
 # Margins inferred from data:
-margtest=(cleanData["usetable_PP"].loc[COM] -          cleanData["usetable_BP"].loc[COM]).sum(axis=1)-cleanData["supplytable_BP"].loc[COM]["D21N"]
+margtest=(cleanData["usetable_PP"].loc[COM] -  cleanData["usetable_BP"].loc[COM]).sum(axis=1)-cleanData["supplytable_BP"].loc[COM]["D21N"]
 # Actual margins data
 realmarg = cleanData["supplytable_BP"].loc[COM]["TRTP_MARG"]
 
@@ -306,9 +320,9 @@ cfs.checkCols(check4, pd.Series(0.0, index = COM), allowDifference)
 
 #%%
 for i in cleanData:
-    if "P3_S15" in cleanData[i]:
-        cleanData[i]["P3_S14"] += cleanData[i]["P3_S15"]
-        cleanData[i].drop("P3_S15", axis = 1, inplace = True)
+    if "P3KS15" in cleanData[i]:
+        cleanData[i]["P3KS14"] += cleanData[i]["P3KS15"]
+        cleanData[i].drop("P3KS15", axis = 1, inplace = True)
 
 #%% [markdown]
 # ## Factor payments
@@ -356,8 +370,8 @@ for industry in OCC_levels.index:
 # Collect the +850 Mitenna industries to a single list:
 mitennaIndustries = OCC_levels.index.tolist()
 # And create a mapping from Mitenna to Statfin input-output industry classification:
-mitennaIndMapper = mf.mapperFunction(mitennaIndustries, IND, exceptions={"I_68A":["I_68201", "I_68202"]})
-
+#mitennaIndMapper = mf.mapperFunction(mitennaIndustries, IND, exceptions={"I_68A":["I_68201", "I_68202"]})
+mitennaIndMapper = mf.mapperFunction(mitennaIndustries, IND)
 
 #%%
 # Aggregate the occupational data using the mappings specified above:
@@ -376,7 +390,7 @@ cfs.checkCols(OCC_levels_agg.sum(), OCC_levels[OCC].sum(), allowDifference = 1)
 
 #%%
 # Split the original labour compensation data:
-V1LAB_O = cleanData["usetable_BP"].loc["D1"][IND]
+V1LAB_O = cleanData["usetable_BP"].loc["D1K"][IND]
 V1LAB   = OCCshares.multiply(V1LAB_O, axis = "index")
 
 # Last, check that column sums still match the original data:
@@ -387,7 +401,7 @@ cfs.checkCols(V1LAB.sum(axis=1), V1LAB_O, allowDifference)
 # V1CAP is the industry-specific gross operating surplus (GOS). It is calculated for each industry by summing the net operating surplus (B13NT) and capital depriciation (P51C).
 
 #%%
-V1CAP = cleanData["usetable_BP"].loc[["P51C", "B13NT"]].sum()
+V1CAP = cleanData["usetable_BP"].loc[["P51CK", "B13N"]].sum()
 V1CAP = V1CAP[IND].to_frame("V1CAP")
 
 # Negative V1CAP implies negative profits. The model doesn't allow for negative profits, 
@@ -431,11 +445,11 @@ V1CAP["V1CAP"] -= V1LND["V1LND"]
 #%%
 userNames = {
 "V1": IND,          # Industry
-"V2": ["P51"],      # Investment
-"V3": ["P3_S14"],   # Households
+"V2": ["P51K"],      # Investment
+"V3": ["P3KS14"],   # Households
 "V4": ["P6K"],      # Export
-"V5": ["P3_S13"],   # Government
-"V6": ["P52"]}      # Inventories
+"V5": ["P3KS13"],   # Government
+"V6": ["P52K"]}      # Inventories
 
 # A single list containing all users:
 userList = [item for sublist in userNames.values() for item in sublist]
@@ -459,7 +473,7 @@ MAKE = cleanData["supplytable_BP"].loc[COM][IND].copy()
 
 #%%
 # From use table, read D29MD39 Other net taxes on production:
-V1PTX = pd.DataFrame(cleanData["usetable_BP"].loc["D29MD39"][IND].copy())
+V1PTX = pd.DataFrame(cleanData["usetable_BP"].loc["D29N"][IND].copy())
 
 #%% [markdown]
 # ### V0TAR (Tariff revenue)
@@ -754,11 +768,11 @@ VTAX=(cleanData["usetable_PP"].loc[COM][userList]*TAX).divide(WTOT, axis = "inde
 #%%
 taxDict = {}
 taxDict["V1TAX_S"] = VTAX[IND]
-taxDict["V2TAX_S"] = VTAX["P51"]
-taxDict["V3TAX_S"] = VTAX["P3_S14"]
+taxDict["V2TAX_S"] = VTAX["P51K"]
+taxDict["V3TAX_S"] = VTAX["P3KS14"]
 taxDict["V4TAX_S"] = VTAX["P6K"]
-taxDict["V5TAX_S"] = VTAX["P3_S13"]
-taxDict["V6TAX_S"] = VTAX["P52"]
+taxDict["V5TAX_S"] = VTAX["P3KS13"]
+taxDict["V6TAX_S"] = VTAX["P52K"]
 
 
 #%%
@@ -794,20 +808,20 @@ for user in taxDict:
 
 #%%
 V1BASimp = importMatrix[IND]
-V2BASimp = importMatrix["P51"]
-V3BASimp = importMatrix["P3_S14"]
+V2BASimp = importMatrix["P51K"]
+V3BASimp = importMatrix["P3KS14"]
 V4BASimp = importMatrix["P6K"]
-V5BASimp = importMatrix["P3_S13"]
-V6BASimp = importMatrix["P52"]
+V5BASimp = importMatrix["P3KS13"]
+V6BASimp = importMatrix["P52K"]
 
 
 #%%
 V1BASdom = cleanData["usetable_PP"].loc[COM][IND]      - V1BASimp - VMAR_M["V1"] - taxDict["V1TAX_S"]
-V2BASdom = cleanData["usetable_PP"].loc[COM]["P51"]    - V2BASimp - VMAR_M["V2"].iloc[:,0] - taxDict["V2TAX_S"]
-V3BASdom = cleanData["usetable_PP"].loc[COM]["P3_S14"] - V3BASimp - VMAR_M["V3"].iloc[:,0] - taxDict["V3TAX_S"]
+V2BASdom = cleanData["usetable_PP"].loc[COM]["P51K"]    - V2BASimp - VMAR_M["V2"].iloc[:,0] - taxDict["V2TAX_S"]
+V3BASdom = cleanData["usetable_PP"].loc[COM]["P3KS14"] - V3BASimp - VMAR_M["V3"].iloc[:,0] - taxDict["V3TAX_S"]
 V4BAS    = cleanData["usetable_PP"].loc[COM]["P6K"]    - V4BASimp - VMAR_M["V4"].iloc[:,0] - taxDict["V4TAX_S"]
-V5BASdom = cleanData["usetable_PP"].loc[COM]["P3_S13"] - V5BASimp - VMAR_M["V5"].iloc[:,0] - taxDict["V5TAX_S"]
-V6BASdom = cleanData["usetable_PP"].loc[COM]["P52"]    - V6BASimp - taxDict["V6TAX_S"]
+V5BASdom = cleanData["usetable_PP"].loc[COM]["P3KS13"] - V5BASimp - VMAR_M["V5"].iloc[:,0] - taxDict["V5TAX_S"]
+V6BASdom = cleanData["usetable_PP"].loc[COM]["P52K"]    - V6BASimp - taxDict["V6TAX_S"]
 
 
 #%%
@@ -889,8 +903,8 @@ differences = {
 "I_F": "I_41_43",   # Construction
 "I_I": "I_55_56",   # Accommodation and food service activities
 "I_O": "I_84",      # Public administration and social security
-"I_681+68209+683": "I_68",  # Real estate activities
-"I_68201_68202":   "I_68A"} # Operation of dwellings
+"I_681+68209+683": "I_68"}  # Real estate activities
+#"I_68201_68202":   "I_68A"} # Operation of dwellings
 
 
 #%%
@@ -959,7 +973,7 @@ V2BASimp = indShareMatrix.multiply(V2BASimp, axis = "index")
 taxDict2["V2TAXdom"] = indShareMatrix.multiply(taxDict2["V2TAXdom"], axis ="index")
 taxDict2["V2TAXimp"] = indShareMatrix.multiply(taxDict2["V2TAXimp"], axis ="index")
 
-VPUR_S["V2PUR"] = indShareMatrix.multiply(VPUR_S["V2PUR"]["P51"], axis = "index")
+VPUR_S["V2PUR"] = indShareMatrix.multiply(VPUR_S["V2PUR"]["P51K"], axis = "index")
 
 for k in MARGINCOMS.index:
     for s in ["dom", "imp"]:
@@ -986,7 +1000,7 @@ DIFFIND = pd.DataFrame(0.0, index = IND, columns = ["COSTS", "MAKE_C", "DIFFEREN
 DIFFIND["COSTS"] += V1LAB_O
 DIFFIND["COSTS"] += V1CAP["V1CAP"]
 DIFFIND["COSTS"] += V1LND["V1LND"]
-DIFFIND["COSTS"] += V1PTX["D29MD39"]
+DIFFIND["COSTS"] += V1PTX["D29N"]
 DIFFIND["COSTS"] += V1OCT["V1OCT"]
 
 DIFFIND["COSTS"] += V1BASdom.sum()
@@ -1185,14 +1199,14 @@ hwf.data2har(output, allDims).writeToDisk(harFolder+"/basedata64.har")
 V1PRIM = V1LAB_O + V1CAP["V1CAP"] + V1LND["V1LND"]
 V1MAT = VPUR_S["V1PUR"].sum()
 V1CST = V1PRIM + V1OCT["V1OCT"] + V1MAT
-V1TOT = V1CST + V1PTX["D29MD39"]
+V1TOT = V1CST + V1PTX["D29N"]
 V2TOT = VPUR_S["V2PUR"].sum()
 
 
 #%%
 V1PUR_SI = VPUR_S["V1PUR"].sum(axis=1)
 V2PUR_SI = VPUR_S["V2PUR"].sum(axis=1)
-V3PUR_S  = VPUR_S["V3PUR"]["P3_S14"]
+V3PUR_S  = VPUR_S["V3PUR"]["P3KS14"]
 V4PUR    = VPUR_S["V4PUR"]["P6K"]
 
 #%% [markdown]
@@ -1211,7 +1225,7 @@ regIndRaw = [x["values"] for x in dgf.getParams("kan/altp/statfinpas_altp_pxt_00
 #%%
 renameInd = {           # From regional accounts naming convention to input-output convention
 "681+68209+683": "68",  # Other real estate activities  --> Real estate activities
-"68201_68202"  : "68A"} # Letting and operation of dwellings  --> Operation of dwellings and residential real estate
+"68201_68202"  : "68202"} # Letting and operation of dwellings  --> Operation of dwellings and residential real estate
 
 regInd = [renameInd.get(n, n) for n in regIndRaw if n != "0"] # Rename and drop "0" (Industries total)
 

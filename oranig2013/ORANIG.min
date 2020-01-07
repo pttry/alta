@@ -10,7 +10,7 @@ SUMMARY               Out    n  HAR
 #TABFILE
 ORANIG.tab
 #TMDATE
-at 01:19:32 on 31-DEC-2019
+at 10:41:59 on 07-JAN-2020
 #STIFILE
 %none
 #SETS
@@ -2259,8 +2259,8 @@ ppppppppppppppcppcpc
     1418   2 fm                                               1419  70    0 n
     1420   1 wr INDRPT               a                        1420  43    0 n
     1421   1 wr EPSTOT               a                        1421  44    0 n
-    1423   1 fm                                               1424  60    0 n
-    1425   2 fm                                               1425  60    0 n
+    1423   1 fm                                               1424  58    0 n
+    1425   2 fm                                               1425  58    0 n
     1426   2 fm                                               1426  66    0 n
     1431   1 cs EXPGDP                                        1431  65    0 n
     1432   1 fm                                               1433  31    0 n
