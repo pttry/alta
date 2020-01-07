@@ -70,7 +70,7 @@ SIGMA1LAB  from file ELAST  header "SLAB";
 SIGMA1PRIM from file ELAST  header "P028"; 
  
 Assertion
- !# MAKE>=0 # (all,c,COM)(all,i,IND)(all,d,DST) MAKE(c,i,d)>=0;!
+ # MAKE>=0 # (all,c,COM)(all,i,IND)(all,d,DST) MAKE(c,i,d)>=0;
  # USE>=0#(all,c,COM)(all,s,SRC)(all,u,USR)(all,d,DST) USE(c,s,u,d)>=0;
  # TRADE>=0 #(all,c,COM)(all,s,SRC)(all,r,ORG)(all,d,DST)  TRADE(c,s,r,d)>=0;
  # INVEST>=0 #(all,c,COM)(all,i,IND)(all,d,DST) INVEST(c,i,d)>=0;

@@ -236,6 +236,19 @@ for commodity in COM:
 if flag:
     print("OK! No negative values encountered.")
 
+flag = True
+for commodity in COM:
+    for user in IND:
+        dataLocation = cleanData["supplytable_BP"].loc[commodity]
+        if dataLocation[user] < 0: 
+            flag = False
+            negValue = dataLocation[user] 
+            dataLocation[user] = 0                           
+            print(user, commodity,": value", negValue, "changed to zero!")
+                    
+if flag:
+    print("OK! No negative values encountered.")
+
 #%% [markdown]
 # #### Check that current price GDP from income side equals GDP from expenditure side (well enough):
 
