@@ -23,7 +23,7 @@
     +++  INFORMATION ABOUT THIS PRINT FILE  +++
    
 
- ! This file was created at 10:41:57 on 07-JAN-2020 by the program
+ ! This file was created at 16:27:38 on 07-JAN-2020 by the program
  !  <TABLO  Version 7.0   August 2018>
  ! which accesses some of the routines in the GEMPACK software release
  !  <GEMPACK Release 12.0.004   March 2019>
@@ -1497,7 +1497,7 @@
    1423   Assertion ! if below not true, program will stop with message !
    1424    # Sales check # (all,c,COM) ABS[COMRPT(c,"PCTDIFF")]<0.5;
    1425    # Costs check # (all,i,IND) ABS[INDRPT(i,"PCTDIFF")]<0.5;
-   1426    (initial) # Average Engel elasticity = 1 #  ABS[1-EPSTOT] <0.001;
+   1426    (initial) # Average Engel elasticity = 1 #  ABS[1-EPSTOT] <0.5;
    1427    
    1428   ! Excerpt 38 of TABLO input file: !
    1429   ! Summary: components of GDP from income and expenditure sides !
@@ -2273,7 +2273,7 @@
    2199   (initial) # 1LAB>=0 # (all,i,IND)(all,o,OCC)  V1LAB(i,o) >=0;
    2200   (initial) # 1CAP>=0 # (all,i,IND)             V1CAP(i)   >=0;
    2201   (initial) # 1LND>=0 # (all,i,IND)             V1LND(i)   >=0;
-   2202   (initial) # MAKE>=0 # (all,c,COM)(all,i,IND)  MAKE(c,i)  >=0;
+   2202   !(initial) # MAKE>=0 # (all,c,COM)(all,i,IND)  MAKE(c,i)  >=0;!
    2203    
    2204   (initial) # SIGMA1LAB >=0 # (all,i,IND)  SIGMA1LAB(i)  >= 0.0;
    2205   (initial) # SIGMA1PRIM >=0 # (all,i,IND) SIGMA1PRIM(i) >= 0.0;
@@ -3431,26 +3431,25 @@
   1121      2198     no       no      Assertion 1LAB>=0                       
   1122      2200     no       no      Assertion 1CAP>=0                       
   1123      2201     no       no      Assertion 1LND>=0                       
-  1124      2202     no       no      Assertion MAKE>=0                       
-  1125      2204     no       no      Assertion SIGMA1LAB >=0                 
-  1126      2205     no       no      Assertion SIGMA1PRIM >=0                
-  1127      2206     no       no      Assertion SIGMA1 >=0                    
-  1128      2207     no       no      Assertion SIGMA1OUT >=0                 
-  1129      2208     no       no      Assertion SIGMA2 >=0                    
-  1130      2209     no       no      Assertion SIGMA3 >=0                    
-  1131      2210     no       no      Assertion EPS >=0                       
-  1132      2211     no       no      Assertion IsIndivExp >=0                
-  1133      2212     no       no      Assertion IsLocCom >=0                  
-  1134      2213     no       no      Assertion REGSHR1 >=0                   
-  1135      2214     no       no      Assertion REGSHR2 >=0                   
-  1136      2215     no       no      Assertion REGSHR3 >=0                   
-  1137      2216     no       no      Assertion REGSHR4 >=0                   
-  1138      2217     no       no      Assertion REGSHR5 >=0                   
-  1139      2218     no       no      Assertion REGSHR1 <=1                   
-  1140      2219     no       no      Assertion REGSHR2 <=1                   
-  1141      2220     no       no      Assertion REGSHR3 <=1                   
-  1142      2221     no       no      Assertion REGSHR4 <=1                   
-  1143      2222     no       no      Assertion REGSHR5 <=1                   
+  1124      2204     no       no      Assertion SIGMA1LAB >=0                 
+  1125      2205     no       no      Assertion SIGMA1PRIM >=0                
+  1126      2206     no       no      Assertion SIGMA1 >=0                    
+  1127      2207     no       no      Assertion SIGMA1OUT >=0                 
+  1128      2208     no       no      Assertion SIGMA2 >=0                    
+  1129      2209     no       no      Assertion SIGMA3 >=0                    
+  1130      2210     no       no      Assertion EPS >=0                       
+  1131      2211     no       no      Assertion IsIndivExp >=0                
+  1132      2212     no       no      Assertion IsLocCom >=0                  
+  1133      2213     no       no      Assertion REGSHR1 >=0                   
+  1134      2214     no       no      Assertion REGSHR2 >=0                   
+  1135      2215     no       no      Assertion REGSHR3 >=0                   
+  1136      2216     no       no      Assertion REGSHR4 >=0                   
+  1137      2217     no       no      Assertion REGSHR5 >=0                   
+  1138      2218     no       no      Assertion REGSHR1 <=1                   
+  1139      2219     no       no      Assertion REGSHR2 <=1                   
+  1140      2220     no       no      Assertion REGSHR3 <=1                   
+  1141      2221     no       no      Assertion REGSHR4 <=1                   
+  1142      2222     no       no      Assertion REGSHR5 <=1                   
 
 
 
@@ -4450,26 +4449,25 @@
    211        2198     no      Assertion         17
    212        2200     no      Assertion         18
    213        2201     no      Assertion         19
-   214        2202     no      Assertion         41
-   215        2204     no      Assertion         28
-   216        2205     no      Assertion         31
-   217        2206     no      Assertion         33
-   218        2207     no      Assertion         42
-   219        2208     no      Assertion         47
-   220        2209     no      Assertion         51
-   221        2210     no      Assertion         56
-   222        2211     no      Assertion         61
-   223        2212     no      Assertion        120
-   224        2213     no      Assertion        121
-   225        2214     no      Assertion        122
-   226        2215     no      Assertion        123
-   227        2216     no      Assertion        124
-   228        2217     no      Assertion        125
-   229        2218     no      Assertion        121
-   230        2219     no      Assertion        122
-   231        2220     no      Assertion        123
-   232        2221     no      Assertion        124
-   233        2222     no      Assertion        125
+   214        2204     no      Assertion         28
+   215        2205     no      Assertion         31
+   216        2206     no      Assertion         33
+   217        2207     no      Assertion         42
+   218        2208     no      Assertion         47
+   219        2209     no      Assertion         51
+   220        2210     no      Assertion         56
+   221        2211     no      Assertion         61
+   222        2212     no      Assertion        120
+   223        2213     no      Assertion        121
+   224        2214     no      Assertion        122
+   225        2215     no      Assertion        123
+   226        2216     no      Assertion        124
+   227        2217     no      Assertion        125
+   228        2218     no      Assertion        121
+   229        2219     no      Assertion        122
+   230        2220     no      Assertion        123
+   231        2221     no      Assertion        124
+   232        2222     no      Assertion        125
 
 
 
@@ -4676,7 +4674,7 @@
  ++ INPUT CHECK SUMMARY
  ======================
 
- Total number of statements is 1143.
+ Total number of statements is 1142.
  There are NO syntax errors or semantic problems.
 
 
@@ -9913,7 +9911,7 @@
   and Table files produced in this run of TABLO
      o can create the Equations file (for the condensed system)
      o can carry out 63 WRITEs
-     o can check 53 ASSERTIONs
+     o can check 52 ASSERTIONs
      o can carry out multi-step simulations
 
  MXGSRS = 89, MXGSIS = 89.
@@ -9930,7 +9928,7 @@
   and Table files produced in this run of TABLO
      o can create the Equations file (for the condensed system)
      o can carry out 63 WRITEs
-     o can check 53 ASSERTIONs
+     o can check 52 ASSERTIONs
      o can carry out multi-step simulations
 
  *******************************************************************

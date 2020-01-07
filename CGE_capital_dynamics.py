@@ -196,7 +196,7 @@ for table in nataccData:
 renames = {"I_41+432_439": "I_41",
            "I_42+431": "I_42_43",
            "I_681+68209+683": "I_68",
-           "I_68201_68202":"I_68202", 
+           "I_68201_68202":"I_68A", 
            }
 
 for table in nataccData:
@@ -210,10 +210,10 @@ nataccInd = [renames[i] if i in renames.keys() else i for i in nataccIndustries]
 
 #%%
 # if I_68202 comes before I_68, replace their order to match the input-output data:
-if nataccInd.index("I_68202") < nataccInd.index("I_68"):
-    a, b = nataccInd.index('I_68202'), nataccInd.index('I_68')
+if nataccInd.index("I_68A") < nataccInd.index("I_68"):
+    a, b = nataccInd.index('I_68A'), nataccInd.index('I_68')
     nataccInd[b], nataccInd[a] = nataccInd[a], nataccInd[b]
-    print("Swapped places for industries 68202 and 68")
+    print("Swapped places for industries 68A and 68")
 else:
     print("No changes made")
 

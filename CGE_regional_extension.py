@@ -338,7 +338,7 @@ DIST = pd.read_excel("supplementaryData/regDistances.xlsx", index_col = 0)
 
 # Distance factor for gravity formula
 DFAC = pd.DataFrame(1.0, index = regCom, columns = ["dom", "imp"])
-DFAC.loc[["C_35_39", "C_41_43","C_68", "C_68202"]] = 2.0
+DFAC.loc[["C_35_39", "C_41_43","C_68", "C_68A"]] = 2.0
 
 # Margin weighting
 MWGT = pd.DataFrame(1.0, index = REG, columns =allDims["MAR"])
@@ -357,7 +357,7 @@ SGDD = pd.DataFrame(5.0, index = regCom, columns = ["SIGMADOMOM"])
 SMAR = pd.DataFrame(0.2, index = allDims["MAR"], columns = ["SIGMAMAR"])
 
 # Truly local commodities
-RLOC = ["C_68", "C_68202", "C_85", "C_86_88"]
+RLOC = ["C_68", "C_68A", "C_85", "C_86_88"]
 
 # Share of national imports, by port of entry
 MSHR = pd.DataFrame(1/len(REGIONS), index = regCom, columns = REG)

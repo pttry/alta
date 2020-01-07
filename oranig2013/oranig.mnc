@@ -8,11 +8,11 @@ SUMMARY               Out    n  HAR
 (Solution)            Out    y  SL4
 (Equations)           Out    y  EQ4
 #TABFILE
-ORANIG.tab
+oranig.tab
 #TMDATE
-at 16:27:40 on 07-JAN-2020
+at 16:23:25 on 07-JAN-2020
 #STIFILE
-%none
+TABmate.sif
 #SETS
    33
     1 COM                 -1  u Commodities
@@ -150,7 +150,7 @@ LCOM@@@@OCOM
    32 MARLOCCOM           -1  uLocal margin commodities
    33 NONMARLOCCOM        -1  u
 #VARIABLES
-       220
+       255
     1 x1                      -1     3 ? Intermediate basic demands
     1    2    3
     2 x2                      -1     3 ? Investment basic demands
@@ -169,351 +169,423 @@ LCOM@@@@OCOM
     1
     9 delV6                   -1     2 ? Value of inventories
     1    2
-   10 x3mar                   -1     3 ? Household margin demands
+   10 x1mar                   -1     4 ? Intermediate margin demand
+    1    2    3    5
+   11 x2mar                   -1     4 ? Investment margin demands
+    1    2    3    5
+   12 x3mar                   -1     3 ? Household margin demands
     1    2    5
-   11 x4mar                   -1     2 ? Export margin demands
+   13 x4mar                   -1     2 ? Export margin demands
     1    5
-   12 x5mar                   -1     3 ? Government margin demands
+   14 x5mar                   -1     3 ? Government margin demands
     1    2    5
-   13 p0dom                   -1     1 ? Basic price of domestic goods = p0(c,"dom")
+   15 p0dom                   -1     1 ? Basic price of domestic goods = p0(c,"dom")
     1
-   14 delV3TAX                -1     2 ? Hhold tax rev
-    1    2
-   15 delV4TAX                -1     1 ? Export tax rev
-    1
-   16 delV5TAX                -1     2 ? Govmnt tax rev
-    1    2
-   17 x1lab                   -1     2 ? Employment by industry and occupation
-    3    4
-   18 p1lab                   -1     2 ? Wages by industry and occupation
-    3    4
-   19 x1cap                   -1     1 ? Current capital stock
-    3
-   20 p1cap                   -1     1 ? Rental price of capital
-    3
-   21 x1lnd                   -1     1 ? Use of land
-    3
-   22 p1lnd                   -1     1 ? Rental price of land
-    3
-   23 delV1PTX                -1     1 ? Ordinary change in production tax revenue
-    3
-   24 x1oct                   -1     1 ? Demand for "other cost" tickets
-    3
-   25 p1oct                   -1     1 ? Price of "other cost" tickets
-    3
-   26 delV0TAR                -1     1 ? Ordinary change in tariff revenue
-    1
-   27 p1                      -1     3 ? Purchasers price, intermediate
+   16 delV1TAX                -1     3 ? Interm tax rev
     1    2    3
-   28 p3                      -1     2 ? Purchasers price, household
+   17 delV2TAX                -1     3 ? Invest tax rev
+    1    2    3
+   18 delV3TAX                -1     2 ? H'hold tax rev
     1    2
-   29 p4                      -1     1 ? Purchasers price, exports,loc$
+   19 delV4TAX                -1     1 ? Export tax rev
     1
-   30 p5                      -1     2 ? Purchasers price, government
+   20 delV5TAX                -1     2 ? Govmnt tax rev
     1    2
-   31 p1lab_o                 -1     1 ? Price to each industry of labour composite
+   21 x1lab                   -1     2 ? Employment by industry and occupation
+    3    4
+   22 p1lab                   -1     2 ? Wages by industry and occupation
+    3    4
+   23 x1cap                   -1     1 ? Current capital stock
     3
-   32 x1lab_o                 -1     1 ? Effective labour input
+   24 p1cap                   -1     1 ? Rental price of capital
     3
-   33 p1prim                  -1     1 ? Effective price of primary factor composite
+   25 x1lnd                   -1     1 ? Use of land
     3
-   34 x1prim                  -1     1 ? Primary factor composite
+   26 p1lnd                   -1     1 ? Rental price of land
     3
-   35 a1lab_o                 -1     1 ? Labor-augmenting technical change
+   27 delV1PTX                -1     1 ? Ordinary change in production tax revenue
     3
-   36 a1cap                   -1     1 ? Capital-augmenting technical change
+   28 x1oct                   -1     1 ? Demand for "other cost" tickets
     3
-   37 a1lnd                   -1     1 ? Land-augmenting technical change
+   29 p1oct                   -1     1 ? Price of "other cost" tickets
     3
-   38 delV1PRIM               -1     1 ? Ordinary change in cost of primary factors
+   30 delV0TAR                -1     1 ? Ordinary change in tariff revenue
+    1
+   31 p1                      -1     3 ? Purchaser's price, intermediate
+    1    2    3
+   32 p2                      -1     3 ? Purchaser's price, investment
+    1    2    3
+   33 p3                      -1     2 ? Purchaser's price, household
+    1    2
+   34 p4                      -1     1 ? Purchaser's price, exports,loc$
+    1
+   35 p5                      -1     2 ? Purchaser's price, government
+    1    2
+   36 p1lab_o                 -1     1 ? Price to each industry of labour composite
     3
-   39 x1_s                    -1     2 ? Intermediate use of imp/dom composite
+   37 x1lab_o                 -1     1 ? Effective labour input
+    3
+   38 p1prim                  -1     1 ? Effective price of primary factor composite
+    3
+   39 x1prim                  -1     1 ? Primary factor composite
+    3
+   40 a1lab_o                 -1     1 ? Labor-augmenting technical change
+    3
+   41 a1cap                   -1     1 ? Capital-augmenting technical change
+    3
+   42 a1lnd                   -1     1 ? Land-augmenting technical change
+    3
+   43 delV1PRIM               -1     1 ? Ordinary change in cost of primary factors
+    3
+   44 a1                      -1     3 ? Intermediate basic tech change
+    1    2    3
+   45 x1_s                    -1     2 ? Intermediate use of imp/dom composite
     1    3
-   40 p1_s                    -1     2 ? Price, intermediate imp/dom composite
+   46 p1_s                    -1     2 ? Price, intermediate imp/dom composite
     1    3
-   41 p1mat                   -1     1 ? Intermediate cost price index
+   47 p1mat                   -1     1 ? Intermediate cost price index
     3
-   42 p1var                   -1     1 ? Short-run variable cost price index
+   48 p1var                   -1     1 ? Short-run variable cost price index
     3
-   43 x1tot                   -1     1 ? Activity level or value-added
+   49 x1tot                   -1     1 ? Activity level or value-added
     3
-   44 a1prim                  -1     1 ? All factor augmenting technical change
+   50 a1prim                  -1     1 ? All factor augmenting technical change
     3
-   45 a1tot                   -1     1 ? All input augmenting technical change
+   51 a1tot                   -1     1 ? All input augmenting technical change
     3
-   46 p1tot                   -1     1 ? Average input/output price
+   52 p1tot                   -1     1 ? Average input/output price
     3
-   47 delV1CST                -1     1 ? Change in ex-tax cost of production
+   53 a1oct                   -1     1 ? "Other cost" ticket augmenting techncal change
     3
-   48 delV1TOT                -1     1 ? Change in tax-inc cost of production
-    3
-   49 delPTXRATE              -1     1 ? Change in rate of production tax
-    3
-   50 p1cst                   -1     1 ? Index of production costs (for AnalyseGE)
-    3
-   51 q1                      -1     2 ? Output by commodity and industry
+   54 a1_s                    -1     2 ? Tech change, int'mdiate imp/dom composite
     1    3
-   52 p0com                   -1     1 ? General output price of locally-produced commodity
-    1
-   53 x0com                   -1     1 ? Output of commodities
-    1
-   54 x0dom                   -1     1 ? Output of commodities for local market
-    1
-   55 a2tot                   -1     1 ? Neutral technical change - investment
+   55 delV1CST                -1     1 ? Change in ex-tax cost of production
     3
-   56 p2tot                   -1     1 ? Cost of unit of capital
+   56 delV1TOT                -1     1 ? Change in tax-inc cost of production
     3
-   57 x2tot                   -1     1 ? Investment by using industry
+   57 delPTXRATE              -1     1 ? Change in rate of production tax
     3
-   58 x3_s                    -1     1 ? Household use of imp/dom composite
+   58 p1cst                   -1     1 ? Index of production costs (for AnalyseGE)
+    3
+   59 q1                      -1     2 ? Output by commodity and industry
+    1    3
+   60 pq1                     -1     2 ? Price of com c produced by ind i
+    1    3
+   61 p0com                   -1     1 ? General output price of locally-produced commodity
     1
-   59 p3_s                    -1     1 ? Price, household imp/dom composite
+   62 x0com                   -1     1 ? Output of commodities
     1
-   60 p3tot                    1     0 ? Consumer price index
-   61 x3tot                    1     0 ? Real household consumption
-   62 w3lux                    1     0 ? Total nominal supernumerary household expenditure
-   63 w3tot                    1     0 ? Nominal total household consumption
-   64 q                        1     0 ? Number of households
-   65 utility                  1     0 ? Utility per household
-   66 x3lux                   -1     1 ? Household - supernumerary demands
+   63 x0dom                   -1     1 ? Output of commodities for local market
     1
-   67 x3sub                   -1     1 ? Household - subsistence demands
-    1
-   68 a3lux                   -1     1 ? Taste change, supernumerary demands
-    1
-   69 a3sub                   -1     1 ? Taste change, subsistence demands
-    1
-   70 a3_s                    -1     1 ? Taste change, household imp/dom composite
-    1
-   71 phi                      1     0 ? Exchange rate, local currency/$world
-   72 pf4                     -1     1 ? Foreign currency export prices
-    1
-   73 f4p                     -1     1 ? Price (upward) shift in export demand schedule
-    1
-   74 f4q                     -1     1 ? Quantity (right) shift in export demands
-    1
-   75 x4_ntrad                 1     0 ? Quantity, collective export composite
-   76 f4p_ntrad                1     0 ? Uniform upward (price) demand shift for collective exports
-   77 f4q_ntrad                1     0 ? Uniform right (quantity) demand shift for collective exports
-   78 p4_ntrad                 1     0 ? Average price of collective exports
-   79 f5tot                    1     0 ? Overall shift term for government demands
-   80 f5tot2                   1     0 ? Ratio between f5tot and x3tot
-   81 f5                      -1     2 ? Government demand shift
+   64 x2_s                    -1     2 ? Investment use of imp/dom composite
+    1    3
+   65 p2_s                    -1     2 ? Price, investment imp/dom composite
+    1    3
+   66 a2                      -1     3 ? Investment basic tech change
+    1    2    3
+   67 a2tot                   -1     1 ? Neutral technical change - investment
+    3
+   68 p2tot                   -1     1 ? Cost of unit of capital
+    3
+   69 x2tot                   -1     1 ? Investment by using industry
+    3
+   70 a2_s                    -1     2 ? Tech change, investment imp/dom composite
+    1    3
+   71 a3                      -1     2 ? Household basic taste change
     1    2
-   82 fx6                     -1     2 ? Shifter on rule for stocks
+   72 x3_s                    -1     1 ? Household use of imp/dom composite
+    1
+   73 p3_s                    -1     1 ? Price, household imp/dom composite
+    1
+   74 p3tot                    1     0 ? Consumer price index
+   75 x3tot                    1     0 ? Real household consumption
+   76 w3lux                    1     0 ? Total nominal supernumerary household expenditure
+   77 w3tot                    1     0 ? Nominal total household consumption
+   78 q                        1     0 ? Number of households
+   79 utility                  1     0 ? Utility per household
+   80 x3lux                   -1     1 ? Household - supernumerary demands
+    1
+   81 x3sub                   -1     1 ? Household - subsistence demands
+    1
+   82 a3lux                   -1     1 ? Taste change, supernumerary demands
+    1
+   83 a3sub                   -1     1 ? Taste change, subsistence demands
+    1
+   84 a3_s                    -1     1 ? Taste change, household imp/dom composite
+    1
+   85 phi                      1     0 ? Exchange rate, local currency/$world
+   86 pf4                     -1     1 ? Foreign currency export prices
+    1
+   87 f4p                     -1     1 ? Price (upward) shift in export demand schedule
+    1
+   88 f4q                     -1     1 ? Quantity (right) shift in export demands
+    1
+   89 x4_ntrad                 1     0 ? Quantity, collective export composite
+   90 f4p_ntrad                1     0 ? Uniform upward (price) demand shift for collective exports
+   91 f4q_ntrad                1     0 ? Uniform right (quantity) demand shift for collective exports
+   92 p4_ntrad                 1     0 ? Average price of collective exports
+   93 f5tot                    1     0 ? Overall shift term for government demands
+   94 f5tot2                   1     0 ? Ratio between f5tot and x3tot
+   95 f5                      -1     2 ? Government demand shift
     1    2
-   83 delSale                 -1     3 ? Sales aggregates
+   96 fx6                     -1     2 ? Shifter on rule for stocks
+    1    2
+   97 a1mar                   -1     4 ? Intermediate margin tech change
+    1    2    3    5
+   98 a2mar                   -1     4 ? Investment margin tech change
+    1    2    3    5
+   99 a3mar                   -1     3 ? Household margin tech change
+    1    2    5
+  100 a4mar                   -1     2 ? Export margin tech change
+    1    5
+  101 a5mar                   -1     3 ? Governmnt margin tech change
+    1    2    5
+  102 delSale                 -1     3 ? Sales aggregates
     1    2    9
-   84 x0imp                   -1     1 ? Total supplies of imported goods
+  103 x0imp                   -1     1 ? Total supplies of imported goods
     1
-   85 t3                      -1     2 ? Power of tax on household
+  104 t1                      -1     3 ? Power of tax on intermediate
+    1    2    3
+  105 t2                      -1     3 ? Power of tax on investment
+    1    2    3
+  106 t3                      -1     2 ? Power of tax on household
     1    2
-   86 t4                      -1     1 ? Power of tax on export
+  107 t4                      -1     1 ? Power of tax on export
     1
-   87 t5                      -1     2 ? Power of tax on government
+  108 t5                      -1     2 ? Power of tax on government
     1    2
-   88 f1tax_csi                1     0 ? Uniform % change in powers of taxes on intermediate usage
-   89 f2tax_csi                1     0 ? Uniform % change in powers of taxes on investment
-   90 f3tax_cs                 1     0 ? Uniform % change in powers of taxes on household usage
-   91 f4tax_ntrad              1     0 ? Uniform % change in powers of taxes on nontradtnl exports
-   92 f4tax_trad               1     0 ? Uniform % change in powers of taxes on tradtnl exports
-   93 f5tax_cs                 1     0 ? Uniform % change in powers of taxes on government usage
-   94 f0tax_s                 -1     1 ? General sales tax shifter
+  109 f1tax_csi                1     0 ? Uniform % change in powers of taxes on intermediate usage
+  110 f2tax_csi                1     0 ? Uniform % change in powers of taxes on investment
+  111 f3tax_cs                 1     0 ? Uniform % change in powers of taxes on household usage
+  112 f4tax_ntrad              1     0 ? Uniform % change in powers of taxes on nontradtnl exports
+  113 f4tax_trad               1     0 ? Uniform % change in powers of taxes on tradtnl exports
+  114 f5tax_cs                 1     0 ? Uniform % change in powers of taxes on government usage
+  115 f0tax_s                 -1     1 ? General sales tax shifter
     1
-   95 pf0cif                  -1     1 ? C.I.F. foreign currency import prices
+  116 pf0cif                  -1     1 ? C.I.F. foreign currency import prices
     1
-   96 t0imp                   -1     1 ? Power of tariff
+  117 t0imp                   -1     1 ? Power of tariff
     1
-   97 delV1tax_csi             1     0 ? Aggregate revenue from indirect taxes on intermediate
-   98 delV2tax_csi             1     0 ? Aggregate revenue from indirect taxes on investment
-   99 delV3tax_cs              1     0 ? Aggregate revenue from indirect taxes on households
-  100 delV4tax_c               1     0 ? Aggregate revenue from indirect taxes on export
-  101 delV5tax_cs              1     0 ? Aggregate revenue from indirect taxes on government
-  102 delV0tar_c               1     0 ? Aggregate tariff revenue
-  103 w1lab_io                 1     0 ? Aggregate payments to labour
-  104 w1cap_i                  1     0 ? Aggregate payments to capital
-  105 w1lnd_i                  1     0 ? Aggregate payments to land
-  106 w1prim_i                 1     0 ? Aggregate primary factor payments
-  107 w1oct_i                  1     0 ? Aggregate "other cost" ticket payments
-  108 delV1PTX_i               1     0 ? Ordinary change in all-industry production tax revenue
-  109 delV0tax_csi             1     0 ? Aggregate revenue from all indirect taxes
-  110 w0tax_csi                1     0 ? Aggregate revenue from all indirect taxes
-  111 w0gdpinc                 1     0 ? Nominal GDP from income side
-  112 x2tot_i                  1     0 ? Aggregate real investment expenditure
-  113 p2tot_i                  1     0 ? Aggregate investment price index
-  114 w2tot_i                  1     0 ? Aggregate nominal investment
-  115 x4tot                    1     0 ? Export volume index
-  116 p4tot                    1     0 ? Exports price index, local currency
-  117 w4tot                    1     0 ? Local currency border value of exports
-  118 x5tot                    1     0 ? Aggregate real government demands
-  119 p5tot                    1     0 ? Government price index
-  120 w5tot                    1     0 ? Aggregate nominal value of government demands
-  121 x6tot                    1     0 ? Aggregate real inventories
-  122 p6tot                    1     0 ? Inventories price index
-  123 w6tot                    1     0 ? Aggregate nominal value of inventories
-  124 x0cif_c                  1     0 ? Import volume index, C.I.F. weights
-  125 p0cif_c                  1     0 ? Imports price index, C.I.F., local currency
-  126 w0cif_c                  1     0 ? C.I.F. local currency value of imports
-  127 x0gne                    1     0 ? Real GNE
-  128 p0gne                    1     0 ? GNE price index
-  129 w0gne                    1     0 ? Nominal GNE
-  130 x0gdpexp                 1     0 ? Real GDP from expenditure side
-  131 p0gdpexp                 1     0 ? GDP price index, expenditure side
-  132 w0gdpexp                 1     0 ? Nominal GDP from expenditure side
-  133 w0gdpdif                 1     0 ? Check = w0gdpexp - w0gdpinc   .. should be tiny
-  134 delB                     1     0 ? (Nominal balance of trade)/{nominal GDP}
-  135 x0imp_c                  1     0 ? Import volume index, duty-paid weights
-  136 w0imp_c                  1     0 ? Value of imports plus duty
-  137 p0imp_c                  1     0 ? Duty-paid imports price index, local currency
-  138 p0realdev                1     0 ? Real devaluation
-  139 p0toft                   1     0 ? Terms of trade
-  140 delNTB                   1     0 ? change Normalized Trade Balance = (X-M)/(X+M)
-  141 employ                  -1     1 ? Employment by industry: wage bill weights
+  118 delV1tax_csi             1     0 ? Aggregate revenue from indirect taxes on intermediate
+  119 delV2tax_csi             1     0 ? Aggregate revenue from indirect taxes on investment
+  120 delV3tax_cs              1     0 ? Aggregate revenue from indirect taxes on households
+  121 delV4tax_c               1     0 ? Aggregate revenue from indirect taxes on export
+  122 delV5tax_cs              1     0 ? Aggregate revenue from indirect taxes on government
+  123 delV0tar_c               1     0 ? Aggregate tariff revenue
+  124 w1lab_io                 1     0 ? Aggregate payments to labour
+  125 w1cap_i                  1     0 ? Aggregate payments to capital
+  126 w1lnd_i                  1     0 ? Aggregate payments to land
+  127 w1prim_i                 1     0 ? Aggregate primary factor payments
+  128 w1oct_i                  1     0 ? Aggregate "other cost" ticket payments
+  129 delV1PTX_i               1     0 ? Ordinary change in all-industry production tax revenue
+  130 delV0tax_csi             1     0 ? Aggregate revenue from all indirect taxes
+  131 w0tax_csi                1     0 ? Aggregate revenue from all indirect taxes
+  132 w0gdpinc                 1     0 ? Nominal GDP from income side
+  133 x2tot_i                  1     0 ? Aggregate real investment expenditure
+  134 p2tot_i                  1     0 ? Aggregate investment price index
+  135 w2tot_i                  1     0 ? Aggregate nominal investment
+  136 x4tot                    1     0 ? Export volume index
+  137 p4tot                    1     0 ? Exports price index, local currency
+  138 w4tot                    1     0 ? Local currency border value of exports
+  139 x5tot                    1     0 ? Aggregate real government demands
+  140 p5tot                    1     0 ? Government price index
+  141 w5tot                    1     0 ? Aggregate nominal value of government demands
+  142 x6tot                    1     0 ? Aggregate real inventories
+  143 p6tot                    1     0 ? Inventories price index
+  144 w6tot                    1     0 ? Aggregate nominal value of inventories
+  145 x0cif_c                  1     0 ? Import volume index, C.I.F. weights
+  146 p0cif_c                  1     0 ? Imports price index, C.I.F., local currency
+  147 w0cif_c                  1     0 ? C.I.F. local currency value of imports
+  148 x0gne                    1     0 ? Real GNE
+  149 p0gne                    1     0 ? GNE price index
+  150 w0gne                    1     0 ? Nominal GNE
+  151 x0gdpexp                 1     0 ? Real GDP from expenditure side
+  152 p0gdpexp                 1     0 ? GDP price index, expenditure side
+  153 w0gdpexp                 1     0 ? Nominal GDP from expenditure side
+  154 w0gdpdif                 1     0 ? Check = w0gdpexp - w0gdpinc   .. should be tiny
+  155 delB                     1     0 ? (Nominal balance of trade)/{nominal GDP}
+  156 x0imp_c                  1     0 ? Import volume index, duty-paid weights
+  157 w0imp_c                  1     0 ? Value of imports plus duty
+  158 p0imp_c                  1     0 ? Duty-paid imports price index, local currency
+  159 p0realdev                1     0 ? Real devaluation
+  160 p0toft                   1     0 ? Terms of trade
+  161 delNTB                   1     0 ? change Normalized Trade Balance = (X-M)/(X+M)
+  162 employ                  -1     1 ? Employment by industry: wage bill weights
     3
-  142 employ_i                 1     0 ? Aggregate employment: wage bill weights
-  143 x1cap_i                  1     0 ? Aggregate capital stock, rental weights
-  144 x1lnd_i                  1     0 ? Aggregate land stock, rental weights
-  145 x1prim_i                 1     0 ? Aggregate primary factor use (excludes tech change)
-  146 p1prim_i                 1     0 ? Index of factor cost (excludes tech change)
-  147 p1lab_io                 1     0 ? Average nominal wage
-  148 realwage                 1     0 ? Average real wage
-  149 p1cap_i                  1     0 ? Average capital rental
-  150 p1lnd_i                  1     0 ? Average land rental
-  151 ggro                    -1     1 ? Gross growth rate of capital = Investment/capital
+  163 employ_i                 1     0 ? Aggregate employment: wage bill weights
+  164 x1cap_i                  1     0 ? Aggregate capital stock, rental weights
+  165 x1lnd_i                  1     0 ? Aggregate land stock, rental weights
+  166 x1prim_i                 1     0 ? Aggregate primary factor use (excludes tech change)
+  167 p1prim_i                 1     0 ? Index of factor cost (excludes tech change)
+  168 p1lab_io                 1     0 ? Average nominal wage
+  169 realwage                 1     0 ? Average real wage
+  170 p1cap_i                  1     0 ? Average capital rental
+  171 p1lnd_i                  1     0 ? Average land rental
+  172 ggro                    -1     1 ? Gross growth rate of capital = Investment/capital
     3
-  152 gret                    -1     1 ? Gross rate of return = Rental/[Price of new capital]
+  173 gret                    -1     1 ? Gross rate of return = Rental/[Price of new capital]
     3
-  153 finv1                   -1     1 ? Shifter to enforce DPSV investment rule
+  174 finv1                   -1     1 ? Shifter to enforce DPSV investment rule
     3
-  154 finv2                   -1     1 ? Shifter for "exogenous" investment rule
+  175 finv2                   -1     1 ? Shifter for "exogenous" investment rule
     3
-  155 finv3                   -1     1 ? Shifter for longrun investment rule
+  176 finv3                   -1     1 ? Shifter for longrun investment rule
     3
-  156 invslack                 1     0 ? Investment slack variable for exogenizing aggregate investment
-  157 f2tot                    1     0 ? Ratio, investment/consumption
-  158 fgret                   -1     1 ? Shifter to lock together industry rates of return
+  177 invslack                 1     0 ? Investment slack variable for exogenizing aggregate investment
+  178 f2tot                    1     0 ? Ratio, investment/consumption
+  179 fgret                   -1     1 ? Shifter to lock together industry rates of return
     3
-  159 capslack                 1     0 ? Slack variable to allow fixing aggregate capital
-  160 x1lab_i                 -1     1 ? Employment by occupation
+  180 capslack                 1     0 ? Slack variable to allow fixing aggregate capital
+  181 f1lab                   -1     2 ? Wage shift variable
+    3    4
+  182 f1lab_i                 -1     1 ? Occupation-specific wage shifter
     4
-  161 f1lab_io                 1     0 ? Overall wage shifter
-  162 p1lab_i                 -1     1 ? Average wage of occupation
+  183 x1lab_i                 -1     1 ? Employment by occupation
     4
-  163 f1oct                   -1     1 ? Shift in price of "other cost" tickets
+  184 f1lab_o                 -1     1 ? Industry-specific wage shifter
     3
-  164 f3tot                    1     0 ? Ratio, consumption/ GDP
-  165 p0imp                   -1     1 ? Basic price of imported goods = p0(c,"imp")
+  185 f1lab_io                 1     0 ? Overall wage shifter
+  186 p1lab_i                 -1     1 ? Average wage of occupation
+    4
+  187 f1oct                   -1     1 ? Shift in price of "other cost" tickets
+    3
+  188 f3tot                    1     0 ? Ratio, consumption/ GDP
+  189 p0imp                   -1     1 ? Basic price of imported goods = p0(c,"imp")
     1
-  166 SalesDecomp             -1     2 ? Sales decomposition
+  190 SalesDecomp             -1     2 ? Sales decomposition
     1   11
-  167 x0loc                   -1     1 ? Real percent change in LOCSALES (dom+imp)
+  191 x0loc                   -1     1 ? Real percent change in LOCSALES (dom+imp)
     1
-  168 fandecomp               -1     2 ? Fan decomposition
+  192 fandecomp               -1     2 ? Fan decomposition
     1   12
-  169 contGDPexp               6     1 ? Contributions to % change in real expenditure-side GDP
+  193 contGDPexp               6     1 ? Contributions to % change in real expenditure-side GDP
    13
-  170 contBOT                  1     0 ? Contribution of BOT to real expenditure-side GDP
-  171 x0gdpinc                 1     0 ? Real GDP from the income side
-  172 contGDPinc               5     1 ? Income side real GDP decomposition
+  194 contBOT                  1     0 ? Contribution of BOT to real expenditure-side GDP
+  195 x0gdpinc                 1     0 ? Real GDP from the income side
+  196 contGDPinc               5     1 ? Income side real GDP decomposition
    14
-  173 x0gdpinca                1     0 ? x0gdpinc as pct change
-  174 x0gdpdif                 1     0 ? Check = x0gdpexp - x0gdpinca   .. should be tiny
-  175 x0gdpfac                 1     0 ? Real GDP at factor cost
-  176 contGDPfac               4     1 ? Contributions to real GDP at factor cost:x0gdpfac
+  197 x0gdpinca                1     0 ? x0gdpinc as pct change
+  198 x0gdpdif                 1     0 ? Check = x0gdpexp - x0gdpinca   .. should be tiny
+  199 x0gdpfac                 1     0 ? Real GDP at factor cost
+  200 contGDPfac               4     1 ? Contributions to real GDP at factor cost:x0gdpfac
    15
-  177 pLabEff                  1     0 ? Effective price of labour, inc. labour-saving tech change
-  178 pLabEff_p1prim           1     0 ? PLabEff / p1prim_i
-  179 pLabEff_p3tot            1     0 ? PLabEff / p3tot
-  180 p3tot_p0GNE              1     0 ? P3tot / p0GNE
-  181 p0GNE_p0GDPExp           1     0 ? P0GNE / p0GDPExp
-  182 p0GDPExp_p1prim          1     0 ? P0GDPExp / p1prim_i
-  183 pCap_p1prim              1     0 ? PCap / p1prim_i
-  184 pCap_p2tot               1     0 ? PCap_i / p2tot
-  185 p2tot_p0GNE              1     0 ? P2tot_i / p0GNE
-  186 regx0                   -1     2 ? Regional usage of local commodities
+  201 pLabEff                  1     0 ? Effective price of labour, inc. labour-saving tech change
+  202 pLabEff_p1prim           1     0 ? PLabEff / p1prim_i
+  203 pLabEff_p3tot            1     0 ? PLabEff / p3tot
+  204 p3tot_p0GNE              1     0 ? P3tot / p0GNE
+  205 p0GNE_p0GDPExp           1     0 ? P0GNE / p0GDPExp
+  206 p0GDPExp_p1prim          1     0 ? P0GDPExp / p1prim_i
+  207 pCap_p1prim              1     0 ? PCap / p1prim_i
+  208 pCap_p2tot               1     0 ? PCap_i / p2tot
+  209 p2tot_p0GNE              1     0 ? P2tot_i / p0GNE
+  210 regx0                   -1     2 ? Regional usage of local commodities
    28   27
-  187 regx1tot                -1     2 ? Output of regional industries
+  211 regx1tot                -1     2 ? Output of regional industries
     3   27
-  188 regw1lab_io             -1     1 ? Wage bills by region
+  212 regw1lab_io             -1     1 ? Wage bills by region
    27
-  189 regx4                   -1     2 ? Exports by region
-    1   27
-  190 regx5                   -1     3 ? Demands for inputs for "Other" demands
+  213 regx1                   -1     4 ? Regional demands for intermediate inputs
+    1    2    3   27
+  214 regx2                   -1     4 ? Regional demands for inputs for investment
+    1    2    3   27
+  215 regx3                   -1     3 ? Household demand for goods
     1    2   27
-  191 rsum1                   -1     1 ? Regional addup term - should be zero
+  216 regx4                   -1     2 ? Exports by region
+    1   27
+  217 regx5                   -1     3 ? Demands for inputs for "Other" demands
+    1    2   27
+  218 delregx6                -1     3 ? Inventories demand
+    1    2   27
+  219 regx1mar                -1     5 ? Margins - production
+    1    2    3    5   27
+  220 regx2mar                -1     5 ? Margins - capital creation
+    1    2    3    5   27
+  221 regx3mar                -1     4 ? Margins - households
+    1    2    5   27
+  222 regx4mar                -1     3 ? Margins - exports
+    1    5   27
+  223 regx5mar                -1     4 ? Margins - "Other"
+    1    2    5   27
+  224 rsum1                   -1     1 ? Regional addup term - should be zero
     3
-  192 rsum2                   -1     1 ? Regional addup term - should be zero
+  225 rsum2                   -1     1 ? Regional addup term - should be zero
     3
-  193 rsum3                   -1     1 ? Regional addup term - should be zero
+  226 rsum3                   -1     1 ? Regional addup term - should be zero
     1
-  194 rsum4                   -1     1 ? Regional addup term - should be zero
+  227 rsum4                   -1     1 ? Regional addup term - should be zero
     1
-  195 rsum5                   -1     1 ? Regional addup term - should be zero
+  228 rsum5                   -1     1 ? Regional addup term - should be zero
     1
-  196 rsum6                   -1     1 ? Regional addup term - should be zero
+  229 rsum6                   -1     1 ? Regional addup term - should be zero
     1
-  197 ffreg1                  -1     1 ? Complement of rsum1
+  230 ffreg1                  -1     1 ? Complement of rsum1
     3
-  198 ffreg2                  -1     1 ? Complement of rsum2
+  231 ffreg2                  -1     1 ? Complement of rsum2
     3
-  199 ffreg3                  -1     1 ? Complement of rsum3
+  232 ffreg3                  -1     1 ? Complement of rsum3
     1
-  200 ffreg4                  -1     1 ? Complement of rsum4
+  233 ffreg4                  -1     1 ? Complement of rsum4
     1
-  201 ffreg5                  -1     1 ? Complement of rsum5
+  234 ffreg5                  -1     1 ? Complement of rsum5
     1
-  202 ffreg6                  -1     1 ? Complement of rsum6
+  235 ffreg6                  -1     1 ? Complement of rsum6
     1
-  203 rgshr1                  -1     2 ? Region share in national output
+  236 rgshr1                  -1     2 ? Region share in national output
     3   27
-  204 rgshr4                  -1     2 ? Region share in national exports
-    1   27
-  205 rgshr5                  -1     2 ? Region share in national gov.usage
-    1   27
-  206 rgshr6                  -1     2 ? Region share in national stocks
-    1   27
-  207 freg1                   -1     2 ? Regional share shifter
+  237 rgshr2                  -1     2 ? Region share in national investmment
     3   27
-  208 freg2                   -1     2 ? Regional share shifter
+  238 rgshr3                  -1     2 ? Region share in national consumption
+    1   27
+  239 rgshr4                  -1     2 ? Region share in national exports
+    1   27
+  240 rgshr5                  -1     2 ? Region share in national gov.usage
+    1   27
+  241 rgshr6                  -1     2 ? Region share in national stocks
+    1   27
+  242 freg1                   -1     2 ? Regional share shifter
     3   27
-  209 freg3                   -1     2 ? Regional share shifter
-    1   27
-  210 freg4                   -1     2 ? Regional share shifter
-    1   27
-  211 freg5                   -1     2 ? Regional share shifter
-    1   27
-  212 freg6                   -1     2 ? Regional share shifter
-    1   27
-  213 regemploy               -1     2 ? Employment by reg and ind
+  243 freg2                   -1     2 ? Regional share shifter
     3   27
-  214 regx1prim_i             -1     1 ?Gross region products
+  244 freg3                   -1     2 ? Regional share shifter
+    1   27
+  245 freg4                   -1     2 ? Regional share shifter
+    1   27
+  246 freg5                   -1     2 ? Regional share shifter
+    1   27
+  247 freg6                   -1     2 ? Regional share shifter
+    1   27
+  248 regemploy               -1     2 ? Employment by reg and ind
+    3   27
+  249 regx1prim_i             -1     1 ?Gross region products
    27
-  215 regx1primcon            -1     2 ?Contributions to regional gdp
+  250 regx1primcon            -1     2 ?Contributions to regional gdp
     3   27
-  216 regx3tot                -1     1 ? Aggregate regional consumption
+  251 regx3tot                -1     1 ? Aggregate regional consumption
    27
-  217 regemploy_i             -1     1 ?Aggregate regional employment
+  252 regemploy_i             -1     1 ?Aggregate regional employment
    27
-  218 regemploycon            -1     2 ?Contributions to regional emp
+  253 regemploycon            -1     2 ?Contributions to regional emp
     3   27
-  219 regadv                  -1     1 ? Regional advantage (fac GDP share)
+  254 regadv                  -1     1 ? Regional advantage (fac GDP share)
    27
-  220 regadvantage            -1     2 ? Reg advantage decomposition
+  255 regadvantage            -1     2 ? Reg advantage decomposition
     3   27
 #VCSTAT
-bbbcbcccbbbbcbcbbbcccccbbcbbcbccccccccbb
-bbcccccccbbccccccccccccccbbbbccccccccccc
-ccccbcbccccccccccccccccccccccccccccccccc
 cccccccccccccccccccccccccccccccccccccccc
-ccccccccccccccccccccccccccccbbcccccccccc
-ccbbbbccccccbcbccbcb
+cccccccccccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccccccccccc
+cccccccccccccccccccccccccccccccccccccccc
+ccccccccccccccc
 #VCTP
-pppppcppcppppcccppppppcppcpppppppppppcpp
-ppppppcccppppppppppppppppppppppppppppppp
-pccpppppppppppppccccccpppppccppppppppppp
-pppppppppppppcpppppcpppppppppppppppppppp
-pppppcpcccccppccpppppppppppppppppppppppp
-ppppppppppppppcppcpc
+pppppcppcppppppcccccppppppcppcpppppppppp
+ppcpppppppppppcccppppppppppppppppppppppp
+pppppppppppppppcpppppcpppppppppppppppccc
+cccpppppccppppppppppppppppppppppppcppppp
+cppppppppppppppppppppppppppppcpcccccppcc
+pppppppppppppppppcpppppppppppppppppppppp
+pppppppppcppcpc
 #SUBSETS
     29
      1     5     1
@@ -546,7 +618,7 @@ ppppppppppppppcppcpc
     28    33     1
     29    33    23
 #COEFFICIENTS
-  331
+  148
     1 V1BAS           3 r y y  Intermediate basic flows
     1    2    3
     2 V2BAS           3 r y y  Investment basic flows
@@ -653,7 +725,7 @@ ppppppppppppppcppcpc
    53 S3              2 r n n  Household source shares
     1    2
    54 V3TOT           0 r n n  Total purchases by households
-   55 FRISCH          0 r y y  Frisch LES parameter= - (total/luxury)
+   55 FRISCH          0 r y y  Frisch LES 'parameter'= - (total/luxury)
    56 EPS             1 r y y  Household expenditure elasticities
     1
    57 S3_S            1 r n n  Household average budget shares
@@ -728,7 +800,7 @@ ppppppppppppppcppcpc
    18
   106 COSTMAT         2 r n n  Cost Matrix
     3   19
-  107 SALEMAT2        4 r n n  Basic, margin and tax components of purchasers values
+  107 SALEMAT2        4 r n n  Basic, margin and tax components of purchasers' values
     1   21    2   20
   108 IMPSHR          1 r n n  Share of imports in local market
     1
@@ -764,7 +836,7 @@ ppppppppppppppcppcpc
     1   27
   124 REGSHR4         2 r y y  Regional export shares
     1   27
-  125 REGSHR5         2 r y y  Regional other shares
+  125 REGSHR5         2 r y y  Regional 'other' shares
     1   27
   126 REGSHR6         2 r y y  Regional inventories shares
     1   27
@@ -812,596 +884,367 @@ ppppppppppppppcppcpc
     1   27
   148 WGTSHR6         2 r n n  Weight to aggregate R006
     1   27
-  149 C00149          3 r n n Introduced during condensation
-    1    2    3
-  150 C00150          3 r n n Introduced during condensation
-    1    3    5
-  151 C00151          2 r n n Introduced during condensation
-    3    5
-  152 C00152          2 r n n Introduced during condensation
-    3    5
-  153 C00153          2 r n n Introduced during condensation
-    3    5
-  154 C00154          1 r n n Introduced during condensation
-    3
-  155 C00155          1 r n n Introduced during condensation
-    3
-  156 C00156          0 r n n Introduced during condensation
-  157 C00157          1 r n n Introduced during condensation
-    4
-  158 C00158          1 r n n Introduced during condensation
-   27
-  159 C00159          2 r n n Introduced during condensation
-    3   27
-  160 C00160          3 r n n Introduced during condensation
-    1    2    3
-  161 C00161          3 r n n Introduced during condensation
-    1    3    5
-  162 C00162          2 r n n Introduced during condensation
-    3    5
-  163 C00163          1 r n n Introduced during condensation
-    3
-  164 C00164          2 r n n Introduced during condensation
-    1    2
-  165 C00165          2 r n n Introduced during condensation
-    1    5
-  166 C00166          1 r n n Introduced during condensation
-    5
-  167 C00167          2 r n n Introduced during condensation
-    1    2
-  168 C00168          1 r n n Introduced during condensation
-    5
-  169 C00169          1 r n n Introduced during condensation
-    1
-  170 C00170          3 r n n Introduced during condensation
-    1    2    3
-  171 C00171          1 r n n Introduced during condensation
-    3
-  172 C00172          2 r n n Introduced during condensation
-    1    3
-  173 C00173          1 r n n Introduced during condensation
-    3
-  174 C00174          2 r n n Introduced during condensation
-    1    3
-  175 C00175          1 r n n Introduced during condensation
-    3
-  176 C00176          2 r n n Introduced during condensation
-    1    3
-  177 C00177          3 r n n Introduced during condensation
-    1    2    3
-  178 C00178          1 r n n Introduced during condensation
-    3
-  179 C00179          2 r n n Introduced during condensation
-    1    3
-  180 C00180          1 r n n Introduced during condensation
-    1
-  181 C00181          0 r n n Introduced during condensation
-  182 C00182          1 r n n Introduced during condensation
-    1
-  183 C00183          0 r n n Introduced during condensation
-  184 C00184          1 r n n Introduced during condensation
-    1
-  185 C00185          3 r n n Introduced during condensation
-    1    2    3
-  186 C00186          2 r n n Introduced during condensation
-    3    5
-  187 C00187          2 r n n Introduced during condensation
-    1    3
-  188 C00188          1 r n n Introduced during condensation
-    3
-  189 C00189          2 r n n Introduced during condensation
-    1    3
-  190 C00190          2 r n n Introduced during condensation
-    1    2
-  191 C00191          3 r n n Introduced during condensation
-    1    2    2
-  192 C00192          3 r n n Introduced during condensation
-    1    2    5
-  193 C00193          2 r n n Introduced during condensation
-    1    2
-  194 C00194          2 r n n Introduced during condensation
-    1    2
-  195 C00195          1 r n n Introduced during condensation
-    5
-  196 C00196          2 r n n Introduced during condensation
-    1    3
-  197 C00197          0 r n n Introduced during condensation
-  198 C00198          1 r n n Introduced during condensation
-    1
-  199 C00199          1 r n n Introduced during condensation
-    3
-  200 C00200          1 r n n Introduced during condensation
-    3
-  201 C00201          1 r n n Introduced during condensation
-    3
-  202 C00202          0 r n n Introduced during condensation
-  203 C00203          1 r n n Introduced during condensation
-    3
-  204 C00204          1 r n n Introduced during condensation
-    3
-  205 C00205          1 r n n Introduced during condensation
-    4
-  206 C00206          2 r n n Introduced during condensation
-    3   27
-  207 C00207          2 r n n Introduced during condensation
-    3   27
-  208 C00208          1 r n n Introduced during condensation
-   27
-  209 C00209          3 r n n Introduced during condensation
-    1    2    5
-  210 C00210          2 r n n Introduced during condensation
-    5    5
-  211 C00211          3 r n n Introduced during condensation
-    1    3    5
-  212 C00212          1 r n n Introduced during condensation
-    5
-  213 C00213          2 r n n Introduced during condensation
-    1    5
-  214 C00214          1 r n n Introduced during condensation
-    3
-  215 C00215          2 r n n Introduced during condensation
-    3    5
-  216 C00216          1 r n n Introduced during condensation
-    3
-  217 C00217          1 r n n Introduced during condensation
-    3
-  218 C00218          2 r n n Introduced during condensation
-    1    2
-  219 C00219          3 r n n Introduced during condensation
-    1    2    2
-  220 C00220          3 r n n Introduced during condensation
-    1    2    5
-  221 C00221          2 r n n Introduced during condensation
-    1    2
-  222 C00222          2 r n n Introduced during condensation
-    1    2
-  223 C00223          1 r n n Introduced during condensation
-    5
-  224 C00224          2 r n n Introduced during condensation
-    1    3
-  225 C00225          0 r n n Introduced during condensation
-  226 C00226          1 r n n Introduced during condensation
-    1
-  227 C00227          3 r n n Introduced during condensation
-    1    2    5
-  228 C00228          2 r n n Introduced during condensation
-    5    5
-  229 C00229          3 r n n Introduced during condensation
-    1    3    5
-  230 C00230          1 r n n Introduced during condensation
-    5
-  231 C00231          2 r n n Introduced during condensation
-    1    5
-  232 C00232          2 r n n Introduced during condensation
-    3    5
-  233 C00233          1 r n n Introduced during condensation
-    3
-  234 C00234          1 r n n Introduced during condensation
-    5
-  235 C00235          1 r n n Introduced during condensation
-    1
-  236 C00236          1 r n n Introduced during condensation
-    1
-  237 C00237          0 r n n Introduced during condensation
-  238 C00238          1 r n n Introduced during condensation
-    1
-  239 C00239          1 r n n Introduced during condensation
-    5
-  240 C00240          1 r n n Introduced during condensation
-    1
-  241 C00241          1 r n n Introduced during condensation
-    1
-  242 C00242          0 r n n Introduced during condensation
-  243 C00243          1 r n n Introduced during condensation
-    1
-  244 C00244          2 r n n Introduced during condensation
-    5    5
-  245 C00245          2 r n n Introduced during condensation
-    1    5
-  246 C00246          2 r n n Introduced during condensation
-    1    5
-  247 C00247          1 r n n Introduced during condensation
-    5
-  248 C00248          2 r n n Introduced during condensation
-    1    5
-  249 C00249          0 r n n Introduced during condensation
-  250 C00250          0 r n n Introduced during condensation
-  251 C00251          1 r n n Introduced during condensation
-    5
-  252 C00252          0 r n n Introduced during condensation
-  253 C00253          0 r n n Introduced during condensation
-  254 C00254          1 r n n Introduced during condensation
-    1
-  255 C00255          1 r n n Introduced during condensation
-    1
-  256 C00256          2 r n n Introduced during condensation
-    1    2
-  257 C00257          1 r n n Introduced during condensation
-    5
-  258 C00258          1 r n n Introduced during condensation
-    3
-  259 C00259          0 r n n Introduced during condensation
-  260 C00260          1 r n n Introduced during condensation
-    1
-  261 C00261          2 r n n Introduced during condensation
-    1    2
-  262 C00262          1 r n n Introduced during condensation
-    5
-  263 C00263          1 r n n Introduced during condensation
-    3
-  264 C00264          0 r n n Introduced during condensation
-  265 C00265          1 r n n Introduced during condensation
-    1
-  266 C00266          1 r n n Introduced during condensation
-    5
-  267 C00267          1 r n n Introduced during condensation
-    1
-  268 C00268          1 r n n Introduced during condensation
-    1
-  269 C00269          0 r n n Introduced during condensation
-  270 C00270          1 r n n Introduced during condensation
-    1
-  271 C00271          0 r n n Introduced during condensation
-  272 C00272          0 r n n Introduced during condensation
-  273 C00273          1 r n n Introduced during condensation
-    1
-  274 C00274          2 r n n Introduced during condensation
-   27   33
-  275 C00275          3 r n n Introduced during condensation
-   33   27    2
-  276 C00276          3 r n n Introduced during condensation
-   33   27    5
-  277 C00277          2 r n n Introduced during condensation
-   27   33
-  278 C00278          2 r n n Introduced during condensation
-   27   32
-  279 C00279          3 r n n Introduced during condensation
-   32   27    2
-  280 C00280          3 r n n Introduced during condensation
-   32   27    5
-  281 C00281          2 r n n Introduced during condensation
-   27   32
-  282 C00282          2 r n n Introduced during condensation
-   27   33
-  283 C00283          3 r n n Introduced during condensation
-   33   27    2
-  284 C00284          3 r n n Introduced during condensation
-   33   27    5
-  285 C00285          2 r n n Introduced during condensation
-   27   33
-  286 C00286          2 r n n Introduced during condensation
-   27   33
-  287 C00287          2 r n n Introduced during condensation
-   27   32
-  288 C00288          3 r n n Introduced during condensation
-   32   27    2
-  289 C00289          3 r n n Introduced during condensation
-   32   27    5
-  290 C00290          2 r n n Introduced during condensation
-   27   32
-  291 C00291          2 r n n Introduced during condensation
-   27   32
-  292 C00292          2 r n n Introduced during condensation
-   27    5
-  293 C00293          2 r n n Introduced during condensation
-    1   27
-  294 C00294          2 r n n Introduced during condensation
-    1   27
-  295 C00295          1 r n n Introduced during condensation
-   27
-  296 C00296          2 r n n Introduced during condensation
-    1   27
-  297 C00297          1 r n n Introduced during condensation
-   27
-  298 C00298          2 r n n Introduced during condensation
-    1    2
-  299 C00299          1 r n n Introduced during condensation
-    3
-  300 C00300          1 r n n Introduced during condensation
-    3
-  301 C00301          1 r n n Introduced during condensation
-    3
-  302 C00302          1 r n n Introduced during condensation
-    1
-  303 C00303          1 r n n Introduced during condensation
-    1
-  304 C00304          1 r n n Introduced during condensation
-   27
-  305 C00305          1 r n n Introduced during condensation
-   27
-  306 C00306          1 r n n Introduced during condensation
-    1
-  307 C00307          1 r n n Introduced during condensation
-    1
-  308 C00308          1 r n n Introduced during condensation
-    1
-  309 C00309          3 r n n Introduced during condensation
-   32   27    5
-  310 C00310          3 r n n Introduced during condensation
-    3   32   27
-  311 C00311          3 r n n Introduced during condensation
-    3   32   27
-  312 C00312          2 r n n Introduced during condensation
-   27   32
-  313 C00313          3 r n n Introduced during condensation
-    1   27   32
-  314 C00314          3 r n n Introduced during condensation
-    3   32   27
-  315 C00315          3 r n n Introduced during condensation
-   32   27    5
-  316 C00316          3 r n n Introduced during condensation
-    3   32   27
-  317 C00317          3 r n n Introduced during condensation
-    3   32   27
-  318 C00318          2 r n n Introduced during condensation
-   27   32
-  319 C00319          3 r n n Introduced during condensation
-    1   27   32
-  320 C00320          3 r n n Introduced during condensation
-    3   32   27
-  321 C00321          3 r n n Introduced during condensation
-    3   32   27
-  322 C00322          3 r n n Introduced during condensation
-   32   27    5
-  323 C00323          3 r n n Introduced during condensation
-    1   27   32
-  324 C00324          3 r n n Introduced during condensation
-    1   27   32
-  325 C00325          2 r n n Introduced during condensation
-   32   27
-  326 C00326          3 r n n Introduced during condensation
-    1   27   32
-  327 C00327          2 r n n Introduced during condensation
-   32   27
-  328 C00328          2 r n n Introduced during condensation
-   32   27
-  329 C00329          2 r n n Introduced during condensation
-   32   27
-  330 C00330          3 r n n Introduced during condensation
-    1   27   32
-  331 C00331          1 r n n Introduced during condensation
-   27
 #EQUATIONS
-  165
-    1 E_p1lab_o                  -1  1 Price to each industry of labour composite
+  225
+    1 E_x1lab                    -1  2 Demand for labour by industry and skill group
+    3    4
+    2 E_p1lab_o                  -1  1 Price to each industry of labour composite
     3
-    2 E_x1lab_o                  -1  1 Industry demands for effective labour
+    3 E_x1lab_o                  -1  1 Industry demands for effective labour
     3
-    3 E_p1cap                    -1  1 Industry demands for capital
+    4 E_p1cap                    -1  1 Industry demands for capital
     3
-    4 E_p1lnd                    -1  1 Industry demands for land
+    5 E_p1lnd                    -1  1 Industry demands for land
     3
-    5 E_p1prim                   -1  1 Effective price term for factor demand equations
+    6 E_p1prim                   -1  1 Effective price term for factor demand equations
     3
-    6 E_delV1PRIM                -1  1 Ordinary change in total cost of primary factors
+    7 E_delV1PRIM                -1  1 Ordinary change in total cost of primary factors
     3
-    7 E_x1prim                   -1  1 Demands for primary factor composite
+    8 E_x1                       -1  3 Source-specific commodity demands
+    1    2    3
+    9 E_p1_s                     -1  2 Effective price of commodity composite
+    1    3
+   10 E_p1mat                    -1  1 Intermediate cost price index
     3
-    8 E_delV1CST                 -1  1
+   11 E_p1var                    -1  1 Short-run variable cost price index
     3
-    9 E_delV1PTX                 -1  1
+   12 E_x1_s                     -1  2 Demands for commodity composites
+    1    3
+   13 E_x1prim                   -1  1 Demands for primary factor composite
     3
-   10 E_delV1TOT                 -1  1
+   14 E_x1oct                    -1  1 Demands for other cost tickets
     3
-   11 E_p1tot                    -1  1
+   15 E_delV1CST                 -1  1
     3
-   12 E_x1tot                    -1  1 Average price received by industries
+   16 E_delV1PTX                 -1  1
     3
-   13 E_x0com                    -1  1 Total output of commodities (as simple addition)
+   17 E_delV1TOT                 -1  1
+    3
+   18 E_p1tot                    -1  1
+    3
+   19 E_p1cst                    -1  1
+    3
+   20 E_q1                       -1  2 Supplies of commodities by industries
+    1    3
+   21 E_x1tot                    -1  1 Average price received by industries
+    3
+   22 E_pq1                      -1  2 Each industry gets the same price for a given commodity
+    1    3
+   23 E_x0com                    -1  1 Total output of commodities (as simple addition)
     1
-   14 E_x0dom                    -1  1 Supply of commodities to export market
+   24 E_x0dom                    -1  1 Supply of commodities to export market
     1
-   15 E_pe                       -1  1 Supply of commodities to domestic market
+   25 E_pe                       -1  1 Supply of commodities to domestic market
     1
-   16 E_p0com                    -1  1 Zero pure profits in transformation
+   26 E_p0com                    -1  1 Zero pure profits in transformation
     1
-   17 E_p2tot                    -1  1
+   27 E_x2                       -1  3 Source-specific commodity demands
+    1    2    3
+   28 E_p2_s                     -1  2 Effective price of commodity composite
+    1    3
+   29 E_x2_s                     -1  2
+    1    3
+   30 E_p2tot                    -1  1
     3
-   18 E_p3_s                     -1  1 Effective price of commodity composite
+   31 E_x3                       -1  2 Source-specific commodity demands
+    1    2
+   32 E_p3_s                     -1  1 Effective price of commodity composite
     1
-   19 E_x3_s                     -1  1 Total household demand for composite commodities
+   33 E_x3sub                    -1  1 Subsistence demand for composite commodities
     1
-   20 E_utility                   1  0 Change in utility disregarding taste change terms
-   21 E_x3tot                     1  0 Real consumption
-   22 E_p3tot                     1  0 Consumer price index
-   23 E_w3tot                     1  0 Household budget constraint: determines w3lux
-   24 E_pf4                      -1  1
+   34 E_x3lux                    -1  1 Luxury demand for composite commodities
     1
-   25 E_x4A                      -1  1 Individual export demand functions
+   35 E_x3_s                     -1  1 Total household demand for composite commodities
+    1
+   36 E_utility                   1  0 Change in utility disregarding taste change terms
+   37 E_a3lux                    -1  1 Default setting for luxury taste shifter
+    1
+   38 E_a3sub                    -1  1 Default setting for subsistence taste shifter
+    1
+   39 E_x3tot                     1  0 Real consumption
+   40 E_p3tot                     1  0 Consumer price index
+   41 E_w3tot                     1  0 Household budget constraint: determines w3lux
+   42 E_pf4                      -1  1
+    1
+   43 E_x4A                      -1  1 Individual export demand functions
     7
-   26 E_X4B                      -1  1 Collective export demand functions
+   44 E_X4B                      -1  1 Collective export demand functions
     8
-   27 E_p4_ntrad                  1  0 Average price of collective exports
-   28 E_x4_ntrad                  1  0 Demand for collective export composite
-   29 E_f5tot                     1  0 Overall government demands shift
-   30 E_delx6                    -1  2 Stocks follow domestic output
+   45 E_p4_ntrad                  1  0 Average price of collective exports
+   46 E_x4_ntrad                  1  0 Demand for collective export composite
+   47 E_x5                       -1  2 Government demands
     1    2
-   31 E_delSaleA                 -1  2
+   48 E_f5tot                     1  0 Overall government demands shift
+   49 E_delx6                    -1  2 Stocks follow domestic output
     1    2
-   32 E_delSaleB                 -1  2
+   50 E_delV6                    -1  2 Update formula for stocks
     1    2
-   33 E_delSaleC                 -1  2
+   51 E_x1mar                    -1  4 Margins to producers
+    1    2    3    5
+   52 E_x2mar                    -1  4 Margins to investment
+    1    2    3    5
+   53 E_x3mar                    -1  3 Margins to households
+    1    2    5
+   54 E_x4mar                    -1  2 Margins to exports
+    1    5
+   55 E_x5mar                    -1  3 Margins to government
+    1    2    5
+   56 E_delSaleA                 -1  2
     1    2
-   34 E_delSaleD                 -1  1
+   57 E_delSaleB                 -1  2
+    1    2
+   58 E_delSaleC                 -1  2
+    1    2
+   59 E_delSaleD                 -1  1
     1
-   35 E_delSaleE                 -1  1
+   60 E_delSaleE                 -1  1
     1
-   36 E_delSaleF                 -1  2
+   61 E_delSaleF                 -1  2
     1    2
-   37 E_delSaleG                 -1  2
+   62 E_delSaleG                 -1  2
     1    2
-   38 E_delSaleH                 -1  1
+   63 E_delSaleH                 -1  1
     5
-   39 E_delSaleI                 -1  1
+   64 E_delSaleI                 -1  1
     6
-   40 E_delSaleJ                 -1  1
+   65 E_delSaleJ                 -1  1
     1
-   41 E_p0A                      -1  1 Supply = Demand for domestic commodities
+   66 E_p0A                      -1  1 Supply = Demand for domestic commodities
     1
-   42 E_x0imp                    -1  1 Import volumes
+   67 E_x0imp                    -1  1 Import volumes
     1
-   43 E_p4                       -1  1 Zero pure profits in exporting
+   68 E_p1                       -1  3 Purchasers prices - producers
+    1    2    3
+   69 E_p2                       -1  3 Purchasers prices - capital creators
+    1    2    3
+   70 E_p3                       -1  2 Purchasers prices - households
+    1    2
+   71 E_p4                       -1  1 Zero pure profits in exporting
     1
-   44 E_t4A                      -1  1 Power of tax on sales to individual exports
+   72 E_p5                       -1  2 Zero pure profits in distribution to government
+    1    2
+   73 E_t1                       -1  3 Power of tax on sales to intermediate
+    1    2    3
+   74 E_t2                       -1  3 Power of tax on sales to investment
+    1    2    3
+   75 E_t3                       -1  2 Power of tax on sales to households
+    1    2
+   76 E_t4A                      -1  1 Power of tax on sales to individual exports
     7
-   45 E_t4B                      -1  1 Power of tax on sales to collective exports
+   77 E_t4B                      -1  1 Power of tax on sales to collective exports
     8
-   46 E_delV4TAX                 -1  1
+   78 E_t5                       -1  2 Power of tax on sales to government
+    1    2
+   79 E_delV1TAX                 -1  3
+    1    2    3
+   80 E_delV2TAX                 -1  3
+    1    2    3
+   81 E_delV3TAX                 -1  2
+    1    2
+   82 E_delV4TAX                 -1  1
     1
-   47 E_p0B                      -1  1 Zero pure profits in importing
+   83 E_delV5TAX                 -1  2
+    1    2
+   84 E_p0B                      -1  1 Zero pure profits in importing
     1
-   48 E_delV0TAR                 -1  1
+   85 E_delV0TAR                 -1  1
     1
-   49 E_delV1tax_csi              1  0
-   50 E_delV2tax_csi              1  0
-   51 E_delV3tax_cs               1  0
-   52 E_delV4tax_c                1  0
-   53 E_delV5tax_cs               1  0
-   54 E_delV0tar_c                1  0
-   55 E_w1lab_io                  1  0
-   56 E_w1cap_i                   1  0
-   57 E_w1lnd_i                   1  0
-   58 E_w1prim_i                  1  0
-   59 E_w1oct_i                   1  0
-   60 E_delV1PTX_i                1  0
-   61 E_delV0tax_csi              1  0
-   62 E_w0tax_csi                 1  0
-   63 E_w0gdpinc                  1  0
-   64 E_x2tot_i                   1  0
-   65 E_p2tot_i                   1  0
-   66 E_w2tot_i                   1  0
-   67 E_x4tot                     1  0
-   68 E_p4tot                     1  0
-   69 E_w4tot                     1  0
-   70 E_x5tot                     1  0
-   71 E_p5tot                     1  0
-   72 E_w5tot                     1  0
-   73 E_x6tot                     1  0
-   74 E_p6tot                     1  0
-   75 E_w6tot                     1  0
-   76 E_x0cif_c                   1  0
-   77 E_p0cif_c                   1  0
-   78 E_w0cif_c                   1  0
-   79 E_x0gne                     1  0
-   80 E_p0gne                     1  0
-   81 E_w0gne                     1  0
-   82 E_x0gdpexp                  1  0
-   83 E_p0gdpexp                  1  0
-   84 E_w0gdpexp                  1  0
-   85 E_w0gdpdif                  1  0
-   86 E_delB                      1  0
-   87 E_x0imp_c                   1  0
-   88 E_p0imp_c                   1  0
-   89 E_w0imp_c                   1  0
-   90 E_p0toft                    1  0
-   91 E_p0realdev                 1  0
-   92 E_delNTB                    1  0
-   93 E_employ                   -1  1
+   86 E_delV1tax_csi              1  0
+   87 E_delV2tax_csi              1  0
+   88 E_delV3tax_cs               1  0
+   89 E_delV4tax_c                1  0
+   90 E_delV5tax_cs               1  0
+   91 E_delV0tar_c                1  0
+   92 E_w1lab_io                  1  0
+   93 E_w1cap_i                   1  0
+   94 E_w1lnd_i                   1  0
+   95 E_w1prim_i                  1  0
+   96 E_w1oct_i                   1  0
+   97 E_delV1PTX_i                1  0
+   98 E_delV0tax_csi              1  0
+   99 E_w0tax_csi                 1  0
+  100 E_w0gdpinc                  1  0
+  101 E_x2tot_i                   1  0
+  102 E_p2tot_i                   1  0
+  103 E_w2tot_i                   1  0
+  104 E_x4tot                     1  0
+  105 E_p4tot                     1  0
+  106 E_w4tot                     1  0
+  107 E_x5tot                     1  0
+  108 E_p5tot                     1  0
+  109 E_w5tot                     1  0
+  110 E_x6tot                     1  0
+  111 E_p6tot                     1  0
+  112 E_w6tot                     1  0
+  113 E_x0cif_c                   1  0
+  114 E_p0cif_c                   1  0
+  115 E_w0cif_c                   1  0
+  116 E_x0gne                     1  0
+  117 E_p0gne                     1  0
+  118 E_w0gne                     1  0
+  119 E_x0gdpexp                  1  0
+  120 E_p0gdpexp                  1  0
+  121 E_w0gdpexp                  1  0
+  122 E_w0gdpdif                  1  0
+  123 E_delB                      1  0
+  124 E_x0imp_c                   1  0
+  125 E_p0imp_c                   1  0
+  126 E_w0imp_c                   1  0
+  127 E_p0toft                    1  0
+  128 E_p0realdev                 1  0
+  129 E_delNTB                    1  0
+  130 E_employ                   -1  1
     3
-   94 E_employ_i                  1  0
-   95 E_x1cap_i                   1  0
-   96 E_x1lnd_i                   1  0
-   97 E_x1prim_i                  1  0
-   98 E_p1lab_io                  1  0
-   99 E_realwage                  1  0
-  100 E_p1cap_i                   1  0
-  101 E_p1lnd_i                   1  0
-  102 E_p1prim_i                  1  0
-  103 E_ggro                     -1  1
+  131 E_employ_i                  1  0
+  132 E_x1cap_i                   1  0
+  133 E_x1lnd_i                   1  0
+  134 E_x1prim_i                  1  0
+  135 E_p1lab_io                  1  0
+  136 E_realwage                  1  0
+  137 E_p1cap_i                   1  0
+  138 E_p1lnd_i                   1  0
+  139 E_p1prim_i                  1  0
+  140 E_ggro                     -1  1
     3
-  104 E_gret                     -1  1
+  141 E_gret                     -1  1
     3
-  105 E_finv1                    -1  1 DPSV investment rule
+  142 E_finv1                    -1  1 DPSV investment rule
     3
-  106 E_finv2                    -1  1 Alternative rule for "exogenous" investment industries
+  143 E_finv2                    -1  1 Alternative rule for "exogenous" investment industries
     3
-  107 E_finv3                    -1  1 Alternative long-run investment rule
+  144 E_finv3                    -1  1 Alternative long-run investment rule
     3
-  108 E_f2tot                     1  0
-  109 E_fgret                    -1  1 Equation to force rates of return to move together
+  145 E_f2tot                     1  0
+  146 E_fgret                    -1  1 Equation to force rates of return to move together
     3
-  110 E_x1lab_i                  -1  1 Demand equals supply for labour of each skill
+  147 E_x1lab_i                  -1  1 Demand equals supply for labour of each skill
     4
-  111 E_p1lab_i                  -1  1 Average wage of occupation
+  148 E_p1lab                    -1  2 Flexible setting of money wages
+    3    4
+  149 E_p1lab_i                  -1  1 Average wage of occupation
     4
-  112 E_f3tot                     1  0 Consumption function
-  113 E_p0dom                    -1  1 Basic price of domestic goods = p0(c,"dom")
+  150 E_p1oct                    -1  1 Indexing of prices of "other cost" tickets
+    3
+  151 E_f3tot                     1  0 Consumption function
+  152 E_p0dom                    -1  1 Basic price of domestic goods = p0(c,"dom")
     1
-  114 E_p0imp                    -1  1 Basic price of imported goods = p0(c,"imp")
+  153 E_p0imp                    -1  1 Basic price of imported goods = p0(c,"imp")
     1
-  115 E_SalesDecompA             -1  2
+  154 E_SalesDecompA             -1  2
     1    9
-  116 E_SalesDecompB             -1  1
+  155 E_SalesDecompB             -1  1
     1
-  117 E_x0loc                    -1  1 %Growth in local market
+  156 E_x0loc                    -1  1 %Growth in local market
     1
-  118 E_fandecompA               -1  1 Growth in local market effect
+  157 E_fandecompA               -1  1 Growth in local market effect
     1
-  119 E_fandecompB               -1  1 Export effect
+  158 E_fandecompB               -1  1 Export effect
     1
-  120 E_fandecompC               -1  1 Import leakage effect - via residual
+  159 E_fandecompC               -1  1 Import leakage effect - via residual
     1
-  121 E_fandecompD               -1  1 Fan total = x0com
+  160 E_fandecompD               -1  1 Fan total = x0com
     1
-  122 E_contGDPexpA               1  0
-  123 E_contGDPexpB               1  0
-  124 E_contGDPexpC               1  0
-  125 E_contGDPexpD               1  0
-  126 E_contGDPexpE               1  0
-  127 E_contGDPexpF               1  0
-  128 E_contBOT                   1  0
-  129 E_contGDPincA               1  0
-  130 E_contGDPincB               1  0
-  131 E_contGDPincC               1  0
-  132 E_contGDPincD               1  0
-  133 E_contGDPincE               1  0
-  134 E_x0gdpinc                  1  0 Decomposition of real GDP from income side
-  135 E_x0gdpinca                 1  0
-  136 E_x0gdpdif                  1  0
-  137 E_contGDPfacA               1  0
-  138 E_contGDPfacB               1  0
-  139 E_contGDPfacC               1  0
-  140 E_contGDPfacD               1  0
-  141 E_x0gdpfac                  1  0 Decomposition of real GDP at factor cost
-  142 E_pLabEff                   1  0
-  143 E_pLabEff_p1prim            1  0
-  144 E_pLabEff_p3tot             1  0
-  145 E_p3tot_p0GNE               1  0
-  146 E_p0GNE_p0GDPExp            1  0
-  147 E_p0GDPExp_p1prim           1  0
-  148 E_pCap_p1prim               1  0
-  149 E_pCap_p2tot                1  0
-  150 E_p2tot_p0GNE               1  0
-  151 E_ffreg1                   -1  1
+  161 E_contGDPexpA               1  0
+  162 E_contGDPexpB               1  0
+  163 E_contGDPexpC               1  0
+  164 E_contGDPexpD               1  0
+  165 E_contGDPexpE               1  0
+  166 E_contGDPexpF               1  0
+  167 E_contBOT                   1  0
+  168 E_contGDPincA               1  0
+  169 E_contGDPincB               1  0
+  170 E_contGDPincC               1  0
+  171 E_contGDPincD               1  0
+  172 E_contGDPincE               1  0
+  173 E_x0gdpinc                  1  0 Decomposition of real GDP from income side
+  174 E_x0gdpinca                 1  0
+  175 E_x0gdpdif                  1  0
+  176 E_contGDPfacA               1  0
+  177 E_contGDPfacB               1  0
+  178 E_contGDPfacC               1  0
+  179 E_contGDPfacD               1  0
+  180 E_x0gdpfac                  1  0 Decomposition of real GDP at factor cost
+  181 E_pLabEff                   1  0
+  182 E_pLabEff_p1prim            1  0
+  183 E_pLabEff_p3tot             1  0
+  184 E_p3tot_p0GNE               1  0
+  185 E_p0GNE_p0GDPExp            1  0
+  186 E_p0GDPExp_p1prim           1  0
+  187 E_pCap_p1prim               1  0
+  188 E_pCap_p2tot                1  0
+  189 E_p2tot_p0GNE               1  0
+  190 E_regx1                    -1  4 Direct intermediate demands by industry and region
+    1    2    3   27
+  191 E_regx2                    -1  4 Direct investment demands by industry and region
+    1    2    3   27
+  192 E_regx3                    -1  3 Consumption by region
+    1    2   27
+  193 E_regx4                    -1  2 Exports by region
+    1   27
+  194 E_regx5                    -1  3 Other demands by region
+    1    2   27
+  195 E_delregx6                 -1  3 Inventories by region
+    1    2   27
+  196 E_regx1mar                 -1  5 Margin intermediate demands by industry and region
+    1    2    3    5   27
+  197 E_regx2mar                 -1  5 Margin investment demands by industry and region
+    1    2    3    5   27
+  198 E_regx3mar                 -1  4 Margin consumption by region
+    1    2    5   27
+  199 E_regx4mar                 -1  3 Margin to export by region
+    1    5   27
+  200 E_regx5mar                 -1  4 Margins to other by region
+    1    2    5   27
+  201 E_rgshr1                   -1  2
+    3   27
+  202 E_rgshr2                   -1  2
+    3   27
+  203 E_rgshr3                   -1  2
+    1   27
+  204 E_rgshr4                   -1  2
+    1   27
+  205 E_rgshr5                   -1  2
+    1   27
+  206 E_rgshr6                   -1  2
+    1   27
+  207 E_ffreg1                   -1  1
     3
-  152 E_ffreg2                   -1  1
+  208 E_ffreg2                   -1  1
     3
-  153 E_ffreg3                   -1  1
+  209 E_ffreg3                   -1  1
     1
-  154 E_ffreg4                   -1  1
+  210 E_ffreg4                   -1  1
     1
-  155 E_ffreg5                   -1  1
+  211 E_ffreg5                   -1  1
     1
-  156 E_ffreg6                   -1  1
+  212 E_ffreg6                   -1  1
     1
-  157 E_regx0_A                  -1  2 Usage of nonmargins local commodities, DPSV eq39.8a
+  213 E_regx0_A                  -1  2 Usage of nonmargins local commodities, DPSV eq39.8a
    33   27
-  158 E_regx0_B                  -1  2 Usage of margins local commodities
+  214 E_regx0_B                  -1  2 Usage of margins local commodities
    32   27
-  159 E_regx1totA                -1  2 Output of national industries eq39.2, DPSV P.260
+  215 E_regx1totA                -1  2 Output of national industries eq39.2, DPSV P.260
    31   27
-  160 E_regx1totB                -1  2 Output of local industries
+  216 E_regx1totB                -1  2 Output of local industries
    30   27
-  161 E_regw1lab_io              -1  1 Wage bills by region
+  217 E_regw1lab_io              -1  1 Wage bills by region
    27
-  162 E_regx1prim_i              -1  1 Total regional outputs (primary factor weights)
+  218 E_regemploy                -1  2 Employment by reg and ind
+    3   27
+  219 E_regx1prim_i              -1  1 Total regional outputs (primary factor weights)
    27
-  163 E_regx3tot                 -1  1
+  220 E_regx1primcon             -1  2 Contributions to total regional outputs (primary factor weights)
+    3   27
+  221 E_regx3tot                 -1  1
    27
-  164 E_regemploy_i              -1  1
+  222 E_regemploy_i              -1  1
    27
-  165 E_regadv                   -1  1
+  223 E_regemploycon             -1  2 Contributions to total regional employment (wage bill weights)
+    3   27
+  224 E_regadv                   -1  1
    27
+  225 E_regadvantage             -1  2 Regional advantage decomposition
+    3   27
 #READS
    41
     1     1 V1BAS             1 BASEDATA             1BAS a h     3
@@ -1497,77 +1340,7 @@ ppppppppppppppcppcpc
     5 el
  REG          BASEDATA             REG 
 #NCVARIABLES
-   35
-   10 x1mar                   -1     4 s Intermediate margin demand
-    1    2    3    5
-   11 x2mar                   -1     4 s Investment margin demands
-    1    2    3    5
-   16 delV1TAX                -1     3 s Interm tax rev
-    1    2    3
-   17 delV2TAX                -1     3 s Invest tax rev
-    1    2    3
-   32 p2                      -1     3 s Purchasers price, investment
-    1    2    3
-   44 a1                      -1     3 o Intermediate basic tech change
-    1    2    3
-   53 a1oct                   -1     1 o "Other cost" ticket augmenting techncal change
-    3
-   54 a1_s                    -1     2 o Tech change, intmdiate imp/dom composite
-    1    3
-   60 pq1                     -1     2 s Price of com c produced by ind i
-    1    3
-   64 x2_s                    -1     2 s Investment use of imp/dom composite
-    1    3
-   65 p2_s                    -1     2 s Price, investment imp/dom composite
-    1    3
-   66 a2                      -1     3 o Investment basic tech change
-    1    2    3
-   70 a2_s                    -1     2 o Tech change, investment imp/dom composite
-    1    3
-   71 a3                      -1     2 o Household basic taste change
-    1    2
-   97 a1mar                   -1     4 o Intermediate margin tech change
-    1    2    3    5
-   98 a2mar                   -1     4 o Investment margin tech change
-    1    2    3    5
-   99 a3mar                   -1     3 o Household margin tech change
-    1    2    5
-  100 a4mar                   -1     2 o Export margin tech change
-    1    5
-  101 a5mar                   -1     3 o Governmnt margin tech change
-    1    2    5
-  104 t1                      -1     3 s Power of tax on intermediate
-    1    2    3
-  105 t2                      -1     3 s Power of tax on investment
-    1    2    3
-  181 f1lab                   -1     2 o Wage shift variable
-    3    4
-  182 f1lab_i                 -1     1 o Occupation-specific wage shifter
-    4
-  184 f1lab_o                 -1     1 o Industry-specific wage shifter
-    3
-  213 regx1                   -1     4 s Regional demands for intermediate inputs
-    1    2    3   27
-  214 regx2                   -1     4 s Regional demands for inputs for investment
-    1    2    3   27
-  215 regx3                   -1     3 s Household demand for goods
-    1    2   27
-  218 delregx6                -1     3 s Inventories demand
-    1    2   27
-  219 regx1mar                -1     5 s Margins - production
-    1    2    3    5   27
-  220 regx2mar                -1     5 s Margins - capital creation
-    1    2    3    5   27
-  221 regx3mar                -1     4 s Margins - households
-    1    2    5   27
-  222 regx4mar                -1     3 s Margins - exports
-    1    5   27
-  223 regx5mar                -1     4 s Margins - "Other"
-    1    2    5   27
-  237 rgshr2                  -1     2 s Region share in national investmment
-    3   27
-  238 rgshr3                  -1     2 s Region share in national consumption
-    1   27
+    0
 #STATEMENTS
       40   1 fl                                                 40  36    0 n
       41   2 fl                                                 41  57    0 n
@@ -2692,6 +2465,7 @@ ppppppppppppppcppcpc
     2198   1 fm                                               2199  61    0 n
     2200   1 fm                                               2200  61    0 n
     2201   1 fm                                               2201  61    0 n
+    2202   1 fm                                               2202  61    0 n
     2204   1 fm                                               2204  62    0 n
     2205   1 fm                                               2205  62    0 n
     2206   1 fm                                               2206  62    0 n
@@ -2711,413 +2485,47 @@ ppppppppppppppcppcpc
     2220   1 fm                                               2220  69    0 n
     2221   1 fm                                               2221  69    0 n
     2222   1 fm                                               2222  69    0 n
-      -1   0 cs C00149                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00150                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00151                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00152                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00153                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00154                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00155                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00156                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00157                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00158                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00159                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00160                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00161                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00162                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00163                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00164                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00165                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00166                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00167                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00168                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00169                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00170                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00171                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00172                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00173                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00174                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00175                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00176                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00177                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00178                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00179                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00180                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00181                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00182                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00183                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00184                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00185                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00186                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00187                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00188                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00189                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00190                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00191                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00192                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00193                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00194                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00195                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00196                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00197                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00198                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00199                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00200                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00201                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00202                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00203                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00204                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00205                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00206                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00207                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00208                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00209                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00210                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00211                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00212                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00213                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00214                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00215                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00216                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00217                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00218                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00219                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00220                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00221                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00222                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00223                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00224                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00225                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00226                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00227                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00228                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00229                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00230                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00231                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00232                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00233                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00234                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00235                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00236                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00237                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00238                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00239                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00240                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00241                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00242                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00243                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00244                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00245                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00246                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00247                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00248                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00249                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00250                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00251                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00252                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00253                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00254                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00255                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00256                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00257                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00258                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00259                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00260                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00261                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00262                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00263                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00264                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00265                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00266                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00267                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00268                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00269                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00270                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00271                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00272                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00273                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00274                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00275                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00276                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00277                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00278                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00279                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00280                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00281                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00282                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00283                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00284                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00285                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00286                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00287                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00288                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00289                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00290                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00291                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00292                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00293                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00294                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00295                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00296                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00297                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00298                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00299                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00300                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00301                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00302                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00303                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00304                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00305                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00306                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00307                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00308                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00309                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00310                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00311                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00312                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00313                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00314                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00315                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00316                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00317                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00318                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00319                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00320                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00321                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00322                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00323                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00324                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00325                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00326                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00327                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00328                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00329                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00330                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 cs C00331                                           0   0    0 n
-      -1   0 fm                                                  0   0    0 n
-      -1   0 en                                                  0   0    0 n
+    2222   1 en                                               2222  69    0 n
 #GPVER
   120004
 #PRVER
     7000
 #FINAL_LEVEL
- ln b x1
- ln b x2
- ln b x3
+ ln c x1
+ ln c x2
+ ln c x3
  ln c x4
- ln b x5
+ ln c x5
  ln c delx6
  ln c p0
  ln c pe
- ln b delV6
- ln s x1mar
- ln s x2mar
- ln b x3mar
- ln b x4mar
- ln b x5mar
+ ln c delV6
+ ln c x1mar
+ ln c x2mar
+ ln c x3mar
+ ln c x4mar
+ ln c x5mar
  ln c p0dom
- ln s delV1TAX
- ln s delV2TAX
- ln b delV3TAX
+ ln c delV1TAX
+ ln c delV2TAX
+ ln c delV3TAX
  ln c delV4TAX
- ln b delV5TAX
- ln b x1lab
- ln b p1lab
+ ln c delV5TAX
+ ln c x1lab
+ ln c p1lab
  ln c x1cap
  ln c p1cap
  ln c x1lnd
  ln c p1lnd
  ln c delV1PTX
- ln b x1oct
- ln b p1oct
+ ln c x1oct
+ ln c p1oct
  ln c delV0TAR
- ln b p1
- ln s p2
- ln b p3
+ ln c p1
+ ln c p2
+ ln c p3
  ln c p4
- ln b p5
+ ln c p5
  ln c p1lab_o
  ln c x1lab_o
  ln c p1prim
@@ -3126,34 +2534,34 @@ ppppppppppppppcppcpc
  ln c a1cap
  ln c a1lnd
  ln c delV1PRIM
- ln o a1
- ln b x1_s
- ln b p1_s
- ln b p1mat
- ln b p1var
+ ln c a1
+ ln c x1_s
+ ln c p1_s
+ ln c p1mat
+ ln c p1var
  ln c x1tot
  ln c a1prim
  ln c a1tot
  ln c p1tot
- ln o a1oct
- ln o a1_s
+ ln c a1oct
+ ln c a1_s
  ln c delV1CST
  ln c delV1TOT
  ln c delPTXRATE
- ln b p1cst
- ln b q1
- ln s pq1
+ ln c p1cst
+ ln c q1
+ ln c pq1
  ln c p0com
  ln c x0com
  ln c x0dom
- ln s x2_s
- ln s p2_s
- ln o a2
+ ln c x2_s
+ ln c p2_s
+ ln c a2
  ln c a2tot
  ln c p2tot
  ln c x2tot
- ln o a2_s
- ln o a3
+ ln c a2_s
+ ln c a3
  ln c x3_s
  ln c p3_s
  ln c p3tot
@@ -3162,10 +2570,10 @@ ppppppppppppppcppcpc
  ln c w3tot
  ln c q
  ln c utility
- ln b x3lux
- ln b x3sub
- ln b a3lux
- ln b a3sub
+ ln c x3lux
+ ln c x3sub
+ ln c a3lux
+ ln c a3sub
  ln c a3_s
  ln c phi
  ln c pf4
@@ -3179,18 +2587,18 @@ ppppppppppppppcppcpc
  ln c f5tot2
  ln c f5
  ln c fx6
- ln o a1mar
- ln o a2mar
- ln o a3mar
- ln o a4mar
- ln o a5mar
+ ln c a1mar
+ ln c a2mar
+ ln c a3mar
+ ln c a4mar
+ ln c a5mar
  ln c delSale
  ln c x0imp
- ln s t1
- ln s t2
- ln b t3
+ ln c t1
+ ln c t2
+ ln c t3
  ln c t4
- ln b t5
+ ln c t5
  ln c f1tax_csi
  ln c f2tax_csi
  ln c f3tax_cs
@@ -3263,10 +2671,10 @@ ppppppppppppppcppcpc
  ln c f2tot
  ln c fgret
  ln c capslack
- ln o f1lab
- ln o f1lab_i
+ ln c f1lab
+ ln c f1lab_i
  ln c x1lab_i
- ln o f1lab_o
+ ln c f1lab_o
  ln c f1lab_io
  ln c p1lab_i
  ln c f1oct
@@ -3295,17 +2703,17 @@ ppppppppppppppcppcpc
  ln c regx0
  ln c regx1tot
  ln c regw1lab_io
- ln s regx1
- ln s regx2
- ln s regx3
- ln b regx4
- ln b regx5
- ln s delregx6
- ln s regx1mar
- ln s regx2mar
- ln s regx3mar
- ln s regx4mar
- ln s regx5mar
+ ln c regx1
+ ln c regx2
+ ln c regx3
+ ln c regx4
+ ln c regx5
+ ln c delregx6
+ ln c regx1mar
+ ln c regx2mar
+ ln c regx3mar
+ ln c regx4mar
+ ln c regx5mar
  ln c rsum1
  ln c rsum2
  ln c rsum3
@@ -3318,33 +2726,28 @@ ppppppppppppppcppcpc
  ln c ffreg4
  ln c ffreg5
  ln c ffreg6
- ln b rgshr1
- ln s rgshr2
- ln s rgshr3
- ln b rgshr4
- ln b rgshr5
- ln b rgshr6
+ ln c rgshr1
+ ln c rgshr2
+ ln c rgshr3
+ ln c rgshr4
+ ln c rgshr5
+ ln c rgshr6
  ln c freg1
  ln c freg2
  ln c freg3
  ln c freg4
  ln c freg5
  ln c freg6
- ln b regemploy
+ ln c regemploy
  ln c regx1prim_i
- ln b regx1primcon
+ ln c regx1primcon
  ln c regx3tot
  ln c regemploy_i
- ln b regemploycon
+ ln c regemploycon
  ln c regadv
- ln b regadvantage
+ ln c regadvantage
 #CSPSIM
 nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
 nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
 nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnyyynnnnnnn
-nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
-nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
-nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
-nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
-nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
-nnnnnnnnnnn
+nnnnnnnnnnnnnnnnnnnnnnnnnnnn

@@ -136,6 +136,8 @@ def splitNrename(df, attribute, prefix):
         if "I" in dataCode:
             if len(dataCode)==1:
                 dataCode = dataCode.replace("I","55_56")
+        if "68202" in dataCode:
+            dataCode = dataCode.replace("68202","68A")
         if "," in dataCode:
             dataCode = dataCode.replace(",","")
             dataCode=dataCode+"_"+str((int(dataCode.replace(",", ""))+1))
@@ -370,8 +372,8 @@ for industry in OCC_levels.index:
 # Collect the +850 Mitenna industries to a single list:
 mitennaIndustries = OCC_levels.index.tolist()
 # And create a mapping from Mitenna to Statfin input-output industry classification:
-#mitennaIndMapper = mf.mapperFunction(mitennaIndustries, IND, exceptions={"I_68A":["I_68201", "I_68202"]})
-mitennaIndMapper = mf.mapperFunction(mitennaIndustries, IND)
+mitennaIndMapper = mf.mapperFunction(mitennaIndustries, IND, exceptions={"I_68A":["I_68201", "I_68202"]})
+#mitennaIndMapper = mf.mapperFunction(mitennaIndustries, IND)
 
 #%%
 # Aggregate the occupational data using the mappings specified above:
@@ -903,8 +905,8 @@ differences = {
 "I_F": "I_41_43",   # Construction
 "I_I": "I_55_56",   # Accommodation and food service activities
 "I_O": "I_84",      # Public administration and social security
-"I_681+68209+683": "I_68"}  # Real estate activities
-#"I_68201_68202":   "I_68A"} # Operation of dwellings
+"I_681+68209+683": "I_68",  # Real estate activities
+"I_68201_68202":   "I_68A"} # Operation of dwellings
 
 
 #%%
@@ -1225,7 +1227,7 @@ regIndRaw = [x["values"] for x in dgf.getParams("kan/altp/statfinpas_altp_pxt_00
 #%%
 renameInd = {           # From regional accounts naming convention to input-output convention
 "681+68209+683": "68",  # Other real estate activities  --> Real estate activities
-"68201_68202"  : "68202"} # Letting and operation of dwellings  --> Operation of dwellings and residential real estate
+"68201_68202"  : "68A"} # Letting and operation of dwellings  --> Operation of dwellings and residential real estate
 
 regInd = [renameInd.get(n, n) for n in regIndRaw if n != "0"] # Rename and drop "0" (Industries total)
 
