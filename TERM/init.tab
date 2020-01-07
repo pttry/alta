@@ -147,7 +147,7 @@ Assertion
 # V1CAP >=0 # (all,i,IND) V1CAP(i) >= 0.0;
 # V1LAB >=0 # (all,i,IND)(all,o,OCC) V1LAB(i,o) >= 0.0;
 # V1LND >=0 # (all,i,IND) V1LND(i) >= 0.0;
-# MAKE >=0 # (all,c,COM)(all,i,IND) MAKE(c,i) >= 0.0;
+!# MAKE >=0 # (all,c,COM)(all,i,IND) MAKE(c,i) >= 0.0;!
 # SIGMA1LAB >=0 # (all,i,IND) SIGMA1LAB(i) >= 0.0;
 # SIGMA1PRIM >=0 # (all,i,IND) SIGMA1PRIM(i) >= 0.0;
 # SIGMA1 >=0 # (all,c,COM) SIGMA1(c) >= 0.0;

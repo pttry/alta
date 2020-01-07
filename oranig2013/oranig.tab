@@ -1421,9 +1421,9 @@ Write INDRPT to file SUMMARY header "IRPT";
 Write EPSTOT  to file SUMMARY header "ETOT";
 
 Assertion ! if below not true, program will stop with message !
- # Sales check # (all,c,COM) ABS[COMRPT(c,"PCTDIFF")]<0.001;
- # Costs check # (all,i,IND) ABS[INDRPT(i,"PCTDIFF")]<0.001;
- (initial) # Average Engel elasticity = 1 #  ABS[1-EPSTOT] <0.001;
+ # Sales check # (all,c,COM) ABS[COMRPT(c,"PCTDIFF")]<0.5;
+ # Costs check # (all,i,IND) ABS[INDRPT(i,"PCTDIFF")]<0.5;
+ (initial) # Average Engel elasticity = 1 #  ABS[1-EPSTOT] <0.5;
 
 ! Excerpt 38 of TABLO input file: !
 ! Summary: components of GDP from income and expenditure sides !
@@ -2199,7 +2199,7 @@ Assertion ! Sign checks on input data !
 (initial) # 1LAB>=0 # (all,i,IND)(all,o,OCC)  V1LAB(i,o) >=0;
 (initial) # 1CAP>=0 # (all,i,IND)             V1CAP(i)   >=0;
 (initial) # 1LND>=0 # (all,i,IND)             V1LND(i)   >=0;
-(initial) # MAKE>=0 # (all,c,COM)(all,i,IND)  MAKE(c,i)  >=0;
+!(initial) # MAKE>=0 # (all,c,COM)(all,i,IND)  MAKE(c,i)  >=0;!
 
 (initial) # SIGMA1LAB >=0 # (all,i,IND)  SIGMA1LAB(i)  >= 0.0;
 (initial) # SIGMA1PRIM >=0 # (all,i,IND) SIGMA1PRIM(i) >= 0.0;
