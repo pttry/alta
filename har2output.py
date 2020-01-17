@@ -1444,6 +1444,10 @@ class IOTable_coef:
     """
     
     def __init__(self, Ad, Amdom, Amext, R, use_tab):
+        self.Ad=Ad
+        self.Amdom=Amdom
+        self.Amext=Amext
+        self.At=Ad+Amdom+Amext
         self.table = Ad
         self.table.loc["IND_TOT"]=pd.DataFrame(Ad, columns=use_tab.dims["IND"]).sum(axis = 0)
         self.table.loc["IMP_REG_USE"] = pd.DataFrame(Amdom, columns=use_tab.dims["IND"]).sum(axis = 0)

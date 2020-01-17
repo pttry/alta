@@ -16,8 +16,8 @@ import os
 import harpy
 from harpy.har_file import HarFileObj
 
-# import importlib
-# importlib.reload(ho)
+import importlib
+importlib.reload(ho)
 
 harFolder = "hardata"
 termFolder = "TERM"
@@ -80,7 +80,7 @@ ho.to_long_table(reg_use_fi).to_csv(outdataFolder + "/use2014.csv", sep = ";", i
 reg_use_dom = ho.regUseTab_dom(use_obj, trade_obj, tradmar_obj, suppmar_obj, va_labour_obj, va_capital_obj, va_land_obj, prodtaxes_obj, taxes_obj, make_obj, stocks_obj)
 reg_use_dom_fi = ho.translate_reg_tables(reg_use_dom, "reg_use_dom")
 reg_use_dom_fi.to_excel(file = outdataFolder + "/use_dom2014.xlsx")
-
+reg_use_dom.to_excel(file = outdataFolder + "/use_dom2014_en.xlsx")
 ho.to_long_table(reg_use_dom_fi).to_csv(outdataFolder + "/use_dom2014.csv", sep = ";", index = False)
 
 
@@ -134,3 +134,70 @@ reg_io_coef_fi.to_excel(file = outdataFolder + "/io_coef2014.xlsx")
 ho.to_long_table(reg_io_coef_fi).to_csv(outdataFolder + "/io_coef2014.csv", sep = ";", index = False)
 
 
+for row in range(0,19):
+        for col in range(0,19):
+                for com in range(0,2):
+                        trade_obj["array"][com+16,0,row,col]=trade_obj["array"][com+16,0,row,col]+suppmar_obj["array"][com,row,col,:].sum()
+
+
+for row in range(0,19):
+        for col in range(0,19):
+                s=np.zeros([30])
+                for com in range(0,30):
+                        s[com]=trade_obj["array"][com,:,row,col].sum()/(trade_obj["array"][com,:,:,col].sum(axis=(0,1))+0.000001)
+                v=pd.DataFrame(np.diagflat(s))
+                if col==0:
+                        V=v
+                else:
+                        V=pd.concat([V,v], axis=1)
+        if row==0:
+                C_mat=V
+        else:
+                C_mat=pd.concat([C_mat,V], axis=0)
+   
+C_mat=np.matrix(C_mat)
+
+reg=use_obj["sets"][3]["dim_desc"]
+A_mat = np.matrix(np.zeros((570, 570)))
+j=0
+for i in reg:
+        A_mat[j*30:(j+1)*30-1,j*30:(j+1)*30-1] = np.matrix(reg_io_coef.tables[i].At)[0:29,0:29]
+        j=j+1
+        
+#Inverse_matrix=inverse(I-C*A)
+Inv_mat=pd.DataFrame(np.linalg.inv(np.identity(570, dtype = None)-C_mat*A_mat))
+
+#Inverse_matrix*C
+#For details, see Chapter 3 in Miller & Blair, 2009, "Input-Output Analysis: Foundations And Extensions", 2nd Edition
+Inv_mat_C=pd.DataFrame(np.linalg.inv(np.identity(570, dtype = None)-C_mat*A_mat)*C_mat)
+
+com=use_obj["sets"][0]["dim_desc"]
+
+list=[]
+
+for i in reg:
+        for j in com:
+                k=i+"_"+j
+                list.append(k)
+        
+Inv_mat_dat=pd.DataFrame(np.matrix(Inv_mat), index=list, columns=list)
+Inv_mat_C_dat=pd.DataFrame(np.matrix(Inv_mat_C), index=list, columns=list)
+writer = pd.ExcelWriter(outdataFolder + "/Inv_mat.xlsx", engine='xlsxwriter')
+Inv_mat_dat.to_excel(writer, sheet_name = "Inverse matrix")
+workbook  = writer.book
+worksheet = writer.sheets["Inverse matrix"]
+format = workbook.add_format()
+format.set_align('center')
+format.set_align('vcenter')
+format.set_num_format('0.000')
+format.set_text_wrap()
+worksheet.set_column('A:UZ',21, format)
+Inv_mat_C_dat.to_excel(writer, sheet_name = "Inv_mat_to_C")
+worksheet = writer.sheets["Inv_mat_to_C"]
+format = workbook.add_format()
+format.set_align('center')
+format.set_align('vcenter')
+format.set_num_format('0.000')
+format.set_text_wrap()
+worksheet.set_column('A:UZ',21, format)
+writer.save()
