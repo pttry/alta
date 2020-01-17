@@ -1,0 +1,2093 @@
+
+    TTTTTTTTTT  AAAAAAAAAA   BBBBBBB      LLLL        OOOOOOOOOO
+    TTTTTTTTTT  AAA    AAA   BBBBBBBBB    LLLL        OOOOOOOOOO
+       TTT      AAA    AAA   BBB    BBB   LLLL        OOO    OOO
+       TTT      AAA    AAA   BBB  BBB     LLLL        OOO    OOO
+       TTT      AAAAAAAAAA   BBBBBBB      LLLL        OOO    OOO
+       TTT      AAAAAAAAAA   BBB  BBB     LLLL        OOO    OOO
+       TTT      AAA    AAA   BBB    BBB   LLLL        OOO    OOO
+       TTT      AAA    AAA   BBBBBBBBB    LLLLLLLLL   OOOOOOOOOO
+       TTT      AAA    AAA   BBBBBBB      LLLLLLLLL   OOOOOOOOOO
+
+ <TABLO  Version 7.0   August 2018>                                    
+
+
+
+
+
+                     GEMPACK SOFTWARE
+     << COPYRIGHT 1987-2018:  The Impact Project and KPSOFT >>
+   
+   
+
+    +++  INFORMATION ABOUT THIS PRINT FILE  +++
+   
+
+ ! This file was created at 13:07:34 on 17-JAN-2020 by the program
+ !  <TABLO  Version 7.0   August 2018>
+ ! which accesses some of the routines in the GEMPACK software release
+ !  <GEMPACK Release 12.0.004   March 2019>
+ 
+ !     -------------------------------------------------------                
+ !    !            GEMPACK Software System Licence            !               
+ !    !  Source Code Licence for the GEMPACK Software System  !               
+ !    !                 Licence No.  GFM-1650                 !               
+ !    !          Licence for Release 12.0 of GEMPACK          !               
+ !    !              Pellervo Economic Research               !               
+ !    !    (Your GEMPACK licence expires on 31-MAY-2020.)     !               
+ !     -------------------------------------------------------                
+    
+
+    +++  END OF INFORMATION ABOUT THIS PRINT FILE  +++
+
+ ======================================================
+           TABLO PORTABLE   
+ ++> TABLO OPTIONS   ( --> indicates those in effect )
+ ======================================================
+
+
+
+      -----------                   ----------
+  --> F1 CHECK                  --> L1 CHECK
+      F2 CONDENSATION               L2 CONDENSATION
+      F3 CODE GENERATION            L3 CODE GENERATION
+      Mode
+      ----
+      INTERACTIVE
+      BATCH
+  --> UNSPECIFIED
+
+
+ ==================================================
+ ++> TABLO Input file is 'init.tab'
+ ++> This Information file is 'init'
+ ==================================================
+
+
+
+ ******************************************************************************
+ -1-
+ -->                     Starting CHECK stage
+
+ ******************************************************************************
+
+
+      1   !# Checks initial ORANIG03-style database NATIONAL.HAR !
+      2   !# writes clean copy INIT.HAR !
+      3   !# and creates dummy files of additional data needed to build TERM database: !
+      4   !#  DUMSUPP.HAR  dummy example REGSUPP.HAR file of needed extra regional data !
+      5   !#  DUMSEC.AGG   dummy sector aggregation instructions !
+      6   !#  DUMREG.AGG   dummy region aggregation instructions !
+      7    
+      8   ! Industries with zero output, or which sell to inventories only,
+      9     will give trouble !
+     10    
+     11   File
+     12         INFILE  # Input data File #;
+     13   (new) OUTFILE # Output file #;
+     14   (new) DIAG    # Diag file #;
+     15   (new) DUMSUPP # Dummy file of supplementary regional data for later editing #;
+     16    
+     17   Set
+     18    REG # Regions #     read elements from file INFILE header "REG";
+     19    COM # Commodities # read elements from file INFILE header "COM";
+     20    MAR # Margin #      read elements from file INFILE header "MAR";
+     21    IND # Industries #  read elements from file INFILE header "IND";
+     22    OCC # Skills #      read elements from file INFILE header "OCC";
+     23    SRC # Source of Commodities #   (dom,imp);
+     24    ORG # Regions of origin # = REG;
+     25    
+     26   Subset MAR is subset of COM;
+     27   Set NONMAR = COM - MAR;
+     28    
+     29   Transfer "REG" from file INFILE to file OUTFILE;
+     30   Transfer "COM" from file INFILE to file OUTFILE;
+     31   Transfer "MAR" from file INFILE to file OUTFILE;
+     32   Transfer "IND" from file INFILE to file OUTFILE;
+     33   Transfer "OCC" from file INFILE to file OUTFILE;
+     34    
+     35   Coefficient NREG # Number of regions #;
+     36   Formula     NREG = sum{r,REG,1};
+     37   Coefficient NCOM # Number of commodities #;
+     38   Formula     NCOM = sum{c,COM,1};
+     39   Coefficient NIND # Number of industries #;
+     40   Formula     NIND = sum{i,IND,1};
+     41   Coefficient NMAR # Number of margin commodities #;
+     42   Formula     NMAR = sum{m,MAR,1};
+     43    
+     44   Coefficient
+     45   (all,c,COM)(all,s,SRC)(all,i,IND) V1BAS(c,s,i) # Intermediate Basic #;
+     46   (all,c,COM)(all,s,SRC)(all,i,IND) V2BAS(c,s,i) # Investment Basic #;
+     47   (all,c,COM)(all,s,SRC) V3BAS(c,s) # Households Basic #;
+     48   (all,c,COM) V4BAS(c) # Exports Basic #;
+     49   (all,c,COM)(all,s,SRC) V5BAS(c,s) # Government Basic #;
+     50   (all,c,COM)(all,s,SRC) V6BAS(c,s) # Inventory Changes #;
+     51   (all,c,COM)(all,s,SRC)(all,i,IND)(all,m,MAR) V1MAR(c,s,i,m)
+     52    # Intermediate Margins #;
+     53   (all,c,COM)(all,s,SRC)(all,i,IND)(all,m,MAR) V2MAR(c,s,i,m)
+     54    # Investment Margins #;
+     55   (all,c,COM)(all,s,SRC)(all,m,MAR) V3MAR(c,s,m) # Households Margins #;
+     56   (all,c,COM)(all,m,MAR) V4MAR(c,m) # Exports Margins #;
+     57   (all,c,COM)(all,s,SRC)(all,m,MAR) V5MAR(c,s,m) # Government Margins #;
+     58   (all,c,COM)(all,s,SRC)(all,i,IND) V1TAX(c,s,i) # Intermediate Tax #;
+     59   (all,c,COM)(all,s,SRC)(all,i,IND) V2TAX(c,s,i) # Investment Tax #;
+     60   (all,c,COM)(all,s,SRC) V3TAX(c,s) # Households Tax #;
+     61   (all,c,COM) V4TAX(c) # Exports Tax #;
+     62   (all,c,COM)(all,s,SRC) V5TAX(c,s) # Government Tax #;
+     63   (all,i,IND) V1CAP(i) # Capital #;
+     64   (all,i,IND)(all,o,OCC) V1LAB(i,o) # Labour #;
+     65   (all,i,IND) V1LND(i) # Land #;
+     66   (all,i,IND) V1PTX(i) # Production Tax #;
+     67   (all,i,IND) V1OCT(i) # Other Costs #;
+     68   (all,c,COM)(all,i,IND) MAKE(c,i) # Multiproduct Matrix #;
+     69   (all,c,COM) V0TAR(c) # Tariff Revenue #;
+     70   (all,i,IND) SIGMA1LAB(i) # Labour Sigma #;
+     71   (all,i,IND) SIGMA1PRIM(i) # Primary Factor Sigma #;
+     72   (all,c,COM) SIGMA1(c) # Intermediate Armington #;
+     73   (all,i,IND) SIGMA1OUT(i) # Output Sigma #;
+     74   (all,c,COM) SIGMA2(c) # Investment Armington #;
+     75   (all,c,COM) SIGMA3(c) # Households Armington #;
+     76    FRISCH # Frisch Parameter #;
+     77   (all,c,COM) EPS(c) # Household Expenditure Elasticities #;
+     78   (all,c,COM) EXP_ELAST(c) # Individual Export Elasticities #;
+     79    EXP_ELAST_NT # Collective Export Elasticity #;
+     80   (all,c,COM) ISINDIVEXP(c)
+     81    # Flag, >0.5 for individual export commodities, else collective export #;
+     82   (all,c,COM) ISLOCCOM(c)
+     83    # Flag for regional extension, >0.5 for local coms, else national #;
+     84   (all,i,IND)(all,r,REG) R001(i,r) # Regional output shares #;
+     85   (all,i,IND)(all,r,REG) R002(i,r) # Regional investment shares #;
+     86   (all,c,COM)(all,r,REG) R003(c,r) # Regional consumption shares #;
+     87   (all,c,COM)(all,r,REG) R004(c,r) # Regional export shares #;
+     88   (all,c,COM)(all,r,REG) R005(c,r) # Regional government shares #;
+     89   (all,c,COM)(all,r,REG) R006(c,r) # Regional inventory shares #;
+     90   (all,i,IND)(all,r,REG) R007(i,r) # Regional labor compensation shares #; !JLe ************************************!
+     91    
+     92   Read
+     93    V1BAS from file INFILE header "1BAS";
+     94    V2BAS from file INFILE header "2BAS";
+     95    V3BAS from file INFILE header "3BAS";
+     96    V4BAS from file INFILE header "4BAS";
+     97    V5BAS from file INFILE header "5BAS";
+     98    V6BAS from file INFILE header "6BAS";
+     99    V1MAR from file INFILE header "1MAR";
+    100    V2MAR from file INFILE header "2MAR";
+    101    V3MAR from file INFILE header "3MAR";
+    102    V4MAR from file INFILE header "4MAR";
+    103    V5MAR from file INFILE header "5MAR";
+    104    V1TAX from file INFILE header "1TAX";
+    105    V2TAX from file INFILE header "2TAX";
+    106    V3TAX from file INFILE header "3TAX";
+    107    V4TAX from file INFILE header "4TAX";
+    108    V5TAX from file INFILE header "5TAX";
+    109    V1CAP from file INFILE header "1CAP";
+    110    V1LAB from file INFILE header "1LAB";
+    111    V1LND from file INFILE header "1LND";
+    112    V1PTX from file INFILE header "1PTX";
+    113    V1OCT from file INFILE header "1OCT";
+    114    MAKE from file INFILE header "MAKE";
+    115    V0TAR from file INFILE header "0TAR";
+    116    SIGMA1LAB from file INFILE header "SLAB";
+    117    SIGMA1PRIM from file INFILE header "P028";
+    118    SIGMA1 from file INFILE header "1ARM";
+    119    SIGMA1OUT from file INFILE header "SCET";
+    120    SIGMA2 from file INFILE header "2ARM";
+    121    SIGMA3 from file INFILE header "3ARM";
+    122    FRISCH from file INFILE header "P021";
+    123    EPS from file INFILE header "XPEL";
+    124    EXP_ELAST from file INFILE header "P018";
+    125    EXP_ELAST_NT from file INFILE header "EXNT";
+    126    ISINDIVEXP from file INFILE header "ITEX";
+    127    ISLOCCOM from file INFILE header "LCOM";
+    128    R001 from file INFILE header "R001";
+    129    R002 from file INFILE header "R002";
+    130    R003 from file INFILE header "R003";
+    131    R004 from file INFILE header "R004";
+    132    R005 from file INFILE header "R005";
+    133    R006 from file INFILE header "R006";
+    134    R007 from file INFILE header "R007"; !JLe ************************************!
+    135    
+    136   Assertion
+    137   # V1BAS >=0 # (all,c,COM)(all,s,SRC)(all,i,IND) V1BAS(c,s,i) >= 0.0;
+    138   # V2BAS >=0 # (all,c,COM)(all,s,SRC)(all,i,IND) V2BAS(c,s,i) >= 0.0;
+    139   # V3BAS >=0 # (all,c,COM)(all,s,SRC) V3BAS(c,s) >= 0.0;
+    140   # V4BAS >=0 # (all,c,COM) V4BAS(c) >= 0.0;
+    141   # V5BAS >=0 # (all,c,COM)(all,s,SRC) V5BAS(c,s) >= 0.0;
+    142   # V1MAR >=0 # (all,c,COM)(all,s,SRC)(all,i,IND)(all,m,MAR) V1MAR(c,s,i,m) >=0.0;
+    143   # V2MAR >=0 # (all,c,COM)(all,s,SRC)(all,i,IND)(all,m,MAR) V2MAR(c,s,i,m) >=0.0;
+    144   # V3MAR >=0 # (all,c,COM)(all,s,SRC)(all,m,MAR) V3MAR(c,s,m) >= 0.0;
+    145   # V4MAR >=0 # (all,c,COM)(all,m,MAR) V4MAR(c,m) >= 0.0;
+    146   # V5MAR >=0 # (all,c,COM)(all,s,SRC)(all,m,MAR) V5MAR(c,s,m) >= 0.0;
+    147   # V1CAP >=0 # (all,i,IND) V1CAP(i) >= 0.0;
+    148   # V1LAB >=0 # (all,i,IND)(all,o,OCC) V1LAB(i,o) >= 0.0;
+    149   # V1LND >=0 # (all,i,IND) V1LND(i) >= 0.0;
+    150   # MAKE >=0 # (all,c,COM)(all,i,IND) MAKE(c,i) >= 0.0;
+    151   # SIGMA1LAB >=0 # (all,i,IND) SIGMA1LAB(i) >= 0.0;
+    152   # SIGMA1PRIM >=0 # (all,i,IND) SIGMA1PRIM(i) >= 0.0;
+    153   # SIGMA1 >=0 # (all,c,COM) SIGMA1(c) >= 0.0;
+    154   # SIGMA1OUT >=0 # (all,i,IND) SIGMA1OUT(i) >= 0.0;
+    155   # SIGMA2 >=0 # (all,c,COM) SIGMA2(c) >= 0.0;
+    156   # SIGMA3 >=0 # (all,c,COM) SIGMA3(c) >= 0.0;
+    157   # EPS >=0 # (all,c,COM) EPS(c) >= 0.0;
+    158   # IsIndivExp >=0 # (all,c,COM) ISINDIVEXP(c) >= 0.0;
+    159   # IsLocCom >=0 # (all,c,COM) ISLOCCOM(c) >= 0.0;
+    160   # R001 >=0 # (all,i,IND)(all,r,REG) R001(i,r) >= 0.0;
+    161   # R002 >=0 # (all,i,IND)(all,r,REG) R002(i,r) >= 0.0;
+    162   # R003 >=0 # (all,c,COM)(all,r,REG) R003(c,r) >= 0.0;
+    163   # R004 >=0 # (all,c,COM)(all,r,REG) R004(c,r) >= 0.0;
+    164   # R005 >=0 # (all,c,COM)(all,r,REG) R005(c,r) >= 0.0;
+    165   # R006 >=0 # (all,c,COM)(all,r,REG) R006(c,r) >= 0.0;
+    166   # R007 >=0 # (all,i,IND)(all,r,REG) R007(i,r) >= 0.0; !JLe ************************************!
+    167   # R001 <=1 # (all,i,IND)(all,r,REG) R001(i,r) <= 1.0;
+    168   # R002 <=1 # (all,i,IND)(all,r,REG) R002(i,r) <= 1.0;
+    169   # R003 <=1 # (all,c,COM)(all,r,REG) R003(c,r) <= 1.0;
+    170   # R004 <=1 # (all,c,COM)(all,r,REG) R004(c,r) <= 1.0;
+    171   # R005 <=1 # (all,c,COM)(all,r,REG) R005(c,r) <= 1.0;
+    172   # R006 <=1 # (all,c,COM)(all,r,REG) R006(c,r) <= 1.0;
+    173   # R007 <=1 # (all,i,IND)(all,r,REG) R007(i,r) <= 1.0; !JLe ************************************!
+    174    
+    175   Coefficient TINY # Small flow to add #;
+    176   Formula ! TINY is proportional to average MAKE diagonal !
+    177    TINY = sum{c,COM, sum{i,IND, MAKE(c,i)}};
+    178    TINY = TINY/NCOM;
+    179    TINY = TINY/10000000;
+    180   Write TINY to file DIAG header "TINY";
+    181    
+    182   !************* Check database adds up ****************!
+    183    
+    184   Coefficient
+    185    (all,c,COM)(all,s,SRC)(all,i,IND)  V1PUR(c,s,i)  # Intermediate purch. value #;
+    186    (all,c,COM)(all,s,SRC)(all,i,IND)  V2PUR(c,s,i)  # Investment purch. value #;
+    187    (all,c,COM)(all,s,SRC)             V3PUR(c,s)    # Households purch. value #;
+    188    (all,c,COM)                        V4PUR(c)      # Export purch. value #;
+    189    (all,c,COM)(all,s,SRC)             V5PUR(c,s)    # Government purch. value #;
+    190   Formula
+    191    (all,c,COM)(all,s,SRC)(all,i,IND)
+    192      V1PUR(c,s,i)  = V1BAS(c,s,i) + V1TAX(c,s,i) + sum{m,MAR, V1MAR(c,s,i,m)};
+    193    (all,c,COM)(all,s,SRC)(all,i,IND)
+    194      V2PUR(c,s,i)  = V2BAS(c,s,i) + V2TAX(c,s,i) + sum{m,MAR, V2MAR(c,s,i,m)};
+    195    (all,c,COM)(all,s,SRC)
+    196      V3PUR(c,s)    = V3BAS(c,s)   + V3TAX(c,s)   + sum{m,MAR, V3MAR(c,s,m)};
+    197    (all,c,COM)
+    198      V4PUR(c)      = V4BAS(c)     + V4TAX(c)     + sum{m,MAR, V4MAR(c,m)};
+    199    (all,c,COM)(all,s,SRC)
+    200      V5PUR(c,s)    = V5BAS(c,s)   + V5TAX(c,s)   + sum{m,MAR, V5MAR(c,s,m)};
+    201   Coefficient
+    202    (all,i,IND) V1LAB_O(i)   # Total labour bill in industry i #;
+    203   Formula
+    204    (all,i,IND) V1LAB_O(i) = sum{o,OCC, V1LAB(i,o)};
+    205   Coefficient (all,i,IND) V1PRIM(i) # Total factor input to industry i#;
+    206   Formula     (all,i,IND) V1PRIM(i) = V1LAB_O(i)+ V1CAP(i) + V1LND(i);
+    207   Coefficient
+    208    (all,c,COM)(all,i,IND) V1PUR_S(c,i) # Dom+imp intermediate purch. value #;
+    209    (all,i,IND)            V1MAT(i)     # Total intermediate cost for industry i #;
+    210   Zerodivide default 0.5;
+    211   Formula
+    212    (all,c,COM)(all,i,IND)            V1PUR_S(c,i) = sum{s,SRC, V1PUR(c,s,i)};
+    213    (all,i,IND)                       V1MAT(i)     = sum{c,COM, V1PUR_S(c,i)};
+    214   Zerodivide off;
+    215   Coefficient
+    216    (all,i,IND)  V1CST(i)    # Total cost of industry i #;
+    217    (all,i,IND)  V1TOT(i)    # Total industry cost plus tax #;
+    218    (all,i,IND) PTXRATE(i)   # Rate of production tax #;
+    219   Formula
+    220    (all,i,IND)  V1CST(i)    = V1PRIM(i) + V1OCT(i) + V1MAT(i);
+    221    (all,i,IND)  V1TOT(i)    = V1CST(i) + V1PTX(i);
+    222    (all,i,IND)  PTXRATE(i)  = V1PTX(i)/V1CST(i);
+    223   Write PTXRATE to file DIAG header "PTXR";
+    224   Coefficient
+    225    (all,i,IND) MAKE_C(i) # All production by industry i #;
+    226    (all,c,COM) MAKE_I(c) # Total production of commodities #;
+    227   Formula
+    228    (all,i,IND) MAKE_C(i) = sum{c,COM, MAKE(c,i)};
+    229    (all,c,COM) MAKE_I(c) = sum{i,IND, MAKE(c,i)};
+    230   Coefficient
+    231    (all,c,COM)(all,i,IND)     V2PUR_S(c,i) # Dom+imp investment purch. value #;
+    232   Formula
+    233     (all,c,COM)(all,i,IND)     V2PUR_S(c,i)  = sum{s,SRC, V2PUR(c,s,i)};
+    234   Coefficient (all,i,IND) V2TOT(i)  # Total capital created for industry i #;
+    235   Formula     (all,i,IND) V2TOT(i)  = sum{c,COM, V2PUR_S(c,i)};
+    236   Coefficient
+    237    (all,c,COM)           V3PUR_S(c) # Dom+imp households purch. value #;
+    238   Formula
+    239    (all,c,COM)           V3PUR_S(c) = sum{s,SRC, V3PUR(c,s)};
+    240   Coefficient
+    241                   V3TOT # Total purchases by households #;
+    242    (all,c,COM)  S3_S(c) # Household average budget shares #;
+    243                  EPSTOT # Initial Average Engel elasticity: should = 1 #;
+    244   Formula
+    245                   V3TOT = sum{c,COM, V3PUR_S(c)};
+    246    (all,c,COM)  S3_S(c) = V3PUR_S(c)/V3TOT;
+    247                EPSTOT   = sum{c,COM, S3_S(c)*EPS(c)};
+    248   (initial)(all,c,COM)  EPS(c)  =   EPS(c)/EPSTOT;
+    249   Write  S3_S    to file DIAG header "CSHR";
+    250   Set TRADEXP # Individual export commodities # = (all,c,COM: ISINDIVEXP(c)>0.5);
+    251   Write (Set) TRADEXP  to file DIAG header "TEXP";
+    252   Set NTRADEXP # Collective Export Commodities # = COM - TRADEXP;
+    253   Write (Set) NTRADEXP  to file DIAG header "NTXP";
+    254   Coefficient (all,c,COM) MARSALES(c) # Total usage for margins purposes #;
+    255   Formula
+    256    (all,n,NONMAR) MARSALES(n) = 0.0;
+    257    (all,m,MAR)    MARSALES(m) = sum{c,COM, V4MAR(c,m) +
+    258                                  sum{s,SRC, V3MAR(c,s,m) + V5MAR(c,s,m) +
+    259                                   sum{i,IND, V1MAR(c,s,i,m) + V2MAR(c,s,i,m)}}};
+    260   Set DEST # Sale Categories #
+    261   (Interm, INVEST, HouseH, Export, GovGE, STOCKS, Margins);
+    262   Coefficient (all,c,COM)(all,s,SRC)(all,d,DEST) SALE(c,s,d) # Sales aggregates #;
+    263   Formula
+    264    (all,c,COM)(all,s,SRC) SALE(c,s,"Interm")      = sum{i,IND, V1BAS(c,s,i)};
+    265    (all,c,COM)(all,s,SRC) SALE(c,s,"Invest")      = sum{i,IND, V2BAS(c,s,i)};
+    266    (all,c,COM)(all,s,SRC) SALE(c,s,"HouseH")      = V3BAS(c,s);
+    267    (all,c,COM)            SALE(c,"dom","Export")  = V4BAS(c);
+    268    (all,c,COM)            SALE(c,"imp","Export")  = 0;
+    269    (all,c,COM)(all,s,SRC) SALE(c,s,"GovGE")       = V5BAS(c,s);
+    270    (all,c,COM)(all,s,SRC) SALE(c,s,"Stocks")      = V6BAS(c,s);
+    271    (all,c,COM)            SALE(c,"dom","Margins") = MARSALES(c);
+    272    (all,c,COM)            SALE(c,"imp","Margins") = 0;
+    273   Write SALE to file DIAG header "SALE";
+    274   Coefficient (all,c,COM) V0IMP(c) # Total basic-value imports of good c #;
+    275   Formula     (all,c,COM) V0IMP(c) = sum{d,DEST, SALE(c,"imp",d)};
+    276   Coefficient (all,c,COM) SALES(c) # Total sales of domestic commodities #;
+    277   Formula     (all,c,COM) SALES(c) = sum{d,DEST, SALE(c,"dom",d)};
+    278   Coefficient (all,c,COM) DOMSALES(c) # Total sales to local market #;
+    279   Formula     (all,c,COM) DOMSALES(c) = SALES(c) - V4BAS(c);
+    280   Set LOCUSER # Non-export users #(Interm, INVEST, HouseH, GovGE, STOCKS,Margins);
+    281   Subset LOCUSER is subset of DEST;
+    282   Coefficient
+    283    V1TAX_CSI  # Total intermediate tax revenue #;
+    284    V2TAX_CSI  # Total investment tax revenue #;
+    285    V3TAX_CS   # Total households tax revenue #;
+    286    V4TAX_C    # Total export tax revenue #;
+    287    V5TAX_CS   # Total government tax revenue #;
+    288    V0TAR_C    # Total tariff revenue #;
+    289   Formula
+    290    V1TAX_CSI  = sum{c,COM, sum{s,SRC, sum{i,IND, V1TAX(c,s,i)}}};
+    291    V2TAX_CSI  = sum{c,COM, sum{s,SRC, sum{i,IND, V2TAX(c,s,i)}}};
+    292    V3TAX_CS   = sum{c,COM, sum{s,SRC,            V3TAX(c,s)}};
+    293    V4TAX_C    = sum{c,COM,                       V4TAX(c)};
+    294    V5TAX_CS   = sum{c,COM, sum{s,SRC,            V5TAX(c,s)}};
+    295    V0TAR_C    = sum{c,COM,                       V0TAR(c)};
+    296   Coefficient
+    297     V1CAP_I   # Total payments to capital #;
+    298     V1LAB_IO  # Total payments to labour #;
+    299     V1LND_I   # Total payments to land #;
+    300     V1PTX_I   # Total production tax/subsidy #;
+    301     V1OCT_I   # Total other cost ticket payments #;
+    302     V1PRIM_I  # Total primary factor payments#;
+    303     V0GDPINC  # Nominal GDP from income side #;
+    304     V0TAX_CSI # Total indirect tax revenue #;
+    305   Formula
+    306     V1CAP_I   = sum{i,IND, V1CAP(i)};
+    307     V1LAB_IO  = sum{i,IND, V1LAB_O(i)};
+    308     V1LND_I   = sum{i,IND, V1LND(i)};
+    309     V1PTX_I   = sum{i,IND, V1PTX(i)};
+    310     V1OCT_I   = sum{i,IND, V1OCT(i)};
+    311     V1PRIM_I  = V1LAB_IO + V1CAP_I + V1LND_I;
+    312     V0TAX_CSI  = V1TAX_CSI + V2TAX_CSI + V3TAX_CS + V4TAX_C + V5TAX_CS
+    313                  + V0TAR_C + V1OCT_I + V1PTX_I;
+    314     V0GDPINC  = V1PRIM_I + V0TAX_CSI;
+    315   Write V0GDPINC to file DIAG header "GINC";
+    316   Coefficient
+    317    (all,c,COM) V0CIF(c) # Total ex-duty imports of good c #;
+    318    V0CIF_C  # Total local currency import costs, excluding tariffs #;
+    319    V0IMP_C  # Total basic-value imports (includes tariffs) #;
+    320    V2TOT_I  # Total investment usage #;
+    321    V4TOT    # Total export earnings #;
+    322    V5TOT    # Total value of government demands #;
+    323    V6TOT    # Total value of inventories #;
+    324    V0GNE    # GNE from expenditure side #;
+    325    V0GDPEXP # GDP from expenditure side #;
+    326   Formula
+    327    (all,c,COM) V0CIF(c) = V0IMP(c) - V0TAR(c);
+    328    V0CIF_C   = sum{c,COM, V0CIF(c)};
+    329    V0IMP_C   = sum{c,COM, V0IMP(c)};
+    330    V2TOT_I   = sum{i,IND, V2TOT(i)};
+    331    V4TOT     = sum{c,COM, V4PUR(c)};
+    332    V5TOT     = sum{c,COM, sum{s,SRC, V5PUR(c,s)}};
+    333    V6TOT     = sum{c,COM, sum{s,SRC, V6BAS(c,s)}};
+    334    V0GNE     = V3TOT + V2TOT_I + V5TOT + V6TOT;
+    335    V0GDPEXP  = V0GNE + V4TOT - V0CIF_C;
+    336   Write V0GDPEXP to file DIAG header "GEXP";
+    337   Write V0IMP_C to file DIAG header "VIMP";
+    338   Set DESTPLUS # Sale Categories #
+    339    (Interm, INVEST, HouseH, Export, GovGE, STOCKS, Margins, Total);
+    340   Subset DEST is subset of DESTPLUS;
+    341   Set EXPMAC # Expenditure Aggregates #
+    342    (Consumption, Investment, Government, STOCKS, Exports, Imports);
+    343   Coefficient
+    344    (all,i,IND) DIFFIND(i)  # COSTS-MAKE_C : should be zero #;
+    345    (all,c,COM) DIFFCOM(c)  # SALES-MAKE_I : should be zero #;
+    346   Formula
+    347    (all,i,IND) DIFFIND(i)  = V1TOT(i) - MAKE_C(i);
+    348    (all,c,COM) DIFFCOM(c)  = SALES(c) - MAKE_I(c);
+    349   Write
+    350    DIFFIND to file DIAG header "DIND";
+    351    DIFFCOM to file DIAG header "DCOM";
+    352    EPSTOT  to file DIAG header "ETOT";
+    353    MAKE    to file DIAG header "MAKE";
+    354    V1TOT   to file DIAG header "1TOT";
+    355    SALES   to file DIAG header "SLES";
+    356    
+    357   Assertion
+    358    # V1TOT>0 # (all,i,IND) V1TOT(i)>0;
+    359    # SALES>0 # (all,c,COM) SALES(c)>0;
+    360    # (STOCKS/SALES) <95% # (all,c,COM) [V6BAS(c,"dom")/SALES(c)]<0.95;
+    361    
+    362   Formula
+    363    (all,i,IND) DIFFIND(i)  = DIFFIND(i)/V1TOT(i);
+    364    (all,c,COM) DIFFCOM(c)  = DIFFCOM(c)/SALES(c);
+    365   Write
+    366    DIFFIND to file DIAG header "SIND" longname "DIFFIND(i)/V1TOT(i)";
+    367    DIFFCOM to file DIAG header "SCOM" longname "DIFFCOM(c)/SALES(c)";
+    368   Assertion
+    369    # DIFFIND = V1TOT-MAKE_C = tiny # (all,i,IND) ABS[DIFFIND(i)] <0.001;
+    370    # DIFFCOM = SALES-MAKE_I = tiny # (all,c,COM) ABS[DIFFCOM(c)] <0.001;
+    371    (initial) # Average Engel elasticity = 1 #  ABS[1-EPSTOT] <0.001;
+    372   Coefficient (all,e,EXPMAC)  EXPGDP(e) # Expenditure Aggregates #;
+    373   Formula
+    374    EXPGDP("Consumption") = V3TOT;
+    375    EXPGDP("Investment")  = V2TOT_I;
+    376    EXPGDP("Government")  = V5TOT;
+    377    EXPGDP("Stocks")      = V6TOT;
+    378    EXPGDP("Exports")     = V4TOT;
+    379    EXPGDP("Imports")     = -V0CIF_C;
+    380   Write EXPGDP to file DIAG header "EMAC";
+    381   Set INCMAC # Income Aggregates #
+    382    (Land, Labour, Capital,  IndirectTax);
+    383   Coefficient (all,i,INCMAC)  INCGDP(i) # Income Aggregates #;
+    384   Formula
+    385    INCGDP("Land")        = V1LND_I;
+    386    INCGDP("Labour")      = V1LAB_IO;
+    387    INCGDP("Capital")     = V1CAP_I;
+    388    INCGDP("IndirectTax") = V0TAX_CSI;
+    389   Write INCGDP to file DIAG header "IMAC";
+    390   Set TAXMAC # Tax Aggregates #
+    391     (Intermediate,Investment,Consumption,Exports,Government,OCT,ProdTax,Tariff);
+    392   Coefficient (all,t,TAXMAC)  TAX(t) # Tax Aggregates #;
+    393   Formula
+    394    TAX("Intermediate") = V1TAX_CSI;
+    395    TAX("Investment")   = V2TAX_CSI;
+    396    TAX("Consumption")  = V3TAX_CS;
+    397    TAX("Exports")      = V4TAX_C;
+    398    TAX("Government")   = V5TAX_CS;
+    399    TAX("OCT")          = V1OCT_I;
+    400    TAX("ProdTax")      = V1PTX_I;
+    401    TAX("Tariff")       = V0TAR_C;
+    402   Write TAX to file DIAG header "TMAC";
+    403   Set COSTCAT # Cost Categories #
+    404    (IntDom, IntImp, Margin, ComTax, Lab, Cap, Lnd, ProdTax, OCT);
+    405   Coefficient (all,i,IND)(all,co,COSTCAT) COSTMAT(i,co) # Cost Matrix #;
+    406   Formula
+    407    (all,i,IND) COSTMAT(i,"IntDom")  = sum{c,COM, V1BAS(c,"dom",i)};
+    408    (all,i,IND) COSTMAT(i,"IntImp")  = sum{c,COM, V1BAS(c,"imp",i)};
+    409    (all,i,IND) COSTMAT(i,"Margin")  =
+    410                         sum{c,COM, sum{s,SRC, sum{m,MAR, V1MAR(c,s,i,m)}}};
+    411    (all,i,IND) COSTMAT(i,"ComTax")  = sum{c,COM, sum{s,SRC, V1TAX(c,s,i)}};
+    412    (all,i,IND) COSTMAT(i,"Lab")     = V1LAB_O(i);
+    413    (all,i,IND) COSTMAT(i,"Cap")     = V1CAP(i);
+    414    (all,i,IND) COSTMAT(i,"Lnd")     = V1LND(i);
+    415    (all,i,IND) COSTMAT(i,"ProdTax") = V1PTX(i);
+    416    (all,i,IND) COSTMAT(i,"OCT")     = V1OCT(i);
+    417   Write COSTMAT to file DIAG header "CSTM";
+    418   Set
+    419   SALECAT2 # SALE Categories # (Interm, INVEST, HouseH, Export, GovGE, STOCKS);
+    420   FLOWTYPE # Type of flow # (Basic, Margin, TAX);
+    421   Coefficient
+    422   (all,c,COM)(all,f,FLOWTYPE)(all,s,SRC)(all,sa,SALECAT2) SALEMAT2(c,f,s,sa)
+    423       # Basic, margin and tax components of purchasers' values #;
+    424   Formula
+    425   (all,c,COM)(all,f,FLOWTYPE)(all,s,SRC)(all,sa,SALECAT2) SALEMAT2(c,f,s,sa)=0;
+    426   (all,c,COM)(all,s,SRC) SALEMAT2(c,"Basic",s,"Interm") = sum{i,IND,V1BAS(c,s,i)};
+    427   (all,c,COM)(all,s,SRC) SALEMAT2(c,"Tax"  ,s,"Interm") = sum{i,IND,V1TAX(c,s,i)};
+    428   (all,c,COM)(all,s,SRC) SALEMAT2(c,"Margin",s,"Interm") =
+    429                                         sum{i,IND, sum{m,MAR, V1MAR(c,s,i,m)}};
+    430   (all,c,COM)(all,s,SRC) SALEMAT2(c,"Basic",s,"Invest") = sum{i,IND,V2BAS(c,s,i)};
+    431   (all,c,COM)(all,s,SRC) SALEMAT2(c,"Tax"  ,s,"Invest") = sum{i,IND,V2TAX(c,s,i)};
+    432   (all,c,COM)(all,s,SRC) SALEMAT2(c,"Margin",s,"Invest") =
+    433                                         sum{i,IND, sum{m,MAR, V2MAR(c,s,i,m)}};
+    434   (all,c,COM)(all,s,SRC) SALEMAT2(c,"Basic",s,"HouseH") = V3BAS(c,s);
+    435   (all,c,COM)(all,s,SRC) SALEMAT2(c,"Tax"  ,s,"HouseH") = V3TAX(c,s);
+    436   (all,c,COM)(all,s,SRC) SALEMAT2(c,"Margin",s,"HouseH")= sum{m,MAR,V3MAR(c,s,m)};
+    437   (all,c,COM)(all,s,SRC) SALEMAT2(c,"Basic",s,"GovGE") = V5BAS(c,s);
+    438   (all,c,COM)(all,s,SRC) SALEMAT2(c,"Tax"  ,s,"GovGE") = V5TAX(c,s);
+    439   (all,c,COM)(all,s,SRC) SALEMAT2(c,"Margin",s,"GovGE")= sum{m,MAR,V5MAR(c,s,m)};
+    440   (all,c,COM)            SALEMAT2(c,"Basic","dom","Export") = V4BAS(c);
+    441   (all,c,COM)            SALEMAT2(c,"Tax"  ,"dom","Export") = V4TAX(c);
+    442   (all,c,COM)          SALEMAT2(c,"Margin","dom","Export")= sum{m,MAR,V4MAR(c,m)};
+    443   (all,c,COM)(all,s,SRC) SALEMAT2(c,"Basic",s,"Stocks") = V6BAS(c,s);
+    444   Write SALEMAT2 to file DIAG header "MKUP";
+    445   Coefficient  (all,c,COM) IMPSHR(c) # Share of imports in local market #;
+    446   Formula      (all,c,COM) IMPSHR(c) = V0IMP(c)/[DOMSALES(c)+V0IMP(c)];
+    447   Write IMPSHR to file DIAG header "MSHR";
+    448   Coefficient (all,i,IND) SUPPLYELAST(i) # Short-run supply elasticity #;
+    449   Zerodivide default 999;
+    450   Zerodivide (nonzero_by_zero) default 999;
+    451   Formula     (all,i,IND) SUPPLYELAST(i) =
+    452       SIGMA1PRIM(i)*V1LAB_O(i)*V1TOT(i)/[V1PRIM(i)*{V1CAP(i)+V1LND(i)}];
+    453   Zerodivide off;
+    454   Zerodivide (nonzero_by_zero) off;
+    455   Write SUPPLYELAST to file DIAG header "SRSE";
+    456   Set FAC # Primary Factors #  (Lab, Cap, Lnd);
+    457   Coefficient (all,i,IND)(all,f,FAC) FACTOR(i,f) # Primary Factor Costs #;
+    458   Formula
+    459    (all,i,IND) FACTOR(i,"Lab")     = V1LAB_O(i);
+    460    (all,i,IND) FACTOR(i,"Cap")     = V1CAP(i);
+    461    (all,i,IND) FACTOR(i,"Lnd")     = V1LND(i);
+    462   Write FACTOR to file DIAG header "FACT";
+    463   Coefficient (all,c,COM) V1PUR_SI(c)  # Dom+imp intermediate purch. value #;
+    464               (all,c,COM) V2PUR_SI(c)  # Dom+imp investment purch. value #;
+    465               (all,c,COM) V5PUR_S(c)   # Dom+imp government purch. value #;
+    466               (all,c,COM) V6BAS_S(c)   # Dom+imp inventories #;
+    467   Formula     (all,c,COM) V1PUR_SI(c)  = sum{i,IND, V1PUR_S(c,i)};
+    468               (all,c,COM) V2PUR_SI(c)  = sum{i,IND, V2PUR_S(c,i)};
+    469               (all,c,COM) V5PUR_S(c)   = sum{s,SRC, V5PUR(c,s)};
+    470               (all,c,COM) V6BAS_S(c)   = sum{s,SRC, V6BAS(c,s)};
+    471   Write
+    472    V4PUR    to file DIAG header "4PUR";
+    473    V1LAB_O  to file DIAG header "LAB1";
+    474    V1PRIM   to file DIAG header "VLAD";
+    475    V1PUR_SI to file DIAG header "1PUR";
+    476    V2PUR_SI to file DIAG header "2PUR";
+    477    V3PUR_S  to file DIAG header "3PUR";
+    478   Coefficient  (all,c,COM) TARFRATE(c) # Ad valorem tariff rate #;
+    479   Formula      (all,c,COM) TARFRATE(c) = 0;
+    480   Formula      (all,c,COM:V0CIF(c)>0) TARFRATE(c) = V0TAR(c)/V0CIF(c);
+    481   Write
+    482     TARFRATE to file DIAG header "TRAT";
+    483     V0TAR    to file DIAG header "0TAR";
+    484     V0CIF    to file DIAG header "0CIF";
+    485     V0IMP    to file DIAG header "0IMP";
+    486     V1CAP    to file DIAG header "1CAP";
+    487     V6BAS_S  to file DIAG header "6BSS";
+    488     V2TOT    to file DIAG header "2TOT";
+    489     V5PUR_S  to file DIAG header "5PUR";
+    490   Assertion # V0CIF>0 if V0TAR<>0 # (all,c,COM:V0TAR(c)<>0) V0CIF(c)>0;
+    491    
+    492   Set LOCCOM      # Local Commodities (Set L, DPSV p.259) #
+    493      = (all,c,COM: ISLOCCOM(c) > 0.5 );
+    494   Set  NATCOM = COM - LOCCOM;
+    495   Set LOCIND # Local Industries= 90% of output is local commodities #
+    496     = (all,i,IND: sum{c,LOCCOM,MAKE(c,i)}/sum{c,COM,MAKE(c,i)}>0.9);
+    497   Write
+    498    (Set) LOCIND to file DIAG header "LOCI";
+    499    (Set) LOCCOM to file DIAG header "LOCC";
+    500   Coefficient
+    501   (all,i,IND)(all,r,REG) REGV1LAB_O(i,r) # Labour bills #;
+    502   (all,r,REG)            REGV1LAB_IO(r)  # Labour bills #;
+    503   (all,r,REG)            REGINCSHR(r)  # Share region r in national labour bill #;
+    504   Formula
+    505   (all,i,IND)(all,r,REG) REGV1LAB_O(i,r) = V1LAB_O(i)*R007(i,r); !JLe ************************************!
+    506   (all,r,REG)            REGV1LAB_IO(r)  = sum{i,IND, REGV1LAB_O(i,r)};
+    507   (all,r,REG)            REGINCSHR(r)  = REGV1LAB_IO(r)/ V1LAB_IO;
+    508   Write
+    509    REGV1LAB_IO to file DIAG header "RV1L";
+    510    REGINCSHR to file DIAG header "RISR";
+    511    R001 to file DIAG header "R001";
+    512    R002 to file DIAG header "R002";
+    513    R003 to file DIAG header "R003";
+    514    R004 to file DIAG header "R004";
+    515    R005 to file DIAG header "R005";
+    516    R006 to file DIAG header "R006";
+    517    R007 to file DIAG header "R007"; !JLe ************************************!
+    518   Assertion
+    519   # Sum-over-REG R001 = 1 # (all,i,IND) ABS[1-sum{r,REG,R001(i,r)}] <0.001;
+    520   # Sum-over-REG R002 = 1 # (all,i,IND) ABS[1-sum{r,REG,R002(i,r)}] <0.001;
+    521   # Sum-over-REG R003 = 1 # (all,c,COM) ABS[1-sum{r,REG,R003(c,r)}] <0.001;
+    522   # Sum-over-REG R004 = 1 # (all,c,COM) ABS[1-sum{r,REG,R004(c,r)}] <0.001;
+    523   # Sum-over-REG R005 = 1 # (all,c,COM) ABS[1-sum{r,REG,R005(c,r)}] <0.001;
+    524   # Sum-over-REG R006 = 1 # (all,c,COM) ABS[1-sum{r,REG,R006(c,r)}] <0.001;
+    525   # Sum-over-REG R007 = 1 # (all,i,IND) ABS[1-sum{r,REG,R007(i,r)}] <0.001; !JLe ************************************!
+    526   Coefficient  (all,c,COM)(all,r,REG)
+    527    TOTSUPREG(c,r) # Supply of good c region r #;
+    528   Formula      (all,c,COM)(all,r,REG)
+    529    TOTSUPREG(c,r) = sum{i,IND, MAKE(c,i)*R001(i,r)};
+    530   Coefficient  (all,c,COM)(all,r,REG)
+    531    TOTDEMREG(c,r) # All basic + margin use of local good c, region r #;
+    532   Formula
+    533    (all,c,COM)(all,r,REG) TOTDEMREG(c,r) =
+    534      sum{i,IND,R001(i,r)*V1BAS(c,"dom",i) + R002(i,r)*V2BAS(c,"dom",i) }
+    535    +           R003(c,r)*V3BAS(c,"dom")
+    536    +           R004(c,r)*V4BAS(c)
+    537    +           R005(c,r)*V5BAS(c,"dom")
+    538    +           R006(c,r)*V6BAS(c,"dom");
+    539   Formula
+    540    (all,c,MAR)(all,r,REG) TOTDEMREG(c,r) = TOTDEMREG(c,r)
+    541     + sum{u,COM,R004(u,r)*V4MAR(u,c)
+    542     + sum{s,SRC,R003(u,r)*V3MAR(u,s,c)   + R005(u,r)*V5MAR(u,s,c)
+    543     + sum{i,IND,R001(i,r)*V1MAR(u,s,i,c) + R002(i,r)*V2MAR(u,s,i,c)}}};
+    544    
+    545   Coefficient (all,c,COM)(all,r,REG) DEMRATIO(c,r)
+    546    # Regional demand/supply; -ve for national coms, should be near 1 for local #;
+    547   Formula     (all,c,COM)(all,r,REG)
+    548   DEMRATIO(c,r) = [TINY + TOTDEMREG(c,r)]/[TINY + TOTSUPREG(c,r)];
+    549   Formula  (all,c,NATCOM)(all,r,REG) DEMRATIO(c,r) = - DEMRATIO(c,r);
+    550   Write
+    551   TOTSUPREG to file DIAG header "TSPR";
+    552   TOTDEMREG to file DIAG header "TDMR";
+    553   DEMRATIO  to file DIAG header  "DMRT";
+    554   Coefficient
+    555   (all,i,IND)(all,r,REG) REGV1PRIM(i,r)  # Factor bills #;
+    556   (all,i,IND)(all,r,REG) R00PRIM(i,r)    # Share ind i in output region r #;
+    557   (all,r,REG)            REGV1PRIM_I(r)  # Total factor bill #;
+    558   Formula
+    559   (all,i,IND)(all,r,REG) REGV1PRIM(i,r)  = V1PRIM(i)*R001(i,r);
+    560   (all,r,REG)            REGV1PRIM_I(r) = sum{i,IND,REGV1PRIM(i,r)};
+    561   (all,i,IND)(all,r,REG) R00PRIM(i,r) = REGV1PRIM(i,r)/REGV1PRIM_I(r);
+    562   Write R00PRIM to file DIAG header "RSRP";
+    563       REGV1PRIM to file DIAG header "RV1P";
+    564    
+    565   Coefficient
+    566   (all,c,COM)(all,r,REG) TOTIMPREG(c,r) # All use of imported good c, region r #;
+    567   (all,c,COM)            TOTIMP(c)      # All use of imported good c #;
+    568   (all,r,REG)            REGIMPSHR(r)   # Share of Import use #;
+    569                          IMPTOT         # Temp total #;
+    570   Formula
+    571    (all,c,COM)(all,r,REG) TOTIMPREG(c,r) =
+    572      sum{i,IND,R001(i,r)*V1BAS(c,"imp",i) + R002(i,r)*V2BAS(c,"imp",i)}
+    573              + R003(c,r)*V3BAS(c,"imp")
+    574              + R005(c,r)*V5BAS(c,"imp")
+    575              + R006(c,r)*V6BAS(c,"imp");
+    576    (all,c,COM) TOTIMP(c) = sum{r,ORG, TOTIMPREG(c,r)};
+    577    (all,r,REG) REGIMPSHR(r) = sum{c,COM, TOTIMPREG(c,r)}; ! a total !
+    578    IMPTOT = sum{r,REG, REGIMPSHR(r)};
+    579    (all,r,REG) REGIMPSHR(r) =  REGIMPSHR(r)/IMPTOT; ! convert to share !
+    580   Write TOTIMPREG to file DIAG header "TIMR";
+    581    
+    582   ! here we use regional use share of imports as a guesstimate for
+    583     share of national imports, by port of entry !
+    584   Coefficient (all,c,COM)(all,r,ORG) MSHR(c,r)
+    585    # Share of national imports, by port of entry #;
+    586   Formula (all,c,COM)(all,r,ORG) MSHR(c,r) = REGIMPSHR(r);
+    587           (all,c,COM:TOTIMP(c)>0)(all,r,ORG) MSHR(c,r) = TOTIMPREG(c,r)/TOTIMP(c);
+    588   Write MSHR to file DUMSUPP header "MSHR";
+    589    
+    590   !************* Create output file  ****************!
+    591   Write
+    592    V1BAS to file OUTFILE header "1BAS" longname "Intermediate Basic";
+    593    V2BAS to file OUTFILE header "2BAS" longname "Investment Basic";
+    594    V3BAS to file OUTFILE header "3BAS" longname "Households Basic";
+    595    V4BAS to file OUTFILE header "4BAS" longname "Exports Basic";
+    596    V5BAS to file OUTFILE header "5BAS" longname "Government Basic";
+    597    V6BAS to file OUTFILE header "6BAS" longname "Inventory Changes";
+    598    V1MAR to file OUTFILE header "1MAR" longname "Intermediate Margins";
+    599    V2MAR to file OUTFILE header "2MAR" longname "Investment Margins";
+    600    V3MAR to file OUTFILE header "3MAR" longname "Households Margins";
+    601    V4MAR to file OUTFILE header "4MAR" longname "Exports Margins";
+    602    V5MAR to file OUTFILE header "5MAR" longname "Government Margins";
+    603    V1TAX to file OUTFILE header "1TAX" longname "Intermediate Tax";
+    604    V2TAX to file OUTFILE header "2TAX" longname "Investment Tax";
+    605    V3TAX to file OUTFILE header "3TAX" longname "Households Tax";
+    606    V4TAX to file OUTFILE header "4TAX" longname "Exports Tax";
+    607    V5TAX to file OUTFILE header "5TAX" longname "Government Tax";
+    608    V1CAP to file OUTFILE header "1CAP" longname "Capital";
+    609    V1LAB to file OUTFILE header "1LAB" longname "Labour";
+    610    V1LND to file OUTFILE header "1LND" longname "Land";
+    611    V1PTX to file OUTFILE header "1PTX" longname "Production Tax";
+    612    V1OCT to file OUTFILE header "1OCT" longname "Other Costs";
+    613    MAKE to file OUTFILE header "MAKE" longname "Multiproduct Matrix";
+    614    V0TAR to file OUTFILE header "0TAR" longname "Tariff Revenue";
+    615    SIGMA1LAB to file OUTFILE header "SLAB" longname "Labour Sigma";
+    616    SIGMA1PRIM to file OUTFILE header "P028" longname "Primary Factor Sigma";
+    617    SIGMA1 to file OUTFILE header "1ARM" longname "Intermediate Armington";
+    618    SIGMA1OUT to file OUTFILE header "SCET" longname "Output Sigma";
+    619    SIGMA2 to file OUTFILE header "2ARM" longname "Investment Armington";
+    620    SIGMA3 to file OUTFILE header "3ARM" longname "Households Armington";
+    621    FRISCH to file OUTFILE header "P021" longname "Frisch Parameter";
+    622    EPS to file OUTFILE header "XPEL" longname
+    623    "Household Expenditure Elasticities";
+    624    EXP_ELAST to file OUTFILE header "P018" longname
+    625    "Individual Export Elasticities";
+    626    EXP_ELAST_NT to file OUTFILE header "EXNT" longname
+    627    "Collective Export Elasticity";
+    628    ISINDIVEXP to file OUTFILE header "ITEX" longname
+    629    "Flag, >0.5 for individual export commodities, else collective export";
+    630    ISLOCCOM to file OUTFILE header "LCOM" longname
+    631    "Flag for regional extension, >0.5 for local coms, else national";
+    632    R001 to file OUTFILE header "R001" longname "Regional output shares";
+    633    R002 to file OUTFILE header "R002" longname "Regional investment shares";
+    634    R003 to file OUTFILE header "R003" longname "Regional consumption shares";
+    635    R004 to file OUTFILE header "R004" longname "Regional export shares";
+    636    R005 to file OUTFILE header "R005" longname "Regional government shares";
+    637   ! R006 to file OUTFILE header "R006" longname "Regional inventory shares";!
+    638    R007 to file OUTFILE header "R007" longname "Regional labour compensation shares"; !JLe ************************************!
+    639    
+    640   !********************************************************************!
+    641   ! Create dummy file of supplementary regional data for later editing !
+    642    
+    643   ! Make preliminary estimate of regional shares of GDP !
+    644   Coefficient
+    645   (all,r,REG) DEFREGSHR(r) # Default regional share #;
+    646               TEMTOT       # Temporary total #;
+    647   Formula
+    648   (all,r,REG) DEFREGSHR(r) = sum{i,IND,R001(i,r)*V1PRIM(i)};
+    649               TEMTOT = sum{r,REG,DEFREGSHR(r)};
+    650   (all,r,REG) DEFREGSHR(r) = DEFREGSHR(r)/TEMTOT;
+    651    
+    652   Coefficient (all,r,REG)(all,d,REG) DISTANCE(r,d)
+    653    # Shortest distance from r to d #;
+    654   Formula (all,r,REG)(all,d,REG)
+    655     DISTANCE(r,d) = 2 + ABS[$pos(r)-$pos(d)];
+    656   Write DISTANCE to file DUMSUPP header "DIST";
+    657    
+    658   Coefficient (all,c,COM)(all,s,SRC) DISTFAC(c,s)
+    659    # Distance factor for gravity formula #;
+    660   Formula (all,c,COM)(all,s,SRC)
+    661     DISTFAC(c,s) =  1.5*{(NCOM/2) + ABS[$pos(c) - (NCOM/2)]}/NCOM;
+    662   Write DISTFAC to file DUMSUPP header "DFAC";
+    663    
+    664   Coefficient (all,r,REG)(all,m,MAR) MARWGT(r,m) # Margin weighting #;
+    665   Formula (all,r,REG)(all,m,MAR) MARWGT(r,m) = 1.0;
+    666   Write MARWGT to file DUMSUPP header "MWGT";
+    667    
+    668   Set DMAR # Distance related margins #
+    669    = (all,m,MAR: $pos(m)>0.5*NMAR); ! ie, second half of MAR !
+    670   Write (Set) DMAR to file DUMSUPP header "DMAR";
+    671    
+    672   ! We would expect that some margins (eg, retail) would be mainly sourced
+    673     in the region where good is used -- For these goods set LOCMAR to, say, 5.
+    674     Otherwise, set LOCMAR=1 !
+    675   Coefficient (all,m,MAR) LOCMAR(m) # Tendency for margin to be locally sourced #;
+    676   Formula     (all,m,MAR) LOCMAR(m) = 1;
+    677   Write LOCMAR to file DUMSUPP header "LMAR";
+    678    
+    679   Coefficient (all,r,REG) RPOP(r) # Regional population #;
+    680   Formula (all,r,REG) RPOP(r) = DEFREGSHR(r)*10000000;
+    681   Write RPOP to file DUMSUPP header "PO01";
+    682    
+    683   Coefficient (all,c,COM) SIGMADOMDOM(c) # Between-region Armington #;
+    684   Formula (all,c,COM) SIGMADOMDOM(c) = 5.0;
+    685   Write SIGMADOMDOM to file DUMSUPP header "SGDD" longname
+    686    "Between-region Armington";
+    687    
+    688   Coefficient (all,m,MAR) SIGMAMAR(m)
+    689    # Elasticity of substitution between regions of margin production #;
+    690   Formula (all,m,MAR) SIGMAMAR(m) = 0.2;
+    691   Write SIGMAMAR to file DUMSUPP header "SMAR" longname
+    692    "Elasticity of substitution between regions of margin production";
+    693    
+    694   Coefficient (all,c,COM) XX(c);
+    695   Formula (all,c,COM) XX(c) = sum{r,REG, ABS[1-DEMRATIO(c,r)]}/NREG;
+    696   Set SELFSUFFIC = (all,c,COM: XX(c)<0.01);
+    697   Set RLOC # Truly local commodities # = LOCCOM intersect SELFSUFFIC;
+    698   Write (Set) RLOC to file DUMSUPP header "RLOC";
+    699    
+    700   ! Create dummy aggregation files !
+    701    
+    702   File (new) SECAGG # Dummy sector aggregation instructions #;
+    703   File (new) REGAGG # Dummy region aggregation instructions #;
+    704    
+    705   ! identity mapping !
+    706   Set AGGREG # Aggregated Regions # = REG;
+    707   Write (Set) AGGREG to file REGAGG header "AREG";
+    708   Mapping (onto) MAPREG from REG to AGGREG;
+    709   Formula (all,r,REG) MAPREG(r)= $pos(r);
+    710   Write (by_elements) MAPREG to file REGAGG header "MREG";
+    711    
+    712   Set AGGCOM # Aggregated commodities # (COM01 - COM10);
+    713   Write (Set) AGGCOM to file SECAGG header "ACOM";
+    714   Coefficient (all,c,COM) MPC(c);
+    715   Formula (all,c,COM) MPC(c) = 1+TRUNC0[10*{$pos(c)-1}/NCOM];
+    716   Mapping (onto) MAPCOM from COM to AGGCOM;
+    717   Formula (all,c,COM) MAPCOM(c)= TRUNC0(MPC(c));
+    718   Write (by_elements) MAPCOM to file SECAGG header "MCOM";
+    719    
+    720   Set AGGIND # Aggregated Industries # (IND01 - IND10);
+    721   Write (Set) AGGIND to file SECAGG header "AIND";
+    722   Coefficient (all,i,IND) MPI(i);
+    723   Formula (all,i,IND) MPI(i) = 1+TRUNC0[10*{$pos(i)-1}/NIND];
+    724   Mapping (onto) MAPIND from IND to AGGIND;
+    725   Formula (all,i,IND) MAPIND(i)= TRUNC0(MPI(i));
+    726   Write (by_elements) MAPIND to file SECAGG header "MIND";
+    727    
+    728   !
+    729   Coefficient NIND2r # New number of industries #;
+    730   Formula     NIND2r = 0.1+ NIND/2;
+    731   Coefficient (integer) NIND2 # New number of industries #;
+    732   Formula     NIND2  = ROUND[NIND2r];
+    733   Set (intertemporal) AGGIND # Aggregated industries # (IND[1] - IND[NIND2]);
+    734   Write (set) AGGIND to file SECAGG header "AIND";
+    735   Coefficient (all,i,IND) MPI(i);
+    736   Formula (all,i,IND) MPI(i) = ROUND[0.1+ $POS(i)/2];
+    737   Mapping (onto) MAPIND from IND to AGGIND;
+    738   Formula (all,i,IND) MAPIND(i)= TRUNC0(MPI(i));
+    739   Write (by_elements) MAPIND to file SECAGG header "MIND";
+    740   !
+    741   !end file!
+
+
+
+
+ ========================
+ ++ INPUT STATEMENT TABLE
+ ========================
+
+          Starts   Syntax  Semantic
+  Number  at line  Error?   Error?            Description
+  ------------------------------------------------------------
+     1        11     no       no      FILE 'INFILE'                           
+     2        13     no       no      FILE 'OUTFILE'                          
+     3        14     no       no      FILE 'DIAG'                             
+     4        15     no       no      FILE 'DUMSUPP'                          
+     5        17     no       no      SET 'REG'                               
+     6        19     no       no      SET 'COM'                               
+     7        20     no       no      SET 'MAR'                               
+     8        21     no       no      SET 'IND'                               
+     9        22     no       no      SET 'OCC'                               
+    10        23     no       no      SET 'SRC'                               
+    11        24     no       no      SET 'ORG'                               
+    12        24     no       no      SUBSET 1 'REG' of 'ORG'                 
+    13        24     no       no      SUBSET 2 'ORG' of 'REG'                 
+    14        26     no       no      SUBSET 3 'MAR' of 'COM'                 
+    15        27     no       no      SET 'NONMAR'                            
+    16        27     no       no      SUBSET 4 'NONMAR' of 'COM'              
+    17        29     no       no                                              
+    18        30     no       no                                              
+    19        31     no       no                                              
+    20        32     no       no                                              
+    21        33     no       no                                              
+    22        35     no       no      COEFFICIENT 'NREG'                      
+    23        36     no       no      Formula for 'NREG'                      
+    24        37     no       no      COEFFICIENT 'NCOM'                      
+    25        38     no       no      Formula for 'NCOM'                      
+    26        39     no       no      COEFFICIENT 'NIND'                      
+    27        40     no       no      Formula for 'NIND'                      
+    28        41     no       no      COEFFICIENT 'NMAR'                      
+    29        42     no       no      Formula for 'NMAR'                      
+    30        44     no       no      COEFFICIENT 'V1BAS'                     
+    31        46     no       no      COEFFICIENT 'V2BAS'                     
+    32        47     no       no      COEFFICIENT 'V3BAS'                     
+    33        48     no       no      COEFFICIENT 'V4BAS'                     
+    34        49     no       no      COEFFICIENT 'V5BAS'                     
+    35        50     no       no      COEFFICIENT 'V6BAS'                     
+    36        51     no       no      COEFFICIENT 'V1MAR'                     
+    37        53     no       no      COEFFICIENT 'V2MAR'                     
+    38        55     no       no      COEFFICIENT 'V3MAR'                     
+    39        56     no       no      COEFFICIENT 'V4MAR'                     
+    40        57     no       no      COEFFICIENT 'V5MAR'                     
+    41        58     no       no      COEFFICIENT 'V1TAX'                     
+    42        59     no       no      COEFFICIENT 'V2TAX'                     
+    43        60     no       no      COEFFICIENT 'V3TAX'                     
+    44        61     no       no      COEFFICIENT 'V4TAX'                     
+    45        62     no       no      COEFFICIENT 'V5TAX'                     
+    46        63     no       no      COEFFICIENT 'V1CAP'                     
+    47        64     no       no      COEFFICIENT 'V1LAB'                     
+    48        65     no       no      COEFFICIENT 'V1LND'                     
+    49        66     no       no      COEFFICIENT 'V1PTX'                     
+    50        67     no       no      COEFFICIENT 'V1OCT'                     
+    51        68     no       no      COEFFICIENT 'MAKE'                      
+    52        69     no       no      COEFFICIENT 'V0TAR'                     
+    53        70     no       no      COEFFICIENT 'SIGMA1LAB'                 
+    54        71     no       no      COEFFICIENT 'SIGMA1PRIM'                
+    55        72     no       no      COEFFICIENT 'SIGMA1'                    
+    56        73     no       no      COEFFICIENT 'SIGMA1OUT'                 
+    57        74     no       no      COEFFICIENT 'SIGMA2'                    
+    58        75     no       no      COEFFICIENT 'SIGMA3'                    
+    59        76     no       no      COEFFICIENT 'FRISCH'                    
+    60        77     no       no      COEFFICIENT 'EPS'                       
+    61        78     no       no      COEFFICIENT 'EXP_ELAST'                 
+    62        79     no       no      COEFFICIENT 'EXP_ELAST_NT'              
+    63        80     no       no      COEFFICIENT 'ISINDIVEXP'                
+    64        82     no       no      COEFFICIENT 'ISLOCCOM'                  
+    65        84     no       no      COEFFICIENT 'R001'                      
+    66        85     no       no      COEFFICIENT 'R002'                      
+    67        86     no       no      COEFFICIENT 'R003'                      
+    68        87     no       no      COEFFICIENT 'R004'                      
+    69        88     no       no      COEFFICIENT 'R005'                      
+    70        89     no       no      COEFFICIENT 'R006'                      
+    71        90     no       no      COEFFICIENT 'R007'                      
+    72        92     no       no      READ into 'V1BAS'                       
+    73        94     no       no      READ into 'V2BAS'                       
+    74        95     no       no      READ into 'V3BAS'                       
+    75        96     no       no      READ into 'V4BAS'                       
+    76        97     no       no      READ into 'V5BAS'                       
+    77        98     no       no      READ into 'V6BAS'                       
+    78        99     no       no      READ into 'V1MAR'                       
+    79       100     no       no      READ into 'V2MAR'                       
+    80       101     no       no      READ into 'V3MAR'                       
+    81       102     no       no      READ into 'V4MAR'                       
+    82       103     no       no      READ into 'V5MAR'                       
+    83       104     no       no      READ into 'V1TAX'                       
+    84       105     no       no      READ into 'V2TAX'                       
+    85       106     no       no      READ into 'V3TAX'                       
+    86       107     no       no      READ into 'V4TAX'                       
+    87       108     no       no      READ into 'V5TAX'                       
+    88       109     no       no      READ into 'V1CAP'                       
+    89       110     no       no      READ into 'V1LAB'                       
+    90       111     no       no      READ into 'V1LND'                       
+    91       112     no       no      READ into 'V1PTX'                       
+    92       113     no       no      READ into 'V1OCT'                       
+    93       114     no       no      READ into 'MAKE'                        
+    94       115     no       no      READ into 'V0TAR'                       
+    95       116     no       no      READ into 'SIGMA1LAB'                   
+    96       117     no       no      READ into 'SIGMA1PRIM'                  
+    97       118     no       no      READ into 'SIGMA1'                      
+    98       119     no       no      READ into 'SIGMA1OUT'                   
+    99       120     no       no      READ into 'SIGMA2'                      
+   100       121     no       no      READ into 'SIGMA3'                      
+   101       122     no       no      READ into 'FRISCH'                      
+   102       123     no       no      READ into 'EPS'                         
+   103       124     no       no      READ into 'EXP_ELAST'                   
+   104       125     no       no      READ into 'EXP_ELAST_NT'                
+   105       126     no       no      READ into 'ISINDIVEXP'                  
+   106       127     no       no      READ into 'ISLOCCOM'                    
+   107       128     no       no      READ into 'R001'                        
+   108       129     no       no      READ into 'R002'                        
+   109       130     no       no      READ into 'R003'                        
+   110       131     no       no      READ into 'R004'                        
+   111       132     no       no      READ into 'R005'                        
+   112       133     no       no      READ into 'R006'                        
+   113       134     no       no      READ into 'R007'                        
+   114       136     no       no      Assertion V1BAS >=0                     
+   115       138     no       no      Assertion V2BAS >=0                     
+   116       139     no       no      Assertion V3BAS >=0                     
+   117       140     no       no      Assertion V4BAS >=0                     
+   118       141     no       no      Assertion V5BAS >=0                     
+   119       142     no       no      Assertion V1MAR >=0                     
+   120       143     no       no      Assertion V2MAR >=0                     
+   121       144     no       no      Assertion V3MAR >=0                     
+   122       145     no       no      Assertion V4MAR >=0                     
+   123       146     no       no      Assertion V5MAR >=0                     
+   124       147     no       no      Assertion V1CAP >=0                     
+   125       148     no       no      Assertion V1LAB >=0                     
+   126       149     no       no      Assertion V1LND >=0                     
+   127       150     no       no      Assertion MAKE >=0                      
+   128       151     no       no      Assertion SIGMA1LAB >=0                 
+   129       152     no       no      Assertion SIGMA1PRIM >=0                
+   130       153     no       no      Assertion SIGMA1 >=0                    
+   131       154     no       no      Assertion SIGMA1OUT >=0                 
+   132       155     no       no      Assertion SIGMA2 >=0                    
+   133       156     no       no      Assertion SIGMA3 >=0                    
+   134       157     no       no      Assertion EPS >=0                       
+   135       158     no       no      Assertion IsIndivExp >=0                
+   136       159     no       no      Assertion IsLocCom >=0                  
+   137       160     no       no      Assertion R001 >=0                      
+   138       161     no       no      Assertion R002 >=0                      
+   139       162     no       no      Assertion R003 >=0                      
+   140       163     no       no      Assertion R004 >=0                      
+   141       164     no       no      Assertion R005 >=0                      
+   142       165     no       no      Assertion R006 >=0                      
+   143       166     no       no      Assertion R007 >=0                      
+   144       167     no       no      Assertion R001 <=1                      
+   145       168     no       no      Assertion R002 <=1                      
+   146       169     no       no      Assertion R003 <=1                      
+   147       170     no       no      Assertion R004 <=1                      
+   148       171     no       no      Assertion R005 <=1                      
+   149       172     no       no      Assertion R006 <=1                      
+   150       173     no       no      Assertion R007 <=1                      
+   151       175     no       no      COEFFICIENT 'TINY'                      
+   152       176     no       no      Formula for 'TINY'                      
+   153       178     no       no      Formula for 'TINY'                      
+   154       179     no       no      Formula for 'TINY'                      
+   155       180     no       no      WRITE from 'TINY'                       
+   156       184     no       no      COEFFICIENT 'V1PUR'                     
+   157       186     no       no      COEFFICIENT 'V2PUR'                     
+   158       187     no       no      COEFFICIENT 'V3PUR'                     
+   159       188     no       no      COEFFICIENT 'V4PUR'                     
+   160       189     no       no      COEFFICIENT 'V5PUR'                     
+   161       190     no       no      Formula for 'V1PUR'                     
+   162       193     no       no      Formula for 'V2PUR'                     
+   163       195     no       no      Formula for 'V3PUR'                     
+   164       197     no       no      Formula for 'V4PUR'                     
+   165       199     no       no      Formula for 'V5PUR'                     
+   166       201     no       no      COEFFICIENT 'V1LAB_O'                   
+   167       203     no       no      Formula for 'V1LAB_O'                   
+   168       205     no       no      COEFFICIENT 'V1PRIM'                    
+   169       206     no       no      Formula for 'V1PRIM'                    
+   170       207     no       no      COEFFICIENT 'V1PUR_S'                   
+   171       209     no       no      COEFFICIENT 'V1MAT'                     
+   172       210     no       no      ZERODIVIDE instruction                  
+   173       211     no       no      Formula for 'V1PUR_S'                   
+   174       213     no       no      Formula for 'V1MAT'                     
+   175       214     no       no      ZERODIVIDE instruction                  
+   176       215     no       no      COEFFICIENT 'V1CST'                     
+   177       217     no       no      COEFFICIENT 'V1TOT'                     
+   178       218     no       no      COEFFICIENT 'PTXRATE'                   
+   179       219     no       no      Formula for 'V1CST'                     
+   180       221     no       no      Formula for 'V1TOT'                     
+   181       222     no       no      Formula for 'PTXRATE'                   
+   182       223     no       no      WRITE from 'PTXRATE'                    
+   183       224     no       no      COEFFICIENT 'MAKE_C'                    
+   184       226     no       no      COEFFICIENT 'MAKE_I'                    
+   185       227     no       no      Formula for 'MAKE_C'                    
+   186       229     no       no      Formula for 'MAKE_I'                    
+   187       230     no       no      COEFFICIENT 'V2PUR_S'                   
+   188       232     no       no      Formula for 'V2PUR_S'                   
+   189       234     no       no      COEFFICIENT 'V2TOT'                     
+   190       235     no       no      Formula for 'V2TOT'                     
+   191       236     no       no      COEFFICIENT 'V3PUR_S'                   
+   192       238     no       no      Formula for 'V3PUR_S'                   
+   193       240     no       no      COEFFICIENT 'V3TOT'                     
+   194       242     no       no      COEFFICIENT 'S3_S'                      
+   195       243     no       no      COEFFICIENT 'EPSTOT'                    
+   196       244     no       no      Formula for 'V3TOT'                     
+   197       246     no       no      Formula for 'S3_S'                      
+   198       247     no       no      Formula for 'EPSTOT'                    
+   199       248     no       no      Formula for 'EPS'                       
+   200       249     no       no      WRITE from 'S3_S'                       
+   201       250     no       no      SET 'TRADEXP'                           
+   202       250     no       no      Formula for Set 'TRADEXP'               
+   203       250     no       no      SUBSET 5 'TRADEXP' of 'COM'             
+   204       251     no       no      WRITE of set 'TRADEXP'                  
+   205       252     no       no      SET 'NTRADEXP'                          
+   206       252     no       no      SUBSET 6 'NTRADEXP' of 'COM'            
+   207       253     no       no      WRITE of set 'NTRADEXP'                 
+   208       254     no       no      COEFFICIENT 'MARSALES'                  
+   209       255     no       no      Formula for 'MARSALES'                  
+   210       257     no       no      Formula for 'MARSALES'                  
+   211       260     no       no      SET 'DEST'                              
+   212       262     no       no      COEFFICIENT 'SALE'                      
+   213       263     no       no      Formula for 'SALE'                      
+   214       265     no       no      Formula for 'SALE'                      
+   215       266     no       no      Formula for 'SALE'                      
+   216       267     no       no      Formula for 'SALE'                      
+   217       268     no       no      Formula for 'SALE'                      
+   218       269     no       no      Formula for 'SALE'                      
+   219       270     no       no      Formula for 'SALE'                      
+   220       271     no       no      Formula for 'SALE'                      
+   221       272     no       no      Formula for 'SALE'                      
+   222       273     no       no      WRITE from 'SALE'                       
+   223       274     no       no      COEFFICIENT 'V0IMP'                     
+   224       275     no       no      Formula for 'V0IMP'                     
+   225       276     no       no      COEFFICIENT 'SALES'                     
+   226       277     no       no      Formula for 'SALES'                     
+   227       278     no       no      COEFFICIENT 'DOMSALES'                  
+   228       279     no       no      Formula for 'DOMSALES'                  
+   229       280     no       no      SET 'LOCUSER'                           
+   230       281     no       no      SUBSET 7 'LOCUSER' of 'DEST'            
+   231       282     no       no      COEFFICIENT 'V1TAX_CSI'                 
+   232       284     no       no      COEFFICIENT 'V2TAX_CSI'                 
+   233       285     no       no      COEFFICIENT 'V3TAX_CS'                  
+   234       286     no       no      COEFFICIENT 'V4TAX_C'                   
+   235       287     no       no      COEFFICIENT 'V5TAX_CS'                  
+   236       288     no       no      COEFFICIENT 'V0TAR_C'                   
+   237       289     no       no      Formula for 'V1TAX_CSI'                 
+   238       291     no       no      Formula for 'V2TAX_CSI'                 
+   239       292     no       no      Formula for 'V3TAX_CS'                  
+   240       293     no       no      Formula for 'V4TAX_C'                   
+   241       294     no       no      Formula for 'V5TAX_CS'                  
+   242       295     no       no      Formula for 'V0TAR_C'                   
+   243       296     no       no      COEFFICIENT 'V1CAP_I'                   
+   244       298     no       no      COEFFICIENT 'V1LAB_IO'                  
+   245       299     no       no      COEFFICIENT 'V1LND_I'                   
+   246       300     no       no      COEFFICIENT 'V1PTX_I'                   
+   247       301     no       no      COEFFICIENT 'V1OCT_I'                   
+   248       302     no       no      COEFFICIENT 'V1PRIM_I'                  
+   249       303     no       no      COEFFICIENT 'V0GDPINC'                  
+   250       304     no       no      COEFFICIENT 'V0TAX_CSI'                 
+   251       305     no       no      Formula for 'V1CAP_I'                   
+   252       307     no       no      Formula for 'V1LAB_IO'                  
+   253       308     no       no      Formula for 'V1LND_I'                   
+   254       309     no       no      Formula for 'V1PTX_I'                   
+   255       310     no       no      Formula for 'V1OCT_I'                   
+   256       311     no       no      Formula for 'V1PRIM_I'                  
+   257       312     no       no      Formula for 'V0TAX_CSI'                 
+   258       314     no       no      Formula for 'V0GDPINC'                  
+   259       315     no       no      WRITE from 'V0GDPINC'                   
+   260       316     no       no      COEFFICIENT 'V0CIF'                     
+   261       318     no       no      COEFFICIENT 'V0CIF_C'                   
+   262       319     no       no      COEFFICIENT 'V0IMP_C'                   
+   263       320     no       no      COEFFICIENT 'V2TOT_I'                   
+   264       321     no       no      COEFFICIENT 'V4TOT'                     
+   265       322     no       no      COEFFICIENT 'V5TOT'                     
+   266       323     no       no      COEFFICIENT 'V6TOT'                     
+   267       324     no       no      COEFFICIENT 'V0GNE'                     
+   268       325     no       no      COEFFICIENT 'V0GDPEXP'                  
+   269       326     no       no      Formula for 'V0CIF'                     
+   270       328     no       no      Formula for 'V0CIF_C'                   
+   271       329     no       no      Formula for 'V0IMP_C'                   
+   272       330     no       no      Formula for 'V2TOT_I'                   
+   273       331     no       no      Formula for 'V4TOT'                     
+   274       332     no       no      Formula for 'V5TOT'                     
+   275       333     no       no      Formula for 'V6TOT'                     
+   276       334     no       no      Formula for 'V0GNE'                     
+   277       335     no       no      Formula for 'V0GDPEXP'                  
+   278       336     no       no      WRITE from 'V0GDPEXP'                   
+   279       337     no       no      WRITE from 'V0IMP_C'                    
+   280       338     no       no      SET 'DESTPLUS'                          
+   281       340     no       no      SUBSET 8 'DEST' of 'DESTPLUS'           
+   282       340     no       no      SUBSET 9 'LOCUSER' of 'DESTPLUS'        
+   283       341     no       no      SET 'EXPMAC'                            
+   284       343     no       no      COEFFICIENT 'DIFFIND'                   
+   285       345     no       no      COEFFICIENT 'DIFFCOM'                   
+   286       346     no       no      Formula for 'DIFFIND'                   
+   287       348     no       no      Formula for 'DIFFCOM'                   
+   288       349     no       no      WRITE from 'DIFFIND'                    
+   289       351     no       no      WRITE from 'DIFFCOM'                    
+   290       352     no       no      WRITE from 'EPSTOT'                     
+   291       353     no       no      WRITE from 'MAKE'                       
+   292       354     no       no      WRITE from 'V1TOT'                      
+   293       355     no       no      WRITE from 'SALES'                      
+   294       357     no       no      Assertion V1TOT>0                       
+   295       359     no       no      Assertion SALES>0                       
+   296       360     no       no      Assertion (STOCKS/SALES) <95%           
+   297       362     no       no      Formula for 'DIFFIND'                   
+   298       364     no       no      Formula for 'DIFFCOM'                   
+   299       365     no       no      WRITE from 'DIFFIND'                    
+   300       367     no       no      WRITE from 'DIFFCOM'                    
+   301       368     no       no      Assertion DIFFIND = V1TOT-MAKE_C = tiny 
+   302       370     no       no      Assertion DIFFCOM = SALES-MAKE_I = tiny 
+   303       371     no       no      Assertion Average Engel elasticity = 1  
+   304       372     no       no      COEFFICIENT 'EXPGDP'                    
+   305       373     no       no      Formula for 'EXPGDP'                    
+   306       375     no       no      Formula for 'EXPGDP'                    
+   307       376     no       no      Formula for 'EXPGDP'                    
+   308       377     no       no      Formula for 'EXPGDP'                    
+   309       378     no       no      Formula for 'EXPGDP'                    
+   310       379     no       no      Formula for 'EXPGDP'                    
+   311       380     no       no      WRITE from 'EXPGDP'                     
+   312       381     no       no      SET 'INCMAC'                            
+   313       383     no       no      COEFFICIENT 'INCGDP'                    
+   314       384     no       no      Formula for 'INCGDP'                    
+   315       386     no       no      Formula for 'INCGDP'                    
+   316       387     no       no      Formula for 'INCGDP'                    
+   317       388     no       no      Formula for 'INCGDP'                    
+   318       389     no       no      WRITE from 'INCGDP'                     
+   319       390     no       no      SET 'TAXMAC'                            
+   320       392     no       no      COEFFICIENT 'TAX'                       
+   321       393     no       no      Formula for 'TAX'                       
+   322       395     no       no      Formula for 'TAX'                       
+   323       396     no       no      Formula for 'TAX'                       
+   324       397     no       no      Formula for 'TAX'                       
+   325       398     no       no      Formula for 'TAX'                       
+   326       399     no       no      Formula for 'TAX'                       
+   327       400     no       no      Formula for 'TAX'                       
+   328       401     no       no      Formula for 'TAX'                       
+   329       402     no       no      WRITE from 'TAX'                        
+   330       403     no       no      SET 'COSTCAT'                           
+   331       405     no       no      COEFFICIENT 'COSTMAT'                   
+   332       406     no       no      Formula for 'COSTMAT'                   
+   333       408     no       no      Formula for 'COSTMAT'                   
+   334       409     no       no      Formula for 'COSTMAT'                   
+   335       411     no       no      Formula for 'COSTMAT'                   
+   336       412     no       no      Formula for 'COSTMAT'                   
+   337       413     no       no      Formula for 'COSTMAT'                   
+   338       414     no       no      Formula for 'COSTMAT'                   
+   339       415     no       no      Formula for 'COSTMAT'                   
+   340       416     no       no      Formula for 'COSTMAT'                   
+   341       417     no       no      WRITE from 'COSTMAT'                    
+   342       418     no       no      SET 'SALECAT2'                          
+   343       420     no       no      SET 'FLOWTYPE'                          
+   344       421     no       no      COEFFICIENT 'SALEMAT2'                  
+   345       424     no       no      Formula for 'SALEMAT2'                  
+   346       426     no       no      Formula for 'SALEMAT2'                  
+   347       427     no       no      Formula for 'SALEMAT2'                  
+   348       428     no       no      Formula for 'SALEMAT2'                  
+   349       430     no       no      Formula for 'SALEMAT2'                  
+   350       431     no       no      Formula for 'SALEMAT2'                  
+   351       432     no       no      Formula for 'SALEMAT2'                  
+   352       434     no       no      Formula for 'SALEMAT2'                  
+   353       435     no       no      Formula for 'SALEMAT2'                  
+   354       436     no       no      Formula for 'SALEMAT2'                  
+   355       437     no       no      Formula for 'SALEMAT2'                  
+   356       438     no       no      Formula for 'SALEMAT2'                  
+   357       439     no       no      Formula for 'SALEMAT2'                  
+   358       440     no       no      Formula for 'SALEMAT2'                  
+   359       441     no       no      Formula for 'SALEMAT2'                  
+   360       442     no       no      Formula for 'SALEMAT2'                  
+   361       443     no       no      Formula for 'SALEMAT2'                  
+   362       444     no       no      WRITE from 'SALEMAT2'                   
+   363       445     no       no      COEFFICIENT 'IMPSHR'                    
+   364       446     no       no      Formula for 'IMPSHR'                    
+   365       447     no       no      WRITE from 'IMPSHR'                     
+   366       448     no       no      COEFFICIENT 'SUPPLYELAST'               
+   367       449     no       no      ZERODIVIDE instruction                  
+   368       450     no       no      ZERODIVIDE instruction                  
+   369       451     no       no      Formula for 'SUPPLYELAST'               
+   370       453     no       no      ZERODIVIDE instruction                  
+   371       454     no       no      ZERODIVIDE instruction                  
+   372       455     no       no      WRITE from 'SUPPLYELAST'                
+   373       456     no       no      SET 'FAC'                               
+   374       457     no       no      COEFFICIENT 'FACTOR'                    
+   375       458     no       no      Formula for 'FACTOR'                    
+   376       460     no       no      Formula for 'FACTOR'                    
+   377       461     no       no      Formula for 'FACTOR'                    
+   378       462     no       no      WRITE from 'FACTOR'                     
+   379       463     no       no      COEFFICIENT 'V1PUR_SI'                  
+   380       464     no       no      COEFFICIENT 'V2PUR_SI'                  
+   381       465     no       no      COEFFICIENT 'V5PUR_S'                   
+   382       466     no       no      COEFFICIENT 'V6BAS_S'                   
+   383       467     no       no      Formula for 'V1PUR_SI'                  
+   384       468     no       no      Formula for 'V2PUR_SI'                  
+   385       469     no       no      Formula for 'V5PUR_S'                   
+   386       470     no       no      Formula for 'V6BAS_S'                   
+   387       471     no       no      WRITE from 'V4PUR'                      
+   388       473     no       no      WRITE from 'V1LAB_O'                    
+   389       474     no       no      WRITE from 'V1PRIM'                     
+   390       475     no       no      WRITE from 'V1PUR_SI'                   
+   391       476     no       no      WRITE from 'V2PUR_SI'                   
+   392       477     no       no      WRITE from 'V3PUR_S'                    
+   393       478     no       no      COEFFICIENT 'TARFRATE'                  
+   394       479     no       no      Formula for 'TARFRATE'                  
+   395       480     no       no      Formula for 'TARFRATE'                  
+   396       481     no       no      WRITE from 'TARFRATE'                   
+   397       483     no       no      WRITE from 'V0TAR'                      
+   398       484     no       no      WRITE from 'V0CIF'                      
+   399       485     no       no      WRITE from 'V0IMP'                      
+   400       486     no       no      WRITE from 'V1CAP'                      
+   401       487     no       no      WRITE from 'V6BAS_S'                    
+   402       488     no       no      WRITE from 'V2TOT'                      
+   403       489     no       no      WRITE from 'V5PUR_S'                    
+   404       490     no       no      Assertion V0CIF>0 if V0TAR<>0           
+   405       492     no       no      SET 'LOCCOM'                            
+   406       492     no       no      Formula for Set 'LOCCOM'                
+   407       492     no       no      SUBSET 10 'LOCCOM' of 'COM'             
+   408       494     no       no      SET 'NATCOM'                            
+   409       494     no       no      SUBSET 11 'NATCOM' of 'COM'             
+   410       495     no       no      SET 'LOCIND'                            
+   411       495     no       no      Formula for Set 'LOCIND'                
+   412       495     no       no      SUBSET 12 'LOCIND' of 'IND'             
+   413       497     no       no      WRITE of set 'LOCIND'                   
+   414       499     no       no      WRITE of set 'LOCCOM'                   
+   415       500     no       no      COEFFICIENT 'REGV1LAB_O'                
+   416       502     no       no      COEFFICIENT 'REGV1LAB_IO'               
+   417       503     no       no      COEFFICIENT 'REGINCSHR'                 
+   418       504     no       no      Formula for 'REGV1LAB_O'                
+   419       506     no       no      Formula for 'REGV1LAB_IO'               
+   420       507     no       no      Formula for 'REGINCSHR'                 
+   421       508     no       no      WRITE from 'REGV1LAB_IO'                
+   422       510     no       no      WRITE from 'REGINCSHR'                  
+   423       511     no       no      WRITE from 'R001'                       
+   424       512     no       no      WRITE from 'R002'                       
+   425       513     no       no      WRITE from 'R003'                       
+   426       514     no       no      WRITE from 'R004'                       
+   427       515     no       no      WRITE from 'R005'                       
+   428       516     no       no      WRITE from 'R006'                       
+   429       517     no       no      WRITE from 'R007'                       
+   430       518     no       no      Assertion Sum-over-REG R001 = 1         
+   431       520     no       no      Assertion Sum-over-REG R002 = 1         
+   432       521     no       no      Assertion Sum-over-REG R003 = 1         
+   433       522     no       no      Assertion Sum-over-REG R004 = 1         
+   434       523     no       no      Assertion Sum-over-REG R005 = 1         
+   435       524     no       no      Assertion Sum-over-REG R006 = 1         
+   436       525     no       no      Assertion Sum-over-REG R007 = 1         
+   437       526     no       no      COEFFICIENT 'TOTSUPREG'                 
+   438       528     no       no      Formula for 'TOTSUPREG'                 
+   439       530     no       no      COEFFICIENT 'TOTDEMREG'                 
+   440       532     no       no      Formula for 'TOTDEMREG'                 
+   441       539     no       no      Formula for 'TOTDEMREG'                 
+   442       545     no       no      COEFFICIENT 'DEMRATIO'                  
+   443       547     no       no      Formula for 'DEMRATIO'                  
+   444       549     no       no      Formula for 'DEMRATIO'                  
+   445       550     no       no      WRITE from 'TOTSUPREG'                  
+   446       552     no       no      WRITE from 'TOTDEMREG'                  
+   447       553     no       no      WRITE from 'DEMRATIO'                   
+   448       554     no       no      COEFFICIENT 'REGV1PRIM'                 
+   449       556     no       no      COEFFICIENT 'R00PRIM'                   
+   450       557     no       no      COEFFICIENT 'REGV1PRIM_I'               
+   451       558     no       no      Formula for 'REGV1PRIM'                 
+   452       560     no       no      Formula for 'REGV1PRIM_I'               
+   453       561     no       no      Formula for 'R00PRIM'                   
+   454       562     no       no      WRITE from 'R00PRIM'                    
+   455       563     no       no      WRITE from 'REGV1PRIM'                  
+   456       565     no       no      COEFFICIENT 'TOTIMPREG'                 
+   457       567     no       no      COEFFICIENT 'TOTIMP'                    
+   458       568     no       no      COEFFICIENT 'REGIMPSHR'                 
+   459       569     no       no      COEFFICIENT 'IMPTOT'                    
+   460       570     no       no      Formula for 'TOTIMPREG'                 
+   461       576     no       no      Formula for 'TOTIMP'                    
+   462       577     no       no      Formula for 'REGIMPSHR'                 
+   463       578     no       no      Formula for 'IMPTOT'                    
+   464       579     no       no      Formula for 'REGIMPSHR'                 
+   465       580     no       no      WRITE from 'TOTIMPREG'                  
+   466       584     no       no      COEFFICIENT 'MSHR'                      
+   467       586     no       no      Formula for 'MSHR'                      
+   468       587     no       no      Formula for 'MSHR'                      
+   469       588     no       no      WRITE from 'MSHR'                       
+   470       591     no       no      WRITE from 'V1BAS'                      
+   471       593     no       no      WRITE from 'V2BAS'                      
+   472       594     no       no      WRITE from 'V3BAS'                      
+   473       595     no       no      WRITE from 'V4BAS'                      
+   474       596     no       no      WRITE from 'V5BAS'                      
+   475       597     no       no      WRITE from 'V6BAS'                      
+   476       598     no       no      WRITE from 'V1MAR'                      
+   477       599     no       no      WRITE from 'V2MAR'                      
+   478       600     no       no      WRITE from 'V3MAR'                      
+   479       601     no       no      WRITE from 'V4MAR'                      
+   480       602     no       no      WRITE from 'V5MAR'                      
+   481       603     no       no      WRITE from 'V1TAX'                      
+   482       604     no       no      WRITE from 'V2TAX'                      
+   483       605     no       no      WRITE from 'V3TAX'                      
+   484       606     no       no      WRITE from 'V4TAX'                      
+   485       607     no       no      WRITE from 'V5TAX'                      
+   486       608     no       no      WRITE from 'V1CAP'                      
+   487       609     no       no      WRITE from 'V1LAB'                      
+   488       610     no       no      WRITE from 'V1LND'                      
+   489       611     no       no      WRITE from 'V1PTX'                      
+   490       612     no       no      WRITE from 'V1OCT'                      
+   491       613     no       no      WRITE from 'MAKE'                       
+   492       614     no       no      WRITE from 'V0TAR'                      
+   493       615     no       no      WRITE from 'SIGMA1LAB'                  
+   494       616     no       no      WRITE from 'SIGMA1PRIM'                 
+   495       617     no       no      WRITE from 'SIGMA1'                     
+   496       618     no       no      WRITE from 'SIGMA1OUT'                  
+   497       619     no       no      WRITE from 'SIGMA2'                     
+   498       620     no       no      WRITE from 'SIGMA3'                     
+   499       621     no       no      WRITE from 'FRISCH'                     
+   500       622     no       no      WRITE from 'EPS'                        
+   501       624     no       no      WRITE from 'EXP_ELAST'                  
+   502       626     no       no      WRITE from 'EXP_ELAST_NT'               
+   503       628     no       no      WRITE from 'ISINDIVEXP'                 
+   504       630     no       no      WRITE from 'ISLOCCOM'                   
+   505       632     no       no      WRITE from 'R001'                       
+   506       633     no       no      WRITE from 'R002'                       
+   507       634     no       no      WRITE from 'R003'                       
+   508       635     no       no      WRITE from 'R004'                       
+   509       636     no       no      WRITE from 'R005'                       
+   510       638     no       no      WRITE from 'R007'                       
+   511       644     no       no      COEFFICIENT 'DEFREGSHR'                 
+   512       646     no       no      COEFFICIENT 'TEMTOT'                    
+   513       647     no       no      Formula for 'DEFREGSHR'                 
+   514       649     no       no      Formula for 'TEMTOT'                    
+   515       650     no       no      Formula for 'DEFREGSHR'                 
+   516       652     no       no      COEFFICIENT 'DISTANCE'                  
+   517       654     no       no      Formula for 'DISTANCE'                  
+   518       656     no       no      WRITE from 'DISTANCE'                   
+   519       658     no       no      COEFFICIENT 'DISTFAC'                   
+   520       660     no       no      Formula for 'DISTFAC'                   
+   521       662     no       no      WRITE from 'DISTFAC'                    
+   522       664     no       no      COEFFICIENT 'MARWGT'                    
+   523       665     no       no      Formula for 'MARWGT'                    
+   524       666     no       no      WRITE from 'MARWGT'                     
+   525       668     no       no      SET 'DMAR'                              
+   526       668     no       no      Formula for Set 'DMAR'                  
+   527       668     no       no      SUBSET 13 'DMAR' of 'MAR'               
+   528       668     no       no      SUBSET 14 'DMAR' of 'COM'               
+   529       670     no       no      WRITE of set 'DMAR'                     
+   530       675     no       no      COEFFICIENT 'LOCMAR'                    
+   531       676     no       no      Formula for 'LOCMAR'                    
+   532       677     no       no      WRITE from 'LOCMAR'                     
+   533       679     no       no      COEFFICIENT 'RPOP'                      
+   534       680     no       no      Formula for 'RPOP'                      
+   535       681     no       no      WRITE from 'RPOP'                       
+   536       683     no       no      COEFFICIENT 'SIGMADOMDOM'               
+   537       684     no       no      Formula for 'SIGMADOMDOM'               
+   538       685     no       no      WRITE from 'SIGMADOMDOM'                
+   539       688     no       no      COEFFICIENT 'SIGMAMAR'                  
+   540       690     no       no      Formula for 'SIGMAMAR'                  
+   541       691     no       no      WRITE from 'SIGMAMAR'                   
+   542       694     no       no      COEFFICIENT 'XX'                        
+   543       695     no       no      Formula for 'XX'                        
+   544       696     no       no      SET 'SELFSUFFIC'                        
+   545       696     no       no      Formula for Set 'SELFSUFFIC'            
+   546       696     no       no      SUBSET 15 'SELFSUFFIC' of 'COM'         
+   547       697     no       no      SET 'RLOC'                              
+   548       697     no       no      SUBSET 16 'RLOC' of 'LOCCOM'            
+   549       697     no       no      SUBSET 17 'RLOC' of 'SELFSUFFIC'        
+   550       697     no       no      SUBSET 18 'RLOC' of 'COM'               
+   551       698     no       no      WRITE of set 'RLOC'                     
+   552       702     no       no      FILE 'SECAGG'                           
+   553       703     no       no      FILE 'REGAGG'                           
+   554       706     no       no      SET 'AGGREG'                            
+   555       706     no       no      SUBSET 19 'REG' of 'AGGREG'             
+   556       706     no       no      SUBSET 20 'AGGREG' of 'REG'             
+   557       706     no       no      SUBSET 21 'ORG' of 'AGGREG'             
+   558       706     no       no      SUBSET 22 'AGGREG' of 'ORG'             
+   559       707     no       no      WRITE of set 'AGGREG'                   
+   560       708     no       no      MAPPING 'MAPREG'                        
+   561       709     no       no      Formula for 'MAPREG'                    
+   562       710     no       no      WRITE from 'MAPREG'                     
+   563       712     no       no      SET 'AGGCOM'                            
+   564       713     no       no      WRITE of set 'AGGCOM'                   
+   565       714     no       no      COEFFICIENT 'MPC'                       
+   566       715     no       no      Formula for 'MPC'                       
+   567       716     no       no      MAPPING 'MAPCOM'                        
+   568       717     no       no      Formula for 'MAPCOM'                    
+   569       718     no       no      WRITE from 'MAPCOM'                     
+   570       720     no       no      SET 'AGGIND'                            
+   571       721     no       no      WRITE of set 'AGGIND'                   
+   572       722     no       no      COEFFICIENT 'MPI'                       
+   573       723     no       no      Formula for 'MPI'                       
+   574       724     no       no      MAPPING 'MAPIND'                        
+   575       725     no       no      Formula for 'MAPIND'                    
+   576       726     no       no      WRITE from 'MAPIND'                     
+
+
+
+
+ ============
+ ++ SET TABLE
+ ============
+
+                    Defined   [Max] Inter             Set numbers this
+  Number    Name    at line    Size temp? Elements    is subset of
+  ---------------------------------------------------------------------
+     1  REG            17 [       0]  no   read      7    27
+     2  COM            19 [       0]  no   read 
+     3  MAR            20 [       0]  no   read      2
+     4  IND            21 [       0]  no   read 
+     5  OCC            22 [       0]  no   read 
+     6  SRC            23         2   no   fixed
+     7  ORG            24 [       0]  no   other     1    27
+     8  NONMAR         27 [       0]  no   other     2
+     9  TRADEXP       250 [       0]  no   other     2
+    10  NTRADEXP      252 [       0]  no   other     2
+    11  DEST          260         7   no   fixed    13
+    12  LOCUSER       280         6   no   fixed    11    13
+    13  DESTPLUS      338         8   no   fixed
+    14  EXPMAC        341         6   no   fixed
+    15  INCMAC        381         4   no   fixed
+    16  TAXMAC        390         8   no   fixed
+    17  COSTCAT       403         9   no   fixed
+    18  SALECAT2      418         6   no   fixed
+    19  FLOWTYPE      420         3   no   fixed
+    20  FAC           456         3   no   fixed
+    21  LOCCOM        492 [       0]  no   other     2
+    22  NATCOM        494 [       0]  no   other     2
+    23  LOCIND        495 [       0]  no   other     4
+    24  DMAR          668 [       0]  no   other     3     2
+    25  SELFSUFFIC    696 [       0]  no   other     2
+    26  RLOC          697 [       0]  no   other    21    25     2
+    27  AGGREG        706 [       0]  no   other     1     7
+    28  AGGCOM        712        10   no   fixed
+    29  AGGIND        720        10   no   fixed
+
+
+
+
+ ===============
+ ++ SUBSET TABLE
+ ===============
+
+  Number  Lt Set  Lt Set        Big set  Big set
+          number  name          number   name   
+  ---------------------------------------------------
+       1       1  REG                 7  ORG         
+       2       7  ORG                 1  REG         
+       3       3  MAR                 2  COM         
+       4       8  NONMAR              2  COM         
+       5       9  TRADEXP             2  COM         
+       6      10  NTRADEXP            2  COM         
+       7      12  LOCUSER            11  DEST        
+       8      11  DEST               13  DESTPLUS    
+       9      12  LOCUSER            13  DESTPLUS    
+      10      21  LOCCOM              2  COM         
+      11      22  NATCOM              2  COM         
+      12      23  LOCIND              4  IND         
+      13      24  DMAR                3  MAR         
+      14      24  DMAR                2  COM         
+      15      25  SELFSUFFIC          2  COM         
+      16      26  RLOC               21  LOCCOM      
+      17      26  RLOC               25  SELFSUFFIC  
+      18      26  RLOC                2  COM         
+      19       1  REG                27  AGGREG      
+      20      27  AGGREG              1  REG         
+      21       7  ORG                27  AGGREG      
+      22      27  AGGREG              7  ORG         
+
+
+
+
+ =============
+ ++ FILE TABLE
+ =============
+
+         Logical            Defined  File  File
+  Number  Name              at line  Type  Form  Actual name (if given)
+  --------------------------------------------------------------------
+     1  INFILE                  11    old  head
+     2  OUTFILE                 13    new  head
+     3  DIAG                    14    new  head
+     4  DUMSUPP                 15    new  head
+     5  SECAGG                 702    new  head
+     6  REGAGG                 703    new  head
+
+
+
+
+ ====================
+ ++ COEFFICIENT TABLE
+ ====================
+
+                        Defined  No            Arguments range
+  Number    Name        at line  Args Type     over sets numbered
+  ------------------------------------------------------------
+     1    NREG              35     0  real
+     2    NCOM              37     0  real
+     3    NIND              39     0  real
+     4    NMAR              41     0  real
+     5    V1BAS             44     3  real       2     6     4
+     6    V2BAS             46     3  real       2     6     4
+     7    V3BAS             47     2  real       2     6
+     8    V4BAS             48     1  real       2
+     9    V5BAS             49     2  real       2     6
+    10    V6BAS             50     2  real       2     6
+    11    V1MAR             51     4  real       2     6     4     3
+    12    V2MAR             53     4  real       2     6     4     3
+    13    V3MAR             55     3  real       2     6     3
+    14    V4MAR             56     2  real       2     3
+    15    V5MAR             57     3  real       2     6     3
+    16    V1TAX             58     3  real       2     6     4
+    17    V2TAX             59     3  real       2     6     4
+    18    V3TAX             60     2  real       2     6
+    19    V4TAX             61     1  real       2
+    20    V5TAX             62     2  real       2     6
+    21    V1CAP             63     1  real       4
+    22    V1LAB             64     2  real       4     5
+    23    V1LND             65     1  real       4
+    24    V1PTX             66     1  real       4
+    25    V1OCT             67     1  real       4
+    26    MAKE              68     2  real       2     4
+    27    V0TAR             69     1  real       2
+    28    SIGMA1LAB         70     1  real       4
+    29    SIGMA1PRIM        71     1  real       4
+    30    SIGMA1            72     1  real       2
+    31    SIGMA1OUT         73     1  real       4
+    32    SIGMA2            74     1  real       2
+    33    SIGMA3            75     1  real       2
+    34    FRISCH            76     0  real
+    35    EPS               77     1  real       2
+    36    EXP_ELAST         78     1  real       2
+    37    EXP_ELAST_NT      79     0  real
+    38    ISINDIVEXP        80     1  real       2
+    39    ISLOCCOM          82     1  real       2
+    40    R001              84     2  real       4     1
+    41    R002              85     2  real       4     1
+    42    R003              86     2  real       2     1
+    43    R004              87     2  real       2     1
+    44    R005              88     2  real       2     1
+    45    R006              89     2  real       2     1
+    46    R007              90     2  real       4     1
+    47    TINY             175     0  real
+    48    V1PUR            184     3  real       2     6     4
+    49    V2PUR            186     3  real       2     6     4
+    50    V3PUR            187     2  real       2     6
+    51    V4PUR            188     1  real       2
+    52    V5PUR            189     2  real       2     6
+    53    V1LAB_O          201     1  real       4
+    54    V1PRIM           205     1  real       4
+    55    V1PUR_S          207     2  real       2     4
+    56    V1MAT            209     1  real       4
+    57    V1CST            215     1  real       4
+    58    V1TOT            217     1  real       4
+    59    PTXRATE          218     1  real       4
+    60    MAKE_C           224     1  real       4
+    61    MAKE_I           226     1  real       2
+    62    V2PUR_S          230     2  real       2     4
+    63    V2TOT            234     1  real       4
+    64    V3PUR_S          236     1  real       2
+    65    V3TOT            240     0  real
+    66    S3_S             242     1  real       2
+    67    EPSTOT           243     0  real
+    68    MARSALES         254     1  real       2
+    69    SALE             262     3  real       2     6    11
+    70    V0IMP            274     1  real       2
+    71    SALES            276     1  real       2
+    72    DOMSALES         278     1  real       2
+    73    V1TAX_CSI        282     0  real
+    74    V2TAX_CSI        284     0  real
+    75    V3TAX_CS         285     0  real
+    76    V4TAX_C          286     0  real
+    77    V5TAX_CS         287     0  real
+    78    V0TAR_C          288     0  real
+    79    V1CAP_I          296     0  real
+    80    V1LAB_IO         298     0  real
+    81    V1LND_I          299     0  real
+    82    V1PTX_I          300     0  real
+    83    V1OCT_I          301     0  real
+    84    V1PRIM_I         302     0  real
+    85    V0GDPINC         303     0  real
+    86    V0TAX_CSI        304     0  real
+    87    V0CIF            316     1  real       2
+    88    V0CIF_C          318     0  real
+    89    V0IMP_C          319     0  real
+    90    V2TOT_I          320     0  real
+    91    V4TOT            321     0  real
+    92    V5TOT            322     0  real
+    93    V6TOT            323     0  real
+    94    V0GNE            324     0  real
+    95    V0GDPEXP         325     0  real
+    96    DIFFIND          343     1  real       4
+    97    DIFFCOM          345     1  real       2
+    98    EXPGDP           372     1  real      14
+    99    INCGDP           383     1  real      15
+   100    TAX              392     1  real      16
+   101    COSTMAT          405     2  real       4    17
+   102    SALEMAT2         421     4  real       2    19     6    18
+   103    IMPSHR           445     1  real       2
+   104    SUPPLYELAST      448     1  real       4
+   105    FACTOR           457     2  real       4    20
+   106    V1PUR_SI         463     1  real       2
+   107    V2PUR_SI         464     1  real       2
+   108    V5PUR_S          465     1  real       2
+   109    V6BAS_S          466     1  real       2
+   110    TARFRATE         478     1  real       2
+   111    REGV1LAB_O       500     2  real       4     1
+   112    REGV1LAB_IO      502     1  real       1
+   113    REGINCSHR        503     1  real       1
+   114    TOTSUPREG        526     2  real       2     1
+   115    TOTDEMREG        530     2  real       2     1
+   116    DEMRATIO         545     2  real       2     1
+   117    REGV1PRIM        554     2  real       4     1
+   118    R00PRIM          556     2  real       4     1
+   119    REGV1PRIM_I      557     1  real       1
+   120    TOTIMPREG        565     2  real       2     1
+   121    TOTIMP           567     1  real       2
+   122    REGIMPSHR        568     1  real       1
+   123    IMPTOT           569     0  real
+   124    MSHR             584     2  real       2     7
+   125    DEFREGSHR        644     1  real       1
+   126    TEMTOT           646     0  real
+   127    DISTANCE         652     2  real       1     1
+   128    DISTFAC          658     2  real       2     6
+   129    MARWGT           664     2  real       1     3
+   130    LOCMAR           675     1  real       3
+   131    RPOP             679     1  real       1
+   132    SIGMADOMDOM      683     1  real       2
+   133    SIGMAMAR         688     1  real       3
+   134    XX               694     1  real       2
+   135    MAPREG           708     1  int        1
+   136    MPC              714     1  real       2
+   137    MAPCOM           716     1  int        2
+   138    MPI              722     1  real       4
+   139    MAPIND           724     1  int        4
+
+
+
+
+ ================
+ ++ FORMULA TABLE
+ ================
+
+           Defined   Semantic      LHS                RHS
+  Number   at line    Error?    coefficient       coefficient numbers
+  -------------------------------------------------------------------
+     1          36     no      NREG        
+     2          38     no      NCOM        
+     3          40     no      NIND        
+     4          42     no      NMAR        
+     5         136     no      Assertion          5
+     6         138     no      Assertion          6
+     7         139     no      Assertion          7
+     8         140     no      Assertion          8
+     9         141     no      Assertion          9
+    10         142     no      Assertion         11
+    11         143     no      Assertion         12
+    12         144     no      Assertion         13
+    13         145     no      Assertion         14
+    14         146     no      Assertion         15
+    15         147     no      Assertion         21
+    16         148     no      Assertion         22
+    17         149     no      Assertion         23
+    18         150     no      Assertion         26
+    19         151     no      Assertion         28
+    20         152     no      Assertion         29
+    21         153     no      Assertion         30
+    22         154     no      Assertion         31
+    23         155     no      Assertion         32
+    24         156     no      Assertion         33
+    25         157     no      Assertion         35
+    26         158     no      Assertion         38
+    27         159     no      Assertion         39
+    28         160     no      Assertion         40
+    29         161     no      Assertion         41
+    30         162     no      Assertion         42
+    31         163     no      Assertion         43
+    32         164     no      Assertion         44
+    33         165     no      Assertion         45
+    34         166     no      Assertion         46
+    35         167     no      Assertion         40
+    36         168     no      Assertion         41
+    37         169     no      Assertion         42
+    38         170     no      Assertion         43
+    39         171     no      Assertion         44
+    40         172     no      Assertion         45
+    41         173     no      Assertion         46
+    42         176     no      TINY              26
+    43         178     no      TINY              47     2
+    44         179     no      TINY              47
+    45         190     no      V1PUR              5    16    11
+    46         193     no      V2PUR              6    17    12
+    47         195     no      V3PUR              7    18    13
+    48         197     no      V4PUR              8    19    14
+    49         199     no      V5PUR              9    20    15
+    50         203     no      V1LAB_O           22
+    51         206     no      V1PRIM            53    21    23
+    52         211     no      V1PUR_S           48
+    53         213     no      V1MAT             55
+    54         219     no      V1CST             54    25    56
+    55         221     no      V1TOT             57    24
+    56         222     no      PTXRATE           24    57
+    57         227     no      MAKE_C            26
+    58         229     no      MAKE_I            26
+    59         232     no      V2PUR_S           49
+    60         235     no      V2TOT             62
+    61         238     no      V3PUR_S           50
+    62         244     no      V3TOT             64
+    63         246     no      S3_S              64    65
+    64         247     no      EPSTOT            66    35
+    65         248     no      EPS               35    67
+    66         250     no      Fm for Set        38
+    67         255     no      MARSALES    
+    68         257     no      MARSALES          14    13    15    11    12
+
+    69         263     no      SALE               5
+    70         265     no      SALE               6
+    71         266     no      SALE               7
+    72         267     no      SALE               8
+    73         268     no      SALE        
+    74         269     no      SALE               9
+    75         270     no      SALE              10
+    76         271     no      SALE              68
+    77         272     no      SALE        
+    78         275     no      V0IMP             69
+    79         277     no      SALES             69
+    80         279     no      DOMSALES          71     8
+    81         289     no      V1TAX_CSI         16
+    82         291     no      V2TAX_CSI         17
+    83         292     no      V3TAX_CS          18
+    84         293     no      V4TAX_C           19
+    85         294     no      V5TAX_CS          20
+    86         295     no      V0TAR_C           27
+    87         305     no      V1CAP_I           21
+    88         307     no      V1LAB_IO          53
+    89         308     no      V1LND_I           23
+    90         309     no      V1PTX_I           24
+    91         310     no      V1OCT_I           25
+    92         311     no      V1PRIM_I          80    79    81
+    93         312     no      V0TAX_CSI         73    74    75    76    77
+                                                 78    83    82
+    94         314     no      V0GDPINC          84    86
+    95         326     no      V0CIF             70    27
+    96         328     no      V0CIF_C           87
+    97         329     no      V0IMP_C           70
+    98         330     no      V2TOT_I           63
+    99         331     no      V4TOT             51
+   100         332     no      V5TOT             52
+   101         333     no      V6TOT             10
+   102         334     no      V0GNE             65    90    92    93
+   103         335     no      V0GDPEXP          94    91    88
+   104         346     no      DIFFIND           58    60
+   105         348     no      DIFFCOM           71    61
+   106         357     no      Assertion         58
+   107         359     no      Assertion         71
+   108         360     no      Assertion         10    71
+   109         362     no      DIFFIND           96    58
+   110         364     no      DIFFCOM           97    71
+   111         368     no      Assertion         96
+   112         370     no      Assertion         97
+   113         371     no      Assertion         67
+   114         373     no      EXPGDP            65
+   115         375     no      EXPGDP            90
+   116         376     no      EXPGDP            92
+   117         377     no      EXPGDP            93
+   118         378     no      EXPGDP            91
+   119         379     no      EXPGDP            88
+   120         384     no      INCGDP            81
+   121         386     no      INCGDP            80
+   122         387     no      INCGDP            79
+   123         388     no      INCGDP            86
+   124         393     no      TAX               73
+   125         395     no      TAX               74
+   126         396     no      TAX               75
+   127         397     no      TAX               76
+   128         398     no      TAX               77
+   129         399     no      TAX               83
+   130         400     no      TAX               82
+   131         401     no      TAX               78
+   132         406     no      COSTMAT            5
+   133         408     no      COSTMAT            5
+   134         409     no      COSTMAT           11
+   135         411     no      COSTMAT           16
+   136         412     no      COSTMAT           53
+   137         413     no      COSTMAT           21
+   138         414     no      COSTMAT           23
+   139         415     no      COSTMAT           24
+   140         416     no      COSTMAT           25
+   141         424     no      SALEMAT2    
+   142         426     no      SALEMAT2           5
+   143         427     no      SALEMAT2          16
+   144         428     no      SALEMAT2          11
+   145         430     no      SALEMAT2           6
+   146         431     no      SALEMAT2          17
+   147         432     no      SALEMAT2          12
+   148         434     no      SALEMAT2           7
+   149         435     no      SALEMAT2          18
+   150         436     no      SALEMAT2          13
+   151         437     no      SALEMAT2           9
+   152         438     no      SALEMAT2          20
+   153         439     no      SALEMAT2          15
+   154         440     no      SALEMAT2           8
+   155         441     no      SALEMAT2          19
+   156         442     no      SALEMAT2          14
+   157         443     no      SALEMAT2          10
+   158         446     no      IMPSHR            70    72
+   159         451     no      SUPPLYELAST       29    53    58    54    21
+                                                 23
+   160         458     no      FACTOR            53
+   161         460     no      FACTOR            21
+   162         461     no      FACTOR            23
+   163         467     no      V1PUR_SI          55
+   164         468     no      V2PUR_SI          62
+   165         469     no      V5PUR_S           52
+   166         470     no      V6BAS_S           10
+   167         479     no      TARFRATE    
+   168         480     no      TARFRATE          87    27
+   169         490     no      Assertion         27    87
+   170         492     no      Fm for Set        39
+   171         495     no      Fm for Set        26
+   172         504     no      REGV1LAB_O        53    46
+   173         506     no      REGV1LAB_IO      111
+   174         507     no      REGINCSHR        112    80
+   175         518     no      Assertion         40
+   176         520     no      Assertion         41
+   177         521     no      Assertion         42
+   178         522     no      Assertion         43
+   179         523     no      Assertion         44
+   180         524     no      Assertion         45
+   181         525     no      Assertion         46
+   182         528     no      TOTSUPREG         26    40
+   183         532     no      TOTDEMREG         40     5    41     6    42
+                                                  7    43     8    44     9
+                                                 45    10
+   184         539     no      TOTDEMREG        115    43    14    42    13
+                                                 44    15    40    11    41
+                                                 12
+   185         547     no      DEMRATIO          47   115   114
+   186         549     no      DEMRATIO         116
+   187         558     no      REGV1PRIM         54    40
+   188         560     no      REGV1PRIM_I      117
+   189         561     no      R00PRIM          117   119
+   190         570     no      TOTIMPREG         40     5    41     6    42
+                                                  7    44     9    45    10
+
+   191         576     no      TOTIMP           120
+   192         577     no      REGIMPSHR        120
+   193         578     no      IMPTOT           122
+   194         579     no      REGIMPSHR        122   123
+   195         586     no      MSHR             122
+   196         587     no      MSHR             121   120
+   197         647     no      DEFREGSHR         40    54
+   198         649     no      TEMTOT           125
+   199         650     no      DEFREGSHR        125   126
+   200         654     no      DISTANCE    
+   201         660     no      DISTFAC            2
+   202         665     no      MARWGT      
+   203         668     no      Fm for Set         4
+   204         676     no      LOCMAR      
+   205         680     no      RPOP             125
+   206         684     no      SIGMADOMDOM 
+   207         690     no      SIGMAMAR    
+   208         695     no      XX               116     1
+   209         696     no      Fm for Set       134
+   210         709     no      MAPREG      
+   211         715     no      MPC                2
+   212         717     no      MAPCOM           136
+   213         723     no      MPI                3
+   214         725     no      MAPIND           138
+
+
+
+
+ =============
+ ++ READ TABLE
+ =============
+
+           Defined    Semantic  Coefficient   File number
+  Number   at line     Error?    read into     read from   Header
+  ---------------------------------------------------------------
+     1         92       no      V1BAS               1       1BAS
+     2         94       no      V2BAS               1       2BAS
+     3         95       no      V3BAS               1       3BAS
+     4         96       no      V4BAS               1       4BAS
+     5         97       no      V5BAS               1       5BAS
+     6         98       no      V6BAS               1       6BAS
+     7         99       no      V1MAR               1       1MAR
+     8        100       no      V2MAR               1       2MAR
+     9        101       no      V3MAR               1       3MAR
+    10        102       no      V4MAR               1       4MAR
+    11        103       no      V5MAR               1       5MAR
+    12        104       no      V1TAX               1       1TAX
+    13        105       no      V2TAX               1       2TAX
+    14        106       no      V3TAX               1       3TAX
+    15        107       no      V4TAX               1       4TAX
+    16        108       no      V5TAX               1       5TAX
+    17        109       no      V1CAP               1       1CAP
+    18        110       no      V1LAB               1       1LAB
+    19        111       no      V1LND               1       1LND
+    20        112       no      V1PTX               1       1PTX
+    21        113       no      V1OCT               1       1OCT
+    22        114       no      MAKE                1       MAKE
+    23        115       no      V0TAR               1       0TAR
+    24        116       no      SIGMA1LAB           1       SLAB
+    25        117       no      SIGMA1PRIM          1       P028
+    26        118       no      SIGMA1              1       1ARM
+    27        119       no      SIGMA1OUT           1       SCET
+    28        120       no      SIGMA2              1       2ARM
+    29        121       no      SIGMA3              1       3ARM
+    30        122       no      FRISCH              1       P021
+    31        123       no      EPS                 1       XPEL
+    32        124       no      EXP_ELAST           1       P018
+    33        125       no      EXP_ELAST_NT        1       EXNT
+    34        126       no      ISINDIVEXP          1       ITEX
+    35        127       no      ISLOCCOM            1       LCOM
+    36        128       no      R001                1       R001
+    37        129       no      R002                1       R002
+    38        130       no      R003                1       R003
+    39        131       no      R004                1       R004
+    40        132       no      R005                1       R005
+    41        133       no      R006                1       R006
+    42        134       no      R007                1       R007
+
+
+
+
+ ==============
+ ++ WRITE TABLE
+ ==============
+
+        Defined   Sem     Coeff/Var     Write
+ Number at line  Error?   written       file   Header     Long Name
+ --------------------------------------------------------------------------------
+     1      180   no      TINY              3  TINY    Not defined by the user
+     2      223   no      PTXRATE           3  PTXR    Not defined by the user
+     3      249   no      S3_S              3  CSHR    Not defined by the user
+     4      251   no      TRADEXP           3  TEXP    Not defined by the user
+     5      253   no      NTRADEXP          3  NTXP    Not defined by the user
+     6      273   no      SALE              3  SALE    Not defined by the user
+     7      315   no      V0GDPINC          3  GINC    Not defined by the user
+     8      336   no      V0GDPEXP          3  GEXP    Not defined by the user
+     9      337   no      V0IMP_C           3  VIMP    Not defined by the user
+    10      349   no      DIFFIND           3  DIND    Not defined by the user
+    11      351   no      DIFFCOM           3  DCOM    Not defined by the user
+    12      352   no      EPSTOT            3  ETOT    Not defined by the user
+    13      353   no      MAKE              3  MAKE    Not defined by the user
+    14      354   no      V1TOT             3  1TOT    Not defined by the user
+    15      355   no      SALES             3  SLES    Not defined by the user
+    16      365   no      DIFFIND           3  SIND   "DIFFIND(i)/V1TOT(i)"
+    17      367   no      DIFFCOM           3  SCOM   "DIFFCOM(c)/SALES(c)"
+    18      380   no      EXPGDP            3  EMAC    Not defined by the user
+    19      389   no      INCGDP            3  IMAC    Not defined by the user
+    20      402   no      TAX               3  TMAC    Not defined by the user
+    21      417   no      COSTMAT           3  CSTM    Not defined by the user
+    22      444   no      SALEMAT2          3  MKUP    Not defined by the user
+    23      447   no      IMPSHR            3  MSHR    Not defined by the user
+    24      455   no      SUPPLYELAST       3  SRSE    Not defined by the user
+    25      462   no      FACTOR            3  FACT    Not defined by the user
+    26      471   no      V4PUR             3  4PUR    Not defined by the user
+    27      473   no      V1LAB_O           3  LAB1    Not defined by the user
+    28      474   no      V1PRIM            3  VLAD    Not defined by the user
+    29      475   no      V1PUR_SI          3  1PUR    Not defined by the user
+    30      476   no      V2PUR_SI          3  2PUR    Not defined by the user
+    31      477   no      V3PUR_S           3  3PUR    Not defined by the user
+    32      481   no      TARFRATE          3  TRAT    Not defined by the user
+    33      483   no      V0TAR             3  0TAR    Not defined by the user
+    34      484   no      V0CIF             3  0CIF    Not defined by the user
+    35      485   no      V0IMP             3  0IMP    Not defined by the user
+    36      486   no      V1CAP             3  1CAP    Not defined by the user
+    37      487   no      V6BAS_S           3  6BSS    Not defined by the user
+    38      488   no      V2TOT             3  2TOT    Not defined by the user
+    39      489   no      V5PUR_S           3  5PUR    Not defined by the user
+    40      497   no      LOCIND            3  LOCI    Not defined by the user
+    41      499   no      LOCCOM            3  LOCC    Not defined by the user
+    42      508   no      REGV1LAB_IO       3  RV1L    Not defined by the user
+    43      510   no      REGINCSHR         3  RISR    Not defined by the user
+    44      511   no      R001              3  R001    Not defined by the user
+    45      512   no      R002              3  R002    Not defined by the user
+    46      513   no      R003              3  R003    Not defined by the user
+    47      514   no      R004              3  R004    Not defined by the user
+    48      515   no      R005              3  R005    Not defined by the user
+    49      516   no      R006              3  R006    Not defined by the user
+    50      517   no      R007              3  R007    Not defined by the user
+    51      550   no      TOTSUPREG         3  TSPR    Not defined by the user
+    52      552   no      TOTDEMREG         3  TDMR    Not defined by the user
+    53      553   no      DEMRATIO          3  DMRT    Not defined by the user
+    54      562   no      R00PRIM           3  RSRP    Not defined by the user
+    55      563   no      REGV1PRIM         3  RV1P    Not defined by the user
+    56      580   no      TOTIMPREG         3  TIMR    Not defined by the user
+    57      588   no      MSHR              4  MSHR    Not defined by the user
+    58      591   no      V1BAS             2  1BAS   "Intermediate Basic"
+    59      593   no      V2BAS             2  2BAS   "Investment Basic"
+    60      594   no      V3BAS             2  3BAS   "Households Basic"
+    61      595   no      V4BAS             2  4BAS   "Exports Basic"
+    62      596   no      V5BAS             2  5BAS   "Government Basic"
+    63      597   no      V6BAS             2  6BAS   "Inventory Changes"
+    64      598   no      V1MAR             2  1MAR   "Intermediate Margins"
+    65      599   no      V2MAR             2  2MAR   "Investment Margins"
+    66      600   no      V3MAR             2  3MAR   "Households Margins"
+    67      601   no      V4MAR             2  4MAR   "Exports Margins"
+    68      602   no      V5MAR             2  5MAR   "Government Margins"
+    69      603   no      V1TAX             2  1TAX   "Intermediate Tax"
+    70      604   no      V2TAX             2  2TAX   "Investment Tax"
+    71      605   no      V3TAX             2  3TAX   "Households Tax"
+    72      606   no      V4TAX             2  4TAX   "Exports Tax"
+    73      607   no      V5TAX             2  5TAX   "Government Tax"
+    74      608   no      V1CAP             2  1CAP   "Capital"
+    75      609   no      V1LAB             2  1LAB   "Labour"
+    76      610   no      V1LND             2  1LND   "Land"
+    77      611   no      V1PTX             2  1PTX   "Production Tax"
+    78      612   no      V1OCT             2  1OCT   "Other Costs"
+    79      613   no      MAKE              2  MAKE   "Multiproduct Matrix"
+    80      614   no      V0TAR             2  0TAR   "Tariff Revenue"
+    81      615   no      SIGMA1LAB         2  SLAB   "Labour Sigma"
+    82      616   no      SIGMA1PRIM        2  P028   "Primary Factor Sigma"
+    83      617   no      SIGMA1            2  1ARM   "Intermediate Armington"
+    84      618   no      SIGMA1OUT         2  SCET   "Output Sigma"
+    85      619   no      SIGMA2            2  2ARM   "Investment Armington"
+    86      620   no      SIGMA3            2  3ARM   "Households Armington"
+    87      621   no      FRISCH            2  P021   "Frisch Parameter"
+    88      622   no      EPS               2  XPEL   "Household Expenditure El
+                                                       asticities"
+    89      624   no      EXP_ELAST         2  P018   "Individual Export Elasti
+                                                       cities"
+    90      626   no      EXP_ELAST_NT      2  EXNT   "Collective Export Elasti
+                                                       city"
+    91      628   no      ISINDIVEXP        2  ITEX   "Flag, >0.5 for individua
+                                                       l export commodities, el
+                                                       se collective export"
+    92      630   no      ISLOCCOM          2  LCOM   "Flag for regional extens
+                                                       ion, >0.5 for local coms
+                                                       , else national"
+    93      632   no      R001              2  R001   "Regional output shares"
+    94      633   no      R002              2  R002   "Regional investment shar
+                                                       es"
+    95      634   no      R003              2  R003   "Regional consumption sha
+                                                       res"
+    96      635   no      R004              2  R004   "Regional export shares"
+    97      636   no      R005              2  R005   "Regional government shar
+                                                       es"
+    98      638   no      R007              2  R007   "Regional labour compensa
+                                                       tion shares"
+    99      656   no      DISTANCE          4  DIST    Not defined by the user
+   100      662   no      DISTFAC           4  DFAC    Not defined by the user
+   101      666   no      MARWGT            4  MWGT    Not defined by the user
+   102      670   no      DMAR              4  DMAR    Not defined by the user
+   103      677   no      LOCMAR            4  LMAR    Not defined by the user
+   104      681   no      RPOP              4  PO01    Not defined by the user
+   105      685   no      SIGMADOMDOM       4  SGDD   "Between-region Armington"
+   106      691   no      SIGMAMAR          4  SMAR   "Elasticity of substituti
+                                                       on between regions of ma
+                                                       rgin production"
+   107      698   no      RLOC              4  RLOC    Not defined by the user
+   108      707   no      AGGREG            6  AREG    Not defined by the user
+   109      710   no      MAPREG            6  MREG    Not defined by the user
+   110      713   no      AGGCOM            5  ACOM    Not defined by the user
+   111      718   no      MAPCOM            5  MCOM    Not defined by the user
+   112      721   no      AGGIND            5  AIND    Not defined by the user
+   113      726   no      MAPIND            5  MIND    Not defined by the user
+
+
+
+
+ ===================
+ ++ ZERODIVIDE TABLE
+ ===================
+
+           Defined          Coefficient or
+  Number   at line   Type   real value specified
+  -----------------------------------------------
+     1        210     ZDZ   0.5                 
+     2        214     ZDZ   (Turned OFF)
+     3        449     ZDZ   999                 
+     4        450     NDZ   999                 
+     5        453     ZDZ   (Turned OFF)
+     6        454     NDZ   (Turned OFF)
+
+
+   
+ ======================
+ ++ INPUT CHECK SUMMARY
+ ======================
+
+ Total number of statements is 576.
+ There are NO syntax errors or semantic problems.
+! (Model Information file is 'init.mnc'.)

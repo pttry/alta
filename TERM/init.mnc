@@ -1,0 +1,1097 @@
+#FILES
+Logical Name         In/Out Ud  Type Actual Name
+INFILE                In     n  HAR
+ Input data File
+OUTFILE               Out    n  HAR
+ Output file
+DIAG                  Out    n  HAR
+ Diag file
+DUMSUPP               Out    n  HAR
+ Dummy file of supplementary regional data for later editing
+SECAGG                Out    n  HAR
+ Dummy sector aggregation instructions
+REGAGG                Out    n  HAR
+ Dummy region aggregation instructions
+(Display)             Out    n  DIS
+(Solution)            Out    n  SL4
+(Equations)           Out    n  EQ4
+#TABFILE
+init.tab
+#TMDATE
+at 13:07:34 on 17-JAN-2020
+#STIFILE
+TABmate.sif
+#SETS
+   29
+    1 REG                 -1  u Regions
+    2 COM                 -1  u Commodities
+    3 MAR                 -1  u Margin
+    4 IND                 -1  u Industries
+    5 OCC                 -1  u Skills
+    6 SRC                  2  k Source of Commodities
+dom         
+imp         
+    7 ORG                 -1  u Regions of origin
+    8 NONMAR              -1  u
+    9 TRADEXP             -1  u Individual export commodities
+   10 NTRADEXP            -1  u Collective Export Commodities
+   11 DEST                 7  k Sale Categories
+Interm      
+INVEST      
+HouseH      
+Export      
+GovGE       
+STOCKS      
+Margins     
+   12 LOCUSER              6  k Non-export users
+Interm      
+INVEST      
+HouseH      
+GovGE       
+STOCKS      
+Margins     
+   13 DESTPLUS             8  k Sale Categories
+Interm      
+INVEST      
+HouseH      
+Export      
+GovGE       
+STOCKS      
+Margins     
+Total       
+   14 EXPMAC               6  k Expenditure Aggregates
+Consumption 
+Investment  
+Government  
+STOCKS      
+Exports     
+Imports     
+   15 INCMAC               4  k Income Aggregates
+Land        
+Labour      
+Capital     
+IndirectTax 
+   16 TAXMAC               8  k Tax Aggregates
+Intermediate
+Investment  
+Consumption 
+Exports     
+Government  
+OCT         
+ProdTax     
+Tariff      
+   17 COSTCAT              9  k Cost Categories
+IntDom      
+IntImp      
+Margin      
+ComTax      
+Lab         
+Cap         
+Lnd         
+ProdTax     
+OCT         
+   18 SALECAT2             6  k SALE Categories
+Interm      
+INVEST      
+HouseH      
+Export      
+GovGE       
+STOCKS      
+   19 FLOWTYPE             3  k Type of flow
+Basic       
+Margin      
+TAX         
+   20 FAC                  3  k Primary Factors
+Lab         
+Cap         
+Lnd         
+   21 LOCCOM              -1  u Local Commodities (Set L, DPSV p.259)
+   22 NATCOM              -1  u
+   23 LOCIND              -1  u Local Industries= 90% of output is local commodities
+   24 DMAR                -1  u Distance related margins
+   25 SELFSUFFIC          -1  u
+   26 RLOC                -1  u Truly local commodities
+   27 AGGREG              -1  u Aggregated Regions
+   28 AGGCOM              10  k Aggregated commodities
+COM01       
+COM02       
+COM03       
+COM04       
+COM05       
+COM06       
+COM07       
+COM08       
+COM09       
+COM10       
+   29 AGGIND              10  k Aggregated Industries
+IND01       
+IND02       
+IND03       
+IND04       
+IND05       
+IND06       
+IND07       
+IND08       
+IND09       
+IND10       
+#VARIABLES
+         0
+#SUBSETS
+    22
+     1     1     7
+     2     7     1
+     3     3     2
+     4     8     2
+     5     9     2
+     6    10     2
+     7    12    11
+     8    11    13
+     9    12    13
+    10    21     2
+    11    22     2
+    12    23     4
+    13    24     3
+    14    24     2
+    15    25     2
+    16    26    21
+    17    26    25
+    18    26     2
+    19     1    27
+    20    27     1
+    21     7    27
+    22    27     7
+#COEFFICIENTS
+  139
+    1 NREG            0 r n n  Number of regions
+    2 NCOM            0 r n n  Number of commodities
+    3 NIND            0 r n n  Number of industries
+    4 NMAR            0 r n n  Number of margin commodities
+    5 V1BAS           3 r y n  Intermediate Basic
+    2    6    4
+    6 V2BAS           3 r y n  Investment Basic
+    2    6    4
+    7 V3BAS           2 r y n  Households Basic
+    2    6
+    8 V4BAS           1 r y n  Exports Basic
+    2
+    9 V5BAS           2 r y n  Government Basic
+    2    6
+   10 V6BAS           2 r y n  Inventory Changes
+    2    6
+   11 V1MAR           4 r y n  Intermediate Margins
+    2    6    4    3
+   12 V2MAR           4 r y n  Investment Margins
+    2    6    4    3
+   13 V3MAR           3 r y n  Households Margins
+    2    6    3
+   14 V4MAR           2 r y n  Exports Margins
+    2    3
+   15 V5MAR           3 r y n  Government Margins
+    2    6    3
+   16 V1TAX           3 r y n  Intermediate Tax
+    2    6    4
+   17 V2TAX           3 r y n  Investment Tax
+    2    6    4
+   18 V3TAX           2 r y n  Households Tax
+    2    6
+   19 V4TAX           1 r y n  Exports Tax
+    2
+   20 V5TAX           2 r y n  Government Tax
+    2    6
+   21 V1CAP           1 r y n  Capital
+    4
+   22 V1LAB           2 r y n  Labour
+    4    5
+   23 V1LND           1 r y n  Land
+    4
+   24 V1PTX           1 r y n  Production Tax
+    4
+   25 V1OCT           1 r y n  Other Costs
+    4
+   26 MAKE            2 r y n  Multiproduct Matrix
+    2    4
+   27 V0TAR           1 r y n  Tariff Revenue
+    2
+   28 SIGMA1LAB       1 r y n  Labour Sigma
+    4
+   29 SIGMA1PRIM      1 r y n  Primary Factor Sigma
+    4
+   30 SIGMA1          1 r y n  Intermediate Armington
+    2
+   31 SIGMA1OUT       1 r y n  Output Sigma
+    4
+   32 SIGMA2          1 r y n  Investment Armington
+    2
+   33 SIGMA3          1 r y n  Households Armington
+    2
+   34 FRISCH          0 r y n  Frisch Parameter
+   35 EPS             1 r y n  Household Expenditure Elasticities
+    2
+   36 EXP_ELAST       1 r y n  Individual Export Elasticities
+    2
+   37 EXP_ELAST_NT    0 r y n  Collective Export Elasticity
+   38 ISINDIVEXP      1 r y n  Flag, >0.5 for individual export commodities, else collective export
+    2
+   39 ISLOCCOM        1 r y n  Flag for regional extension, >0.5 for local coms, else national
+    2
+   40 R001            2 r y n  Regional output shares
+    4    1
+   41 R002            2 r y n  Regional investment shares
+    4    1
+   42 R003            2 r y n  Regional consumption shares
+    2    1
+   43 R004            2 r y n  Regional export shares
+    2    1
+   44 R005            2 r y n  Regional government shares
+    2    1
+   45 R006            2 r y n  Regional inventory shares
+    2    1
+   46 R007            2 r y n  Regional labor compensation shares
+    4    1
+   47 TINY            0 r n n  Small flow to add
+   48 V1PUR           3 r n n  Intermediate purch. value
+    2    6    4
+   49 V2PUR           3 r n n  Investment purch. value
+    2    6    4
+   50 V3PUR           2 r n n  Households purch. value
+    2    6
+   51 V4PUR           1 r n n  Export purch. value
+    2
+   52 V5PUR           2 r n n  Government purch. value
+    2    6
+   53 V1LAB_O         1 r n n  Total labour bill in industry i
+    4
+   54 V1PRIM          1 r n n  Total factor input to industry i
+    4
+   55 V1PUR_S         2 r n n  Dom+imp intermediate purch. value
+    2    4
+   56 V1MAT           1 r n n  Total intermediate cost for industry i
+    4
+   57 V1CST           1 r n n  Total cost of industry i
+    4
+   58 V1TOT           1 r n n  Total industry cost plus tax
+    4
+   59 PTXRATE         1 r n n  Rate of production tax
+    4
+   60 MAKE_C          1 r n n  All production by industry i
+    4
+   61 MAKE_I          1 r n n  Total production of commodities
+    2
+   62 V2PUR_S         2 r n n  Dom+imp investment purch. value
+    2    4
+   63 V2TOT           1 r n n  Total capital created for industry i
+    4
+   64 V3PUR_S         1 r n n  Dom+imp households purch. value
+    2
+   65 V3TOT           0 r n n  Total purchases by households
+   66 S3_S            1 r n n  Household average budget shares
+    2
+   67 EPSTOT          0 r n n  Initial Average Engel elasticity: should = 1
+   68 MARSALES        1 r n n  Total usage for margins purposes
+    2
+   69 SALE            3 r n n  Sales aggregates
+    2    6   11
+   70 V0IMP           1 r n n  Total basic-value imports of good c
+    2
+   71 SALES           1 r n n  Total sales of domestic commodities
+    2
+   72 DOMSALES        1 r n n  Total sales to local market
+    2
+   73 V1TAX_CSI       0 r n n  Total intermediate tax revenue
+   74 V2TAX_CSI       0 r n n  Total investment tax revenue
+   75 V3TAX_CS        0 r n n  Total households tax revenue
+   76 V4TAX_C         0 r n n  Total export tax revenue
+   77 V5TAX_CS        0 r n n  Total government tax revenue
+   78 V0TAR_C         0 r n n  Total tariff revenue
+   79 V1CAP_I         0 r n n  Total payments to capital
+   80 V1LAB_IO        0 r n n  Total payments to labour
+   81 V1LND_I         0 r n n  Total payments to land
+   82 V1PTX_I         0 r n n  Total production tax/subsidy
+   83 V1OCT_I         0 r n n  Total other cost ticket payments
+   84 V1PRIM_I        0 r n n  Total primary factor payments
+   85 V0GDPINC        0 r n n  Nominal GDP from income side
+   86 V0TAX_CSI       0 r n n  Total indirect tax revenue
+   87 V0CIF           1 r n n  Total ex-duty imports of good c
+    2
+   88 V0CIF_C         0 r n n  Total local currency import costs, excluding tariffs
+   89 V0IMP_C         0 r n n  Total basic-value imports (includes tariffs)
+   90 V2TOT_I         0 r n n  Total investment usage
+   91 V4TOT           0 r n n  Total export earnings
+   92 V5TOT           0 r n n  Total value of government demands
+   93 V6TOT           0 r n n  Total value of inventories
+   94 V0GNE           0 r n n  GNE from expenditure side
+   95 V0GDPEXP        0 r n n  GDP from expenditure side
+   96 DIFFIND         1 r n n  COSTS-MAKE_C : should be zero
+    4
+   97 DIFFCOM         1 r n n  SALES-MAKE_I : should be zero
+    2
+   98 EXPGDP          1 r n n  Expenditure Aggregates
+   14
+   99 INCGDP          1 r n n  Income Aggregates
+   15
+  100 TAX             1 r n n  Tax Aggregates
+   16
+  101 COSTMAT         2 r n n  Cost Matrix
+    4   17
+  102 SALEMAT2        4 r n n  Basic, margin and tax components of purchasers' values
+    2   19    6   18
+  103 IMPSHR          1 r n n  Share of imports in local market
+    2
+  104 SUPPLYELAST     1 r n n  Short-run supply elasticity
+    4
+  105 FACTOR          2 r n n  Primary Factor Costs
+    4   20
+  106 V1PUR_SI        1 r n n  Dom+imp intermediate purch. value
+    2
+  107 V2PUR_SI        1 r n n  Dom+imp investment purch. value
+    2
+  108 V5PUR_S         1 r n n  Dom+imp government purch. value
+    2
+  109 V6BAS_S         1 r n n  Dom+imp inventories
+    2
+  110 TARFRATE        1 r n n  Ad valorem tariff rate
+    2
+  111 REGV1LAB_O      2 r n n  Labour bills
+    4    1
+  112 REGV1LAB_IO     1 r n n  Labour bills
+    1
+  113 REGINCSHR       1 r n n  Share region r in national labour bill
+    1
+  114 TOTSUPREG       2 r n n  Supply of good c region r
+    2    1
+  115 TOTDEMREG       2 r n n  All basic + margin use of local good c, region r
+    2    1
+  116 DEMRATIO        2 r n n  Regional demand/supply; -ve for national coms, should be near 1 for local
+    2    1
+  117 REGV1PRIM       2 r n n  Factor bills
+    4    1
+  118 R00PRIM         2 r n n  Share ind i in output region r
+    4    1
+  119 REGV1PRIM_I     1 r n n  Total factor bill
+    1
+  120 TOTIMPREG       2 r n n  All use of imported good c, region r
+    2    1
+  121 TOTIMP          1 r n n  All use of imported good c
+    2
+  122 REGIMPSHR       1 r n n  Share of Import use
+    1
+  123 IMPTOT          0 r n n  Temp total
+  124 MSHR            2 r n n  Share of national imports, by port of entry
+    2    7
+  125 DEFREGSHR       1 r n n  Default regional share
+    1
+  126 TEMTOT          0 r n n  Temporary total
+  127 DISTANCE        2 r n n  Shortest distance from r to d
+    1    1
+  128 DISTFAC         2 r n n  Distance factor for gravity formula
+    2    6
+  129 MARWGT          2 r n n  Margin weighting
+    1    3
+  130 LOCMAR          1 r n n  Tendency for margin to be locally sourced
+    3
+  131 RPOP            1 r n n  Regional population
+    1
+  132 SIGMADOMDOM     1 r n n  Between-region Armington
+    2
+  133 SIGMAMAR        1 r n n  Elasticity of substitution between regions of margin production
+    3
+  134 XX              1 r n n
+    2
+  135 MAPREG          1 i n n
+    1 m    1   27
+  136 MPC             1 r n n
+    2
+  137 MAPCOM          1 i n n
+    2 m    2   28
+  138 MPI             1 r n n
+    4
+  139 MAPIND          1 i n n
+    4 m    4   29
+#EQUATIONS
+    0
+#READS
+   42
+    1     5 V1BAS             1 INFILE               1BAS a h     3
+     2     6     4
+    2     6 V2BAS             1 INFILE               2BAS a h     3
+     2     6     4
+    3     7 V3BAS             1 INFILE               3BAS a h     2
+     2     6
+    4     8 V4BAS             1 INFILE               4BAS a h     1
+     2
+    5     9 V5BAS             1 INFILE               5BAS a h     2
+     2     6
+    6    10 V6BAS             1 INFILE               6BAS a h     2
+     2     6
+    7    11 V1MAR             1 INFILE               1MAR a h     4
+     2     6     4     3
+    8    12 V2MAR             1 INFILE               2MAR a h     4
+     2     6     4     3
+    9    13 V3MAR             1 INFILE               3MAR a h     3
+     2     6     3
+   10    14 V4MAR             1 INFILE               4MAR a h     2
+     2     3
+   11    15 V5MAR             1 INFILE               5MAR a h     3
+     2     6     3
+   12    16 V1TAX             1 INFILE               1TAX a h     3
+     2     6     4
+   13    17 V2TAX             1 INFILE               2TAX a h     3
+     2     6     4
+   14    18 V3TAX             1 INFILE               3TAX a h     2
+     2     6
+   15    19 V4TAX             1 INFILE               4TAX a h     1
+     2
+   16    20 V5TAX             1 INFILE               5TAX a h     2
+     2     6
+   17    21 V1CAP             1 INFILE               1CAP a h     1
+     4
+   18    22 V1LAB             1 INFILE               1LAB a h     2
+     4     5
+   19    23 V1LND             1 INFILE               1LND a h     1
+     4
+   20    24 V1PTX             1 INFILE               1PTX a h     1
+     4
+   21    25 V1OCT             1 INFILE               1OCT a h     1
+     4
+   22    26 MAKE              1 INFILE               MAKE a h     2
+     2     4
+   23    27 V0TAR             1 INFILE               0TAR a h     1
+     2
+   24    28 SIGMA1LAB         1 INFILE               SLAB a h     1
+     4
+   25    29 SIGMA1PRIM        1 INFILE               P028 a h     1
+     4
+   26    30 SIGMA1            1 INFILE               1ARM a h     1
+     2
+   27    31 SIGMA1OUT         1 INFILE               SCET a h     1
+     4
+   28    32 SIGMA2            1 INFILE               2ARM a h     1
+     2
+   29    33 SIGMA3            1 INFILE               3ARM a h     1
+     2
+   30    34 FRISCH            1 INFILE               P021 a h     0
+   31    35 EPS               1 INFILE               XPEL a h     1
+     2
+   32    36 EXP_ELAST         1 INFILE               P018 a h     1
+     2
+   33    37 EXP_ELAST_NT      1 INFILE               EXNT a h     0
+   34    38 ISINDIVEXP        1 INFILE               ITEX a h     1
+     2
+   35    39 ISLOCCOM          1 INFILE               LCOM a h     1
+     2
+   36    40 R001              1 INFILE               R001 a h     2
+     4     1
+   37    41 R002              1 INFILE               R002 a h     2
+     4     1
+   38    42 R003              1 INFILE               R003 a h     2
+     2     1
+   39    43 R004              1 INFILE               R004 a h     2
+     2     1
+   40    44 R005              1 INFILE               R005 a h     2
+     2     1
+   41    45 R006              1 INFILE               R006 a h     2
+     2     1
+   42    46 R007              1 INFILE               R007 a h     2
+     4     1
+#READ(EXTRA)
+    5
+    1 el
+ REG          INFILE               REG 
+    2 el
+ COM          INFILE               COM 
+    3 el
+ MAR          INFILE               MAR 
+    4 el
+ IND          INFILE               IND 
+    5 el
+ OCC          INFILE               OCC 
+#NCVARIABLES
+    0
+#STATEMENTS
+      11   1 fl                                                 12  34    0 n
+      13   1 fl                                                 13  30    0 n
+      14   1 fl                                                 14  28    0 n
+      15   1 fl                                                 15  78    0 n
+      17   1 st REG                                             18  65    0 n
+      19   2 st COM                                             19  65    0 n
+      20   2 st MAR                                             20  65    0 n
+      21   2 st IND                                             21  65    0 n
+      22   2 st OCC                                             22  65    0 n
+      23   2 st SRC                                             23  43    0 n
+      24   2 st ORG                                             24  33    0 n
+      24   2 ss                                                 24  33    0 n
+      24   2 ss                                                 24  33    0 n
+      26   1 ss                                                 26  28    0 n
+      27   1 st NONMAR                                          27  23    0 n
+      27   1 ss                                                 27  23    0 n
+      29   1 tr                                                 29  48    0 n
+      30   1 tr                                                 30  48    0 n
+      31   1 tr                                                 31  48    0 n
+      32   1 tr                                                 32  48    0 n
+      33   1 tr                                                 33  48    0 n
+      35   1 cs NREG                                            35  39    0 n
+      36   1 fm                                                 36  32    0 n
+      37   1 cs NCOM                                            37  43    0 n
+      38   1 fm                                                 38  32    0 n
+      39   1 cs NIND                                            39  42    0 n
+      40   1 fm                                                 40  32    0 n
+      41   1 cs NMAR                                            41  50    0 n
+      42   1 fm                                                 42  32    0 n
+      44   1 cs V1BAS                                           45  70    0 n
+      46   1 cs V2BAS                                           46  68    0 n
+      47   1 cs V3BAS                                           47  55    0 n
+      48   1 cs V4BAS                                           48  39    0 n
+      49   1 cs V5BAS                                           49  55    0 n
+      50   1 cs V6BAS                                           50  56    0 n
+      51   1 cs V1MAR                                           52  26    0 n
+      53   1 cs V2MAR                                           54  24    0 n
+      55   1 cs V3MAR                                           55  70    0 n
+      56   1 cs V4MAR                                           56  54    0 n
+      57   1 cs V5MAR                                           57  70    0 n
+      58   1 cs V1TAX                                           58  68    0 n
+      59   1 cs V2TAX                                           59  66    0 n
+      60   1 cs V3TAX                                           60  53    0 n
+      61   1 cs V4TAX                                           61  37    0 n
+      62   1 cs V5TAX                                           62  53    0 n
+      63   1 cs V1CAP                                           63  33    0 n
+      64   1 cs V1LAB                                           64  45    0 n
+      65   1 cs V1LND                                           65  30    0 n
+      66   1 cs V1PTX                                           66  40    0 n
+      67   1 cs V1OCT                                           67  37    0 n
+      68   1 cs MAKE                                            68  57    0 n
+      69   1 cs V0TAR                                           69  40    0 n
+      70   1 cs SIGMA1LAB                                       70  42    0 n
+      71   1 cs SIGMA1PRIM                                      71  51    0 n
+      72   1 cs SIGMA1                                          72  49    0 n
+      73   1 cs SIGMA1OUT                                       73  42    0 n
+      74   1 cs SIGMA2                                          74  47    0 n
+      75   1 cs SIGMA3                                          75  47    0 n
+      76   2 cs FRISCH                                          76  29    0 n
+      77   1 cs EPS                                             77  58    0 n
+      78   1 cs EXP_ELAST                                       78  60    0 n
+      79   2 cs EXP_ELAST_NT                                    79  47    0 n
+      80   1 cs ISINDIVEXP                                      81  74    0 n
+      82   1 cs ISLOCCOM                                        83  69    0 n
+      84   1 cs R001                                            84  60    0 n
+      85   1 cs R002                                            85  64    0 n
+      86   1 cs R003                                            86  65    0 n
+      87   1 cs R004                                            87  60    0 n
+      88   1 cs R005                                            88  64    0 n
+      89   1 cs R006                                            89  63    0 n
+      90   1 cs R007                                            90  72    0 n
+      92   1 rd V1BAS                a                          93  38    0 n
+      94   2 rd V2BAS                a                          94  38    0 n
+      95   2 rd V3BAS                a                          95  38    0 n
+      96   2 rd V4BAS                a                          96  38    0 n
+      97   2 rd V5BAS                a                          97  38    0 n
+      98   2 rd V6BAS                a                          98  38    0 n
+      99   2 rd V1MAR                a                          99  38    0 n
+     100   2 rd V2MAR                a                         100  38    0 n
+     101   2 rd V3MAR                a                         101  38    0 n
+     102   2 rd V4MAR                a                         102  38    0 n
+     103   2 rd V5MAR                a                         103  38    0 n
+     104   2 rd V1TAX                a                         104  38    0 n
+     105   2 rd V2TAX                a                         105  38    0 n
+     106   2 rd V3TAX                a                         106  38    0 n
+     107   2 rd V4TAX                a                         107  38    0 n
+     108   2 rd V5TAX                a                         108  38    0 n
+     109   2 rd V1CAP                a                         109  38    0 n
+     110   2 rd V1LAB                a                         110  38    0 n
+     111   2 rd V1LND                a                         111  38    0 n
+     112   2 rd V1PTX                a                         112  38    0 n
+     113   2 rd V1OCT                a                         113  38    0 n
+     114   2 rd MAKE                 a                         114  37    0 n
+     115   2 rd V0TAR                a                         115  38    0 n
+     116   2 rd SIGMA1LAB            a                         116  42    0 n
+     117   2 rd SIGMA1PRIM           a                         117  43    0 n
+     118   2 rd SIGMA1               a                         118  39    0 n
+     119   2 rd SIGMA1OUT            a                         119  42    0 n
+     120   2 rd SIGMA2               a                         120  39    0 n
+     121   2 rd SIGMA3               a                         121  39    0 n
+     122   2 rd FRISCH               a                         122  39    0 n
+     123   2 rd EPS                  a                         123  36    0 n
+     124   2 rd EXP_ELAST            a                         124  42    0 n
+     125   2 rd EXP_ELAST_NT         a                         125  45    0 n
+     126   2 rd ISINDIVEXP           a                         126  43    0 n
+     127   2 rd ISLOCCOM             a                         127  41    0 n
+     128   2 rd R001                 a                         128  37    0 n
+     129   2 rd R002                 a                         129  37    0 n
+     130   2 rd R003                 a                         130  37    0 n
+     131   2 rd R004                 a                         131  37    0 n
+     132   2 rd R005                 a                         132  37    0 n
+     133   2 rd R006                 a                         133  37    0 n
+     134   2 rd R007                 a                         134  37    0 n
+     136   1 fm                                                137  68    0 n
+     138   1 fm                                                138  68    0 n
+     139   1 fm                                                139  55    0 n
+     140   1 fm                                                140  42    0 n
+     141   1 fm                                                141  55    0 n
+     142   1 fm                                                142  80    0 n
+     143   1 fm                                                143  80    0 n
+     144   1 fm                                                144  68    0 n
+     145   1 fm                                                145  55    0 n
+     146   1 fm                                                146  68    0 n
+     147   1 fm                                                147  42    0 n
+     148   1 fm                                                148  55    0 n
+     149   1 fm                                                149  42    0 n
+     150   1 fm                                                150  53    0 n
+     151   1 fm                                                151  50    0 n
+     152   1 fm                                                152  52    0 n
+     153   1 fm                                                153  44    0 n
+     154   1 fm                                                154  50    0 n
+     155   1 fm                                                155  44    0 n
+     156   1 fm                                                156  44    0 n
+     157   1 fm                                                157  38    0 n
+     158   1 fm                                                158  52    0 n
+     159   1 fm                                                159  48    0 n
+     160   1 fm                                                160  53    0 n
+     161   1 fm                                                161  53    0 n
+     162   1 fm                                                162  53    0 n
+     163   1 fm                                                163  53    0 n
+     164   1 fm                                                164  53    0 n
+     165   1 fm                                                165  53    0 n
+     166   1 fm                                                166  53    0 n
+     167   1 fm                                                167  53    0 n
+     168   1 fm                                                168  53    0 n
+     169   1 fm                                                169  53    0 n
+     170   1 fm                                                170  53    0 n
+     171   1 fm                                                171  53    0 n
+     172   1 fm                                                172  53    0 n
+     173   1 fm                                                173  53    0 n
+     175   1 cs TINY                                           175  39    0 n
+     176   1 fm                                                177  42    0 n
+     178   2 fm                                                178  18    0 n
+     179   2 fm                                                179  22    0 n
+     180   1 wr TINY                 a                         180  38    0 n
+     184   1 cs V1PUR                                          185  80    0 n
+     186   2 cs V2PUR                                          186  78    0 n
+     187   2 cs V3PUR                                          187  78    0 n
+     188   2 cs V4PUR                                          188  74    0 n
+     189   2 cs V5PUR                                          189  78    0 n
+     190   1 fm                                                192  76    0 n
+     193   2 fm                                                194  76    0 n
+     195   2 fm                                                196  74    0 n
+     197   2 fm                                                198  72    0 n
+     199   2 fm                                                200  74    0 n
+     201   1 cs V1LAB_O                                        202  62    0 n
+     203   1 fm                                                204  49    0 n
+     205   1 cs V1PRIM                                         205  70    0 n
+     206   1 fm                                                206  68    0 n
+     207   1 cs V1PUR_S                                        208  75    0 n
+     209   2 cs V1MAT                                          209  80    0 n
+     210   1 zd                                                210  23    0 n
+     211   1 fm                                                212  75    0 n
+     213   2 fm                                                213  75    0 n
+     214   1 zd                                                214  15    0 n
+     215   1 cs V1CST                                          216  55    0 n
+     217   2 cs V1TOT                                          217  59    0 n
+     218   2 cs PTXRATE                                        218  53    0 n
+     219   1 fm                                                220  60    0 n
+     221   2 fm                                                221  48    0 n
+     222   2 fm                                                222  46    0 n
+     223   1 wr PTXRATE              a                         223  41    0 n
+     224   1 cs MAKE_C                                         225  56    0 n
+     226   2 cs MAKE_I                                         226  59    0 n
+     227   1 fm                                                228  47    0 n
+     229   2 fm                                                229  47    0 n
+     230   1 cs V2PUR_S                                        231  77    0 n
+     232   1 fm                                                233  70    0 n
+     234   1 cs V2TOT                                          234  75    0 n
+     235   1 fm                                                235  61    0 n
+     236   1 cs V3PUR_S                                        237  70    0 n
+     238   1 fm                                                239  59    0 n
+     240   1 cs V3TOT                                          241  56    0 n
+     242   2 cs S3_S                                           242  58    0 n
+     243  16 cs EPSTOT                                         243  71    0 n
+     244   1 fm                                                245  47    0 n
+     246   2 fm                                                246  41    0 n
+     247  14 fm                                                247  51    0 n
+     248   1 fm                                                248  48    0 n
+     249   1 wr S3_S                 a                         249  42    0 n
+     250   1 st TRADEXP                                        250  79    0 n
+     250   1 fm                                                250  79    0 n
+     250   1 ss                                                250  79    0 n
+     251   1 wr (TRADEXP)            a                         251  48    0 n
+     252   1 st NTRADEXP                                       252  63    0 n
+     252   1 ss                                                252  63    0 n
+     253   1 wr (NTRADEXP)           a                         253  49    0 n
+     254   1 cs MARSALES                                       254  73    0 n
+     255   1 fm                                                256  34    0 n
+     257   2 fm                                                259  78    0 n
+     260   1 st DEST                                           261  57    0 n
+     262   1 cs SALE                                           262  80    0 n
+     263   1 fm                                                264  75    0 n
+     265   2 fm                                                265  75    0 n
+     266   2 fm                                                266  61    0 n
+     267   2 fm                                                267  59    0 n
+     268   2 fm                                                268  52    0 n
+     269   2 fm                                                269  61    0 n
+     270   2 fm                                                270  61    0 n
+     271   2 fm                                                271  62    0 n
+     272   2 fm                                                272  52    0 n
+     273   1 wr SALE                 a                         273  38    0 n
+     274   1 cs V0IMP                                          274  73    0 n
+     275   1 fm                                                275  64    0 n
+     276   1 cs SALES                                          276  73    0 n
+     277   1 fm                                                277  64    0 n
+     278   1 cs DOMSALES                                       278  68    0 n
+     279   1 fm                                                279  58    0 n
+     280   1 st LOCUSER                                        280  80    0 n
+     281   1 ss                                                281  33    0 n
+     282   1 cs V1TAX_CSI                                      283  47    0 n
+     284   2 cs V2TAX_CSI                                      284  45    0 n
+     285   2 cs V3TAX_CS                                       285  45    0 n
+     286   2 cs V4TAX_C                                        286  41    0 n
+     287   2 cs V5TAX_CS                                       287  45    0 n
+     288   2 cs V0TAR_C                                        288  37    0 n
+     289   1 fm                                                290  63    0 n
+     291   2 fm                                                291  63    0 n
+     292   2 fm                                                292  60    0 n
+     293   2 fm                                                293  57    0 n
+     294   2 fm                                                294  60    0 n
+     295   2 fm                                                295  57    0 n
+     296   1 cs V1CAP_I                                        297  42    0 n
+     298   3 cs V1LAB_IO                                       298  41    0 n
+     299   3 cs V1LND_I                                        299  39    0 n
+     300   3 cs V1PTX_I                                        300  45    0 n
+     301   3 cs V1OCT_I                                        301  49    0 n
+     302   3 cs V1PRIM_I                                       302  45    0 n
+     303   3 cs V0GDPINC                                       303  45    0 n
+     304   3 cs V0TAX_CSI                                      304  43    0 n
+     305   1 fm                                                306  35    0 n
+     307   3 fm                                                307  37    0 n
+     308   3 fm                                                308  35    0 n
+     309   3 fm                                                309  35    0 n
+     310   3 fm                                                310  35    0 n
+     311   3 fm                                                311  43    0 n
+     312   3 fm                                                313  45    0 n
+     314   3 fm                                                314  35    0 n
+     315   1 wr V0GDPINC             a                         315  42    0 n
+     316   1 cs V0CIF                                          317  58    0 n
+     318   2 cs V0CIF_C                                        318  67    0 n
+     319   2 cs V0IMP_C                                        319  59    0 n
+     320   2 cs V2TOT_I                                        320  37    0 n
+     321   2 cs V4TOT                                          321  36    0 n
+     322   2 cs V5TOT                                          322  48    0 n
+     323   2 cs V6TOT                                          323  41    0 n
+     324   2 cs V0GNE                                          324  40    0 n
+     325   2 cs V0GDPEXP                                       325  40    0 n
+     326   1 fm                                                327  44    0 n
+     328   2 fm                                                328  34    0 n
+     329   2 fm                                                329  34    0 n
+     330   2 fm                                                330  34    0 n
+     331   2 fm                                                331  34    0 n
+     332   2 fm                                                332  48    0 n
+     333   2 fm                                                333  48    0 n
+     334   2 fm                                                334  45    0 n
+     335   2 fm                                                335  37    0 n
+     336   1 wr V0GDPEXP             a                         336  42    0 n
+     337   1 wr V0IMP_C              a                         337  41    0 n
+     338   1 st DESTPLUS                                       339  65    0 n
+     340   1 ss                                                340  34    0 n
+     340   1 ss                                                340  34    0 n
+     341   1 st EXPMAC                                         342  65    0 n
+     343   1 cs DIFFIND                                        344  59    0 n
+     345   2 cs DIFFCOM                                        345  59    0 n
+     346   1 fm                                                347  48    0 n
+     348   2 fm                                                348  48    0 n
+     349   1 wr DIFFIND              a                         350  36    0 n
+     351   2 wr DIFFCOM              a                         351  36    0 n
+     352   2 wr EPSTOT               a                         352  36    0 n
+     353   2 wr MAKE                 a                         353  36    0 n
+     354   2 wr V1TOT                a                         354  36    0 n
+     355   2 wr SALES                a                         355  36    0 n
+     357   1 fm                                                358  36    0 n
+     359   2 fm                                                359  36    0 n
+     360   2 fm                                                360  68    0 n
+     362   1 fm                                                363  47    0 n
+     364   2 fm                                                364  47    0 n
+     365   1 wr DIFFIND              a                         366  67    0 n
+     367   2 wr DIFFCOM              a                         367  67    0 n
+     368   1 fm                                                369  70    0 n
+     370   2 fm                                                370  70    0 n
+     371   2 fm                                                371  66    0 n
+     372   1 cs EXPGDP                                         372  65    0 n
+     373   1 fm                                                374  31    0 n
+     375   2 fm                                                375  33    0 n
+     376   2 fm                                                376  31    0 n
+     377   2 fm                                                377  31    0 n
+     378   2 fm                                                378  31    0 n
+     379   2 fm                                                379  34    0 n
+     380   1 wr EXPGDP               a                         380  40    0 n
+     381   1 st INCMAC                                         382  39    0 n
+     383   1 cs INCGDP                                         383  60    0 n
+     384   1 fm                                                385  33    0 n
+     386   2 fm                                                386  34    0 n
+     387   2 fm                                                387  33    0 n
+     388   2 fm                                                388  35    0 n
+     389   1 wr INCGDP               a                         389  40    0 n
+     390   1 st TAXMAC                                         391  78    0 n
+     392   1 cs TAX                                            392  54    0 n
+     393   1 fm                                                394  33    0 n
+     395   2 fm                                                395  33    0 n
+     396   2 fm                                                396  32    0 n
+     397   2 fm                                                397  31    0 n
+     398   2 fm                                                398  32    0 n
+     399   2 fm                                                399  31    0 n
+     400   2 fm                                                400  31    0 n
+     401   2 fm                                                401  31    0 n
+     402   1 wr TAX                  a                         402  37    0 n
+     403   1 st COSTCAT                                        404  63    0 n
+     405   1 cs COSTMAT                                        405  70    0 n
+     406   1 fm                                                407  65    0 n
+     408   2 fm                                                408  65    0 n
+     409   2 fm                                                410  73    0 n
+     411   2 fm                                                411  73    0 n
+     412   2 fm                                                412  47    0 n
+     413   2 fm                                                413  45    0 n
+     414   2 fm                                                414  45    0 n
+     415   2 fm                                                415  45    0 n
+     416   2 fm                                                416  45    0 n
+     417   1 wr COSTMAT              a                         417  41    0 n
+     418   1 st SALECAT2                                       419  77    0 n
+     420   1 st FLOWTYPE                                       420  47    0 n
+     421   1 cs SALEMAT2                                       423  63    0 n
+     424   1 fm                                                425  77    0 n
+     426   1 fm                                                426  80    0 n
+     427   1 fm                                                427  80    0 n
+     428   1 fm                                                429  77    0 n
+     430   1 fm                                                430  80    0 n
+     431   1 fm                                                431  80    0 n
+     432   1 fm                                                433  77    0 n
+     434   1 fm                                                434  67    0 n
+     435   1 fm                                                435  67    0 n
+     436   1 fm                                                436  80    0 n
+     437   1 fm                                                437  66    0 n
+     438   1 fm                                                438  66    0 n
+     439   1 fm                                                439  79    0 n
+     440   1 fm                                                440  69    0 n
+     441   1 fm                                                441  69    0 n
+     442   1 fm                                                442  80    0 n
+     443   1 fm                                                443  67    0 n
+     444   1 wr SALEMAT2             a                         444  42    0 n
+     445   1 cs IMPSHR                                         445  72    0 n
+     446   1 fm                                                446  69    0 n
+     447   1 wr IMPSHR               a                         447  40    0 n
+     448   1 cs SUPPLYELAST                                    448  71    0 n
+     449   1 zd                                                449  23    0 n
+     450   1 zd                                                450  41    0 n
+     451   1 fm                                                452  70    0 n
+     453   1 zd                                                453  15    0 n
+     454   1 zd                                                454  33    0 n
+     455   1 wr SUPPLYELAST          a                         455  45    0 n
+     456   1 st FAC                                            456  45    0 n
+     457   1 cs FACTOR                                         457  72    0 n
+     458   1 fm                                                459  46    0 n
+     460   2 fm                                                460  44    0 n
+     461   2 fm                                                461  44    0 n
+     462   1 wr FACTOR               a                         462  40    0 n
+     463   1 cs V1PUR_SI                                       463  75    0 n
+     464  13 cs V2PUR_SI                                       464  73    0 n
+     465  13 cs V5PUR_S                                        465  73    0 n
+     466  13 cs V6BAS_S                                        466  61    0 n
+     467   1 fm                                                467  64    0 n
+     468  13 fm                                                468  64    0 n
+     469  13 fm                                                469  62    0 n
+     470  13 fm                                                470  62    0 n
+     471   1 wr V4PUR                a                         472  37    0 n
+     473   2 wr V1LAB_O              a                         473  37    0 n
+     474   2 wr V1PRIM               a                         474  37    0 n
+     475   2 wr V1PUR_SI             a                         475  37    0 n
+     476   2 wr V2PUR_SI             a                         476  37    0 n
+     477   2 wr V3PUR_S              a                         477  37    0 n
+     478   1 cs TARFRATE                                       478  64    0 n
+     479   1 fm                                                479  41    0 n
+     480   1 fm                                                480  68    0 n
+     481   1 wr TARFRATE             a                         482  38    0 n
+     483   3 wr V0TAR                a                         483  38    0 n
+     484   3 wr V0CIF                a                         484  38    0 n
+     485   3 wr V0IMP                a                         485  38    0 n
+     486   3 wr V1CAP                a                         486  38    0 n
+     487   3 wr V6BAS_S              a                         487  38    0 n
+     488   3 wr V2TOT                a                         488  38    0 n
+     489   3 wr V5PUR_S              a                         489  38    0 n
+     490   1 fm                                                490  69    0 n
+     492   1 st LOCCOM                                         493  37    0 n
+     492   1 fm                                                493  37    0 n
+     492   1 ss                                                493  37    0 n
+     494   1 st NATCOM                                         494  27    0 n
+     494   1 ss                                                494  27    0 n
+     495   1 st LOCIND                                         496  66    0 n
+     495   1 fm                                                496  66    0 n
+     495   1 ss                                                496  66    0 n
+     497   1 wr (LOCIND)             a                         498  41    0 n
+     499   2 wr (LOCCOM)             a                         499  41    0 n
+     500   1 cs REGV1LAB_O                                     501  56    0 n
+     502   1 cs REGV1LAB_IO                                    502  56    0 n
+     503   1 cs REGINCSHR                                      503  80    0 n
+     504   1 fm                                                505  62    0 n
+     506   1 fm                                                506  69    0 n
+     507   1 fm                                                507  64    0 n
+     508   1 wr REGV1LAB_IO          a                         509  40    0 n
+     510   2 wr REGINCSHR            a                         510  38    0 n
+     511   2 wr R001                 a                         511  33    0 n
+     512   2 wr R002                 a                         512  33    0 n
+     513   2 wr R003                 a                         513  33    0 n
+     514   2 wr R004                 a                         514  33    0 n
+     515   2 wr R005                 a                         515  33    0 n
+     516   2 wr R006                 a                         516  33    0 n
+     517   2 wr R007                 a                         517  33    0 n
+     518   1 fm                                                519  73    0 n
+     520   1 fm                                                520  73    0 n
+     521   1 fm                                                521  73    0 n
+     522   1 fm                                                522  73    0 n
+     523   1 fm                                                523  73    0 n
+     524   1 fm                                                524  73    0 n
+     525   1 fm                                                525  73    0 n
+     526   1 cs TOTSUPREG                                      527  46    0 n
+     528   1 fm                                                529  50    0 n
+     530   1 cs TOTDEMREG                                      531  69    0 n
+     532   1 fm                                                538  38    0 n
+     539   1 fm                                                543  69    0 n
+     545   1 cs DEMRATIO                                       546  79    0 n
+     547   1 fm                                                548  64    0 n
+     549   1 fm                                                549  67    0 n
+     550   1 wr TOTSUPREG            a                         551  37    0 n
+     552   1 wr TOTDEMREG            a                         552  37    0 n
+     553   1 wr DEMRATIO             a                         553  38    0 n
+     554   1 cs REGV1PRIM                                      555  56    0 n
+     556   1 cs R00PRIM                                        556  74    0 n
+     557   1 cs REGV1PRIM_I                                    557  61    0 n
+     558   1 fm                                                559  61    0 n
+     560   1 fm                                                560  66    0 n
+     561   1 fm                                                561  68    0 n
+     562   1 wr R00PRIM              a                         562  41    0 n
+     563   5 wr REGV1PRIM            a                         563  41    0 n
+     565   1 cs TOTIMPREG                                      566  79    0 n
+     567   1 cs TOTIMP                                         567  69    0 n
+     568   1 cs REGIMPSHR                                      568  62    0 n
+     569  24 cs IMPTOT                                         569  53    0 n
+     570   1 fm                                                575  38    0 n
+     576   2 fm                                                576  52    0 n
+     577   2 fm                                                577  55    0 n
+     578   2 fm                                                578  35    0 n
+     579   2 fm                                                579  49    0 n
+     580   1 wr TOTIMPREG            a                         580  43    0 n
+     584   1 cs MSHR                                           585  49    0 n
+     586   1 fm                                                586  56    0 n
+     587   9 fm                                                587  80    0 n
+     588   1 wr MSHR                 a                         588  41    0 n
+     591   1 wr V1BAS                a                         592  67    0 n
+     593   2 wr V2BAS                a                         593  65    0 n
+     594   2 wr V3BAS                a                         594  65    0 n
+     595   2 wr V4BAS                a                         595  62    0 n
+     596   2 wr V5BAS                a                         596  65    0 n
+     597   2 wr V6BAS                a                         597  66    0 n
+     598   2 wr V1MAR                a                         598  69    0 n
+     599   2 wr V2MAR                a                         599  67    0 n
+     600   2 wr V3MAR                a                         600  67    0 n
+     601   2 wr V4MAR                a                         601  64    0 n
+     602   2 wr V5MAR                a                         602  67    0 n
+     603   2 wr V1TAX                a                         603  65    0 n
+     604   2 wr V2TAX                a                         604  63    0 n
+     605   2 wr V3TAX                a                         605  63    0 n
+     606   2 wr V4TAX                a                         606  60    0 n
+     607   2 wr V5TAX                a                         607  63    0 n
+     608   2 wr V1CAP                a                         608  56    0 n
+     609   2 wr V1LAB                a                         609  55    0 n
+     610   2 wr V1LND                a                         610  53    0 n
+     611   2 wr V1PTX                a                         611  63    0 n
+     612   2 wr V1OCT                a                         612  60    0 n
+     613   2 wr MAKE                 a                         613  67    0 n
+     614   2 wr V0TAR                a                         614  63    0 n
+     615   2 wr SIGMA1LAB            a                         615  65    0 n
+     616   2 wr SIGMA1PRIM           a                         616  74    0 n
+     617   2 wr SIGMA1               a                         617  72    0 n
+     618   2 wr SIGMA1OUT            a                         618  65    0 n
+     619   2 wr SIGMA2               a                         619  70    0 n
+     620   2 wr SIGMA3               a                         620  70    0 n
+     621   2 wr FRISCH               a                         621  66    0 n
+     622   2 wr EPS                  a                         623  38    0 n
+     624   2 wr EXP_ELAST            a                         625  34    0 n
+     626   2 wr EXP_ELAST_NT         a                         627  32    0 n
+     628   2 wr ISINDIVEXP           a                         629  72    0 n
+     630   2 wr ISLOCCOM             a                         631  67    0 n
+     632   2 wr R001                 a                         632  70    0 n
+     633   2 wr R002                 a                         633  74    0 n
+     634   2 wr R003                 a                         634  75    0 n
+     635   2 wr R004                 a                         635  70    0 n
+     636   2 wr R005                 a                         636  74    0 n
+     638   2 wr R007                 a                         638  83    0 n
+     644   1 cs DEFREGSHR                                      645  52    0 n
+     646  13 cs TEMTOT                                         646  45    0 n
+     647   1 fm                                                648  58    0 n
+     649  13 fm                                                649  45    0 n
+     650   1 fm                                                650  47    0 n
+     652   1 cs DISTANCE                                       653  35    0 n
+     654   1 fm                                                655  43    0 n
+     656   1 wr DISTANCE             a                         656  45    0 n
+     658   1 cs DISTFAC                                        659  41    0 n
+     660   1 fm                                                661  64    0 n
+     662   1 wr DISTFAC              a                         662  44    0 n
+     664   1 cs MARWGT                                         664  68    0 n
+     665   1 fm                                                665  49    0 n
+     666   1 wr MARWGT               a                         666  43    0 n
+     668   1 st DMAR                                           669  33    0 n
+     668   1 fm                                                669  33    0 n
+     668   1 ss                                                669  33    0 n
+     668   1 ss                                                669  33    0 n
+     670   1 wr (DMAR)               a                         670  47    0 n
+     675   1 cs LOCMAR                                         675  80    0 n
+     676   1 fm                                                676  38    0 n
+     677   1 wr LOCMAR               a                         677  43    0 n
+     679   1 cs RPOP                                           679  56    0 n
+     680   1 fm                                                680  52    0 n
+     681   1 wr RPOP                 a                         681  41    0 n
+     683   1 cs SIGMADOMDOM                                    683  68    0 n
+     684   1 fm                                                684  41    0 n
+     685   1 wr SIGMADOMDOM          a                         686  28    0 n
+     688   1 cs SIGMAMAR                                       689  69    0 n
+     690   1 fm                                                690  38    0 n
+     691   1 wr SIGMAMAR             a                         692  67    0 n
+     694   1 cs XX                                             694  30    0 n
+     695   1 fm                                                695  66    0 n
+     696   1 st SELFSUFFIC                                     696  41    0 n
+     696   1 fm                                                696  41    0 n
+     696   1 ss                                                696  41    0 n
+     697   1 st RLOC                                           697  67    0 n
+     697   1 ss                                                697  67    0 n
+     697   1 ss                                                697  67    0 n
+     697   1 ss                                                697  67    0 n
+     698   1 wr (RLOC)               a                         698  47    0 n
+     702   1 fl                                                702  60    0 n
+     703   1 fl                                                703  60    0 n
+     706   1 st AGGREG                                         706  40    0 n
+     706   1 ss                                                706  40    0 n
+     706   1 ss                                                706  40    0 n
+     706   1 ss                                                706  40    0 n
+     706   1 ss                                                706  40    0 n
+     707   1 wr (AGGREG)             a                         707  48    0 n
+     708   1 cs MAPREG                                         708  41    0 n
+     709   1 fm                                                709  39    0 n
+     710   1 wr MAPREG               a                         710  56    0 n
+     712   1 st AGGCOM                                         712  54    0 n
+     713   1 wr (AGGCOM)             a                         713  48    0 n
+     714   1 cs MPC                                            714  31    0 n
+     715   1 fm                                                715  59    0 n
+     716   1 cs MAPCOM                                         716  41    0 n
+     717   1 fm                                                717  46    0 n
+     718   1 wr MAPCOM               a                         718  56    0 n
+     720   1 st AGGIND                                         720  53    0 n
+     721   1 wr (AGGIND)             a                         721  48    0 n
+     722   1 cs MPI                                            722  31    0 n
+     723   1 fm                                                723  59    0 n
+     724   1 cs MAPIND                                         724  41    0 n
+     725   1 fm                                                725  46    0 n
+     726   1 wr MAPIND               a                         726  56    0 n
+     726   1 en MAPIND               a                         726  56    0 n
+#GPVER
+  120004
+#PRVER
+    7000
+#FINAL_LEVEL
+#CSPSIM
+nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+nnnnnnnnnnnnnnnnnnn
