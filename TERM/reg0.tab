@@ -374,6 +374,7 @@ Coefficient
 (all,c,COM)(all,d,DST) R004(c,d) # Regional export shares #;
 (all,c,COM)(all,d,DST) R005(c,d) # Regional gov shares #;
 (all,i,IND)(all,d,DST) R007(i,d) # Regional labour compensation shares #; !JLe ************************************!
+(all,i,IND)(all,d,DST) R009(i,d) # Regional labour compensation shares #; !Nau ************************************!
 Read
  R001 from file INFILE header "R001";
  R002 from file INFILE header "R002";
@@ -381,7 +382,7 @@ Read
  R004 from file INFILE header "R004";
  R005 from file INFILE header "R005";
  R007 from file INFILE header "R007"; !JLe ************************************!
-
+ R009 from file INFILE header "R009"; !Nau ************************************!
 Assertion ! if below not true, program will stop with message !
  # R001 >= 0 # (all,i,IND)(all,d,DST) R001(i,d) >= 0.0;
  # R002 >= 0 # (all,i,IND)(all,d,DST) R002(i,d) >= 0.0;
@@ -476,7 +477,7 @@ Write
  R004 to file OUTFILE header "R004" longname "Regional export shares";
  R005 to file OUTFILE header "R005" longname "Regional government shares";
  R007 to file OUTFILE header "R007" longname "Regional labour compensation shares"; 
-
+ R009 to file OUTFILE header "R009" longname "Regional cap. compensation shares"; !Nau ************************************!
 ! Read and check the distance matrix !
 Coefficient (all,r,ORG)(all,d,DST) DISTANCE(r,d) # Distance from r to d #;
 Read DISTANCE from file REGSUPP header "DIST";
