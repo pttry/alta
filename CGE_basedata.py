@@ -809,6 +809,12 @@ V4BAS    = cleanData["usetable_PP"].loc[COM]["P6K"]    - V4BASimp - VMAR_M["V4"]
 V5BASdom = cleanData["usetable_PP"].loc[COM]["P3_S13"] - V5BASimp - VMAR_M["V5"].iloc[:,0] - taxDict["V5TAX_S"]
 V6BASdom = cleanData["usetable_PP"].loc[COM]["P52"]    - V6BASimp - taxDict["V6TAX_S"]
 
+V1BAS_o = cleanData["usetable_BP"].loc[COM][IND]
+V2BAS_o = cleanData["usetable_BP"].loc[COM]["P51"]
+V3BAS_o= cleanData["usetable_BP"].loc[COM]["P3_S14"]
+V4BAS_o = cleanData["usetable_BP"].loc[COM]["P6K"] 
+V5BAS_o = cleanData["usetable_BP"].loc[COM]["P3_S13"]
+V6BAS_o = cleanData["usetable_BP"].loc[COM]["P52"] 
 
 #%%
 # Basic flows for V3-V6 have only two dimensions (commodity and source) so they can be compiled to single dataframes:
@@ -1135,6 +1141,13 @@ baseData={
 "V4BASimp": (V4BASimp, "4BAi", "Export basic", ["COM"]),   
 "V5BAS": (V5BAS, "5BAS", "Government basic", ["COM", "SRC"]),
 "V6BAS": (V6BAS, "6BAS", "Inventories basic", ["COM", "SRC"]),
+#Basic flows total original
+"V1BAS_o": (V1BAS_o, "1BAO", "Intermediate basic", ["COM", "IND"]),
+"V2BAS_o": (V2BAS_o, "2BAO", "Investment basic", ["COM"]),
+"V3BAS_o": (V3BAS_o, "3BAO", "Household basic", ["COM"]),
+"V4BAS_o": (V4BAS_o, "4BAO", "Export basic", ["COM"]),
+"V5BAS_o": (V5BAS_o, "5BAO", "Government basic", ["COM"]),
+"V6BAS_o": (V6BAS_o, "6BAO", "Inventories basic", ["COM"]),
 # Basic taxes    
 "V1TAX": (V1TAX, "1TAX", "Intermediate tax", ["COM", "SRC", "IND"]),
 "V2TAX": (V2TAX, "2TAX", "Investment tax", ["COM", "SRC", "IND"]),
