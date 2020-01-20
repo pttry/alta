@@ -78,7 +78,7 @@
       4   ! tarkastetaan tasapaino.                                                   !
       5   !***************************************************************************!
       6    
-      7   !Määritellään kansiot!
+      7   !Mï¿½ï¿½ritellï¿½ï¿½n kansiot!
       8   File
       9       INFILE #  Input file #;
      10       IN2FILE #  Input file #;
@@ -261,7 +261,7 @@
     187   ! VAIHE 1 : TARKASTETAAN JULKISEN SEKTORIN TASAPAINO.                      *!
     188   !***************************************************************************!
     189    
-    190   !MIETI MYÖHEMMIN; KUN ON AIKAA!
+    190   !MIETI MYï¿½HEMMIN; KUN ON AIKAA!
     191    
     192    
     193   Coefficient
@@ -272,7 +272,7 @@
     198   Formula
     199   V2TOT_G_I = sum[s,PSEC,sum[i,IND, INVSHR2(i,s)*V2TOT(i)]];
     200    
-    201   !NÄMÄ MYÖS MALLIIN!
+    201   !Nï¿½Mï¿½ MYï¿½S MALLIIN!
     202    
     203   !NET_TAXTOTG = V0TAX_CSI + INCTAX_S + COL_PAYRTOT;!
     204    

@@ -23,7 +23,11 @@
     +++  INFORMATION ABOUT THIS PRINT FILE  +++
    
 
+<<<<<<< HEAD
  ! This file was created at 22:46:56 on 07-JAN-2020 by the program
+=======
+ ! This file was created at 21:03:26 on 06-MAY-2019 by the program
+>>>>>>> master
  !  <TABLO  Version 7.0   August 2018>
  ! which accesses some of the routines in the GEMPACK software release
  !  <GEMPACK Release 12.0.004   March 2019>

@@ -28,7 +28,11 @@ REGSETS               Out    n  HAR
 #TABFILE
 regcapital.tab
 #TMDATE
+<<<<<<< HEAD
 at 22:51:05 on 07-JAN-2020
+=======
+at 21:06:56 on 06-MAY-2019
+>>>>>>> master
 #STIFILE
 %none
 #SETS
