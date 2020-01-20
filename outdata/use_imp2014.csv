@@ -19501,7 +19501,7 @@ Kainuu;Tuotteet yhteensä;USE_PH Käyttö yhteensä perushintaan;555.71287710417
 Lappi;01 Maatalous ja metsästys;01 Maatalous ja metsästys;3.2655203342437744
 Lappi;02_03 Metsätalous ja kalatalous;01 Maatalous ja metsästys;0.015193920582532883
 Lappi;05_09 Kaivostoiminta ja louhinta;01 Maatalous ja metsästys;0.04086029529571533
-Lappi;10_12 Elintarviketeollisuus ym.;01 Maatalous ja metsästys;2.2724575996398926
+Lappi;10_12 Elintarviketeollisuus ym.;01 Maatalous ja metsästys;2.2724573612213135
 Lappi;13_15 Tekstiili-, vaatetus- ja nahkateollisuus;01 Maatalous ja metsästys;0.00917021557688713
 Lappi;16 Puuteollisuus;01 Maatalous ja metsästys;0.0016869102837517858
 Lappi;17_18 Paperiteollisuus ja painaminen;01 Maatalous ja metsästys;0.006031025666743517
@@ -19528,7 +19528,7 @@ Lappi;85 Koulutus;01 Maatalous ja metsästys;2.8746162570314482e-05
 Lappi;86_88 Terveys- ja sosiaalipalvelut;01 Maatalous ja metsästys;0.0
 Lappi;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;01 Maatalous ja metsästys;0.00011801179789472371
 Lappi;97_98 Kotitalouspalvelut;01 Maatalous ja metsästys;0.0
-Lappi;Tuotteet yhteensä;01 Maatalous ja metsästys;14.195579180336836
+Lappi;Tuotteet yhteensä;01 Maatalous ja metsästys;14.195578941918257
 Lappi;01 Maatalous ja metsästys;02_03 Metsätalous ja kalatalous;0.00964497309178114
 Lappi;02_03 Metsätalous ja kalatalous;02_03 Metsätalous ja kalatalous;2.8812942504882812
 Lappi;05_09 Kaivostoiminta ja louhinta;02_03 Metsätalous ja kalatalous;0.12226640433073044
@@ -19687,7 +19687,7 @@ Lappi;Tuotteet yhteensä;16 Puuteollisuus;9.862272303937061
 Lappi;01 Maatalous ja metsästys;17_18 Paperiteollisuus ja painaminen;0.022808486595749855
 Lappi;02_03 Metsätalous ja kalatalous;17_18 Paperiteollisuus ja painaminen;5.0672736167907715
 Lappi;05_09 Kaivostoiminta ja louhinta;17_18 Paperiteollisuus ja painaminen;14.531360626220703
-Lappi;10_12 Elintarviketeollisuus ym.;17_18 Paperiteollisuus ja painaminen;1.7840620279312134
+Lappi;10_12 Elintarviketeollisuus ym.;17_18 Paperiteollisuus ja painaminen;1.7840619087219238
 Lappi;13_15 Tekstiili-, vaatetus- ja nahkateollisuus;17_18 Paperiteollisuus ja painaminen;0.23593728244304657
 Lappi;16 Puuteollisuus;17_18 Paperiteollisuus ja painaminen;2.2587356567382812
 Lappi;17_18 Paperiteollisuus ja painaminen;17_18 Paperiteollisuus ja painaminen;14.314155578613281
@@ -19714,11 +19714,11 @@ Lappi;85 Koulutus;17_18 Paperiteollisuus ja painaminen;9.582644270267338e-05
 Lappi;86_88 Terveys- ja sosiaalipalvelut;17_18 Paperiteollisuus ja painaminen;0.0
 Lappi;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;17_18 Paperiteollisuus ja painaminen;0.0
 Lappi;97_98 Kotitalouspalvelut;17_18 Paperiteollisuus ja painaminen;0.0
-Lappi;Tuotteet yhteensä;17_18 Paperiteollisuus ja painaminen;107.49979984296078
+Lappi;Tuotteet yhteensä;17_18 Paperiteollisuus ja painaminen;107.4997997237515
 Lappi;01 Maatalous ja metsästys;19_22 Kemianteollisuus;0.02652788534760475
 Lappi;02_03 Metsätalous ja kalatalous;19_22 Kemianteollisuus;2.802149083436234e-06
 Lappi;05_09 Kaivostoiminta ja louhinta;19_22 Kemianteollisuus;11.608651161193848
-Lappi;10_12 Elintarviketeollisuus ym.;19_22 Kemianteollisuus;0.2592446506023407
+Lappi;10_12 Elintarviketeollisuus ym.;19_22 Kemianteollisuus;0.2592446208000183
 Lappi;13_15 Tekstiili-, vaatetus- ja nahkateollisuus;19_22 Kemianteollisuus;0.026378244161605835
 Lappi;16 Puuteollisuus;19_22 Kemianteollisuus;0.001131065539084375
 Lappi;17_18 Paperiteollisuus ja painaminen;19_22 Kemianteollisuus;0.012362189590930939
@@ -19745,7 +19745,7 @@ Lappi;85 Koulutus;19_22 Kemianteollisuus;0.00014288521197158843
 Lappi;86_88 Terveys- ja sosiaalipalvelut;19_22 Kemianteollisuus;0.0
 Lappi;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;19_22 Kemianteollisuus;0.0
 Lappi;97_98 Kotitalouspalvelut;19_22 Kemianteollisuus;0.0
-Lappi;Tuotteet yhteensä;19_22 Kemianteollisuus;17.61155673310236
+Lappi;Tuotteet yhteensä;19_22 Kemianteollisuus;17.61155670330004
 Lappi;01 Maatalous ja metsästys;23 Rakennusaineteollisuus;0.0
 Lappi;02_03 Metsätalous ja kalatalous;23 Rakennusaineteollisuus;0.0002290448610438034
 Lappi;05_09 Kaivostoiminta ja louhinta;23 Rakennusaineteollisuus;3.276418924331665
@@ -19780,7 +19780,7 @@ Lappi;Tuotteet yhteensä;23 Rakennusaineteollisuus;10.020288934625569
 Lappi;01 Maatalous ja metsästys;24_25 Metallien jalostus ja metallituotteiden valmistus (pl. koneet ja laitteet);0.0
 Lappi;02_03 Metsätalous ja kalatalous;24_25 Metallien jalostus ja metallituotteiden valmistus (pl. koneet ja laitteet);0.0006064999615773559
 Lappi;05_09 Kaivostoiminta ja louhinta;24_25 Metallien jalostus ja metallituotteiden valmistus (pl. koneet ja laitteet);221.63671875
-Lappi;10_12 Elintarviketeollisuus ym.;24_25 Metallien jalostus ja metallituotteiden valmistus (pl. koneet ja laitteet);0.0027012883219867945
+Lappi;10_12 Elintarviketeollisuus ym.;24_25 Metallien jalostus ja metallituotteiden valmistus (pl. koneet ja laitteet);0.002701288089156151
 Lappi;13_15 Tekstiili-, vaatetus- ja nahkateollisuus;24_25 Metallien jalostus ja metallituotteiden valmistus (pl. koneet ja laitteet);0.4151642918586731
 Lappi;16 Puuteollisuus;24_25 Metallien jalostus ja metallituotteiden valmistus (pl. koneet ja laitteet);0.40402841567993164
 Lappi;17_18 Paperiteollisuus ja painaminen;24_25 Metallien jalostus ja metallituotteiden valmistus (pl. koneet ja laitteet);0.3537921607494354
@@ -19807,7 +19807,7 @@ Lappi;85 Koulutus;24_25 Metallien jalostus ja metallituotteiden valmistus (pl. k
 Lappi;86_88 Terveys- ja sosiaalipalvelut;24_25 Metallien jalostus ja metallituotteiden valmistus (pl. koneet ja laitteet);0.0
 Lappi;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;24_25 Metallien jalostus ja metallituotteiden valmistus (pl. koneet ja laitteet);0.0
 Lappi;97_98 Kotitalouspalvelut;24_25 Metallien jalostus ja metallituotteiden valmistus (pl. koneet ja laitteet);0.0
-Lappi;Tuotteet yhteensä;24_25 Metallien jalostus ja metallituotteiden valmistus (pl. koneet ja laitteet);686.6553191475105
+Lappi;Tuotteet yhteensä;24_25 Metallien jalostus ja metallituotteiden valmistus (pl. koneet ja laitteet);686.6553191472776
 Lappi;01 Maatalous ja metsästys;26_27 Sähkö- ja elektroniikkateollisuus;0.0
 Lappi;02_03 Metsätalous ja kalatalous;26_27 Sähkö- ja elektroniikkateollisuus;0.0
 Lappi;05_09 Kaivostoiminta ja louhinta;26_27 Sähkö- ja elektroniikkateollisuus;8.356576290680096e-05
@@ -19966,7 +19966,7 @@ Lappi;Tuotteet yhteensä;35_39 Energiahuolto: Vesi- ja jätehuolto;57.7879745315
 Lappi;01 Maatalous ja metsästys;41_43 Rakentaminen;0.0023271655663847923
 Lappi;02_03 Metsätalous ja kalatalous;41_43 Rakentaminen;0.0223055649548769
 Lappi;05_09 Kaivostoiminta ja louhinta;41_43 Rakentaminen;5.215446472167969
-Lappi;10_12 Elintarviketeollisuus ym.;41_43 Rakentaminen;0.30024003982543945
+Lappi;10_12 Elintarviketeollisuus ym.;41_43 Rakentaminen;0.30024001002311707
 Lappi;13_15 Tekstiili-, vaatetus- ja nahkateollisuus;41_43 Rakentaminen;0.7090706825256348
 Lappi;16 Puuteollisuus;41_43 Rakentaminen;5.041594505310059
 Lappi;17_18 Paperiteollisuus ja painaminen;41_43 Rakentaminen;0.0678052008152008
@@ -19993,11 +19993,11 @@ Lappi;85 Koulutus;41_43 Rakentaminen;0.00017382789519615471
 Lappi;86_88 Terveys- ja sosiaalipalvelut;41_43 Rakentaminen;1.6492418808411458e-06
 Lappi;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;41_43 Rakentaminen;0.0021141613833606243
 Lappi;97_98 Kotitalouspalvelut;41_43 Rakentaminen;0.0
-Lappi;Tuotteet yhteensä;41_43 Rakentaminen;73.56716613248011
+Lappi;Tuotteet yhteensä;41_43 Rakentaminen;73.56716610267779
 Lappi;01 Maatalous ja metsästys;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;0.0
 Lappi;02_03 Metsätalous ja kalatalous;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;0.009473809041082859
 Lappi;05_09 Kaivostoiminta ja louhinta;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;0.0
-Lappi;10_12 Elintarviketeollisuus ym.;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;0.08972721546888351
+Lappi;10_12 Elintarviketeollisuus ym.;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;0.08972720801830292
 Lappi;13_15 Tekstiili-, vaatetus- ja nahkateollisuus;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;1.0699186325073242
 Lappi;16 Puuteollisuus;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;0.07128384709358215
 Lappi;17_18 Paperiteollisuus ja painaminen;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;1.5127660036087036
@@ -20024,11 +20024,11 @@ Lappi;85 Koulutus;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moot
 Lappi;86_88 Terveys- ja sosiaalipalvelut;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;6.680425576632842e-05
 Lappi;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;0.002841415349394083
 Lappi;97_98 Kotitalouspalvelut;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;0.0
-Lappi;Tuotteet yhteensä;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;42.75372277573115
+Lappi;Tuotteet yhteensä;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;42.75372276828057
 Lappi;01 Maatalous ja metsästys;49_53 Kuljetus ja varastointi;0.0
 Lappi;02_03 Metsätalous ja kalatalous;49_53 Kuljetus ja varastointi;0.03150017186999321
 Lappi;05_09 Kaivostoiminta ja louhinta;49_53 Kuljetus ja varastointi;1.4543370525643695e-05
-Lappi;10_12 Elintarviketeollisuus ym.;49_53 Kuljetus ja varastointi;0.4413442611694336
+Lappi;10_12 Elintarviketeollisuus ym.;49_53 Kuljetus ja varastointi;0.4413442313671112
 Lappi;13_15 Tekstiili-, vaatetus- ja nahkateollisuus;49_53 Kuljetus ja varastointi;0.3915085792541504
 Lappi;16 Puuteollisuus;49_53 Kuljetus ja varastointi;0.008690171875059605
 Lappi;17_18 Paperiteollisuus ja painaminen;49_53 Kuljetus ja varastointi;0.07338256388902664
@@ -20055,11 +20055,11 @@ Lappi;85 Koulutus;49_53 Kuljetus ja varastointi;0.00036271417047828436
 Lappi;86_88 Terveys- ja sosiaalipalvelut;49_53 Kuljetus ja varastointi;0.00013138778740540147
 Lappi;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;49_53 Kuljetus ja varastointi;0.009995628148317337
 Lappi;97_98 Kotitalouspalvelut;49_53 Kuljetus ja varastointi;0.0
-Lappi;Tuotteet yhteensä;49_53 Kuljetus ja varastointi;32.57641347531262
+Lappi;Tuotteet yhteensä;49_53 Kuljetus ja varastointi;32.5764134455103
 Lappi;01 Maatalous ja metsästys;55_56 Majoitus- ja ravitsemistoiminta;1.4972798824310303
 Lappi;02_03 Metsätalous ja kalatalous;55_56 Majoitus- ja ravitsemistoiminta;1.7329076528549194
 Lappi;05_09 Kaivostoiminta ja louhinta;55_56 Majoitus- ja ravitsemistoiminta;0.0
-Lappi;10_12 Elintarviketeollisuus ym.;55_56 Majoitus- ja ravitsemistoiminta;12.056532859802246
+Lappi;10_12 Elintarviketeollisuus ym.;55_56 Majoitus- ja ravitsemistoiminta;12.05653190612793
 Lappi;13_15 Tekstiili-, vaatetus- ja nahkateollisuus;55_56 Majoitus- ja ravitsemistoiminta;0.1444038301706314
 Lappi;16 Puuteollisuus;55_56 Majoitus- ja ravitsemistoiminta;0.0018794223433360457
 Lappi;17_18 Paperiteollisuus ja painaminen;55_56 Majoitus- ja ravitsemistoiminta;0.025660783052444458
@@ -20086,11 +20086,11 @@ Lappi;85 Koulutus;55_56 Majoitus- ja ravitsemistoiminta;0.0004680737038142979
 Lappi;86_88 Terveys- ja sosiaalipalvelut;55_56 Majoitus- ja ravitsemistoiminta;0.0
 Lappi;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;55_56 Majoitus- ja ravitsemistoiminta;0.022248972207307816
 Lappi;97_98 Kotitalouspalvelut;55_56 Majoitus- ja ravitsemistoiminta;0.0
-Lappi;Tuotteet yhteensä;55_56 Majoitus- ja ravitsemistoiminta;25.42868859914506
+Lappi;Tuotteet yhteensä;55_56 Majoitus- ja ravitsemistoiminta;25.428687645470745
 Lappi;01 Maatalous ja metsästys;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;0.0
 Lappi;02_03 Metsätalous ja kalatalous;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;0.009086464531719685
 Lappi;05_09 Kaivostoiminta ja louhinta;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;0.0
-Lappi;10_12 Elintarviketeollisuus ym.;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;0.14669324457645416
+Lappi;10_12 Elintarviketeollisuus ym.;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;0.14669322967529297
 Lappi;13_15 Tekstiili-, vaatetus- ja nahkateollisuus;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;0.09566152095794678
 Lappi;16 Puuteollisuus;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;0.003107396885752678
 Lappi;17_18 Paperiteollisuus ja painaminen;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;0.9076659679412842
@@ -20117,11 +20117,11 @@ Lappi;85 Koulutus;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiesti
 Lappi;86_88 Terveys- ja sosiaalipalvelut;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;5.6795157433953136e-05
 Lappi;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;0.002608701353892684
 Lappi;97_98 Kotitalouspalvelut;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;0.0
-Lappi;Tuotteet yhteensä;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;11.388664897447597
+Lappi;Tuotteet yhteensä;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;11.388664882546436
 Lappi;01 Maatalous ja metsästys;64_66 Rahoitus- ja vakuutustoiminta;0.0
 Lappi;02_03 Metsätalous ja kalatalous;64_66 Rahoitus- ja vakuutustoiminta;0.010182740166783333
 Lappi;05_09 Kaivostoiminta ja louhinta;64_66 Rahoitus- ja vakuutustoiminta;0.0
-Lappi;10_12 Elintarviketeollisuus ym.;64_66 Rahoitus- ja vakuutustoiminta;0.1689746230840683
+Lappi;10_12 Elintarviketeollisuus ym.;64_66 Rahoitus- ja vakuutustoiminta;0.1689746081829071
 Lappi;13_15 Tekstiili-, vaatetus- ja nahkateollisuus;64_66 Rahoitus- ja vakuutustoiminta;0.13215327262878418
 Lappi;16 Puuteollisuus;64_66 Rahoitus- ja vakuutustoiminta;0.004291738383471966
 Lappi;17_18 Paperiteollisuus ja painaminen;64_66 Rahoitus- ja vakuutustoiminta;0.05331254005432129
@@ -20148,7 +20148,7 @@ Lappi;85 Koulutus;64_66 Rahoitus- ja vakuutustoiminta;0.0003345659060869366
 Lappi;86_88 Terveys- ja sosiaalipalvelut;64_66 Rahoitus- ja vakuutustoiminta;4.386800355860032e-05
 Lappi;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;64_66 Rahoitus- ja vakuutustoiminta;0.001567799597978592
 Lappi;97_98 Kotitalouspalvelut;64_66 Rahoitus- ja vakuutustoiminta;0.0
-Lappi;Tuotteet yhteensä;64_66 Rahoitus- ja vakuutustoiminta;6.536155021445666
+Lappi;Tuotteet yhteensä;64_66 Rahoitus- ja vakuutustoiminta;6.536155006544504
 Lappi;01 Maatalous ja metsästys;681+68209+683 Muu kiinteistötoiminta;0.0
 Lappi;02_03 Metsätalous ja kalatalous;681+68209+683 Muu kiinteistötoiminta;0.03832342475652695
 Lappi;05_09 Kaivostoiminta ja louhinta;681+68209+683 Muu kiinteistötoiminta;0.0
@@ -20183,7 +20183,7 @@ Lappi;Tuotteet yhteensä;681+68209+683 Muu kiinteistötoiminta;13.05780584789317
 Lappi;01 Maatalous ja metsästys;68201_68202 Asuntojen vuokraus ja hallinta;0.0
 Lappi;02_03 Metsätalous ja kalatalous;68201_68202 Asuntojen vuokraus ja hallinta;0.02047712542116642
 Lappi;05_09 Kaivostoiminta ja louhinta;68201_68202 Asuntojen vuokraus ja hallinta;0.0
-Lappi;10_12 Elintarviketeollisuus ym.;68201_68202 Asuntojen vuokraus ja hallinta;0.05500101298093796
+Lappi;10_12 Elintarviketeollisuus ym.;68201_68202 Asuntojen vuokraus ja hallinta;0.05500100925564766
 Lappi;13_15 Tekstiili-, vaatetus- ja nahkateollisuus;68201_68202 Asuntojen vuokraus ja hallinta;0.013827960006892681
 Lappi;16 Puuteollisuus;68201_68202 Asuntojen vuokraus ja hallinta;0.0026272141840308905
 Lappi;17_18 Paperiteollisuus ja painaminen;68201_68202 Asuntojen vuokraus ja hallinta;0.017144007608294487
@@ -20210,7 +20210,7 @@ Lappi;85 Koulutus;68201_68202 Asuntojen vuokraus ja hallinta;0.00020734383724629
 Lappi;86_88 Terveys- ja sosiaalipalvelut;68201_68202 Asuntojen vuokraus ja hallinta;0.0
 Lappi;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;68201_68202 Asuntojen vuokraus ja hallinta;0.00014948967145755887
 Lappi;97_98 Kotitalouspalvelut;68201_68202 Asuntojen vuokraus ja hallinta;0.0
-Lappi;Tuotteet yhteensä;68201_68202 Asuntojen vuokraus ja hallinta;11.479418042727048
+Lappi;Tuotteet yhteensä;68201_68202 Asuntojen vuokraus ja hallinta;11.479418039001757
 Lappi;01 Maatalous ja metsästys;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;3.3622659429966006e-06
 Lappi;02_03 Metsätalous ja kalatalous;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;0.021950330585241318
 Lappi;05_09 Kaivostoiminta ja louhinta;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;0.00027070404030382633
@@ -20276,7 +20276,7 @@ Lappi;Tuotteet yhteensä;77_82 Hallinto- ja tukipalvelutoiminta;13.0025274833142
 Lappi;01 Maatalous ja metsästys;84 Julkinen hallinto ja sosiaalivakuutus;0.25102654099464417
 Lappi;02_03 Metsätalous ja kalatalous;84 Julkinen hallinto ja sosiaalivakuutus;0.08795958757400513
 Lappi;05_09 Kaivostoiminta ja louhinta;84 Julkinen hallinto ja sosiaalivakuutus;0.005333997774869204
-Lappi;10_12 Elintarviketeollisuus ym.;84 Julkinen hallinto ja sosiaalivakuutus;1.067618489265442
+Lappi;10_12 Elintarviketeollisuus ym.;84 Julkinen hallinto ja sosiaalivakuutus;1.0676183700561523
 Lappi;13_15 Tekstiili-, vaatetus- ja nahkateollisuus;84 Julkinen hallinto ja sosiaalivakuutus;0.5617172122001648
 Lappi;16 Puuteollisuus;84 Julkinen hallinto ja sosiaalivakuutus;0.009261480532586575
 Lappi;17_18 Paperiteollisuus ja painaminen;84 Julkinen hallinto ja sosiaalivakuutus;0.45151054859161377
@@ -20303,7 +20303,7 @@ Lappi;85 Koulutus;84 Julkinen hallinto ja sosiaalivakuutus;0.009701085276901722
 Lappi;86_88 Terveys- ja sosiaalipalvelut;84 Julkinen hallinto ja sosiaalivakuutus;0.0006840015412308276
 Lappi;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;84 Julkinen hallinto ja sosiaalivakuutus;0.037924624979496
 Lappi;97_98 Kotitalouspalvelut;84 Julkinen hallinto ja sosiaalivakuutus;0.0
-Lappi;Tuotteet yhteensä;84 Julkinen hallinto ja sosiaalivakuutus;34.7884109929837
+Lappi;Tuotteet yhteensä;84 Julkinen hallinto ja sosiaalivakuutus;34.78841087377441
 Lappi;01 Maatalous ja metsästys;85 Koulutus;0.1265256553888321
 Lappi;02_03 Metsätalous ja kalatalous;85 Koulutus;0.04474116489291191
 Lappi;05_09 Kaivostoiminta ja louhinta;85 Koulutus;0.004993031267076731
@@ -20369,7 +20369,7 @@ Lappi;Tuotteet yhteensä;86_88 Terveys- ja sosiaalipalvelut;47.71306973241553
 Lappi;01 Maatalous ja metsästys;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;0.010011794045567513
 Lappi;02_03 Metsätalous ja kalatalous;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;0.03658365458250046
 Lappi;05_09 Kaivostoiminta ja louhinta;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;0.0005303077050484717
-Lappi;10_12 Elintarviketeollisuus ym.;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;0.7495617866516113
+Lappi;10_12 Elintarviketeollisuus ym.;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;0.7495617270469666
 Lappi;13_15 Tekstiili-, vaatetus- ja nahkateollisuus;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;0.4128171503543854
 Lappi;16 Puuteollisuus;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;0.04296289384365082
 Lappi;17_18 Paperiteollisuus ja painaminen;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;0.40363234281539917
@@ -20396,7 +20396,7 @@ Lappi;85 Koulutus;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;0.0054
 Lappi;86_88 Terveys- ja sosiaalipalvelut;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;4.222553616273217e-05
 Lappi;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;0.021209223195910454
 Lappi;97_98 Kotitalouspalvelut;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;0.0
-Lappi;Tuotteet yhteensä;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;14.389217762218323
+Lappi;Tuotteet yhteensä;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;14.389217702613678
 Lappi;01 Maatalous ja metsästys;97_98 Kotitalouspalvelut;0.0
 Lappi;02_03 Metsätalous ja kalatalous;97_98 Kotitalouspalvelut;0.0
 Lappi;05_09 Kaivostoiminta ja louhinta;97_98 Kotitalouspalvelut;0.0
@@ -20431,7 +20431,7 @@ Lappi;Tuotteet yhteensä;97_98 Kotitalouspalvelut;0.0
 Lappi;01 Maatalous ja metsästys;0 Toimialat yhteensä;8.77942943572998
 Lappi;02_03 Metsätalous ja kalatalous;0 Toimialat yhteensä;14.081175804138184
 Lappi;05_09 Kaivostoiminta ja louhinta;0 Toimialat yhteensä;340.0973815917969
-Lappi;10_12 Elintarviketeollisuus ym.;0 Toimialat yhteensä;25.606184005737305
+Lappi;10_12 Elintarviketeollisuus ym.;0 Toimialat yhteensä;25.606178283691406
 Lappi;13_15 Tekstiili-, vaatetus- ja nahkateollisuus;0 Toimialat yhteensä;10.12520980834961
 Lappi;16 Puuteollisuus;0 Toimialat yhteensä;10.600507736206055
 Lappi;17_18 Paperiteollisuus ja painaminen;0 Toimialat yhteensä;19.650304794311523
@@ -20458,7 +20458,7 @@ Lappi;85 Koulutus;0 Toimialat yhteensä;0.09897058457136154
 Lappi;86_88 Terveys- ja sosiaalipalvelut;0 Toimialat yhteensä;0.012224146164953709
 Lappi;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;0 Toimialat yhteensä;0.19267353415489197
 Lappi;97_98 Kotitalouspalvelut;0 Toimialat yhteensä;0.0
-Lappi;Tuotteet yhteensä;0 Toimialat yhteensä;1420.6245715579716
+Lappi;Tuotteet yhteensä;0 Toimialat yhteensä;1420.6245658359258
 Lappi;01 Maatalous ja metsästys;P3/S14 Kotitalouksien kulutusmenot;17.67525291442871
 Lappi;02_03 Metsätalous ja kalatalous;P3/S14 Kotitalouksien kulutusmenot;2.856764793395996
 Lappi;05_09 Kaivostoiminta ja louhinta;P3/S14 Kotitalouksien kulutusmenot;0.0
@@ -20617,7 +20617,7 @@ Lappi;Tuotteet yhteensä;FUSE_PH Loppukäyttö perushintaan;1691.122224779334
 Lappi;01 Maatalous ja metsästys;USE_PH Käyttö yhteensä perushintaan;34.17760327458382
 Lappi;02_03 Metsätalous ja kalatalous;USE_PH Käyttö yhteensä perushintaan;17.975939840078354
 Lappi;05_09 Kaivostoiminta ja louhinta;USE_PH Käyttö yhteensä perushintaan;362.30745697021484
-Lappi;10_12 Elintarviketeollisuus ym.;USE_PH Käyttö yhteensä perushintaan;122.23493576049805
+Lappi;10_12 Elintarviketeollisuus ym.;USE_PH Käyttö yhteensä perushintaan;122.23493003845215
 Lappi;13_15 Tekstiili-, vaatetus- ja nahkateollisuus;USE_PH Käyttö yhteensä perushintaan;86.48529395461082
 Lappi;16 Puuteollisuus;USE_PH Käyttö yhteensä perushintaan;21.044076576828957
 Lappi;17_18 Paperiteollisuus ja painaminen;USE_PH Käyttö yhteensä perushintaan;54.13373410701752
@@ -20644,7 +20644,7 @@ Lappi;85 Koulutus;USE_PH Käyttö yhteensä perushintaan;0.7137625305331312
 Lappi;86_88 Terveys- ja sosiaalipalvelut;USE_PH Käyttö yhteensä perushintaan;0.09566457282926422
 Lappi;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;USE_PH Käyttö yhteensä perushintaan;5.942933293059468
 Lappi;97_98 Kotitalouspalvelut;USE_PH Käyttö yhteensä perushintaan;0.0
-Lappi;Tuotteet yhteensä;USE_PH Käyttö yhteensä perushintaan;3111.7467963373056
+Lappi;Tuotteet yhteensä;USE_PH Käyttö yhteensä perushintaan;3111.7467906152597
 Ahvenanmaa;01 Maatalous ja metsästys;01 Maatalous ja metsästys;1.0060580968856812
 Ahvenanmaa;02_03 Metsätalous ja kalatalous;01 Maatalous ja metsästys;0.004843034781515598
 Ahvenanmaa;05_09 Kaivostoiminta ja louhinta;01 Maatalous ja metsästys;0.01306584570556879

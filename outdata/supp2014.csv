@@ -539,24 +539,24 @@ Uusimaa;24_25 Metallien jalostus ja metallituotteiden valmistus (pl. koneet ja l
 Uusimaa;26_27 Sähkö- ja elektroniikkateollisuus;49_53 Kuljetus ja varastointi;0.0
 Uusimaa;28 Muiden koneiden ja laitteiden valmistus;49_53 Kuljetus ja varastointi;0.0
 Uusimaa;29_30 Kulkuneuvojen valmistus;49_53 Kuljetus ja varastointi;0.0
-Uusimaa;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitteiden korjaus, huolto ja ase;49_53 Kuljetus ja varastointi;0.96793073
+Uusimaa;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitteiden korjaus, huolto ja ase;49_53 Kuljetus ja varastointi;0.9679308
 Uusimaa;35_39 Energiahuolto: Vesi- ja jätehuolto;49_53 Kuljetus ja varastointi;0.0
 Uusimaa;41_43 Rakentaminen;49_53 Kuljetus ja varastointi;16.00694
-Uusimaa;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;49_53 Kuljetus ja varastointi;85.96739
-Uusimaa;49_53 Kuljetus ja varastointi;49_53 Kuljetus ja varastointi;10837.227
-Uusimaa;55_56 Majoitus- ja ravitsemistoiminta;49_53 Kuljetus ja varastointi;145.23244
-Uusimaa;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;49_53 Kuljetus ja varastointi;3.3974202
+Uusimaa;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;49_53 Kuljetus ja varastointi;85.9674
+Uusimaa;49_53 Kuljetus ja varastointi;49_53 Kuljetus ja varastointi;10837.228
+Uusimaa;55_56 Majoitus- ja ravitsemistoiminta;49_53 Kuljetus ja varastointi;145.23245
+Uusimaa;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;49_53 Kuljetus ja varastointi;3.3974204
 Uusimaa;64_66 Rahoitus- ja vakuutustoiminta;49_53 Kuljetus ja varastointi;0.0
-Uusimaa;681+68209+683 Muu kiinteistötoiminta;49_53 Kuljetus ja varastointi;83.083374
+Uusimaa;681+68209+683 Muu kiinteistötoiminta;49_53 Kuljetus ja varastointi;83.08338
 Uusimaa;68201_68202 Asuntojen vuokraus ja hallinta;49_53 Kuljetus ja varastointi;0.0
-Uusimaa;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;49_53 Kuljetus ja varastointi;89.05951
-Uusimaa;77_82 Hallinto- ja tukipalvelutoiminta;49_53 Kuljetus ja varastointi;84.22167
+Uusimaa;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;49_53 Kuljetus ja varastointi;89.05952
+Uusimaa;77_82 Hallinto- ja tukipalvelutoiminta;49_53 Kuljetus ja varastointi;84.22168
 Uusimaa;84 Julkinen hallinto ja sosiaalivakuutus;49_53 Kuljetus ja varastointi;0.0
 Uusimaa;85 Koulutus;49_53 Kuljetus ja varastointi;0.0
 Uusimaa;86_88 Terveys- ja sosiaalipalvelut;49_53 Kuljetus ja varastointi;0.0
 Uusimaa;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;49_53 Kuljetus ja varastointi;0.0
 Uusimaa;97_98 Kotitalouspalvelut;49_53 Kuljetus ja varastointi;0.0
-Uusimaa;Tuotteet yhteensä;49_53 Kuljetus ja varastointi;11345.163
+Uusimaa;Tuotteet yhteensä;49_53 Kuljetus ja varastointi;11345.164
 Uusimaa;01 Maatalous ja metsästys;55_56 Majoitus- ja ravitsemistoiminta;0.0
 Uusimaa;02_03 Metsätalous ja kalatalous;55_56 Majoitus- ja ravitsemistoiminta;0.0
 Uusimaa;05_09 Kaivostoiminta ja louhinta;55_56 Majoitus- ja ravitsemistoiminta;0.0
@@ -946,7 +946,7 @@ Uusimaa;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitt
 Uusimaa;35_39 Energiahuolto: Vesi- ja jätehuolto;0 Toimialat yhteensä;3704.3682
 Uusimaa;41_43 Rakentaminen;0 Toimialat yhteensä;10499.962
 Uusimaa;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;0 Toimialat yhteensä;16363.045
-Uusimaa;49_53 Kuljetus ja varastointi;0 Toimialat yhteensä;10937.507
+Uusimaa;49_53 Kuljetus ja varastointi;0 Toimialat yhteensä;10937.508
 Uusimaa;55_56 Majoitus- ja ravitsemistoiminta;0 Toimialat yhteensä;3461.8452
 Uusimaa;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;0 Toimialat yhteensä;13662.237
 Uusimaa;64_66 Rahoitus- ja vakuutustoiminta;0 Toimialat yhteensä;6752.8096
@@ -977,7 +977,7 @@ Uusimaa;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitt
 Uusimaa;35_39 Energiahuolto: Vesi- ja jätehuolto;Tuonti Suomesta;372.41788
 Uusimaa;41_43 Rakentaminen;Tuonti Suomesta;527.57227
 Uusimaa;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tuonti Suomesta;62.066895
-Uusimaa;49_53 Kuljetus ja varastointi;Tuonti Suomesta;420.0373
+Uusimaa;49_53 Kuljetus ja varastointi;Tuonti Suomesta;420.039
 Uusimaa;55_56 Majoitus- ja ravitsemistoiminta;Tuonti Suomesta;155.88948
 Uusimaa;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tuonti Suomesta;90.30705
 Uusimaa;64_66 Rahoitus- ja vakuutustoiminta;Tuonti Suomesta;33.307755
@@ -990,7 +990,7 @@ Uusimaa;85 Koulutus;Tuonti Suomesta;0.72118616
 Uusimaa;86_88 Terveys- ja sosiaalipalvelut;Tuonti Suomesta;290.6396
 Uusimaa;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;Tuonti Suomesta;33.574753
 Uusimaa;97_98 Kotitalouspalvelut;Tuonti Suomesta;43.282074
-Uusimaa;Tuotteet yhteensä;Tuonti Suomesta;16402.084
+Uusimaa;Tuotteet yhteensä;Tuonti Suomesta;16402.086
 Uusimaa;01 Maatalous ja metsästys;Tuonti ulkomailta;392.91144
 Uusimaa;02_03 Metsätalous ja kalatalous;Tuonti ulkomailta;94.55091
 Uusimaa;05_09 Kaivostoiminta ja louhinta;Tuonti ulkomailta;4061.599
@@ -1039,7 +1039,7 @@ Uusimaa;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitt
 Uusimaa;35_39 Energiahuolto: Vesi- ja jätehuolto;Tarjonta yhteensä perushintaan;4638.7466
 Uusimaa;41_43 Rakentaminen;Tarjonta yhteensä perushintaan;11027.534
 Uusimaa;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tarjonta yhteensä perushintaan;16930.215
-Uusimaa;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;12465.979
+Uusimaa;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;12465.981
 Uusimaa;55_56 Majoitus- ja ravitsemistoiminta;Tarjonta yhteensä perushintaan;3744.5217
 Uusimaa;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tarjonta yhteensä perushintaan;15021.349
 Uusimaa;64_66 Rahoitus- ja vakuutustoiminta;Tarjonta yhteensä perushintaan;7300.862
@@ -1596,21 +1596,21 @@ VarsinSuomi;29_30 Kulkuneuvojen valmistus;49_53 Kuljetus ja varastointi;0.0
 VarsinSuomi;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitteiden korjaus, huolto ja ase;49_53 Kuljetus ja varastointi;0.14533855
 VarsinSuomi;35_39 Energiahuolto: Vesi- ja jätehuolto;49_53 Kuljetus ja varastointi;0.0
 VarsinSuomi;41_43 Rakentaminen;49_53 Kuljetus ja varastointi;2.4035041
-VarsinSuomi;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;49_53 Kuljetus ja varastointi;12.908338
-VarsinSuomi;49_53 Kuljetus ja varastointi;49_53 Kuljetus ja varastointi;1627.2517
-VarsinSuomi;55_56 Majoitus- ja ravitsemistoiminta;49_53 Kuljetus ja varastointi;21.807217
-VarsinSuomi;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;49_53 Kuljetus ja varastointi;0.5101358
+VarsinSuomi;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;49_53 Kuljetus ja varastointi;12.908337
+VarsinSuomi;49_53 Kuljetus ja varastointi;49_53 Kuljetus ja varastointi;1627.2516
+VarsinSuomi;55_56 Majoitus- ja ravitsemistoiminta;49_53 Kuljetus ja varastointi;21.807215
+VarsinSuomi;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;49_53 Kuljetus ja varastointi;0.51013577
 VarsinSuomi;64_66 Rahoitus- ja vakuutustoiminta;49_53 Kuljetus ja varastointi;0.0
-VarsinSuomi;681+68209+683 Muu kiinteistötoiminta;49_53 Kuljetus ja varastointi;12.475292
+VarsinSuomi;681+68209+683 Muu kiinteistötoiminta;49_53 Kuljetus ja varastointi;12.475291
 VarsinSuomi;68201_68202 Asuntojen vuokraus ja hallinta;49_53 Kuljetus ja varastointi;0.0
-VarsinSuomi;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;49_53 Kuljetus ja varastointi;13.372631
-VarsinSuomi;77_82 Hallinto- ja tukipalvelutoiminta;49_53 Kuljetus ja varastointi;12.646212
+VarsinSuomi;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;49_53 Kuljetus ja varastointi;13.37263
+VarsinSuomi;77_82 Hallinto- ja tukipalvelutoiminta;49_53 Kuljetus ja varastointi;12.646211
 VarsinSuomi;84 Julkinen hallinto ja sosiaalivakuutus;49_53 Kuljetus ja varastointi;0.0
 VarsinSuomi;85 Koulutus;49_53 Kuljetus ja varastointi;0.0
 VarsinSuomi;86_88 Terveys- ja sosiaalipalvelut;49_53 Kuljetus ja varastointi;0.0
 VarsinSuomi;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;49_53 Kuljetus ja varastointi;0.0
 VarsinSuomi;97_98 Kotitalouspalvelut;49_53 Kuljetus ja varastointi;0.0
-VarsinSuomi;Tuotteet yhteensä;49_53 Kuljetus ja varastointi;1703.5205
+VarsinSuomi;Tuotteet yhteensä;49_53 Kuljetus ja varastointi;1703.5204
 VarsinSuomi;01 Maatalous ja metsästys;55_56 Majoitus- ja ravitsemistoiminta;0.0
 VarsinSuomi;02_03 Metsätalous ja kalatalous;55_56 Majoitus- ja ravitsemistoiminta;0.0
 VarsinSuomi;05_09 Kaivostoiminta ja louhinta;55_56 Majoitus- ja ravitsemistoiminta;0.0
@@ -2031,7 +2031,7 @@ VarsinSuomi;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja l
 VarsinSuomi;35_39 Energiahuolto: Vesi- ja jätehuolto;Tuonti Suomesta;226.46971
 VarsinSuomi;41_43 Rakentaminen;Tuonti Suomesta;8.885932
 VarsinSuomi;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tuonti Suomesta;996.06995
-VarsinSuomi;49_53 Kuljetus ja varastointi;Tuonti Suomesta;286.92633
+VarsinSuomi;49_53 Kuljetus ja varastointi;Tuonti Suomesta;286.9262
 VarsinSuomi;55_56 Majoitus- ja ravitsemistoiminta;Tuonti Suomesta;106.35921
 VarsinSuomi;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tuonti Suomesta;809.3993
 VarsinSuomi;64_66 Rahoitus- ja vakuutustoiminta;Tuonti Suomesta;326.97443
@@ -2650,21 +2650,21 @@ Satakunta;29_30 Kulkuneuvojen valmistus;49_53 Kuljetus ja varastointi;0.0
 Satakunta;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitteiden korjaus, huolto ja ase;49_53 Kuljetus ja varastointi;0.06615832
 Satakunta;35_39 Energiahuolto: Vesi- ja jätehuolto;49_53 Kuljetus ja varastointi;0.0
 Satakunta;41_43 Rakentaminen;49_53 Kuljetus ja varastointi;1.0940785
-Satakunta;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;49_53 Kuljetus ja varastointi;5.875894
-Satakunta;49_53 Kuljetus ja varastointi;49_53 Kuljetus ja varastointi;740.7273
+Satakunta;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;49_53 Kuljetus ja varastointi;5.8758936
+Satakunta;49_53 Kuljetus ja varastointi;49_53 Kuljetus ja varastointi;740.72723
 Satakunta;55_56 Majoitus- ja ravitsemistoiminta;49_53 Kuljetus ja varastointi;9.926676
 Satakunta;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;49_53 Kuljetus ja varastointi;0.23221456
 Satakunta;64_66 Rahoitus- ja vakuutustoiminta;49_53 Kuljetus ja varastointi;0.0
-Satakunta;681+68209+683 Muu kiinteistötoiminta;49_53 Kuljetus ja varastointi;5.678771
+Satakunta;681+68209+683 Muu kiinteistötoiminta;49_53 Kuljetus ja varastointi;5.6787705
 Satakunta;68201_68202 Asuntojen vuokraus ja hallinta;49_53 Kuljetus ja varastointi;0.0
 Satakunta;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;49_53 Kuljetus ja varastointi;6.0872407
-Satakunta;77_82 Hallinto- ja tukipalvelutoiminta;49_53 Kuljetus ja varastointi;5.756573
+Satakunta;77_82 Hallinto- ja tukipalvelutoiminta;49_53 Kuljetus ja varastointi;5.7565727
 Satakunta;84 Julkinen hallinto ja sosiaalivakuutus;49_53 Kuljetus ja varastointi;0.0
 Satakunta;85 Koulutus;49_53 Kuljetus ja varastointi;0.0
 Satakunta;86_88 Terveys- ja sosiaalipalvelut;49_53 Kuljetus ja varastointi;0.0
 Satakunta;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;49_53 Kuljetus ja varastointi;0.0
 Satakunta;97_98 Kotitalouspalvelut;49_53 Kuljetus ja varastointi;0.0
-Satakunta;Tuotteet yhteensä;49_53 Kuljetus ja varastointi;775.44495
+Satakunta;Tuotteet yhteensä;49_53 Kuljetus ja varastointi;775.4449
 Satakunta;01 Maatalous ja metsästys;55_56 Majoitus- ja ravitsemistoiminta;0.0
 Satakunta;02_03 Metsätalous ja kalatalous;55_56 Majoitus- ja ravitsemistoiminta;0.0
 Satakunta;05_09 Kaivostoiminta ja louhinta;55_56 Majoitus- ja ravitsemistoiminta;0.0
@@ -3054,7 +3054,7 @@ Satakunta;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja lai
 Satakunta;35_39 Energiahuolto: Vesi- ja jätehuolto;0 Toimialat yhteensä;913.4158
 Satakunta;41_43 Rakentaminen;0 Toimialat yhteensä;1076.8606
 Satakunta;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;0 Toimialat yhteensä;932.1214
-Satakunta;49_53 Kuljetus ja varastointi;0 Toimialat yhteensä;758.4199
+Satakunta;49_53 Kuljetus ja varastointi;0 Toimialat yhteensä;758.41986
 Satakunta;55_56 Majoitus- ja ravitsemistoiminta;0 Toimialat yhteensä;263.58545
 Satakunta;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;0 Toimialat yhteensä;271.57303
 Satakunta;64_66 Rahoitus- ja vakuutustoiminta;0 Toimialat yhteensä;188.82082
@@ -3085,7 +3085,7 @@ Satakunta;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja lai
 Satakunta;35_39 Energiahuolto: Vesi- ja jätehuolto;Tuonti Suomesta;7.3202896
 Satakunta;41_43 Rakentaminen;Tuonti Suomesta;90.87604
 Satakunta;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tuonti Suomesta;1098.4858
-Satakunta;49_53 Kuljetus ja varastointi;Tuonti Suomesta;485.43933
+Satakunta;49_53 Kuljetus ja varastointi;Tuonti Suomesta;485.4393
 Satakunta;55_56 Majoitus- ja ravitsemistoiminta;Tuonti Suomesta;122.960556
 Satakunta;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tuonti Suomesta;771.1873
 Satakunta;64_66 Rahoitus- ja vakuutustoiminta;Tuonti Suomesta;342.35538
@@ -3098,7 +3098,7 @@ Satakunta;85 Koulutus;Tuonti Suomesta;90.44079
 Satakunta;86_88 Terveys- ja sosiaalipalvelut;Tuonti Suomesta;8.843272
 Satakunta;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;Tuonti Suomesta;182.65923
 Satakunta;97_98 Kotitalouspalvelut;Tuonti Suomesta;2.8050852
-Satakunta;Tuotteet yhteensä;Tuonti Suomesta;6271.0864
+Satakunta;Tuotteet yhteensä;Tuonti Suomesta;6271.086
 Satakunta;01 Maatalous ja metsästys;Tuonti ulkomailta;72.85094
 Satakunta;02_03 Metsätalous ja kalatalous;Tuonti ulkomailta;24.785686
 Satakunta;05_09 Kaivostoiminta ja louhinta;Tuonti ulkomailta;490.754
@@ -3147,7 +3147,7 @@ Satakunta;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja lai
 Satakunta;35_39 Energiahuolto: Vesi- ja jätehuolto;Tarjonta yhteensä perushintaan;1031.9357
 Satakunta;41_43 Rakentaminen;Tarjonta yhteensä perushintaan;1167.7366
 Satakunta;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tarjonta yhteensä perushintaan;2056.3599
-Satakunta;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;1370.0768
+Satakunta;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;1370.0767
 Satakunta;55_56 Majoitus- ja ravitsemistoiminta;Tarjonta yhteensä perushintaan;399.9068
 Satakunta;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tarjonta yhteensä perushintaan;1169.0935
 Satakunta;64_66 Rahoitus- ja vakuutustoiminta;Tarjonta yhteensä perushintaan;586.81055
@@ -3703,22 +3703,22 @@ KantaHame;28 Muiden koneiden ja laitteiden valmistus;49_53 Kuljetus ja varastoin
 KantaHame;29_30 Kulkuneuvojen valmistus;49_53 Kuljetus ja varastointi;0.0
 KantaHame;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitteiden korjaus, huolto ja ase;49_53 Kuljetus ja varastointi;0.031284712
 KantaHame;35_39 Energiahuolto: Vesi- ja jätehuolto;49_53 Kuljetus ja varastointi;0.0
-KantaHame;41_43 Rakentaminen;49_53 Kuljetus ja varastointi;0.51736397
-KantaHame;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;49_53 Kuljetus ja varastointi;2.7785716
-KantaHame;49_53 Kuljetus ja varastointi;49_53 Kuljetus ja varastointi;350.2725
+KantaHame;41_43 Rakentaminen;49_53 Kuljetus ja varastointi;0.5173639
+KantaHame;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;49_53 Kuljetus ja varastointi;2.7785714
+KantaHame;49_53 Kuljetus ja varastointi;49_53 Kuljetus ja varastointi;350.27246
 KantaHame;55_56 Majoitus- ja ravitsemistoiminta;49_53 Kuljetus ja varastointi;4.6940913
 KantaHame;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;49_53 Kuljetus ja varastointi;0.10980879
 KantaHame;64_66 Rahoitus- ja vakuutustoiminta;49_53 Kuljetus ja varastointi;0.0
-KantaHame;681+68209+683 Muu kiinteistötoiminta;49_53 Kuljetus ja varastointi;2.685357
+KantaHame;681+68209+683 Muu kiinteistötoiminta;49_53 Kuljetus ja varastointi;2.6853569
 KantaHame;68201_68202 Asuntojen vuokraus ja hallinta;49_53 Kuljetus ja varastointi;0.0
 KantaHame;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;49_53 Kuljetus ja varastointi;2.8785126
-KantaHame;77_82 Hallinto- ja tukipalvelutoiminta;49_53 Kuljetus ja varastointi;2.7221477
+KantaHame;77_82 Hallinto- ja tukipalvelutoiminta;49_53 Kuljetus ja varastointi;2.7221475
 KantaHame;84 Julkinen hallinto ja sosiaalivakuutus;49_53 Kuljetus ja varastointi;0.0
 KantaHame;85 Koulutus;49_53 Kuljetus ja varastointi;0.0
 KantaHame;86_88 Terveys- ja sosiaalipalvelut;49_53 Kuljetus ja varastointi;0.0
 KantaHame;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;49_53 Kuljetus ja varastointi;0.0
 KantaHame;97_98 Kotitalouspalvelut;49_53 Kuljetus ja varastointi;0.0
-KantaHame;Tuotteet yhteensä;49_53 Kuljetus ja varastointi;366.6896
+KantaHame;Tuotteet yhteensä;49_53 Kuljetus ja varastointi;366.68958
 KantaHame;01 Maatalous ja metsästys;55_56 Majoitus- ja ravitsemistoiminta;0.0
 KantaHame;02_03 Metsätalous ja kalatalous;55_56 Majoitus- ja ravitsemistoiminta;0.0
 KantaHame;05_09 Kaivostoiminta ja louhinta;55_56 Majoitus- ja ravitsemistoiminta;0.0
@@ -4108,7 +4108,7 @@ KantaHame;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja lai
 KantaHame;35_39 Energiahuolto: Vesi- ja jätehuolto;0 Toimialat yhteensä;420.75204
 KantaHame;41_43 Rakentaminen;0 Toimialat yhteensä;745.5357
 KantaHame;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;0 Toimialat yhteensä;772.2051
-KantaHame;49_53 Kuljetus ja varastointi;0 Toimialat yhteensä;361.1475
+KantaHame;49_53 Kuljetus ja varastointi;0 Toimialat yhteensä;361.14746
 KantaHame;55_56 Majoitus- ja ravitsemistoiminta;0 Toimialat yhteensä;215.01115
 KantaHame;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;0 Toimialat yhteensä;245.04637
 KantaHame;64_66 Rahoitus- ja vakuutustoiminta;0 Toimialat yhteensä;168.33882
@@ -4139,7 +4139,7 @@ KantaHame;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja lai
 KantaHame;35_39 Energiahuolto: Vesi- ja jätehuolto;Tuonti Suomesta;21.875864
 KantaHame;41_43 Rakentaminen;Tuonti Suomesta;21.324757
 KantaHame;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tuonti Suomesta;541.78424
-KantaHame;49_53 Kuljetus ja varastointi;Tuonti Suomesta;339.6562
+KantaHame;49_53 Kuljetus ja varastointi;Tuonti Suomesta;339.65622
 KantaHame;55_56 Majoitus- ja ravitsemistoiminta;Tuonti Suomesta;92.77824
 KantaHame;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tuonti Suomesta;407.09998
 KantaHame;64_66 Rahoitus- ja vakuutustoiminta;Tuonti Suomesta;221.49928
@@ -4755,24 +4755,24 @@ Pirkanmaa;24_25 Metallien jalostus ja metallituotteiden valmistus (pl. koneet ja
 Pirkanmaa;26_27 Sähkö- ja elektroniikkateollisuus;49_53 Kuljetus ja varastointi;0.0
 Pirkanmaa;28 Muiden koneiden ja laitteiden valmistus;49_53 Kuljetus ja varastointi;0.0
 Pirkanmaa;29_30 Kulkuneuvojen valmistus;49_53 Kuljetus ja varastointi;0.0
-Pirkanmaa;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitteiden korjaus, huolto ja ase;49_53 Kuljetus ja varastointi;0.11623524
+Pirkanmaa;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitteiden korjaus, huolto ja ase;49_53 Kuljetus ja varastointi;0.11623525
 Pirkanmaa;35_39 Energiahuolto: Vesi- ja jätehuolto;49_53 Kuljetus ja varastointi;0.0
-Pirkanmaa;41_43 Rakentaminen;49_53 Kuljetus ja varastointi;1.9222143
-Pirkanmaa;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;49_53 Kuljetus ja varastointi;10.323508
-Pirkanmaa;49_53 Kuljetus ja varastointi;49_53 Kuljetus ja varastointi;1301.4026
-Pirkanmaa;55_56 Majoitus- ja ravitsemistoiminta;49_53 Kuljetus ja varastointi;17.440428
-Pirkanmaa;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;49_53 Kuljetus ja varastointi;0.40798366
+Pirkanmaa;41_43 Rakentaminen;49_53 Kuljetus ja varastointi;1.9222145
+Pirkanmaa;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;49_53 Kuljetus ja varastointi;10.323509
+Pirkanmaa;49_53 Kuljetus ja varastointi;49_53 Kuljetus ja varastointi;1301.4027
+Pirkanmaa;55_56 Majoitus- ja ravitsemistoiminta;49_53 Kuljetus ja varastointi;17.44043
+Pirkanmaa;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;49_53 Kuljetus ja varastointi;0.40798372
 Pirkanmaa;64_66 Rahoitus- ja vakuutustoiminta;49_53 Kuljetus ja varastointi;0.0
-Pirkanmaa;681+68209+683 Muu kiinteistötoiminta;49_53 Kuljetus ja varastointi;9.977178
+Pirkanmaa;681+68209+683 Muu kiinteistötoiminta;49_53 Kuljetus ja varastointi;9.977179
 Pirkanmaa;68201_68202 Asuntojen vuokraus ja hallinta;49_53 Kuljetus ja varastointi;0.0
-Pirkanmaa;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;49_53 Kuljetus ja varastointi;10.694827
-Pirkanmaa;77_82 Hallinto- ja tukipalvelutoiminta;49_53 Kuljetus ja varastointi;10.11387
+Pirkanmaa;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;49_53 Kuljetus ja varastointi;10.694828
+Pirkanmaa;77_82 Hallinto- ja tukipalvelutoiminta;49_53 Kuljetus ja varastointi;10.113871
 Pirkanmaa;84 Julkinen hallinto ja sosiaalivakuutus;49_53 Kuljetus ja varastointi;0.0
 Pirkanmaa;85 Koulutus;49_53 Kuljetus ja varastointi;0.0
 Pirkanmaa;86_88 Terveys- ja sosiaalipalvelut;49_53 Kuljetus ja varastointi;0.0
 Pirkanmaa;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;49_53 Kuljetus ja varastointi;0.0
 Pirkanmaa;97_98 Kotitalouspalvelut;49_53 Kuljetus ja varastointi;0.0
-Pirkanmaa;Tuotteet yhteensä;49_53 Kuljetus ja varastointi;1362.3988
+Pirkanmaa;Tuotteet yhteensä;49_53 Kuljetus ja varastointi;1362.3989
 Pirkanmaa;01 Maatalous ja metsästys;55_56 Majoitus- ja ravitsemistoiminta;0.0
 Pirkanmaa;02_03 Metsätalous ja kalatalous;55_56 Majoitus- ja ravitsemistoiminta;0.0
 Pirkanmaa;05_09 Kaivostoiminta ja louhinta;55_56 Majoitus- ja ravitsemistoiminta;0.0
@@ -5162,7 +5162,7 @@ Pirkanmaa;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja lai
 Pirkanmaa;35_39 Energiahuolto: Vesi- ja jätehuolto;0 Toimialat yhteensä;1049.2008
 Pirkanmaa;41_43 Rakentaminen;0 Toimialat yhteensä;2573.7407
 Pirkanmaa;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;0 Toimialat yhteensä;2305.5374
-Pirkanmaa;49_53 Kuljetus ja varastointi;0 Toimialat yhteensä;1328.6571
+Pirkanmaa;49_53 Kuljetus ja varastointi;0 Toimialat yhteensä;1328.6572
 Pirkanmaa;55_56 Majoitus- ja ravitsemistoiminta;0 Toimialat yhteensä;756.3721
 Pirkanmaa;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;0 Toimialat yhteensä;1527.8696
 Pirkanmaa;64_66 Rahoitus- ja vakuutustoiminta;0 Toimialat yhteensä;584.72186
@@ -5255,7 +5255,7 @@ Pirkanmaa;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja lai
 Pirkanmaa;35_39 Energiahuolto: Vesi- ja jätehuolto;Tarjonta yhteensä perushintaan;1201.9944
 Pirkanmaa;41_43 Rakentaminen;Tarjonta yhteensä perushintaan;2611.329
 Pirkanmaa;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tarjonta yhteensä perushintaan;3446.7502
-Pirkanmaa;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;2219.5547
+Pirkanmaa;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;2219.555
 Pirkanmaa;55_56 Majoitus- ja ravitsemistoiminta;Tarjonta yhteensä perushintaan;897.7498
 Pirkanmaa;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tarjonta yhteensä perushintaan;2282.9597
 Pirkanmaa;64_66 Rahoitus- ja vakuutustoiminta;Tarjonta yhteensä perushintaan;1162.5962
@@ -6247,7 +6247,7 @@ PaijatHame;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja la
 PaijatHame;35_39 Energiahuolto: Vesi- ja jätehuolto;Tuonti Suomesta;4.5634775
 PaijatHame;41_43 Rakentaminen;Tuonti Suomesta;56.848534
 PaijatHame;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tuonti Suomesta;476.14453
-PaijatHame;49_53 Kuljetus ja varastointi;Tuonti Suomesta;314.70886
+PaijatHame;49_53 Kuljetus ja varastointi;Tuonti Suomesta;314.70892
 PaijatHame;55_56 Majoitus- ja ravitsemistoiminta;Tuonti Suomesta;66.15202
 PaijatHame;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tuonti Suomesta;387.69107
 PaijatHame;64_66 Rahoitus- ja vakuutustoiminta;Tuonti Suomesta;233.66301
@@ -6309,7 +6309,7 @@ PaijatHame;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja la
 PaijatHame;35_39 Energiahuolto: Vesi- ja jätehuolto;Tarjonta yhteensä perushintaan;577.9859
 PaijatHame;41_43 Rakentaminen;Tarjonta yhteensä perushintaan;968.70135
 PaijatHame;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tarjonta yhteensä perushintaan;1439.5908
-PaijatHame;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;856.1997
+PaijatHame;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;856.1998
 PaijatHame;55_56 Majoitus- ja ravitsemistoiminta;Tarjonta yhteensä perushintaan;346.30814
 PaijatHame;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tarjonta yhteensä perushintaan;821.7177
 PaijatHame;64_66 Rahoitus- ja vakuutustoiminta;Tarjonta yhteensä perushintaan;451.5768
@@ -6322,7 +6322,7 @@ PaijatHame;85 Koulutus;Tarjonta yhteensä perushintaan;469.1946
 PaijatHame;86_88 Terveys- ja sosiaalipalvelut;Tarjonta yhteensä perushintaan;1030.4517
 PaijatHame;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;Tarjonta yhteensä perushintaan;422.06342
 PaijatHame;97_98 Kotitalouspalvelut;Tarjonta yhteensä perushintaan;10.729437
-PaijatHame;Tuotteet yhteensä;Tarjonta yhteensä perushintaan;17704.168
+PaijatHame;Tuotteet yhteensä;Tarjonta yhteensä perushintaan;17704.17
 Kymenlaakso;01 Maatalous ja metsästys;01 Maatalous ja metsästys;92.955956
 Kymenlaakso;02_03 Metsätalous ja kalatalous;01 Maatalous ja metsästys;0.06136044
 Kymenlaakso;05_09 Kaivostoiminta ja louhinta;01 Maatalous ja metsästys;0.0
@@ -7301,7 +7301,7 @@ Kymenlaakso;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja l
 Kymenlaakso;35_39 Energiahuolto: Vesi- ja jätehuolto;Tuonti Suomesta;74.40206
 Kymenlaakso;41_43 Rakentaminen;Tuonti Suomesta;26.396189
 Kymenlaakso;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tuonti Suomesta;1050.8291
-Kymenlaakso;49_53 Kuljetus ja varastointi;Tuonti Suomesta;331.5578
+Kymenlaakso;49_53 Kuljetus ja varastointi;Tuonti Suomesta;331.55768
 Kymenlaakso;55_56 Majoitus- ja ravitsemistoiminta;Tuonti Suomesta;99.24528
 Kymenlaakso;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tuonti Suomesta;777.4837
 Kymenlaakso;64_66 Rahoitus- ja vakuutustoiminta;Tuonti Suomesta;274.2153
@@ -7363,7 +7363,7 @@ Kymenlaakso;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja l
 Kymenlaakso;35_39 Energiahuolto: Vesi- ja jätehuolto;Tarjonta yhteensä perushintaan;518.16284
 Kymenlaakso;41_43 Rakentaminen;Tarjonta yhteensä perushintaan;1033.9559
 Kymenlaakso;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tarjonta yhteensä perushintaan;1792.4258
-Kymenlaakso;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;1524.4117
+Kymenlaakso;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;1524.4116
 Kymenlaakso;55_56 Majoitus- ja ravitsemistoiminta;Tarjonta yhteensä perushintaan;336.48352
 Kymenlaakso;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tarjonta yhteensä perushintaan;1180.6693
 Kymenlaakso;64_66 Rahoitus- ja vakuutustoiminta;Tarjonta yhteensä perushintaan;426.56885
@@ -7917,24 +7917,24 @@ EtelaKarjala;24_25 Metallien jalostus ja metallituotteiden valmistus (pl. koneet
 EtelaKarjala;26_27 Sähkö- ja elektroniikkateollisuus;49_53 Kuljetus ja varastointi;0.0
 EtelaKarjala;28 Muiden koneiden ja laitteiden valmistus;49_53 Kuljetus ja varastointi;0.0
 EtelaKarjala;29_30 Kulkuneuvojen valmistus;49_53 Kuljetus ja varastointi;0.0
-EtelaKarjala;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitteiden korjaus, huolto ja ase;49_53 Kuljetus ja varastointi;0.038822547
+EtelaKarjala;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitteiden korjaus, huolto ja ase;49_53 Kuljetus ja varastointi;0.03882254
 EtelaKarjala;35_39 Energiahuolto: Vesi- ja jätehuolto;49_53 Kuljetus ja varastointi;0.0
-EtelaKarjala;41_43 Rakentaminen;49_53 Kuljetus ja varastointi;0.6420193
-EtelaKarjala;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;49_53 Kuljetus ja varastointi;3.4480493
-EtelaKarjala;49_53 Kuljetus ja varastointi;49_53 Kuljetus ja varastointi;434.6682
-EtelaKarjala;55_56 Majoitus- ja ravitsemistoiminta;49_53 Kuljetus ja varastointi;5.8251
-EtelaKarjala;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;49_53 Kuljetus ja varastointi;0.13626646
+EtelaKarjala;41_43 Rakentaminen;49_53 Kuljetus ja varastointi;0.64201915
+EtelaKarjala;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;49_53 Kuljetus ja varastointi;3.4480488
+EtelaKarjala;49_53 Kuljetus ja varastointi;49_53 Kuljetus ja varastointi;434.66815
+EtelaKarjala;55_56 Majoitus- ja ravitsemistoiminta;49_53 Kuljetus ja varastointi;5.825099
+EtelaKarjala;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;49_53 Kuljetus ja varastointi;0.13626644
 EtelaKarjala;64_66 Rahoitus- ja vakuutustoiminta;49_53 Kuljetus ja varastointi;0.0
-EtelaKarjala;681+68209+683 Muu kiinteistötoiminta;49_53 Kuljetus ja varastointi;3.332375
+EtelaKarjala;681+68209+683 Muu kiinteistötoiminta;49_53 Kuljetus ja varastointi;3.3323748
 EtelaKarjala;68201_68202 Asuntojen vuokraus ja hallinta;49_53 Kuljetus ja varastointi;0.0
-EtelaKarjala;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;49_53 Kuljetus ja varastointi;3.5720706
-EtelaKarjala;77_82 Hallinto- ja tukipalvelutoiminta;49_53 Kuljetus ja varastointi;3.3780303
+EtelaKarjala;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;49_53 Kuljetus ja varastointi;3.5720701
+EtelaKarjala;77_82 Hallinto- ja tukipalvelutoiminta;49_53 Kuljetus ja varastointi;3.3780298
 EtelaKarjala;84 Julkinen hallinto ja sosiaalivakuutus;49_53 Kuljetus ja varastointi;0.0
 EtelaKarjala;85 Koulutus;49_53 Kuljetus ja varastointi;0.0
 EtelaKarjala;86_88 Terveys- ja sosiaalipalvelut;49_53 Kuljetus ja varastointi;0.0
 EtelaKarjala;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;49_53 Kuljetus ja varastointi;0.0
 EtelaKarjala;97_98 Kotitalouspalvelut;49_53 Kuljetus ja varastointi;0.0
-EtelaKarjala;Tuotteet yhteensä;49_53 Kuljetus ja varastointi;455.04095
+EtelaKarjala;Tuotteet yhteensä;49_53 Kuljetus ja varastointi;455.04086
 EtelaKarjala;01 Maatalous ja metsästys;55_56 Majoitus- ja ravitsemistoiminta;0.0
 EtelaKarjala;02_03 Metsätalous ja kalatalous;55_56 Majoitus- ja ravitsemistoiminta;0.0
 EtelaKarjala;05_09 Kaivostoiminta ja louhinta;55_56 Majoitus- ja ravitsemistoiminta;0.0
@@ -8324,7 +8324,7 @@ EtelaKarjala;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja 
 EtelaKarjala;35_39 Energiahuolto: Vesi- ja jätehuolto;0 Toimialat yhteensä;537.4832
 EtelaKarjala;41_43 Rakentaminen;0 Toimialat yhteensä;694.2497
 EtelaKarjala;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;0 Toimialat yhteensä;676.7873
-EtelaKarjala;49_53 Kuljetus ja varastointi;0 Toimialat yhteensä;442.00967
+EtelaKarjala;49_53 Kuljetus ja varastointi;0 Toimialat yhteensä;442.0096
 EtelaKarjala;55_56 Majoitus- ja ravitsemistoiminta;0 Toimialat yhteensä;194.62808
 EtelaKarjala;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;0 Toimialat yhteensä;163.12346
 EtelaKarjala;64_66 Rahoitus- ja vakuutustoiminta;0 Toimialat yhteensä;91.01265
@@ -8355,7 +8355,7 @@ EtelaKarjala;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja 
 EtelaKarjala;35_39 Energiahuolto: Vesi- ja jätehuolto;Tuonti Suomesta;3.8008823
 EtelaKarjala;41_43 Rakentaminen;Tuonti Suomesta;14.18448
 EtelaKarjala;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tuonti Suomesta;371.93176
-EtelaKarjala;49_53 Kuljetus ja varastointi;Tuonti Suomesta;451.90665
+EtelaKarjala;49_53 Kuljetus ja varastointi;Tuonti Suomesta;451.9067
 EtelaKarjala;55_56 Majoitus- ja ravitsemistoiminta;Tuonti Suomesta;38.492348
 EtelaKarjala;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tuonti Suomesta;353.60037
 EtelaKarjala;64_66 Rahoitus- ja vakuutustoiminta;Tuonti Suomesta;185.61076
@@ -9409,7 +9409,7 @@ EtelaSavo;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja lai
 EtelaSavo;35_39 Energiahuolto: Vesi- ja jätehuolto;Tuonti Suomesta;17.08801
 EtelaSavo;41_43 Rakentaminen;Tuonti Suomesta;77.147385
 EtelaSavo;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tuonti Suomesta;375.55783
-EtelaSavo;49_53 Kuljetus ja varastointi;Tuonti Suomesta;158.09033
+EtelaSavo;49_53 Kuljetus ja varastointi;Tuonti Suomesta;158.09048
 EtelaSavo;55_56 Majoitus- ja ravitsemistoiminta;Tuonti Suomesta;72.74365
 EtelaSavo;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tuonti Suomesta;258.53827
 EtelaSavo;64_66 Rahoitus- ja vakuutustoiminta;Tuonti Suomesta;173.56207
@@ -9471,7 +9471,7 @@ EtelaSavo;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja lai
 EtelaSavo;35_39 Energiahuolto: Vesi- ja jätehuolto;Tarjonta yhteensä perushintaan;281.7628
 EtelaSavo;41_43 Rakentaminen;Tarjonta yhteensä perushintaan;698.6332
 EtelaSavo;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tarjonta yhteensä perushintaan;889.5068
-EtelaSavo;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;526.0027
+EtelaSavo;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;526.00287
 EtelaSavo;55_56 Majoitus- ja ravitsemistoiminta;Tarjonta yhteensä perushintaan;260.88507
 EtelaSavo;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tarjonta yhteensä perushintaan;435.75867
 EtelaSavo;64_66 Rahoitus- ja vakuutustoiminta;Tarjonta yhteensä perushintaan;306.26978
@@ -10025,24 +10025,24 @@ PohjSavo;24_25 Metallien jalostus ja metallituotteiden valmistus (pl. koneet ja 
 PohjSavo;26_27 Sähkö- ja elektroniikkateollisuus;49_53 Kuljetus ja varastointi;0.0
 PohjSavo;28 Muiden koneiden ja laitteiden valmistus;49_53 Kuljetus ja varastointi;0.0
 PohjSavo;29_30 Kulkuneuvojen valmistus;49_53 Kuljetus ja varastointi;0.0
-PohjSavo;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitteiden korjaus, huolto ja ase;49_53 Kuljetus ja varastointi;0.054460056
+PohjSavo;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitteiden korjaus, huolto ja ase;49_53 Kuljetus ja varastointi;0.05446006
 PohjSavo;35_39 Energiahuolto: Vesi- ja jätehuolto;49_53 Kuljetus ja varastointi;0.0
 PohjSavo;41_43 Rakentaminen;49_53 Kuljetus ja varastointi;0.9006211
-PohjSavo;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;49_53 Kuljetus ja varastointi;4.8369055
-PohjSavo;49_53 Kuljetus ja varastointi;49_53 Kuljetus ja varastointi;609.75024
+PohjSavo;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;49_53 Kuljetus ja varastointi;4.836906
+PohjSavo;49_53 Kuljetus ja varastointi;49_53 Kuljetus ja varastointi;609.7503
 PohjSavo;55_56 Majoitus- ja ravitsemistoiminta;49_53 Kuljetus ja varastointi;8.171419
 PohjSavo;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;49_53 Kuljetus ja varastointi;0.19115387
 PohjSavo;64_66 Rahoitus- ja vakuutustoiminta;49_53 Kuljetus ja varastointi;0.0
-PohjSavo;681+68209+683 Muu kiinteistötoiminta;49_53 Kuljetus ja varastointi;4.6746373
+PohjSavo;681+68209+683 Muu kiinteistötoiminta;49_53 Kuljetus ja varastointi;4.674638
 PohjSavo;68201_68202 Asuntojen vuokraus ja hallinta;49_53 Kuljetus ja varastointi;0.0
 PohjSavo;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;49_53 Kuljetus ja varastointi;5.0108814
-PohjSavo;77_82 Hallinto- ja tukipalvelutoiminta;49_53 Kuljetus ja varastointi;4.7386827
+PohjSavo;77_82 Hallinto- ja tukipalvelutoiminta;49_53 Kuljetus ja varastointi;4.738683
 PohjSavo;84 Julkinen hallinto ja sosiaalivakuutus;49_53 Kuljetus ja varastointi;0.0
 PohjSavo;85 Koulutus;49_53 Kuljetus ja varastointi;0.0
 PohjSavo;86_88 Terveys- ja sosiaalipalvelut;49_53 Kuljetus ja varastointi;0.0
 PohjSavo;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;49_53 Kuljetus ja varastointi;0.0
 PohjSavo;97_98 Kotitalouspalvelut;49_53 Kuljetus ja varastointi;0.0
-PohjSavo;Tuotteet yhteensä;49_53 Kuljetus ja varastointi;638.32904
+PohjSavo;Tuotteet yhteensä;49_53 Kuljetus ja varastointi;638.3291
 PohjSavo;01 Maatalous ja metsästys;55_56 Majoitus- ja ravitsemistoiminta;0.0
 PohjSavo;02_03 Metsätalous ja kalatalous;55_56 Majoitus- ja ravitsemistoiminta;0.0
 PohjSavo;05_09 Kaivostoiminta ja louhinta;55_56 Majoitus- ja ravitsemistoiminta;0.0
@@ -10275,16 +10275,16 @@ PohjSavo;28 Muiden koneiden ja laitteiden valmistus;84 Julkinen hallinto ja sosi
 PohjSavo;29_30 Kulkuneuvojen valmistus;84 Julkinen hallinto ja sosiaalivakuutus;0.0
 PohjSavo;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitteiden korjaus, huolto ja ase;84 Julkinen hallinto ja sosiaalivakuutus;0.0
 PohjSavo;35_39 Energiahuolto: Vesi- ja jätehuolto;84 Julkinen hallinto ja sosiaalivakuutus;0.0
-PohjSavo;41_43 Rakentaminen;84 Julkinen hallinto ja sosiaalivakuutus;0.86797124
+PohjSavo;41_43 Rakentaminen;84 Julkinen hallinto ja sosiaalivakuutus;0.8679713
 PohjSavo;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;84 Julkinen hallinto ja sosiaalivakuutus;0.0
 PohjSavo;49_53 Kuljetus ja varastointi;84 Julkinen hallinto ja sosiaalivakuutus;5.678712
-PohjSavo;55_56 Majoitus- ja ravitsemistoiminta;84 Julkinen hallinto ja sosiaalivakuutus;9.862475
-PohjSavo;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;84 Julkinen hallinto ja sosiaalivakuutus;3.4733074
+PohjSavo;55_56 Majoitus- ja ravitsemistoiminta;84 Julkinen hallinto ja sosiaalivakuutus;9.862476
+PohjSavo;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;84 Julkinen hallinto ja sosiaalivakuutus;3.4733076
 PohjSavo;64_66 Rahoitus- ja vakuutustoiminta;84 Julkinen hallinto ja sosiaalivakuutus;0.0
 PohjSavo;681+68209+683 Muu kiinteistötoiminta;84 Julkinen hallinto ja sosiaalivakuutus;24.792322
 PohjSavo;68201_68202 Asuntojen vuokraus ja hallinta;84 Julkinen hallinto ja sosiaalivakuutus;0.0
 PohjSavo;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;84 Julkinen hallinto ja sosiaalivakuutus;24.30065
-PohjSavo;77_82 Hallinto- ja tukipalvelutoiminta;84 Julkinen hallinto ja sosiaalivakuutus;0.028219683
+PohjSavo;77_82 Hallinto- ja tukipalvelutoiminta;84 Julkinen hallinto ja sosiaalivakuutus;0.028219685
 PohjSavo;84 Julkinen hallinto ja sosiaalivakuutus;84 Julkinen hallinto ja sosiaalivakuutus;794.329
 PohjSavo;85 Koulutus;84 Julkinen hallinto ja sosiaalivakuutus;0.0
 PohjSavo;86_88 Terveys- ja sosiaalipalvelut;84 Julkinen hallinto ja sosiaalivakuutus;8.816307
@@ -10432,7 +10432,7 @@ PohjSavo;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja lait
 PohjSavo;35_39 Energiahuolto: Vesi- ja jätehuolto;0 Toimialat yhteensä;338.3191
 PohjSavo;41_43 Rakentaminen;0 Toimialat yhteensä;1201.3271
 PohjSavo;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;0 Toimialat yhteensä;992.06464
-PohjSavo;49_53 Kuljetus ja varastointi;0 Toimialat yhteensä;621.6726
+PohjSavo;49_53 Kuljetus ja varastointi;0 Toimialat yhteensä;621.67267
 PohjSavo;55_56 Majoitus- ja ravitsemistoiminta;0 Toimialat yhteensä;291.5812
 PohjSavo;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;0 Toimialat yhteensä;341.5277
 PohjSavo;64_66 Rahoitus- ja vakuutustoiminta;0 Toimialat yhteensä;312.423
@@ -10463,7 +10463,7 @@ PohjSavo;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja lait
 PohjSavo;35_39 Energiahuolto: Vesi- ja jätehuolto;Tuonti Suomesta;97.15548
 PohjSavo;41_43 Rakentaminen;Tuonti Suomesta;128.66718
 PohjSavo;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tuonti Suomesta;573.89435
-PohjSavo;49_53 Kuljetus ja varastointi;Tuonti Suomesta;277.5598
+PohjSavo;49_53 Kuljetus ja varastointi;Tuonti Suomesta;277.5599
 PohjSavo;55_56 Majoitus- ja ravitsemistoiminta;Tuonti Suomesta;115.23762
 PohjSavo;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tuonti Suomesta;440.8139
 PohjSavo;64_66 Rahoitus- ja vakuutustoiminta;Tuonti Suomesta;197.86827
@@ -10525,7 +10525,7 @@ PohjSavo;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja lait
 PohjSavo;35_39 Energiahuolto: Vesi- ja jätehuolto;Tarjonta yhteensä perushintaan;490.73523
 PohjSavo;41_43 Rakentaminen;Tarjonta yhteensä perushintaan;1329.9944
 PohjSavo;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tarjonta yhteensä perushintaan;1588.3074
-PohjSavo;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;978.8517
+PohjSavo;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;978.8518
 PohjSavo;55_56 Majoitus- ja ravitsemistoiminta;Tarjonta yhteensä perushintaan;420.96487
 PohjSavo;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tarjonta yhteensä perushintaan;868.0894
 PohjSavo;64_66 Rahoitus- ja vakuutustoiminta;Tarjonta yhteensä perushintaan;560.59235
@@ -11517,7 +11517,7 @@ PohjKarjala;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja l
 PohjKarjala;35_39 Energiahuolto: Vesi- ja jätehuolto;Tuonti Suomesta;8.666333
 PohjKarjala;41_43 Rakentaminen;Tuonti Suomesta;85.304985
 PohjKarjala;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tuonti Suomesta;453.9007
-PohjKarjala;49_53 Kuljetus ja varastointi;Tuonti Suomesta;272.01678
+PohjKarjala;49_53 Kuljetus ja varastointi;Tuonti Suomesta;272.0168
 PohjKarjala;55_56 Majoitus- ja ravitsemistoiminta;Tuonti Suomesta;106.30638
 PohjKarjala;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tuonti Suomesta;281.38156
 PohjKarjala;64_66 Rahoitus- ja vakuutustoiminta;Tuonti Suomesta;175.5671
@@ -11579,7 +11579,7 @@ PohjKarjala;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja l
 PohjKarjala;35_39 Energiahuolto: Vesi- ja jätehuolto;Tarjonta yhteensä perushintaan;370.9419
 PohjKarjala;41_43 Rakentaminen;Tarjonta yhteensä perushintaan;840.712
 PohjKarjala;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tarjonta yhteensä perushintaan;1032.7622
-PohjKarjala;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;646.7499
+PohjKarjala;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;646.75
 PohjKarjala;55_56 Majoitus- ja ravitsemistoiminta;Tarjonta yhteensä perushintaan;266.56424
 PohjKarjala;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tarjonta yhteensä perushintaan;569.5314
 PohjKarjala;64_66 Rahoitus- ja vakuutustoiminta;Tarjonta yhteensä perushintaan;342.3882
@@ -12135,15 +12135,15 @@ KeskiSuomi;28 Muiden koneiden ja laitteiden valmistus;49_53 Kuljetus ja varastoi
 KeskiSuomi;29_30 Kulkuneuvojen valmistus;49_53 Kuljetus ja varastointi;0.0
 KeskiSuomi;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitteiden korjaus, huolto ja ase;49_53 Kuljetus ja varastointi;0.04790446
 KeskiSuomi;35_39 Energiahuolto: Vesi- ja jätehuolto;49_53 Kuljetus ja varastointi;0.0
-KeskiSuomi;41_43 Rakentaminen;49_53 Kuljetus ja varastointi;0.7922094
+KeskiSuomi;41_43 Rakentaminen;49_53 Kuljetus ja varastointi;0.7922093
 KeskiSuomi;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;49_53 Kuljetus ja varastointi;4.254666
 KeskiSuomi;49_53 Kuljetus ja varastointi;49_53 Kuljetus ja varastointi;536.3519
 KeskiSuomi;55_56 Majoitus- ja ravitsemistoiminta;49_53 Kuljetus ja varastointi;7.187789
-KeskiSuomi;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;49_53 Kuljetus ja varastointi;0.16814384
+KeskiSuomi;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;49_53 Kuljetus ja varastointi;0.16814382
 KeskiSuomi;64_66 Rahoitus- ja vakuutustoiminta;49_53 Kuljetus ja varastointi;0.0
 KeskiSuomi;681+68209+683 Muu kiinteistötoiminta;49_53 Kuljetus ja varastointi;4.1119313
 KeskiSuomi;68201_68202 Asuntojen vuokraus ja hallinta;49_53 Kuljetus ja varastointi;0.0
-KeskiSuomi;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;49_53 Kuljetus ja varastointi;4.4076996
+KeskiSuomi;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;49_53 Kuljetus ja varastointi;4.407699
 KeskiSuomi;77_82 Hallinto- ja tukipalvelutoiminta;49_53 Kuljetus ja varastointi;4.168267
 KeskiSuomi;84 Julkinen hallinto ja sosiaalivakuutus;49_53 Kuljetus ja varastointi;0.0
 KeskiSuomi;85 Koulutus;49_53 Kuljetus ja varastointi;0.0
@@ -12571,7 +12571,7 @@ KeskiSuomi;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja la
 KeskiSuomi;35_39 Energiahuolto: Vesi- ja jätehuolto;Tuonti Suomesta;20.397856
 KeskiSuomi;41_43 Rakentaminen;Tuonti Suomesta;21.106682
 KeskiSuomi;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tuonti Suomesta;675.04584
-KeskiSuomi;49_53 Kuljetus ja varastointi;Tuonti Suomesta;476.07925
+KeskiSuomi;49_53 Kuljetus ja varastointi;Tuonti Suomesta;476.07928
 KeskiSuomi;55_56 Majoitus- ja ravitsemistoiminta;Tuonti Suomesta;108.25957
 KeskiSuomi;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tuonti Suomesta;344.69617
 KeskiSuomi;64_66 Rahoitus- ja vakuutustoiminta;Tuonti Suomesta;307.94785
@@ -12633,7 +12633,7 @@ KeskiSuomi;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja la
 KeskiSuomi;35_39 Energiahuolto: Vesi- ja jätehuolto;Tarjonta yhteensä perushintaan;586.93005
 KeskiSuomi;41_43 Rakentaminen;Tarjonta yhteensä perushintaan;1235.8641
 KeskiSuomi;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tarjonta yhteensä perushintaan;1678.2887
-KeskiSuomi;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;1122.4828
+KeskiSuomi;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;1122.4829
 KeskiSuomi;55_56 Majoitus- ja ravitsemistoiminta;Tarjonta yhteensä perushintaan;451.1596
 KeskiSuomi;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tarjonta yhteensä perushintaan;1049.118
 KeskiSuomi;64_66 Rahoitus- ja vakuutustoiminta;Tarjonta yhteensä perushintaan;543.13965
@@ -12646,7 +12646,7 @@ KeskiSuomi;85 Koulutus;Tarjonta yhteensä perushintaan;710.9695
 KeskiSuomi;86_88 Terveys- ja sosiaalipalvelut;Tarjonta yhteensä perushintaan;1398.3286
 KeskiSuomi;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;Tarjonta yhteensä perushintaan;541.24133
 KeskiSuomi;97_98 Kotitalouspalvelut;Tarjonta yhteensä perushintaan;17.189291
-KeskiSuomi;Tuotteet yhteensä;Tarjonta yhteensä perushintaan;21805.986
+KeskiSuomi;Tuotteet yhteensä;Tarjonta yhteensä perushintaan;21805.988
 EtelaPohjanm;01 Maatalous ja metsästys;01 Maatalous ja metsästys;553.1838
 EtelaPohjanm;02_03 Metsätalous ja kalatalous;01 Maatalous ja metsästys;0.36515784
 EtelaPohjanm;05_09 Kaivostoiminta ja louhinta;01 Maatalous ja metsästys;0.0
@@ -13625,7 +13625,7 @@ EtelaPohjanm;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja 
 EtelaPohjanm;35_39 Energiahuolto: Vesi- ja jätehuolto;Tuonti Suomesta;105.66983
 EtelaPohjanm;41_43 Rakentaminen;Tuonti Suomesta;124.41766
 EtelaPohjanm;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tuonti Suomesta;593.1578
-EtelaPohjanm;49_53 Kuljetus ja varastointi;Tuonti Suomesta;134.1131
+EtelaPohjanm;49_53 Kuljetus ja varastointi;Tuonti Suomesta;134.11305
 EtelaPohjanm;55_56 Majoitus- ja ravitsemistoiminta;Tuonti Suomesta;121.814095
 EtelaPohjanm;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tuonti Suomesta;364.60016
 EtelaPohjanm;64_66 Rahoitus- ja vakuutustoiminta;Tuonti Suomesta;203.43365
@@ -13687,7 +13687,7 @@ EtelaPohjanm;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja 
 EtelaPohjanm;35_39 Energiahuolto: Vesi- ja jätehuolto;Tarjonta yhteensä perushintaan;439.94727
 EtelaPohjanm;41_43 Rakentaminen;Tarjonta yhteensä perushintaan;1063.397
 EtelaPohjanm;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tarjonta yhteensä perushintaan;1377.019
-EtelaPohjanm;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;779.7437
+EtelaPohjanm;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;779.74365
 EtelaPohjanm;55_56 Majoitus- ja ravitsemistoiminta;Tarjonta yhteensä perushintaan;312.6975
 EtelaPohjanm;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tarjonta yhteensä perushintaan;580.57526
 EtelaPohjanm;64_66 Rahoitus- ja vakuutustoiminta;Tarjonta yhteensä perushintaan;423.5943
@@ -14244,21 +14244,21 @@ Pohjanmaa;29_30 Kulkuneuvojen valmistus;49_53 Kuljetus ja varastointi;0.0
 Pohjanmaa;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitteiden korjaus, huolto ja ase;49_53 Kuljetus ja varastointi;0.04359636
 Pohjanmaa;35_39 Energiahuolto: Vesi- ja jätehuolto;49_53 Kuljetus ja varastointi;0.0
 Pohjanmaa;41_43 Rakentaminen;49_53 Kuljetus ja varastointi;0.72096515
-Pohjanmaa;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;49_53 Kuljetus ja varastointi;3.8720388
-Pohjanmaa;49_53 Kuljetus ja varastointi;49_53 Kuljetus ja varastointi;488.1172
-Pohjanmaa;55_56 Majoitus- ja ravitsemistoiminta;49_53 Kuljetus ja varastointi;6.5413833
-Pohjanmaa;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;49_53 Kuljetus ja varastointi;0.15302247
+Pohjanmaa;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;49_53 Kuljetus ja varastointi;3.872039
+Pohjanmaa;49_53 Kuljetus ja varastointi;49_53 Kuljetus ja varastointi;488.11722
+Pohjanmaa;55_56 Majoitus- ja ravitsemistoiminta;49_53 Kuljetus ja varastointi;6.5413837
+Pohjanmaa;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;49_53 Kuljetus ja varastointi;0.15302248
 Pohjanmaa;64_66 Rahoitus- ja vakuutustoiminta;49_53 Kuljetus ja varastointi;0.0
-Pohjanmaa;681+68209+683 Muu kiinteistötoiminta;49_53 Kuljetus ja varastointi;3.7421405
+Pohjanmaa;681+68209+683 Muu kiinteistötoiminta;49_53 Kuljetus ja varastointi;3.7421408
 Pohjanmaa;68201_68202 Asuntojen vuokraus ja hallinta;49_53 Kuljetus ja varastointi;0.0
-Pohjanmaa;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;49_53 Kuljetus ja varastointi;4.01131
-Pohjanmaa;77_82 Hallinto- ja tukipalvelutoiminta;49_53 Kuljetus ja varastointi;3.79341
+Pohjanmaa;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;49_53 Kuljetus ja varastointi;4.0113106
+Pohjanmaa;77_82 Hallinto- ja tukipalvelutoiminta;49_53 Kuljetus ja varastointi;3.7934103
 Pohjanmaa;84 Julkinen hallinto ja sosiaalivakuutus;49_53 Kuljetus ja varastointi;0.0
 Pohjanmaa;85 Koulutus;49_53 Kuljetus ja varastointi;0.0
 Pohjanmaa;86_88 Terveys- ja sosiaalipalvelut;49_53 Kuljetus ja varastointi;0.0
 Pohjanmaa;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;49_53 Kuljetus ja varastointi;0.0
 Pohjanmaa;97_98 Kotitalouspalvelut;49_53 Kuljetus ja varastointi;0.0
-Pohjanmaa;Tuotteet yhteensä;49_53 Kuljetus ja varastointi;510.99503
+Pohjanmaa;Tuotteet yhteensä;49_53 Kuljetus ja varastointi;510.99506
 Pohjanmaa;01 Maatalous ja metsästys;55_56 Majoitus- ja ravitsemistoiminta;0.0
 Pohjanmaa;02_03 Metsätalous ja kalatalous;55_56 Majoitus- ja ravitsemistoiminta;0.0
 Pohjanmaa;05_09 Kaivostoiminta ja louhinta;55_56 Majoitus- ja ravitsemistoiminta;0.0
@@ -14648,7 +14648,7 @@ Pohjanmaa;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja lai
 Pohjanmaa;35_39 Energiahuolto: Vesi- ja jätehuolto;0 Toimialat yhteensä;497.52194
 Pohjanmaa;41_43 Rakentaminen;0 Toimialat yhteensä;942.27344
 Pohjanmaa;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;0 Toimialat yhteensä;789.20184
-Pohjanmaa;49_53 Kuljetus ja varastointi;0 Toimialat yhteensä;505.0735
+Pohjanmaa;49_53 Kuljetus ja varastointi;0 Toimialat yhteensä;505.07352
 Pohjanmaa;55_56 Majoitus- ja ravitsemistoiminta;0 Toimialat yhteensä;208.10661
 Pohjanmaa;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;0 Toimialat yhteensä;621.2416
 Pohjanmaa;64_66 Rahoitus- ja vakuutustoiminta;0 Toimialat yhteensä;217.71281
@@ -14679,7 +14679,7 @@ Pohjanmaa;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja lai
 Pohjanmaa;35_39 Energiahuolto: Vesi- ja jätehuolto;Tuonti Suomesta;9.697339
 Pohjanmaa;41_43 Rakentaminen;Tuonti Suomesta;166.03018
 Pohjanmaa;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tuonti Suomesta;894.64355
-Pohjanmaa;49_53 Kuljetus ja varastointi;Tuonti Suomesta;448.4416
+Pohjanmaa;49_53 Kuljetus ja varastointi;Tuonti Suomesta;448.44153
 Pohjanmaa;55_56 Majoitus- ja ravitsemistoiminta;Tuonti Suomesta;106.316826
 Pohjanmaa;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tuonti Suomesta;384.61868
 Pohjanmaa;64_66 Rahoitus- ja vakuutustoiminta;Tuonti Suomesta;232.87323
@@ -15733,7 +15733,7 @@ KeskiPohjanm;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja 
 KeskiPohjanm;35_39 Energiahuolto: Vesi- ja jätehuolto;Tuonti Suomesta;76.57214
 KeskiPohjanm;41_43 Rakentaminen;Tuonti Suomesta;44.734646
 KeskiPohjanm;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tuonti Suomesta;315.32227
-KeskiPohjanm;49_53 Kuljetus ja varastointi;Tuonti Suomesta;55.19441
+KeskiPohjanm;49_53 Kuljetus ja varastointi;Tuonti Suomesta;55.194397
 KeskiPohjanm;55_56 Majoitus- ja ravitsemistoiminta;Tuonti Suomesta;51.79014
 KeskiPohjanm;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tuonti Suomesta;250.88857
 KeskiPohjanm;64_66 Rahoitus- ja vakuutustoiminta;Tuonti Suomesta;89.60581
@@ -15746,7 +15746,7 @@ KeskiPohjanm;85 Koulutus;Tuonti Suomesta;13.196361
 KeskiPohjanm;86_88 Terveys- ja sosiaalipalvelut;Tuonti Suomesta;2.203642
 KeskiPohjanm;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;Tuonti Suomesta;54.093197
 KeskiPohjanm;97_98 Kotitalouspalvelut;Tuonti Suomesta;0.50367206
-KeskiPohjanm;Tuotteet yhteensä;Tuonti Suomesta;2386.7822
+KeskiPohjanm;Tuotteet yhteensä;Tuonti Suomesta;2386.782
 KeskiPohjanm;01 Maatalous ja metsästys;Tuonti ulkomailta;23.175716
 KeskiPohjanm;02_03 Metsätalous ja kalatalous;Tuonti ulkomailta;5.8784533
 KeskiPohjanm;05_09 Kaivostoiminta ja louhinta;Tuonti ulkomailta;140.6007
@@ -15795,7 +15795,7 @@ KeskiPohjanm;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja 
 KeskiPohjanm;35_39 Energiahuolto: Vesi- ja jätehuolto;Tarjonta yhteensä perushintaan;211.44717
 KeskiPohjanm;41_43 Rakentaminen;Tarjonta yhteensä perushintaan;354.3776
 KeskiPohjanm;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tarjonta yhteensä perushintaan;671.1176
-KeskiPohjanm;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;472.45898
+KeskiPohjanm;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;472.45895
 KeskiPohjanm;55_56 Majoitus- ja ravitsemistoiminta;Tarjonta yhteensä perushintaan;121.291046
 KeskiPohjanm;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tarjonta yhteensä perushintaan;406.9059
 KeskiPohjanm;64_66 Rahoitus- ja vakuutustoiminta;Tarjonta yhteensä perushintaan;171.11642
@@ -16349,24 +16349,24 @@ PohjPohjanm;24_25 Metallien jalostus ja metallituotteiden valmistus (pl. koneet 
 PohjPohjanm;26_27 Sähkö- ja elektroniikkateollisuus;49_53 Kuljetus ja varastointi;0.0
 PohjPohjanm;28 Muiden koneiden ja laitteiden valmistus;49_53 Kuljetus ja varastointi;0.0
 PohjPohjanm;29_30 Kulkuneuvojen valmistus;49_53 Kuljetus ja varastointi;0.0
-PohjPohjanm;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitteiden korjaus, huolto ja ase;49_53 Kuljetus ja varastointi;0.086322814
+PohjPohjanm;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitteiden korjaus, huolto ja ase;49_53 Kuljetus ja varastointi;0.08632282
 PohjPohjanm;35_39 Energiahuolto: Vesi- ja jätehuolto;49_53 Kuljetus ja varastointi;0.0
-PohjPohjanm;41_43 Rakentaminen;49_53 Kuljetus ja varastointi;1.4275444
-PohjPohjanm;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;49_53 Kuljetus ja varastointi;7.666817
-PohjPohjanm;49_53 Kuljetus ja varastointi;49_53 Kuljetus ja varastointi;966.49475
+PohjPohjanm;41_43 Rakentaminen;49_53 Kuljetus ja varastointi;1.4275445
+PohjPohjanm;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;49_53 Kuljetus ja varastointi;7.6668177
+PohjPohjanm;49_53 Kuljetus ja varastointi;49_53 Kuljetus ja varastointi;966.4948
 PohjPohjanm;55_56 Majoitus- ja ravitsemistoiminta;49_53 Kuljetus ja varastointi;12.952243
-PohjPohjanm;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;49_53 Kuljetus ja varastointi;0.3029916
+PohjPohjanm;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;49_53 Kuljetus ja varastointi;0.30299163
 PohjPohjanm;64_66 Rahoitus- ja vakuutustoiminta;49_53 Kuljetus ja varastointi;0.0
-PohjPohjanm;681+68209+683 Muu kiinteistötoiminta;49_53 Kuljetus ja varastointi;7.409612
+PohjPohjanm;681+68209+683 Muu kiinteistötoiminta;49_53 Kuljetus ja varastointi;7.4096127
 PohjPohjanm;68201_68202 Asuntojen vuokraus ja hallinta;49_53 Kuljetus ja varastointi;0.0
-PohjPohjanm;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;49_53 Kuljetus ja varastointi;7.9425807
-PohjPohjanm;77_82 Hallinto- ja tukipalvelutoiminta;49_53 Kuljetus ja varastointi;7.511128
+PohjPohjanm;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;49_53 Kuljetus ja varastointi;7.942581
+PohjPohjanm;77_82 Hallinto- ja tukipalvelutoiminta;49_53 Kuljetus ja varastointi;7.5111284
 PohjPohjanm;84 Julkinen hallinto ja sosiaalivakuutus;49_53 Kuljetus ja varastointi;0.0
 PohjPohjanm;85 Koulutus;49_53 Kuljetus ja varastointi;0.0
 PohjPohjanm;86_88 Terveys- ja sosiaalipalvelut;49_53 Kuljetus ja varastointi;0.0
 PohjPohjanm;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;49_53 Kuljetus ja varastointi;0.0
 PohjPohjanm;97_98 Kotitalouspalvelut;49_53 Kuljetus ja varastointi;0.0
-PohjPohjanm;Tuotteet yhteensä;49_53 Kuljetus ja varastointi;1011.79395
+PohjPohjanm;Tuotteet yhteensä;49_53 Kuljetus ja varastointi;1011.794
 PohjPohjanm;01 Maatalous ja metsästys;55_56 Majoitus- ja ravitsemistoiminta;0.0
 PohjPohjanm;02_03 Metsätalous ja kalatalous;55_56 Majoitus- ja ravitsemistoiminta;0.0
 PohjPohjanm;05_09 Kaivostoiminta ja louhinta;55_56 Majoitus- ja ravitsemistoiminta;0.0
@@ -16756,7 +16756,7 @@ PohjPohjanm;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja l
 PohjPohjanm;35_39 Energiahuolto: Vesi- ja jätehuolto;0 Toimialat yhteensä;528.2284
 PohjPohjanm;41_43 Rakentaminen;0 Toimialat yhteensä;2103.1997
 PohjPohjanm;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;0 Toimialat yhteensä;1725.7235
-PohjPohjanm;49_53 Kuljetus ja varastointi;0 Toimialat yhteensä;982.5915
+PohjPohjanm;49_53 Kuljetus ja varastointi;0 Toimialat yhteensä;982.59155
 PohjPohjanm;55_56 Majoitus- ja ravitsemistoiminta;0 Toimialat yhteensä;474.1855
 PohjPohjanm;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;0 Toimialat yhteensä;1270.1584
 PohjPohjanm;64_66 Rahoitus- ja vakuutustoiminta;0 Toimialat yhteensä;410.48276
@@ -16787,7 +16787,7 @@ PohjPohjanm;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja l
 PohjPohjanm;35_39 Energiahuolto: Vesi- ja jätehuolto;Tuonti Suomesta;265.53128
 PohjPohjanm;41_43 Rakentaminen;Tuonti Suomesta;148.78114
 PohjPohjanm;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tuonti Suomesta;632.02637
-PohjPohjanm;49_53 Kuljetus ja varastointi;Tuonti Suomesta;459.04358
+PohjPohjanm;49_53 Kuljetus ja varastointi;Tuonti Suomesta;459.04343
 PohjPohjanm;55_56 Majoitus- ja ravitsemistoiminta;Tuonti Suomesta;136.54137
 PohjPohjanm;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tuonti Suomesta;157.3211
 PohjPohjanm;64_66 Rahoitus- ja vakuutustoiminta;Tuonti Suomesta;336.97433
@@ -17403,24 +17403,24 @@ Kainuu;24_25 Metallien jalostus ja metallituotteiden valmistus (pl. koneet ja la
 Kainuu;26_27 Sähkö- ja elektroniikkateollisuus;49_53 Kuljetus ja varastointi;0.0
 Kainuu;28 Muiden koneiden ja laitteiden valmistus;49_53 Kuljetus ja varastointi;0.0
 Kainuu;29_30 Kulkuneuvojen valmistus;49_53 Kuljetus ja varastointi;0.0
-Kainuu;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitteiden korjaus, huolto ja ase;49_53 Kuljetus ja varastointi;0.014593556
+Kainuu;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitteiden korjaus, huolto ja ase;49_53 Kuljetus ja varastointi;0.014593554
 Kainuu;35_39 Energiahuolto: Vesi- ja jätehuolto;49_53 Kuljetus ja varastointi;0.0
-Kainuu;41_43 Rakentaminen;49_53 Kuljetus ja varastointi;0.24133767
-Kainuu;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;49_53 Kuljetus ja varastointi;1.296136
-Kainuu;49_53 Kuljetus ja varastointi;49_53 Kuljetus ja varastointi;163.39357
-Kainuu;55_56 Majoitus- ja ravitsemistoiminta;49_53 Kuljetus ja varastointi;2.1896791
-Kainuu;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;49_53 Kuljetus ja varastointi;0.051223125
+Kainuu;41_43 Rakentaminen;49_53 Kuljetus ja varastointi;0.24133766
+Kainuu;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;49_53 Kuljetus ja varastointi;1.2961359
+Kainuu;49_53 Kuljetus ja varastointi;49_53 Kuljetus ja varastointi;163.39355
+Kainuu;55_56 Majoitus- ja ravitsemistoiminta;49_53 Kuljetus ja varastointi;2.189679
+Kainuu;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;49_53 Kuljetus ja varastointi;0.05122312
 Kainuu;64_66 Rahoitus- ja vakuutustoiminta;49_53 Kuljetus ja varastointi;0.0
-Kainuu;681+68209+683 Muu kiinteistötoiminta;49_53 Kuljetus ja varastointi;1.2526536
+Kainuu;681+68209+683 Muu kiinteistötoiminta;49_53 Kuljetus ja varastointi;1.2526535
 Kainuu;68201_68202 Asuntojen vuokraus ja hallinta;49_53 Kuljetus ja varastointi;0.0
-Kainuu;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;49_53 Kuljetus ja varastointi;1.342756
-Kainuu;77_82 Hallinto- ja tukipalvelutoiminta;49_53 Kuljetus ja varastointi;1.2698157
+Kainuu;69_75 Ammatillinen, tieteellinen ja tekninen toiminta;49_53 Kuljetus ja varastointi;1.3427559
+Kainuu;77_82 Hallinto- ja tukipalvelutoiminta;49_53 Kuljetus ja varastointi;1.2698156
 Kainuu;84 Julkinen hallinto ja sosiaalivakuutus;49_53 Kuljetus ja varastointi;0.0
 Kainuu;85 Koulutus;49_53 Kuljetus ja varastointi;0.0
 Kainuu;86_88 Terveys- ja sosiaalipalvelut;49_53 Kuljetus ja varastointi;0.0
 Kainuu;90_96 Taiteet, viihde ja virkistys: Muu palvelutoiminta;49_53 Kuljetus ja varastointi;0.0
 Kainuu;97_98 Kotitalouspalvelut;49_53 Kuljetus ja varastointi;0.0
-Kainuu;Tuotteet yhteensä;49_53 Kuljetus ja varastointi;171.05177
+Kainuu;Tuotteet yhteensä;49_53 Kuljetus ja varastointi;171.05176
 Kainuu;01 Maatalous ja metsästys;55_56 Majoitus- ja ravitsemistoiminta;0.0
 Kainuu;02_03 Metsätalous ja kalatalous;55_56 Majoitus- ja ravitsemistoiminta;0.0
 Kainuu;05_09 Kaivostoiminta ja louhinta;55_56 Majoitus- ja ravitsemistoiminta;0.0
@@ -17810,7 +17810,7 @@ Kainuu;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitte
 Kainuu;35_39 Energiahuolto: Vesi- ja jätehuolto;0 Toimialat yhteensä;175.43367
 Kainuu;41_43 Rakentaminen;0 Toimialat yhteensä;280.98816
 Kainuu;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;0 Toimialat yhteensä;204.20415
-Kainuu;49_53 Kuljetus ja varastointi;0 Toimialat yhteensä;166.79146
+Kainuu;49_53 Kuljetus ja varastointi;0 Toimialat yhteensä;166.79144
 Kainuu;55_56 Majoitus- ja ravitsemistoiminta;0 Toimialat yhteensä;83.85666
 Kainuu;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;0 Toimialat yhteensä;87.92493
 Kainuu;64_66 Rahoitus- ja vakuutustoiminta;0 Toimialat yhteensä;56.972656
@@ -17841,7 +17841,7 @@ Kainuu;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitte
 Kainuu;35_39 Energiahuolto: Vesi- ja jätehuolto;Tuonti Suomesta;3.327486
 Kainuu;41_43 Rakentaminen;Tuonti Suomesta;54.26689
 Kainuu;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tuonti Suomesta;184.94711
-Kainuu;49_53 Kuljetus ja varastointi;Tuonti Suomesta;81.21761
+Kainuu;49_53 Kuljetus ja varastointi;Tuonti Suomesta;81.21759
 Kainuu;55_56 Majoitus- ja ravitsemistoiminta;Tuonti Suomesta;42.146534
 Kainuu;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tuonti Suomesta;109.56919
 Kainuu;64_66 Rahoitus- ja vakuutustoiminta;Tuonti Suomesta;82.89915
@@ -17903,7 +17903,7 @@ Kainuu;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja laitte
 Kainuu;35_39 Energiahuolto: Vesi- ja jätehuolto;Tarjonta yhteensä perushintaan;194.10779
 Kainuu;41_43 Rakentaminen;Tarjonta yhteensä perushintaan;335.25507
 Kainuu;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tarjonta yhteensä perushintaan;393.79645
-Kainuu;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;267.1411
+Kainuu;49_53 Kuljetus ja varastointi;Tarjonta yhteensä perushintaan;267.14105
 Kainuu;55_56 Majoitus- ja ravitsemistoiminta;Tarjonta yhteensä perushintaan;130.20825
 Kainuu;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tarjonta yhteensä perushintaan;217.26376
 Kainuu;64_66 Rahoitus- ja vakuutustoiminta;Tarjonta yhteensä perushintaan;154.15198
@@ -18912,7 +18912,7 @@ Lappi;Tuotteet yhteensä;Tuonti Suomesta;5520.1284
 Lappi;01 Maatalous ja metsästys;Tuonti ulkomailta;34.177605
 Lappi;02_03 Metsätalous ja kalatalous;Tuonti ulkomailta;17.97594
 Lappi;05_09 Kaivostoiminta ja louhinta;Tuonti ulkomailta;362.3074
-Lappi;10_12 Elintarviketeollisuus ym.;Tuonti ulkomailta;122.23494
+Lappi;10_12 Elintarviketeollisuus ym.;Tuonti ulkomailta;122.234924
 Lappi;13_15 Tekstiili-, vaatetus- ja nahkateollisuus;Tuonti ulkomailta;86.48529
 Lappi;16 Puuteollisuus;Tuonti ulkomailta;21.044079
 Lappi;17_18 Paperiteollisuus ja painaminen;Tuonti ulkomailta;54.133728
@@ -19949,7 +19949,7 @@ Ahvenanmaa;31_33 Huonekalujen valmistus: Muu teollinen valmistus: Koneiden ja la
 Ahvenanmaa;35_39 Energiahuolto: Vesi- ja jätehuolto;Tuonti Suomesta;13.660319
 Ahvenanmaa;41_43 Rakentaminen;Tuonti Suomesta;10.922311
 Ahvenanmaa;45_47 Tukku- ja vähittäiskauppa, moottoriajoneuvojen ja moottoripyörien korjaus;Tuonti Suomesta;106.40081
-Ahvenanmaa;49_53 Kuljetus ja varastointi;Tuonti Suomesta;15.152334
+Ahvenanmaa;49_53 Kuljetus ja varastointi;Tuonti Suomesta;15.152336
 Ahvenanmaa;55_56 Majoitus- ja ravitsemistoiminta;Tuonti Suomesta;11.854276
 Ahvenanmaa;58_63 Kustannustoiminta: Audiovisuaalinen toiminta: Televiestintä: Tietojenkäsittelypalvelu;Tuonti Suomesta;52.6784
 Ahvenanmaa;64_66 Rahoitus- ja vakuutustoiminta;Tuonti Suomesta;14.9928255
